@@ -3,8 +3,15 @@
 
 
 
-@include mixins.mobile() {
-.title {
-  color: colors.$blue;
-}
+// @include mixins.mobile() {
+// .title {
+//   color: colors.$blue;
+// }
+// }
+
+.content {
+  min-height: 100%;
+  background-color: colors.$green;
+  grid-column: 2 / 3 ;
+  grid-row: 2/3;
 }
