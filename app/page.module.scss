@@ -1,0 +1,10 @@
+@use './scss/colors';
+@use './scss/mixins';
+
+
+
+@include mixins.mobile() {
+.title {
+  color: colors.$blue;
+}
+}
