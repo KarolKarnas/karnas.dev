@@ -5,9 +5,14 @@
   display: flex;
 }
 
+
 .main {
   min-height: 100%;
   background-color: colors.$grey;
   width: 100%;
   color: colors.$greyMenu;
+}
+
+.content {
+  padding: 2rem;
 }

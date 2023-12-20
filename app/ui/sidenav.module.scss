@@ -3,6 +3,22 @@
 .sidenav {
   background-color: colors.$greySide;
   color: colors.$greyMenu;
-  width: 15%;
-  // border-right: 1px solid colors.$greyBorder;
+  position: sticky;
+  top: 0px;
+
+}
+
+.open {
+   width: 15%;
+}
+.close {
+  width: auto;
+}
+
+.show {
+  display: inherit;
+}
+
+.hide {
+  display: none;
 }

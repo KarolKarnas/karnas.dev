@@ -1,8 +1,36 @@
 @use "../scss/colors";
 
 .header {
-  background-color: colors.$greyDark;
-  border-bottom: 1px solid colors.$greyBorder;
+  background-color: black;
+  height: 40px;
+  position: sticky;
+  top: 0px;
+  // position: fixed;
+  // width: 100%;
+}
+
+.ul {
   display: flex;
+  list-style: none;
   align-items: center;
+  li {
+    padding: 10px 20px;
+    background-color: colors.$greySide;
+    border-right: solid 1px black;
+  }
+}
+
+.ul {
+  .active {
+    background-color: colors.$grey;
+  }
+}
+
+.span {
+  padding: 5px;
+  border-radius: 50%;
+  background-color: colors.$greyLight;
+  &:hover {
+    cursor: pointer;
+  }
 }
