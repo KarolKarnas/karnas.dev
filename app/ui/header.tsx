@@ -1,7 +1,14 @@
-import styles from './header.module.scss'
+import styles from "./header.module.scss"
+import Logo from "./logo"
+import Hamburger from "./hamburger"
 
 type Props = {}
 const Header = (props: Props) => {
-  return <div className={styles.header}>Header </div>
+  return (
+    <header className={styles.header}>
+      <Hamburger />
+      <Logo />
+    </header>
+  )
 }
 export default Header

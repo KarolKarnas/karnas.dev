@@ -1,0 +1,9 @@
+@use '../scss/colors';
+
+.logo {
+  color: colors.$greyMenu;
+  background-color: colors.$grey;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}

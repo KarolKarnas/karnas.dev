@@ -1,6 +1,13 @@
+@use "./scss/colors";
+
 .layout {
   min-height: 100vh;
-  display: grid;
-	grid-template-rows: 1fr 19fr;
-	grid-template-columns: 1fr 6fr;
+  display: flex;
+}
+
+.main {
+  min-height: 100%;
+  background-color: colors.$grey;
+  width: 100%;
+  color: colors.$greyMenu;
 }

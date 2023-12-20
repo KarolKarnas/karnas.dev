@@ -1,7 +1,8 @@
-@use '../scss/colors';
+@use "../scss/colors";
 
 .header {
-  background-color: colors.$orange;
-  grid-column: 1 / 3 ;
-  grid-row: 1/2;
+  background-color: colors.$greyDark;
+  border-bottom: 1px solid colors.$greyBorder;
+  display: flex;
+  align-items: center;
 }

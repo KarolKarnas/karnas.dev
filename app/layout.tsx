@@ -3,7 +3,7 @@ import { Inter, Roboto_Mono } from "next/font/google"
 import styles from "./layout.module.scss"
 import SideNav from "./ui/sidenav"
 import Header from "./ui/header"
-import './scss/_global.scss'
+import "./scss/_global.scss"
 // import './globals.css'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} ${styles.layout}`}>
-        <Header />
+  
         <SideNav />
-        {children}
+        <main className={styles.main}>{children}</main>
       </body>
     </html>
   )
