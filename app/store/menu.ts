@@ -5,6 +5,7 @@ export interface MenuState {
   menu: {
     isOpen: boolean
     links: string[]
+    subMenuPortfolio: string[]
     openTabs: string[]
     activeTab: string
   }
@@ -18,6 +19,7 @@ export const menuStore = create<MenuState>((set) => ({
   menu: {
     isOpen: true,
     links: ["home", "contact", "about-me", "portfolio"],
+    subMenuPortfolio: ["ilustrografia", "battleship", "karnas"],
     openTabs: [],
     activeTab: "",
   },

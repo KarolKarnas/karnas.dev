@@ -11,6 +11,7 @@ const SideNav = (props: Props) => {
   const isOpen = menuStore((state) => state.menu.isOpen)
   const links = menuStore((state) => state.menu.links)
   const updateOpenTabs = menuStore((state) => state.updateOpenTabs)
+  const subMenuPortfolio = menuStore((state) => state.menu.subMenuPortfolio)
 
   return (
     <div className={`${styles.sidenav} ${isOpen ? styles.open : styles.close}`}>
@@ -20,19 +21,35 @@ const SideNav = (props: Props) => {
         <Logo />
         <h2>SideNav</h2>
         <ul>
-          {/* <li>
-            <Link href={`/`}>Home</Link>
-          </li> */}
-          {links.map((link, index) => (
-            <li key={index}>
-              <Link
-                onClick={() => updateOpenTabs(link)}
-                href={`/${link}`}
-              >
-                {link}
-              </Link>
-            </li>
-          ))}
+          {links.map((link, index) =>
+            link === "portfolio" ? (
+              <div key={index}>
+                <li>
+                  <Link onClick={() => updateOpenTabs(link)} href={`/${link}`}>
+                    {link}
+                  </Link>
+                </li>
+                <ul>
+                  {subMenuPortfolio.map((subLink, subIndex) => (
+                    <li key={subLink}>
+                      <Link
+                        onClick={() => updateOpenTabs(`portfolio/${subLink}`)}
+                        href={`/portfolio/${subLink}`}
+                      >
+                        {subLink}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <li key={index}>
+                <Link onClick={() => updateOpenTabs(link)} href={`/${link}`}>
+                  {link}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
       </div>
     </div>
