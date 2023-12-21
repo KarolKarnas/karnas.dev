@@ -27,7 +27,7 @@ const SideNav = (props: Props) => {
             <li key={index}>
               <Link
                 onClick={() => updateOpenTabs(link)}
-                href={`/${link === "home" ? "" : link}`}
+                href={`/${link}`}
               >
                 {link}
               </Link>

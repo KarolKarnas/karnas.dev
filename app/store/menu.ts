@@ -1,3 +1,4 @@
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
 import { create } from "zustand"
 
 export interface MenuState {
@@ -10,15 +11,15 @@ export interface MenuState {
 
   updateMenu: () => void
   updateOpenTabs: (newTab: string) => void
-  removeTab: (tabName: string) => void
+  removeTab: (tabName: string, router: AppRouterInstance) => void
 }
 
 export const menuStore = create<MenuState>((set) => ({
   menu: {
     isOpen: true,
-    links: ["home", "contact", "about-me"],
-    openTabs: ["home"],
-    activeTab: "home",
+    links: ["home", "contact", "about-me", "portfolio"],
+    openTabs: [],
+    activeTab: "",
   },
   updateMenu: () =>
     set((state) => ({
@@ -27,7 +28,7 @@ export const menuStore = create<MenuState>((set) => ({
   updateOpenTabs: (newTab) =>
     set((state) => {
       if (state.menu.openTabs.indexOf(newTab) > -1) {
-        console.log("tab already open")
+        // console.log("tab already open")
         return {
           menu: { ...state.menu, activeTab: newTab },
         }
@@ -41,37 +42,56 @@ export const menuStore = create<MenuState>((set) => ({
         }
       }
     }),
-  removeTab: (tabName) =>
+  removeTab: (tabName, router) =>
     set((state) => {
-      if (tabName === state.menu.activeTab) {
-        console.log('active')
-      }
+      const tabQty = state.menu.openTabs.length
 
-      return ({
-        menu: {
-          ...state.menu,
-          openTabs: state.menu.openTabs.filter((tab) => tab !== tabName),
-        },
-      })
+      if (tabQty === 1) {
+        // console.log("there were only 1 tab")
+        router.push("/")
+        return {
+          menu: {
+            ...state.menu,
+            openTabs: state.menu.openTabs.filter((tab) => tab !== tabName),
+          },
+        }
+      }
+      if (tabName === state.menu.activeTab && tabQty > 1) {
+        // console.log(state.menu.openTabs)
+        // console.log(state.menu.openTabs.indexOf(tabName))
+        const activeIndex = state.menu.openTabs.indexOf(tabName)
+        if (activeIndex === 0) {
+          // console.log("active 1")
+          const nextRight = state.menu.openTabs.indexOf(tabName) + 1
+          const activeRightTab = state.menu.openTabs[nextRight]
+
+          return {
+            menu: {
+              ...state.menu,
+              openTabs: state.menu.openTabs.filter((tab) => tab !== tabName),
+              activeTab: activeRightTab,
+            },
+          }
+        } else {
+          const nextLeft = state.menu.openTabs.indexOf(tabName) - 1
+          const activeLeftTab = state.menu.openTabs[nextLeft]
+          router.push(`/${activeLeftTab}`)
+
+          return {
+            menu: {
+              ...state.menu,
+              openTabs: state.menu.openTabs.filter((tab) => tab !== tabName),
+              activeTab: activeLeftTab,
+            },
+          }
+        }
+      } else {
+        return {
+          menu: {
+            ...state.menu,
+            openTabs: state.menu.openTabs.filter((tab) => tab !== tabName),
+          },
+        }
+      }
     }),
 }))
-
-// removeTab: (tabName) => {
-//   set((state) => {
-//     const tabIndex = state.menu.openTabs.indexOf(tabName)
-//     if (tabIndex > -1) {
-//       console.log("i can remove you sir")
-//       const openTabs = state.menu.openTabs
-//       console.log(openTabs)
-//       openTabs.splice(tabIndex, 1)
-//       console.log(openTabs)
-//       return {
-//         menu: { ...state.menu, openTabs: openTabs },
-//       }
-//     } else {
-//       return {
-//         menu: { ...state.menu },
-//       }
-//     }
-//   })
-// },

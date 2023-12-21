@@ -4,10 +4,9 @@ import { userStore } from "./store/user"
 export default function Home() {
 
   return (
-    <main>
-      <h1>Content</h1>
-      <p>KARNAS</p>
+    <div>
+      <h1>KARNAS DEV</h1>
  
-    </main>
+    </div>
   )
 }

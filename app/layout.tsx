@@ -22,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} ${styles.layout}`}>
-        <SideNav />
+   
+          <SideNav />
+     
         <main className={styles.main}>
           <Header />
           <div className={styles.content}>{children}</div>
