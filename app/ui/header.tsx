@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./header.module.scss"
-import { menuStore } from "../store/menu"
+import { navStore } from "../store/nav"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { useEffect } from "react"
@@ -11,10 +11,10 @@ const Header = (props: Props) => {
   const router = useRouter()
   const pathname = usePathname()
 
-  const openTabs = menuStore((state) => state.menu.openTabs)
-  const activeTab = menuStore((state) => state.menu.activeTab)
-  const updateOpenTabs = menuStore((state) => state.updateOpenTabs)
-  const removeTab = menuStore((state) => state.removeTab)
+  const openTabs = navStore((state) => state.menu.openTabs)
+  const activeTab = navStore((state) => state.menu.activeTab)
+  const updateOpenTabs = navStore((state) => state.updateOpenTabs)
+  const removeTab = navStore((state) => state.removeTab)
 
   // useEffect(() => {
   //   if (pathname) {
@@ -29,13 +29,13 @@ const Header = (props: Props) => {
   return (
     <header className={styles.header}>
       <ul className={styles.ul}>
-        {openTabs.map((link, index) => (
-          <li key={index} className={link === activeTab ? styles.active : ""}>
-            <Link onClick={() => updateOpenTabs(link)} href={`/${link}`}>
-              {link}
+        {openTabs.map((item, index) => (
+          <li key={index} className={activeTab && item.title === activeTab.title ? styles.active : ""}>
+            <Link onClick={() => updateOpenTabs(item)} href={item.path}>
+              {item.title}
             </Link>
             <span
-              onClick={() => removeTab(link, router)}
+              onClick={() => removeTab(item, router)}
               className={styles.span}
             >
               x

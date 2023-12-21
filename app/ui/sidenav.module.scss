@@ -1,4 +1,4 @@
-@use '../scss/colors';
+@use "../scss/colors";
 
 .sidenav {
   background-color: colors.$greySide;
@@ -6,11 +6,30 @@
   position: sticky;
   top: 0px;
   height: 100vh;
+}
+.liIcon {
+  display: flex;
+  padding: 0.5rem;
+  &:hover {
+    background-color: green;
+  }
+  a {
+    color: colors.$greyMenu;
+    text-decoration: none;
 
+  } 
+}
+
+.subLi {
+  margin-left: 1rem;
+}
+
+.subMenu {
+  list-style: none;
 }
 
 .open {
-   width: 15%;
+  width: 15%;
 }
 .close {
   width: auto;

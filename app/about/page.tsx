@@ -1,9 +1,9 @@
 import styles from "./page.module.scss"
 
-export default function Contact() {
+export default function About() {
   return (
     <div>
-      <div className={styles.title}>About Me</div>
+      <div className={styles.title}>About</div>
       Greetings and welcome to my GitHub repository! Delighted to have you here.
       I am an enthusiastic and dedicated fullstack developer, deeply immersed in
       the dynamic realm of web development. Specializing in frontend
