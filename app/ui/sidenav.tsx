@@ -6,6 +6,10 @@ import Hamburger from "./hamburger"
 import { menuStore } from "../store/menu"
 import { navStore } from "../store/nav"
 import Link from "next/link"
+import { usePathname, useSelectedLayoutSegment } from "next/navigation"
+import { SideNavItem } from "../utils/types"
+import { useState } from "react"
+import { chevronDown } from "../utils/icons"
 
 type Props = {}
 const SideNav = (props: Props) => {
@@ -15,12 +19,21 @@ const SideNav = (props: Props) => {
   const updateOpenTabs = navStore((state) => state.updateOpenTabs)
   // const subMenuPortfolio = menuStore((state) => state.menu.subMenuPortfolio)
 
+  // const selectedLayout = useSelectedLayoutSegment()
+
   return (
     <div className={`${styles.sidenav} ${isOpen ? styles.open : styles.close}`}>
       <Hamburger />
 
       <div className={`${isOpen ? styles.show : styles.hide}`}>
         <Logo />
+
+        <h2>SideNav2</h2>
+        <ul>
+          {navLinks.map((item, index) => (
+            <MenuItem key={index} item={item} />
+          ))}
+        </ul>
 
         <h2>SideNav</h2>
         <ul>
@@ -35,7 +48,10 @@ const SideNav = (props: Props) => {
               {item.submenu && item.subMenuItems ? (
                 <ul className={styles.subMenu}>
                   {item.subMenuItems.map((subItem, index) => (
-                    <li key={index} >
+                    <li
+                      key={index}
+                      // className={selectedLayout ? styles.selected : ""}
+                    >
                       <div className={styles.liIcon}>
                         {subItem.icon}
                         <Link
@@ -52,48 +68,77 @@ const SideNav = (props: Props) => {
             </li>
           ))}
         </ul>
-        {/* <h2>SideNav</h2>
-        <ul>
-          {links.map((link, index) =>
-            link === "portfolio" ? (
-              <div key={index}>
-                <li>
-                  <Link onClick={() => updateOpenTabs(link)} href={`/${link}`}>
-                    {link}
-                  </Link>
-                </li>
-                <ul>
-                  {subMenuPortfolio.map((subLink, subIndex) => (
-                    <li key={subLink}>
-                      <Link
-                        onClick={() => updateOpenTabs(`portfolio/${subLink}`)}
-                        href={`/portfolio/${subLink}`}
-                      >
-                        {subLink}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <li className={styles.liIcon} key={index}>
-                <Image
-                  src="/react.svg"
-                  alt="JS logo"
-                  // className={styles.vercelLogo}
-                  width={24}
-                  height={24}
-                  priority
-                />
-                <Link onClick={() => updateOpenTabs(link)} href={`/${link}`}>
-                  {link}
-                </Link>
-              </li>
-            )
-          )}
-        </ul> */}
       </div>
     </div>
   )
 }
 export default SideNav
+
+const MenuItem = ({ item }: { item: SideNavItem }) => {
+  const pathname = usePathname()
+  const [subMenuOpen, setSubMenuOpen] = useState(true)
+  const toggleSubMenu = () => {
+    setSubMenuOpen(!subMenuOpen)
+  }
+  const updateOpenTabs = navStore((state) => state.updateOpenTabs)
+
+  return (
+    <div className="">
+      {item.submenu ? (
+        <>
+          <Link onClick={() => updateOpenTabs(item)} href={item.path}>
+            <button
+              onClick={toggleSubMenu}
+              className={`${styles.sideBtn} ${
+                pathname.includes(item.path) ? styles.pathBtn : ""
+              }`}
+            >
+              <div className={styles.contentBtn}>
+                {item.icon}
+                <span className={styles.titleBtn}>{item.title}</span>
+              </div>
+
+              <div
+                className={`${subMenuOpen ? styles.rotate180 : styles.transition} ${
+                  styles.flex
+                }`}
+              >
+                {chevronDown}
+                {/* <Icon icon="lucide:chevron-down" width="24" height="24" /> */}
+              </div>
+            </button>
+          </Link>
+          {subMenuOpen && (
+            <div className={styles.subMenu}>
+              {item.subMenuItems?.map((subItem, idx) => {
+                return (
+                  <Link
+                    onClick={() => updateOpenTabs(subItem)}
+                    key={idx}
+                    href={subItem.path}
+                    className={`${styles.subMenuItem} ${
+                      subItem.path === pathname ? styles.pathSubMenu : ""
+                    }`}
+                  >  {item.icon}
+                    <span>{subItem.title}</span>
+                  </Link>
+                )
+              })}
+            </div>
+          )}
+        </>
+      ) : (
+        <Link
+          onClick={() => updateOpenTabs(item)}
+          href={item.path}
+          className={`${styles.linkNew} ${
+            item.path === pathname ? styles.pathLink : ""
+          }`}
+        >
+          {item.icon}
+          <span className={styles.spanLink}>{item.title}</span>
+        </Link>
+      )}
+    </div>
+  )
+}

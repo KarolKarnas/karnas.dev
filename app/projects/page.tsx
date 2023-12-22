@@ -3,7 +3,7 @@ import styles from "./page.module.scss"
 export default function Portfolio() {
   return (
     <div>
-      <div className={styles.title}>Portfolio</div>
+      <div className={styles.title}>Projects</div>
       <div>
 				erit corrupti assumenda minus. Voluptatem aliquam nostrum ut ex adipisci
 				molestiae accusamus. Totam mollitia ab blanditiis earum, cum, sint, fuga

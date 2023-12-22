@@ -16,12 +16,16 @@
   a {
     color: colors.$greyMenu;
     text-decoration: none;
-
-  } 
+  }
+}
+.selected {
+  background-color: red !important;
 }
 
 .subLi {
-  margin-left: 1rem;
+  img {
+    margin-left: 1rem;
+  }
 }
 
 .subMenu {
@@ -42,3 +46,87 @@
 .hide {
   display: none;
 }
+
+// ______________
+
+.sideBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  background-color: grey;
+  &:hover {
+    background-color: green;
+    cursor: pointer;
+  }
+}
+
+.pathBtn {
+  background-color: green;
+}
+
+.contentBtn {
+  display: flex;
+  margin-left: 1rem;
+  align-items: center;
+}
+
+.titleBtn {
+  display: flex;
+  font-size: larger;
+  font-weight: 900;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+  transition-duration: 500ms
+}
+
+.transition {
+  transition-duration: 300ms;
+}
+
+.flex {
+  display: flex;
+}
+
+.subMenu {
+ 
+  display: flex;
+  flex-direction: column;
+}
+
+.subMenuItem {
+  padding: 1rem;
+  img {
+    margin-left: 1rem;
+  }
+
+  &:hover {
+    background-color: green;
+  }
+}
+
+.pathSubMenu {
+  background-color: green;
+}
+
+.linkNew {
+  display: flex;
+  flex-direction: row;
+  // margin-left: 1rem;
+  align-items: center;
+  padding: 1rem;
+  &:hover{
+    background-color: green;
+  }
+}
+
+.pathLink {
+  background-color: green;
+}
+
+.spanLink {
+  font-weight: 600;
+display: flex;}

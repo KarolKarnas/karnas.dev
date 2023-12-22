@@ -51,6 +51,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: "About.scss",
     path: "/about",
-    icon: <Image src="/react.svg" alt="JS logo" width={24} height={24} />,
+    icon: <Image src="/sass.svg" alt="JS logo" width={24} height={24} />,
   },
 ]
