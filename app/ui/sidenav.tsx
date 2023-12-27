@@ -14,12 +14,9 @@ import { chevronDown } from "../utils/icons"
 type Props = {}
 const SideNav = (props: Props) => {
   const isOpen = menuStore((state) => state.menu.isOpen)
-  // const links = menuStore((state) => state.menu.links)
   const navLinks = navStore((state) => state.menu.navLinks)
-  const updateOpenTabs = navStore((state) => state.updateOpenTabs)
-  // const subMenuPortfolio = menuStore((state) => state.menu.subMenuPortfolio)
-
-  // const selectedLayout = useSelectedLayoutSegment()
+  // const updateOpenTabs = navStore((state) => state.updateOpenTabs)
+  // const activeTab = navStore((state) => state.menu.activeTab)
 
   return (
     <div className={`${styles.sidenav} ${isOpen ? styles.open : styles.close}`}>
@@ -32,40 +29,6 @@ const SideNav = (props: Props) => {
         <ul>
           {navLinks.map((item, index) => (
             <MenuItem key={index} item={item} />
-          ))}
-        </ul>
-
-        <h2>SideNav</h2>
-        <ul>
-          {navLinks.map((item, index) => (
-            <li key={index}>
-              <div className={styles.liIcon}>
-                {item.icon}
-                <Link onClick={() => updateOpenTabs(item)} href={item.path}>
-                  {item.title}
-                </Link>
-              </div>
-              {item.submenu && item.subMenuItems ? (
-                <ul className={styles.subMenu}>
-                  {item.subMenuItems.map((subItem, index) => (
-                    <li
-                      key={index}
-                      // className={selectedLayout ? styles.selected : ""}
-                    >
-                      <div className={styles.liIcon}>
-                        {subItem.icon}
-                        <Link
-                          onClick={() => updateOpenTabs(subItem)}
-                          href={subItem.path}
-                        >
-                          {subItem.title}
-                        </Link>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </li>
           ))}
         </ul>
       </div>
@@ -87,26 +50,25 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
       {item.submenu ? (
         <>
           <Link onClick={() => updateOpenTabs(item)} href={item.path}>
-            <button
+            <div
               onClick={toggleSubMenu}
-              className={`${styles.sideBtn} ${
-                pathname.includes(item.path) ? styles.pathBtn : ""
+              className={`${styles.linkNew} ${
+                item.path === pathname ? styles.pathLink : ""
               }`}
             >
               <div className={styles.contentBtn}>
                 {item.icon}
-                <span className={styles.titleBtn}>{item.title}</span>
+                <span className="">{item.title}</span>
               </div>
 
               <div
-                className={`${subMenuOpen ? styles.rotate180 : styles.transition} ${
-                  styles.flex
-                }`}
+                className={`${
+                  subMenuOpen ? styles.rotate180 : styles.transition
+                } ${styles.flex}`}
               >
                 {chevronDown}
-                {/* <Icon icon="lucide:chevron-down" width="24" height="24" /> */}
               </div>
-            </button>
+            </div>
           </Link>
           {subMenuOpen && (
             <div className={styles.subMenu}>
@@ -119,7 +81,12 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
                     className={`${styles.subMenuItem} ${
                       subItem.path === pathname ? styles.pathSubMenu : ""
                     }`}
-                  >  {item.icon}
+                    // className={`${styles.subMenuItem} ${
+                    //   subItem.path === pathname ? styles.pathSubMenu : ""
+                    // }`}
+                  >
+                    {" "}
+                    {item.icon}
                     <span>{subItem.title}</span>
                   </Link>
                 )
@@ -142,3 +109,37 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
     </div>
   )
 }
+
+// <h2>SideNav</h2>
+// <ul>
+//   {navLinks.map((item, index) => (
+//     <li key={index}>
+//       <div className={styles.liIcon}>
+//         {item.icon}
+//         <Link onClick={() => updateOpenTabs(item)} href={item.path}>
+//           {item.title}
+//         </Link>
+//       </div>
+//       {item.submenu && item.subMenuItems ? (
+//         <ul className={styles.subMenu}>
+//           {item.subMenuItems.map((subItem, index) => (
+//             <li
+//               key={index}
+//               // className={selectedLayout ? styles.selected : ""}
+//             >
+//               <div className={styles.liIcon}>
+//                 {subItem.icon}
+//                 <Link
+//                   onClick={() => updateOpenTabs(subItem)}
+//                   href={subItem.path}
+//                 >
+//                   {subItem.title}
+//                 </Link>
+//               </div>
+//             </li>
+//           ))}
+//         </ul>
+//       ) : null}
+//     </li>
+//   ))}
+// </ul>

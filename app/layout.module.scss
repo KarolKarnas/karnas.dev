@@ -1,4 +1,5 @@
 @use "./scss/colors";
+@use "./scss/spacing";
 
 .layout {
   min-height: 100vh;
@@ -13,6 +14,5 @@
 }
 
 .content {
-  padding: 2rem;
-  
+  padding: spacing.$s6;
 }

@@ -1,0 +1,11 @@
+@use "../scss/spacing";
+
+.iconSm {
+  height: spacing.$s2;
+}
+.iconMd {
+  height: spacing.$s4;
+}
+.iconLg {
+  height: spacing.$s6;
+}

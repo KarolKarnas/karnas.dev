@@ -1,4 +1,5 @@
 @use "../scss/colors";
+@use "../scss/spacing";
 
 .sidenav {
   background-color: colors.$greySide;
@@ -9,9 +10,9 @@
 }
 .liIcon {
   display: flex;
-  padding: 0.5rem;
+  padding: spacing.$s2;
   &:hover {
-    background-color: green;
+    background-color: colors.$grey-200;
   }
   a {
     color: colors.$greyMenu;
@@ -24,7 +25,7 @@
 
 .subLi {
   img {
-    margin-left: 1rem;
+    margin-left: spacing.$s4;
   }
 }
 
@@ -49,38 +50,22 @@
 
 // ______________
 
-.sideBtn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem;
-  width: 100%;
-  background-color: grey;
-  &:hover {
-    background-color: green;
-    cursor: pointer;
-  }
-}
+
 
 .pathBtn {
-  background-color: green;
+  background-color: colors.$grey-200;
 }
 
 .contentBtn {
   display: flex;
-  margin-left: 1rem;
+
   align-items: center;
 }
 
-.titleBtn {
-  display: flex;
-  font-size: larger;
-  font-weight: 900;
-}
 
 .rotate180 {
   transform: rotate(180deg);
-  transition-duration: 500ms
+  transition-duration: 500ms;
 }
 
 .transition {
@@ -92,24 +77,23 @@
 }
 
 .subMenu {
- 
   display: flex;
   flex-direction: column;
 }
 
 .subMenuItem {
-  padding: 1rem;
+  padding: spacing.$s4;
   img {
-    margin-left: 1rem;
+    margin-left: spacing.$s4;
   }
 
   &:hover {
-    background-color: green;
+    background-color: colors.$grey-200;
   }
 }
 
 .pathSubMenu {
-  background-color: green;
+  background-color: colors.$grey-200;
 }
 
 .linkNew {
@@ -117,16 +101,17 @@
   flex-direction: row;
   // margin-left: 1rem;
   align-items: center;
-  padding: 1rem;
-  &:hover{
-    background-color: green;
+  padding: spacing.$s4;
+  &:hover {
+    background-color: colors.$grey-200;
   }
 }
 
 .pathLink {
-  background-color: green;
+  background-color: colors.$grey-200;
 }
 
 .spanLink {
   font-weight: 600;
-display: flex;}
+  display: flex;
+}
