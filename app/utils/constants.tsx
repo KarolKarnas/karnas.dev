@@ -8,9 +8,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: <Image src="/react.svg" alt="JS logo" width={24} height={24} />,
   },
   {
-    title: "Projects.tsx",
+    title: "Projects",
     path: "/projects",
-    icon: <Image src="/react.svg" alt="JS logo" width={24} height={24} />,
+    icon: <Image src="/folder.svg" alt="JS logo" width={20} height={20} />,
     submenu: true,
     subMenuItems: [
       // { title: "All", path: "/projects" },

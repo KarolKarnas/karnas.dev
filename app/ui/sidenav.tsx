@@ -25,7 +25,7 @@ const SideNav = (props: Props) => {
       <div className={`${isOpen ? styles.show : styles.hide}`}>
         <Logo />
 
-        <h2>SideNav2</h2>
+        {/* <h2 className={styles.title}>SideNav</h2> */}
         <ul>
           {navLinks.map((item, index) => (
             <MenuItem key={index} item={item} />
@@ -49,27 +49,26 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
     <div className="">
       {item.submenu ? (
         <>
-          <Link onClick={() => updateOpenTabs(item)} href={item.path}>
-            <div
-              onClick={toggleSubMenu}
-              className={`${styles.linkNew} ${
-                item.path === pathname ? styles.pathLink : ""
-              }`}
-            >
-              <div className={styles.contentBtn}>
-                {item.icon}
-                <span className="">{item.title}</span>
-              </div>
-
+          {/* <Link className={styles.subMenuLink} onClick={() => updateOpenTabs(item)} href={item.path}> */}
+          <div
+            onClick={toggleSubMenu}
+            className={`${styles.linkNew} ${
+              item.path === pathname ? styles.pathLink : ""
+            }`}
+          >
+            <div className={styles.contentBtn}>
               <div
                 className={`${
                   subMenuOpen ? styles.rotate180 : styles.transition
                 } ${styles.flex}`}
               >
-                {chevronDown}
+                <div className={styles.chevron}>{chevronDown}</div>
               </div>
+              {item.icon}
+              <span className="">{item.title}</span>
             </div>
-          </Link>
+          </div>
+          {/* </Link> */}
           {subMenuOpen && (
             <div className={styles.subMenu}>
               {item.subMenuItems?.map((subItem, idx) => {
@@ -86,7 +85,7 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
                     // }`}
                   >
                     {" "}
-                    {item.icon}
+                    {subItem.icon}
                     <span>{subItem.title}</span>
                   </Link>
                 )

@@ -1,7 +1,8 @@
 @use '../scss/colors';
 
 .logo {
-  color: colors.$greyMenu;
+  color: colors.$white;
+  font-weight: 900;
   background-color: colors.$grey;
   text-transform: uppercase;
   display: flex;
