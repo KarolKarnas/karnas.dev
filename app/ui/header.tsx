@@ -5,6 +5,7 @@ import { navStore } from "../store/nav"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { useEffect } from "react"
+import { xMark } from "../utils/icons"
 
 type Props = {}
 const Header = (props: Props) => {
@@ -16,31 +17,33 @@ const Header = (props: Props) => {
   const updateOpenTabs = navStore((state) => state.updateOpenTabs)
   const removeTab = navStore((state) => state.removeTab)
 
-  // useEffect(() => {
-  //   if (pathname) {
-  //     const tabName = pathname.slice(1)
-  //     console.log(tabName)
-  //     if (tabName.length > 0 && openTabs.length === 0) {
-  //       updateOpenTabs(tabName)
-  //     }
-  //   }
-  // })
-
   return (
     <header className={styles.header}>
       <ul className={styles.ul}>
         {openTabs.map((item, index) => (
-          <li key={index} className={activeTab && item.title === activeTab.title ? styles.active : ""}>
-            <Link onClick={() => updateOpenTabs(item)} href={item.path}>
-              {item.title}
-            </Link>
-            <span
-              onClick={() => removeTab(item, router)}
-              className={styles.span}
+          <div key={index} className={styles.container}>
+            <Link
+              onClick={() => updateOpenTabs(item)}
+              href={item.path}
+              className={
+                activeTab && item.title === activeTab.title ? styles.active : ""
+              }
             >
-              x
-            </span>
-          </li>
+              <li>
+                {item.icon}
+                {item.title}
+              </li>
+            </Link>
+
+            {activeTab && item.title === activeTab.title ? (
+              <div
+                onClick={() => removeTab(item, router)}
+                className={styles.span}
+              >
+                {xMark}
+              </div>
+            ) : null}
+          </div>
         ))}
       </ul>
     </header>

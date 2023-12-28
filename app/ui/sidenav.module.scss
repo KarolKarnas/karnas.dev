@@ -83,7 +83,7 @@
 }
 
 .subMenuItem {
-  padding: spacing.$s4;
+  padding: spacing.$s2;
   color: colors.$greyMenu;
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: spacing.$s4;
+  padding: spacing.$s2;
   color: colors.$greyMenu;
   text-decoration: none;
   gap: spacing.$s1;

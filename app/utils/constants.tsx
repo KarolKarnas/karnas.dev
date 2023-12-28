@@ -3,14 +3,14 @@ import { SideNavItem } from "./types"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
-    title: "Home.tsx",
+    title: "Home.json",
     path: "/home",
-    icon: <Image src="/react.svg" alt="JS logo" width={24} height={24} />,
+    icon: <Image src="/nodejs.svg" alt="JS logo" width={18} height={18} />,
   },
   {
     title: "Projects",
     path: "/projects",
-    icon: <Image src="/folder.svg" alt="JS logo" width={20} height={20} />,
+    icon: <Image src="/folder.svg" alt="JS logo" width={18} height={18} />,
     submenu: true,
     subMenuItems: [
       // { title: "All", path: "/projects" },
@@ -21,9 +21,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
           <Image
             src="/react.svg"
             alt="JS logo"
-            width={24}
-            height={24}
-            style={{ marginLeft: "1rem" }}
+            width={18}
+            height={18}
+            // style={{ marginLeft: "1rem" }}
           />
         ),
       },
@@ -34,23 +34,23 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
           <Image
             src="/react.svg"
             alt="JS logo"
-            width={24}
-            height={24}
-            style={{ marginLeft: "1rem" }}
+            width={18}
+            height={18}
+            // style={{ marginLeft: "1rem" }}
           />
         ),
       },
     ],
   },
   {
-    title: "Contact.jsx",
+    title: "Contact.tsx",
     path: "/contact",
-    icon: <Image src="/react.svg" alt="JS logo" width={24} height={24} />,
+    icon: <Image src="/react.svg" alt="JS logo" width={18} height={18} />,
   },
 
   {
     title: "About.scss",
     path: "/about",
-    icon: <Image src="/sass.svg" alt="JS logo" width={24} height={24} />,
+    icon: <Image src="/sass.svg" alt="JS logo" width={18} height={18} />,
   },
 ]

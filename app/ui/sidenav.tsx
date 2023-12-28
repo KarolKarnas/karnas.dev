@@ -108,37 +108,3 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
     </div>
   )
 }
-
-// <h2>SideNav</h2>
-// <ul>
-//   {navLinks.map((item, index) => (
-//     <li key={index}>
-//       <div className={styles.liIcon}>
-//         {item.icon}
-//         <Link onClick={() => updateOpenTabs(item)} href={item.path}>
-//           {item.title}
-//         </Link>
-//       </div>
-//       {item.submenu && item.subMenuItems ? (
-//         <ul className={styles.subMenu}>
-//           {item.subMenuItems.map((subItem, index) => (
-//             <li
-//               key={index}
-//               // className={selectedLayout ? styles.selected : ""}
-//             >
-//               <div className={styles.liIcon}>
-//                 {subItem.icon}
-//                 <Link
-//                   onClick={() => updateOpenTabs(subItem)}
-//                   href={subItem.path}
-//                 >
-//                   {subItem.title}
-//                 </Link>
-//               </div>
-//             </li>
-//           ))}
-//         </ul>
-//       ) : null}
-//     </li>
-//   ))}
-// </ul>
