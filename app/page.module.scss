@@ -1,5 +1,7 @@
 @use './scss/colors';
 @use './scss/mixins';
+@use './scss/fonts';
+@use './scss/spacing';
 
 
 
@@ -9,9 +11,21 @@
 // }
 // }
 
-// .content {
-//   min-height: 100%;
-//   background-color: colors.$greyLight;
-//   grid-column: 2 / 3 ;
-//   grid-row: 2/3;
-// }
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: fonts.$xl7;
+    color: colors.$grey-900;
+  }
+  h3 {
+    margin-bottom: spacing.$s4;
+  }
+  ul {
+    text-align: center;
+    list-style: none;
+  }
+}

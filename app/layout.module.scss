@@ -4,6 +4,7 @@
 .layout {
   min-height: 100vh;
   display: flex;
+  // overflow: hidden;
 }
 
 .main {
@@ -11,8 +12,11 @@
   background-color: colors.$grey;
   width: 100%;
   color: colors.$greyMenu;
+  overflow: hidden;
 }
 
 .content {
+  height: 80%;
   padding: spacing.$s6;
+  // overflow: hidden;
 }

@@ -3,7 +3,7 @@
 @use "../scss/fonts";
 
 .header {
-  background-color: black;
+  background-color: colors.$grey-900;
   height: 40px;
   position: sticky;
   top: 0px;
@@ -32,7 +32,7 @@ align-items: center;
     font-size: fonts.$sm;
     color: colors.$greyMenu;
     padding-left: spacing.$s5;
-    padding-right: spacing.$s5;
+    padding-right: spacing.$s6;
     text-decoration: none;
     li {
       display: flex;
@@ -50,14 +50,12 @@ align-items: center;
 }
 
 .span {
+  display: flex;
   position: absolute;
   right: 5px;
-  top: 11px;
-  z-index: 5;
+  top: 12px;
+  border-radius: 6px;
   padding: 2px;
-  // padding: 5px;
-  // border-radius: 50%;
-  // background-color: colors.$greyLight;
   &:hover {
     cursor: pointer;
     background-color: colors.$greyLight;
