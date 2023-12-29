@@ -1,5 +1,53 @@
 @use "../scss/colors.scss";
+@use "../scss/fonts.scss";
+@use "../scss/spacing.scss";
 
-.title {
-  color: colors.$orange;
+// .title {
+//   color: colors.$orange;
+// }
+
+.container {
+  h1 {
+    font-size: fonts.$xl6;
+    span {
+      color: colors.$pink-500;
+    }
+  }
+  h3 {
+    font-size: fonts.$xl2;
+    span {
+      color: colors.$purple-500;
+    }
+  }
+  hr {
+    margin: spacing.$s5 spacing.$s0;
+    border: none;
+    border-top: 1px solid colors.$greyLight;
+  }
+  p{
+    font-size: fonts.$lg;
+    ul {
+      list-style: none;
+      padding-left: spacing.$s5;
+      li {
+        ul {
+          padding-left: spacing.$s6;
+
+        }
+      }
+    }
+  }
+}
+
+.text_yellow {
+  color: colors.$yellow-500;
+}
+.text_pink {
+  color: colors.$pink-200;
+}
+.text_blue {
+  color: colors.$blue-300;
+}
+.text_white {
+  color: colors.$white;
 }

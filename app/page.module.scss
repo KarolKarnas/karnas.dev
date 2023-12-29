@@ -23,9 +23,11 @@
   }
   h3 {
     margin-bottom: spacing.$s4;
+    color: colors.$grey-200;
   }
   ul {
     text-align: center;
     list-style: none;
+    color: colors.$grey-500
   }
 }

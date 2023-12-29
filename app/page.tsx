@@ -1,5 +1,6 @@
 import styles from "./page.module.scss"
 import { userStore } from "./store/user"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -12,6 +13,10 @@ export default function Home() {
         <li>React with Redux, RTK, RTK Query</li>
         <li>Creating SPA (Single Page Application)</li>
         <li>Testing (Jest, Cypress)</li>
+      </ul>
+      <ul>
+
+        
       </ul>
     </div>
   )

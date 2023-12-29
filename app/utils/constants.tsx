@@ -53,4 +53,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/about",
     icon: <Image src="/sass.svg" alt="JS logo" width={18} height={18} />,
   },
+  {
+    title: ".gitignore",
+    path: "/gitignore",
+    icon: <Image src="/git.svg" alt="JS logo" width={18} height={18} />,
+  },
 ]
