@@ -11,3 +11,12 @@ export type MenuItemWithSubMenuProps = {
   item: SideNavItem
   toggleOpen: () => void
 }
+
+// export type Info = {
+//   [key: string]: string | object
+// }
+
+export type FakeJson = {
+  title: string
+  value: string | FakeJson[]
+}

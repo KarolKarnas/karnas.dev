@@ -1,0 +1,36 @@
+@use "../scss/colors.scss";
+@use "../scss/fonts.scss";
+@use "../scss/spacing.scss";
+
+.code {
+  font-size: fonts.$lg;
+  ul {
+    list-style: none;
+    padding-left: spacing.$s5;
+    line-height: 1.5;
+    li {
+      ul {
+        padding-left: spacing.$s6;
+li {
+  line-height: 1.5;
+}
+      }
+    }
+  }
+}
+
+
+
+.text_yellow {
+  color: colors.$yellow-500;
+}
+.text_pink {
+  color: colors.$pink-200;
+}
+.text_blue {
+  color: colors.$blue-300;
+}
+.text_white {
+  color: colors.$white;
+  font-weight: 700;
+}

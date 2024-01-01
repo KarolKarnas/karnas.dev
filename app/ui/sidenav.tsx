@@ -26,11 +26,13 @@ const SideNav = (props: Props) => {
         <Logo />
 
         {/* <h2 className={styles.title}>SideNav</h2> */}
-        <ul>
-          {navLinks.map((item, index) => (
-            <MenuItem key={index} item={item} />
-          ))}
-        </ul>
+        <nav>
+          <ul>
+            {navLinks.map((item, index) => (
+              <MenuItem key={index} item={item} />
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   )
@@ -46,7 +48,7 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
   const updateOpenTabs = navStore((state) => state.updateOpenTabs)
 
   return (
-    <div className="">
+    <li className="">
       {item.submenu ? (
         <>
           {/* <Link className={styles.subMenuLink} onClick={() => updateOpenTabs(item)} href={item.path}> */}
@@ -105,6 +107,6 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
           <span className={styles.spanLink}>{item.title}</span>
         </Link>
       )}
-    </div>
+    </li>
   )
 }
