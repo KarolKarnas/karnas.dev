@@ -18,10 +18,15 @@ const Header = (props: Props) => {
   const activeTab = navStore((state) => state.menu.activeTab)
   const updateOpenTabs = navStore((state) => state.updateOpenTabs)
   const removeTab = navStore((state) => state.removeTab)
+  // const removeAllTabs = navStore((state) => state.removeAllTabs)
   // const navLinks = navStore((state) => state.menu.navLinks)
 
   useEffect(() => {
-    if (pathname && pathname !== "/") {
+    // if (pathname && pathname === "/") {
+    //   removeAllTabs()
+    // }
+    // if (pathname && pathname !== "/") {
+    if (pathname) {
       const link = SIDENAV_ITEMS.find((item) => item.path === pathname)
       if (link) {
         updateOpenTabs(link)
@@ -62,7 +67,7 @@ const Header = (props: Props) => {
               </li>
             </Link>
 
-            {(activeTab && item.title === activeTab.title) ||
+            {openTabs.length === 1 ? null : (activeTab && item.title === activeTab.title) ||
             showRemove === item.title ? (
               <div
                 onClick={() => removeTab(item, router)}

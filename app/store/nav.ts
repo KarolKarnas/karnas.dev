@@ -12,6 +12,7 @@ export interface NavState {
 
   updateOpenTabs: (newTab: SideNavItem) => void
   removeTab: (tabRemove: SideNavItem, router: AppRouterInstance) => void
+  // removeAllTabs: () => void
 }
 
 export const navStore = create<NavState>((set) => ({
@@ -37,6 +38,17 @@ export const navStore = create<NavState>((set) => ({
         }
       }
     }),
+
+  // removeAllTabs: () =>
+  //   set((state) => {
+  //     return {
+  //       menu: {
+  //         ...state.menu,
+  //         openTabs: []
+  //       },
+  //     }
+  //   }),
+
   removeTab: (tabRemove, router) =>
     set((state) => {
       const tabQty = state.menu.openTabs.length

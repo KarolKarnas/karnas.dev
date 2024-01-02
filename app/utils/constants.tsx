@@ -3,6 +3,11 @@ import { SideNavItem } from "./types"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
+    title: "index.html",
+    path: "/",
+    icon: <Image src="/html5.svg" alt="JS logo" width={18} height={18} />,
+  },
+  {
     title: "Home.tsx",
     path: "/home",
     icon: <Image src="/react.svg" alt="JS logo" width={18} height={18} />,
