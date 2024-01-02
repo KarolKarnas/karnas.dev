@@ -52,7 +52,7 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
     <li className="">
       {item.submenu ? (
         <>
-          {/* <Link className={styles.subMenuLink} onClick={() => updateOpenTabs(item)} href={item.path}> */}
+          <Link className={styles.subMenuLink} onClick={() => updateOpenTabs(item)} href={item.path}>
           <div
             onClick={toggleSubMenu}
             className={`${styles.linkNew} ${
@@ -71,7 +71,8 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
               <span className="">{item.title}</span>
             </div>
           </div>
-          {/* </Link> */}
+        
+          </Link>
           {subMenuOpen && (
             <div className={styles.subMenu}>
               {item.subMenuItems?.map((subItem, idx) => {

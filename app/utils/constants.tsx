@@ -1,66 +1,57 @@
 import Image from "next/image"
 import { SideNavItem } from "./types"
+import { nodeJs, folderOpen, html, htmlAlt, react, git } from "./icons"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: "index.html",
     path: "/",
-    icon: <Image src="/html5.svg" alt="JS logo" width={18} height={18} />,
+    icon: html,
+    iconAlt: htmlAlt,
   },
   {
-    title: "Home.tsx",
+    title: "home.tsx",
     path: "/home",
-    icon: <Image src="/react.svg" alt="JS logo" width={18} height={18} />,
+    icon: react,
   },
   {
-    title: "Projects",
+    title: "skills.json",
+    path: "/skills",
+    icon: nodeJs,
+  },
+  {
+    title: "projects",
     path: "/projects",
-    icon: <Image src="/folder.svg" alt="JS logo" width={18} height={18} />,
+    icon: folderOpen,
     submenu: true,
     subMenuItems: [
       // { title: "All", path: "/projects" },
       {
-        title: "Ilustrografia.com",
+        title: "ilustrografia.com",
         path: "/projects/ilustrografia",
-        icon: (
-          <Image
-            src="/react.svg"
-            alt="JS logo"
-            width={18}
-            height={18}
-            // style={{ marginLeft: "1rem" }}
-          />
-        ),
+        icon: react,
       },
       {
-        title: "Karnas.dev",
+        title: "karnas.dev",
         path: "/projects/karnas",
-        icon: (
-          <Image
-            src="/react.svg"
-            alt="JS logo"
-            width={18}
-            height={18}
-            // style={{ marginLeft: "1rem" }}
-          />
-        ),
+        icon: react,
       },
     ],
   },
   {
-    title: "Contact.tsx",
+    title: "contact.tsx",
     path: "/contact",
-    icon: <Image src="/react.svg" alt="JS logo" width={18} height={18} />,
+    icon: react,
   },
 
   {
-    title: "About.json",
+    title: "about.json",
     path: "/about",
-    icon: <Image src="/nodejs.svg" alt="JS logo" width={18} height={18} />,
+    icon: nodeJs,
   },
   {
     title: ".gitignore",
     path: "/gitignore",
-    icon: <Image src="/git.svg" alt="JS logo" width={18} height={18} />,
+    icon: git,
   },
 ]

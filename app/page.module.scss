@@ -1,9 +1,7 @@
-@use './scss/colors';
-@use './scss/mixins';
-@use './scss/fonts';
-@use './scss/spacing';
-
-
+@use "./scss/colors";
+@use "./scss/mixins";
+@use "./scss/fonts";
+@use "./scss/spacing";
 
 // @include mixins.mobile() {
 // .title {
@@ -13,21 +11,56 @@
 
 .container {
   height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 200px;
   justify-content: center;
   align-items: center;
+
   h1 {
-    font-size: fonts.$xl7;
-    color: colors.$grey-900;
+    font-size: fonts.$xl6;
+    color: colors.$greyMenu;
+    font-weight: 400;
   }
   h3 {
-    margin-bottom: spacing.$s4;
-    color: colors.$grey-200;
+    margin-bottom: spacing.$s5;
+    color: colors.$greySubMenu;
+    font-size: fonts.$xl2;
+  }
+
+  h4 {
+    font-size: fonts.$xl2;
+    color: colors.$white;
+    margin-bottom: spacing.$s2;
   }
   ul {
-    text-align: center;
     list-style: none;
-    color: colors.$grey-500
+    color: colors.$grey-500;
+    li {
+      padding: spacing.$s1 0px;
+      display: flex;
+      align-items: end;
+      gap: spacing.$s3;
+      svg {
+        color: colors.$blue-700;
+        height: fonts.$xl3;
+        g {
+          fill: colors.$blue-700;
+        }
+        path {
+          fill: colors.$blue-700;
+        }
+      }
+
+      a {
+        color: colors.$blue-700;
+        text-decoration: none;
+      }
+    }
+    &:first-of-type {
+      margin-bottom: spacing.$s7;
+    }
   }
+
 }

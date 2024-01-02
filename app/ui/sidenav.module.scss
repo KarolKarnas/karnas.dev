@@ -9,31 +9,6 @@
   height: 100vh;
 
 }
-// .liIcon {
-//   display: flex;
-//   padding: spacing.$s2;
-//   &:hover {
-//     background-color: colors.$grey-200;
-//   }
-//   a {
-//     color: colors.$greyMenu;
-//     text-decoration: none;
-//   }
-// }
-// .selected {
-//   background-color: red !important;
-// }
-
-// .subLi {
-//   img {
-//     margin-left: spacing.$s4;
-//   }
-// }
-
-// .subMenu {
-//   list-style: none;
-// }
-
 .open {
   width: 15%;
 }
@@ -89,8 +64,9 @@
   align-items: center;
   text-decoration: none;
   gap: spacing.$s1;
-  img {
-    margin-left: spacing.$s4;
+  svg {
+    margin-left: spacing.$s5;
+    height: spacing.$s5;
   }
 
   &:hover {
@@ -118,7 +94,17 @@
     background-color: colors.$grey-200;
     cursor: pointer;
   }
+  svg {
+    height: spacing.$s5;
+  }
+  .chevron svg{
+      
+    height: spacing.$s4;
+  } 
+
 }
+
+
 
 .pathLink {
   background-color: colors.$grey-200;

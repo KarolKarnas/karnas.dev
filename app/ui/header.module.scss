@@ -38,6 +38,9 @@ align-items: center;
       display: flex;
       align-items: center;
       gap: 2px;
+      svg {
+        height: spacing.$s5;
+      }
     }
   }
 }
@@ -53,9 +56,12 @@ align-items: center;
   display: flex;
   position: absolute;
   right: 5px;
-  top: 12px;
+  top: 11px;
   border-radius: 6px;
   padding: 2px;
+  svg{
+    height: spacing.$s4;
+  }
   &:hover {
     cursor: pointer;
     background-color: colors.$greyLight;
