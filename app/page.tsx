@@ -1,6 +1,7 @@
 import styles from "./page.module.scss"
 import { userStore } from "./store/user"
 import Link from "next/link"
+import { SIDENAV_ITEMS } from "./utils/constants"
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
         <li>Creating SPA (Single Page Application)</li>
         <li>Testing (Jest, Cypress)</li>
       </ul>
+      <Link href={'/projects/karnas'}>
+      karnas
+      </Link>
       <ul>
 
         

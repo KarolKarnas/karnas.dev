@@ -5,7 +5,7 @@ import { create } from "zustand"
 
 export interface NavState {
   menu: {
-    navLinks: SideNavItem[]
+    // navLinks: SideNavItem[]
     openTabs: SideNavItem[]
     activeTab?: SideNavItem
   }
@@ -16,8 +16,8 @@ export interface NavState {
 
 export const navStore = create<NavState>((set) => ({
   menu: {
-    navLinks: SIDENAV_ITEMS,
-    openTabs: [],
+    // navLinks: SIDENAV_ITEMS,
+    openTabs: [SIDENAV_ITEMS[0]],
   },
   updateOpenTabs: (newTab) =>
     set((state) => {

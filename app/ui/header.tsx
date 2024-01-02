@@ -4,19 +4,40 @@ import styles from "./header.module.scss"
 import { navStore } from "../store/nav"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { xMark } from "../utils/icons"
+import { SIDENAV_ITEMS } from "../utils/constants"
 
 type Props = {}
 const Header = (props: Props) => {
   const router = useRouter()
-  // const pathname = usePathname()
+  const pathname = usePathname()
 
   const [showRemove, setShowRemove] = useState<string | null>(null)
   const openTabs = navStore((state) => state.menu.openTabs)
   const activeTab = navStore((state) => state.menu.activeTab)
   const updateOpenTabs = navStore((state) => state.updateOpenTabs)
   const removeTab = navStore((state) => state.removeTab)
+  // const navLinks = navStore((state) => state.menu.navLinks)
+
+  useEffect(() => {
+    if (pathname && pathname !== "/") {
+      const link = SIDENAV_ITEMS.find((item) => item.path === pathname)
+      if (link) {
+        updateOpenTabs(link)
+      } else {
+         SIDENAV_ITEMS.forEach((item) => {
+          if (item.subMenuItems) {
+            const subLink = item.subMenuItems.find((subItem) => subItem.path === pathname)
+            if (subLink) {
+              updateOpenTabs(subLink)
+            }
+          }
+        })
+    
+      }
+    }
+  }, [pathname, updateOpenTabs])
 
   return (
     <header className={styles.header}>

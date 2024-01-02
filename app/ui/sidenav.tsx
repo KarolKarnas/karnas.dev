@@ -10,11 +10,12 @@ import { usePathname, useSelectedLayoutSegment } from "next/navigation"
 import { SideNavItem } from "../utils/types"
 import { useState } from "react"
 import { chevronDown } from "../utils/icons"
+import { SIDENAV_ITEMS } from "../utils/constants"
 
 type Props = {}
 const SideNav = (props: Props) => {
   const isOpen = menuStore((state) => state.menu.isOpen)
-  const navLinks = navStore((state) => state.menu.navLinks)
+  // const navLinks = navStore((state) => state.menu.navLinks)
   // const updateOpenTabs = navStore((state) => state.updateOpenTabs)
   // const activeTab = navStore((state) => state.menu.activeTab)
 
@@ -28,7 +29,7 @@ const SideNav = (props: Props) => {
         {/* <h2 className={styles.title}>SideNav</h2> */}
         <nav>
           <ul>
-            {navLinks.map((item, index) => (
+            {SIDENAV_ITEMS.map((item, index) => (
               <MenuItem key={index} item={item} />
             ))}
           </ul>
@@ -39,7 +40,7 @@ const SideNav = (props: Props) => {
 }
 export default SideNav
 
-const MenuItem = ({ item }: { item: SideNavItem }) => {
+export const MenuItem = ({ item }: { item: SideNavItem }) => {
   const pathname = usePathname()
   const [subMenuOpen, setSubMenuOpen] = useState(true)
   const toggleSubMenu = () => {

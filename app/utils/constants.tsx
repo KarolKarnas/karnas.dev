@@ -3,9 +3,9 @@ import { SideNavItem } from "./types"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
-    title: "Home.json",
+    title: "Home.tsx",
     path: "/home",
-    icon: <Image src="/nodejs.svg" alt="JS logo" width={18} height={18} />,
+    icon: <Image src="/react.svg" alt="JS logo" width={18} height={18} />,
   },
   {
     title: "Projects",
@@ -49,9 +49,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   },
 
   {
-    title: "About.scss",
+    title: "About.json",
     path: "/about",
-    icon: <Image src="/sass.svg" alt="JS logo" width={18} height={18} />,
+    icon: <Image src="/nodejs.svg" alt="JS logo" width={18} height={18} />,
   },
   {
     title: ".gitignore",
