@@ -7,6 +7,12 @@ export type SideNavItem = {
   subMenuItems?: SideNavItem[]
   gitignore?: boolean
 }
+export type SocialItem = {
+  title: string
+  path: string
+  icon?: JSX.Element
+
+}
 
 export type MenuItemWithSubMenuProps = {
   item: SideNavItem

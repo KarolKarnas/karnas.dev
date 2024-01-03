@@ -37,7 +37,7 @@ align-items: center;
     li {
       display: flex;
       align-items: center;
-      gap: 2px;
+      gap: spacing.$s2;
       svg {
         height: spacing.$s5;
       }

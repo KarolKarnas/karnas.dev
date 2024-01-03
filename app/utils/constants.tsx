@@ -1,13 +1,13 @@
 import Image from "next/image"
-import { SideNavItem } from "./types"
-import { nodeJs, folderOpen, html, htmlAlt, react, git } from "./icons"
+import { SideNavItem, SocialItem } from "./types"
+import { nodeJs, folderOpen, html, htmlAlt, react, git,vsc } from "./icons"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
-    title: "index.html",
+    title: "Welcome",
     path: "/",
-    icon: html,
-    iconAlt: htmlAlt,
+    icon: vsc,
+    // iconAlt: htmlAlt,
   },
   {
     title: "home.tsx",
@@ -54,4 +54,32 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/gitignore",
     icon: git,
   },
+]
+
+export const SOCIAL_ITEMS: SocialItem[] = [
+  {
+    title: "Github",
+    path: "https://github.com/KarolKarnas",
+    icon: vsc,
+  },
+  {
+    title: "LinkedIn",
+    path: "https://www.linkedin.com/in/karolkarnas/",
+    icon: react,
+  },
+  {
+    title: "Twitter",
+    path: "https://twitter.com/Karol_Karnas",
+    icon: react,
+  },
+  {
+    title: "Instagram",
+    path: "https://isntagram.com/karol.karnas",
+    icon: react,
+  },
+  {
+    title: "Facebook",
+    path: "https://facebook.com/lensmanpl",
+    icon: react,
+  }
 ]
