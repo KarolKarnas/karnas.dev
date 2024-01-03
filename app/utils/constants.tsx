@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { SideNavItem, SocialItem } from "./types"
-import { nodeJs, folderOpen, html, htmlAlt, react, git, vsc, twitter, gitHub, linkedIn} from "./icons"
+import { nodeJs, folderOpen, html, htmlAlt, react, git, vsc, twitter, gitHub, linkedIn, nextJs} from "./icons"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
@@ -34,7 +34,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
       {
         title: "karnas.dev",
         path: "/projects/karnas",
-        icon: react,
+        icon: nextJs,
       },
     ],
   },

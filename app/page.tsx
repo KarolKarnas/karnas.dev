@@ -33,7 +33,7 @@ export default function Home() {
               <Link href={'/skills'}>Skills... </Link>
             </li> */}
         </ul>
-        <h4>Recent</h4>
+        <h4>Recent Projects</h4>
         <ul className={styles.mainLinks}>
           {SIDENAV_ITEMS[3].subMenuItems &&
             SIDENAV_ITEMS[3].subMenuItems.map((item, index) => (
