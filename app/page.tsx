@@ -1,8 +1,8 @@
 import styles from "./page.module.scss"
-import { userStore } from "./store/user"
 import Link from "next/link"
 import { SIDENAV_ITEMS } from "./utils/constants"
-import { newFile, folderOpen, nodeJs } from "./utils/icons"
+import SocialCard from "./ui/socialCard"
+import { SOCIAL_ITEMS } from "./utils/constants"
 
 export default function Home() {
   const startItems = [SIDENAV_ITEMS[1], SIDENAV_ITEMS[4]]
@@ -13,7 +13,7 @@ export default function Home() {
         <h1>Karol Karnas</h1>
         <h3>Full Stack Developer</h3>
         <h4>Start</h4>
-        <ul>
+        <ul className={styles.mainLinks}>
           {SIDENAV_ITEMS.map((item, index) => (
             <li key={index}>
               {item.iconAlt ? item.iconAlt : item.icon}
@@ -34,7 +34,7 @@ export default function Home() {
             </li> */}
         </ul>
         <h4>Recent</h4>
-        <ul>
+        <ul className={styles.mainLinks}>
           {SIDENAV_ITEMS[3].subMenuItems &&
             SIDENAV_ITEMS[3].subMenuItems.map((item, index) => (
               <li key={index}>
@@ -45,19 +45,13 @@ export default function Home() {
         </ul>
       </div>
 
-      <div className={styles.social}>
-      <h4>Social</h4>
+      <div className={styles.socialLinks}>
+        <h4>Social Media</h4>
         <ul>
-          <li>Creating SPA (Single Page Application)</li>
-          <li>JavaScript and TypeScript</li>
-          <li>React with Redux, RTK, RTK Query</li>
-          <li>Creating SPA (Single Page Application)</li>
-          <li>Testing (Jest, Cypress)</li>
-          <li>React with Redux, RTK, RTK Query</li>
-          <li>Creating SPA (Single Page Application)</li>
-          <li>Testing (Jest, Cypress)</li>
+          {SOCIAL_ITEMS.map((item, index) => (
+            <SocialCard key={index} socialItem={item} />
+          ))}
         </ul>
-        <Link href={"/projects/karnas"}>karnas</Link>
       </div>
     </div>
   )

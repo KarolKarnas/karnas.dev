@@ -10,6 +10,8 @@ export type SideNavItem = {
 export type SocialItem = {
   title: string
   path: string
+  description: string
+  shortUrl: string
   icon?: JSX.Element
 
 }

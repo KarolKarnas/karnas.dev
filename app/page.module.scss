@@ -34,7 +34,7 @@
     color: colors.$white;
     margin-bottom: spacing.$s2;
   }
-  ul {
+  ul.mainLinks {
     list-style: none;
     color: colors.$grey-500;
     li {
@@ -62,5 +62,12 @@
       margin-bottom: spacing.$s7;
     }
   }
+}
 
+.socialLinks {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.$s4;
+  }
 }

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { SideNavItem, SocialItem } from "./types"
-import { nodeJs, folderOpen, html, htmlAlt, react, git,vsc } from "./icons"
+import { nodeJs, folderOpen, html, htmlAlt, react, git, vsc, twitter, gitHub, linkedIn} from "./icons"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
@@ -60,26 +60,32 @@ export const SOCIAL_ITEMS: SocialItem[] = [
   {
     title: "Github",
     path: "https://github.com/KarolKarnas",
-    icon: vsc,
+    description: "Github Page",
+    shortUrl: "github.com/KarolKarnas",
+    icon: gitHub,
   },
   {
     title: "LinkedIn",
-    path: "https://www.linkedin.com/in/karolkarnas/",
-    icon: react,
+    path: "https://www.linkedin.com/in/KarolKarnas/",
+    description: "LinkedIn Profile",
+    shortUrl: "linkedin.com/in/KarolKarnas",
+    icon: linkedIn,
   },
   {
     title: "Twitter",
     path: "https://twitter.com/Karol_Karnas",
-    icon: react,
+    description: "Twitter programming news",
+    shortUrl: "twitter.com/Karol_Karnas",
+    icon: twitter,
   },
-  {
-    title: "Instagram",
-    path: "https://isntagram.com/karol.karnas",
-    icon: react,
-  },
-  {
-    title: "Facebook",
-    path: "https://facebook.com/lensmanpl",
-    icon: react,
-  }
+  // {
+  //   title: "Instagram",
+  //   path: "https://isntagram.com/karol.karnas",
+  //   icon: react,
+  // },
+  // {
+  //   title: "Facebook",
+  //   path: "https://facebook.com/lensmanpl",
+  //   icon: react,
+  // }
 ]
