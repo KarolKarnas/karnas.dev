@@ -13,7 +13,6 @@ export type SocialItem = {
   description: string
   shortUrl: string
   icon?: JSX.Element
-
 }
 
 export type MenuItemWithSubMenuProps = {
@@ -28,4 +27,19 @@ export type MenuItemWithSubMenuProps = {
 export type FakeJson = {
   title: string
   value: string | FakeJson[]
+}
+
+export type User = {
+  id: string
+  name: string
+  email: string
+  password: string
+}
+
+export type Article = {
+  id: string
+  author_id: string
+  title: string
+  content: string
+  date: string
 }

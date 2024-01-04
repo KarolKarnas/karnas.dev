@@ -39,6 +39,15 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ],
   },
   {
+    title: "blog",
+    path: "/blog",
+    icon: folderOpen,
+    submenu: true,
+    subMenuItems: [
+
+    ],
+  },
+  {
     title: "contact.tsx",
     path: "/contact",
     icon: react,
