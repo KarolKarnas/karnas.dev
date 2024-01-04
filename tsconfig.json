@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/contact/index.tsx", "app/lib/dir.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/contact/index.tsx", "app/lib/dir.js", "app/lib/placeholder-data.js"],
   "exclude": ["node_modules"]
 }

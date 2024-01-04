@@ -36,10 +36,21 @@ export type User = {
   password: string
 }
 
-export type Article = {
+export type Field = {
+  title: string
+  content: string
+  image: string
+}
+
+export type Post = {
   id: string
   author_id: string
   title: string
+  short_title: string
+  sub_title: string
+  slug: string
   content: string
+  main_image: string
+  fields: Field[]
   date: string
 }

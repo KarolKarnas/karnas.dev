@@ -1,17 +1,38 @@
 import { sql } from "@vercel/postgres"
-import { Article, User } from "../utils/types"
+import { Post, User } from "../utils/types"
 import { unstable_noStore as noStore } from "next/cache"
+import { typeScript } from "../utils/icons"
 
-export async function fetchArticles() {
+export async function fetchPosts() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore()
   try {
-    const data = await sql<Article>`SELECT * FROM articles`
+    const data = await sql<Post>`SELECT * FROM posts`
     return data.rows
   } catch (error) {
     console.error("Database Error:", error)
-    throw new Error("Failed to fetch articles data.")
+    throw new Error("Failed to fetch posts data.")
+  }
+}
+
+export async function fetchBlogLinks() {
+  // Add noStore() here prevent the response from being cached.
+  // This is equivalent to in fetch(..., {cache: 'no-store'}).
+  noStore()
+  try {
+    const data = await sql<Post>`SELECT short_title, slug FROM posts`
+    console.log('data rows!', data.rows)
+   const blogLinks = data.rows.map((row) => ({
+      title: row.short_title,
+      path: `/blog/${row.slug}`,
+      icon: typeScript,
+    }))
+    console.log(blogLinks)
+    return blogLinks
+  } catch (error) {
+    console.error("Database Error:", error)
+    throw new Error("Failed to fetch posts data.")
   }
 }
 

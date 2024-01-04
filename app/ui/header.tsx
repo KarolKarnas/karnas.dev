@@ -19,7 +19,7 @@ const Header = (props: Props) => {
   const updateOpenTabs = navStore((state) => state.updateOpenTabs)
   const removeTab = navStore((state) => state.removeTab)
   // const removeAllTabs = navStore((state) => state.removeAllTabs)
-  // const navLinks = navStore((state) => state.menu.navLinks)
+  const navLinks = navStore((state) => state.menu.navLinks)
 
   useEffect(() => {
     // if (pathname && pathname === "/") {
@@ -27,11 +27,11 @@ const Header = (props: Props) => {
     // }
     // if (pathname && pathname !== "/") {
     if (pathname) {
-      const link = SIDENAV_ITEMS.find((item) => item.path === pathname)
+      const link = navLinks.find((item) => item.path === pathname)
       if (link) {
         updateOpenTabs(link)
       } else {
-         SIDENAV_ITEMS.forEach((item) => {
+        navLinks.forEach((item) => {
           if (item.subMenuItems) {
             const subLink = item.subMenuItems.find((subItem) => subItem.path === pathname)
             if (subLink) {
@@ -42,7 +42,7 @@ const Header = (props: Props) => {
     
       }
     }
-  }, [pathname, updateOpenTabs])
+  }, [navLinks, pathname, updateOpenTabs])
 
   return (
     <header className={styles.header}>

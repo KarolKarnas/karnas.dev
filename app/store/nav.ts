@@ -5,21 +5,38 @@ import { create } from "zustand"
 
 export interface NavState {
   menu: {
-    // navLinks: SideNavItem[]
+    navLinks: SideNavItem[]
     openTabs: SideNavItem[]
     activeTab?: SideNavItem
   }
 
   updateOpenTabs: (newTab: SideNavItem) => void
   removeTab: (tabRemove: SideNavItem, router: AppRouterInstance) => void
+  updateNavLinks: (blogTabs: SideNavItem[]) => void
   // removeAllTabs: () => void
 }
 
 export const navStore = create<NavState>((set) => ({
   menu: {
-    // navLinks: SIDENAV_ITEMS,
+    navLinks: SIDENAV_ITEMS,
     openTabs: [SIDENAV_ITEMS[0]],
   },
+
+  updateNavLinks: (blogTabs) => set((state) => {
+    const updatedNavLinks = [...state.menu.navLinks];
+    updatedNavLinks[4] = {
+      ...updatedNavLinks[4],
+      subMenuItems: blogTabs,
+    };
+  
+    return {
+      menu: {
+        ...state.menu,
+        navLinks: updatedNavLinks,
+      },
+    };
+  }),
+
   updateOpenTabs: (newTab) =>
     set((state) => {
       // console.log(newTab)
