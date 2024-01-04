@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/image"
+
 import styles from "./sidenav.module.scss"
 import Logo from "./logo"
 import Hamburger from "./hamburger"
@@ -7,7 +7,7 @@ import { menuStore } from "../store/menu"
 import { navStore } from "../store/nav"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Post, SideNavItem } from "../utils/types"
+import { SideNavItem } from "../utils/types"
 import { useEffect, useState } from "react"
 import { chevronDown } from "../utils/icons"
 
@@ -21,6 +21,7 @@ const SideNav = ({ blogLinks }: Props) => {
   // const updateOpenTabs = navStore((state) => state.updateOpenTabs)
   // const activeTab = navStore((state) => state.menu.activeTab)
 
+  // async? /pre rendering
   useEffect(() => {
     updateNavLinks(blogLinks)
   }, [blogLinks, updateNavLinks])
@@ -86,9 +87,6 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
           </Link>
           {subMenuOpen && (
             <div className={styles.subMenu}>
-              {/* 
-              {item.title === 'blog' ? posts.map()}
-               */}
               {item.subMenuItems?.map((subItem, idx) => {
                 return (
                   <Link

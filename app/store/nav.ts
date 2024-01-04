@@ -22,6 +22,7 @@ export const navStore = create<NavState>((set) => ({
     openTabs: [SIDENAV_ITEMS[0]],
   },
 
+  //refactor
   updateNavLinks: (blogTabs) => set((state) => {
     const updatedNavLinks = [...state.menu.navLinks];
     updatedNavLinks[4] = {

@@ -37,9 +37,9 @@ export type User = {
 }
 
 export type Field = {
-  title: string
-  content: string
-  image: string
+  title?: string
+  content?: string
+  image?: string
 }
 
 export type Post = {

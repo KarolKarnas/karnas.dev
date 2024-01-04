@@ -1,0 +1,60 @@
+@use "../scss/colors.scss";
+@use "../scss/fonts.scss";
+@use "../scss/spacing.scss";
+
+
+.container {
+  list-style: none;
+  li {
+    padding: spacing.$s1 0px;
+    display: flex;
+    align-items: flex-end;
+    gap: spacing.$s3;
+    svg {
+      color: colors.$blue-700;
+      height: fonts.$xl3;
+      g {
+        fill: colors.$blue-700;
+      }
+      // path {
+      //   fill: colors.$blue-700;
+      // }
+    }
+
+    a {
+      color: colors.$blue-700;
+      text-decoration: none;
+    }
+  }
+}
+
+// .listItem {
+//   display: flex;
+//   flex-direction: column;
+
+//   color: colors.$grey-500;
+//   width: 500px;
+//   // padding: spacing.$s2;
+//   border-bottom: 3px solid colors.$blue-700;
+//   border-radius: 5px;
+//   border-radius: 5px;
+
+//   a {
+//     display: flex;
+//     gap: spacing.$s3;
+//     color: colors.$greyMenu;
+//     height: 100%;
+//     padding: spacing.$s3;
+//     text-decoration: none;
+//     background-color: colors.$greySide;
+//     border-radius: 5px 5px 0 0;
+//     &:hover {
+//       background-color: colors.$grey-800;
+//     }
+//       svg {
+//         height: fonts.$xl;
+//       }
+
+//   }
+
+// }

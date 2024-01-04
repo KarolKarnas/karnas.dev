@@ -3,6 +3,7 @@ import Link from "next/link"
 import { SIDENAV_ITEMS } from "./utils/constants"
 import SocialCard from "./ui/socialCard"
 import { SOCIAL_ITEMS } from "./utils/constants"
+import BlogLinks from "./ui/blogLinks"
 
 export default function Home() {
   const startItems = [SIDENAV_ITEMS[1], SIDENAV_ITEMS[4]]
@@ -50,9 +51,12 @@ export default function Home() {
         <ul>
           {SOCIAL_ITEMS.map((item, index) => (
             <SocialCard key={index} socialItem={item} />
-          ))}
+            ))}
         </ul>
+            <h4>Blog</h4>
+        <BlogLinks />
       </div>
+
     </div>
   )
 }

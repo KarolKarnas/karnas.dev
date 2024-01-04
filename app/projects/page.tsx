@@ -1,6 +1,6 @@
 import styles from "./page.module.scss"
 
-export default function Portfolio() {
+export default function Projects() {
   return (
     <div>
       <div className={styles.title}>Projects</div>

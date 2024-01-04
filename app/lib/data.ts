@@ -22,17 +22,31 @@ export async function fetchBlogLinks() {
   noStore()
   try {
     const data = await sql<Post>`SELECT short_title, slug FROM posts`
-    console.log('data rows!', data.rows)
-   const blogLinks = data.rows.map((row) => ({
+    // console.log("data rows!", data.rows)
+    const blogLinks = data.rows.map((row) => ({
       title: row.short_title,
       path: `/blog/${row.slug}`,
       icon: typeScript,
     }))
-    console.log(blogLinks)
+    // console.log(blogLinks)
     return blogLinks
   } catch (error) {
     console.error("Database Error:", error)
     throw new Error("Failed to fetch posts data.")
+  }
+}
+
+export async function fetchBlogBySlug(slug: string) {
+  noStore()
+  try {
+    const data = await sql<Post>`
+      SELECT * FROM posts WHERE posts.slug = ${slug};
+    `
+    // console.log(data.rows)
+    return data.rows[0]
+  } catch (error) {
+    console.error("Database Error:", error)
+    throw new Error("Failed to fetch blog post by slug.")
   }
 }
 
