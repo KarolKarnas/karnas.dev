@@ -17,30 +17,19 @@ export default function Home() {
         <ul className={styles.mainLinks}>
           {SIDENAV_ITEMS.map((item, index) => (
             <li key={index}>
-              {item.iconAlt ? item.iconAlt : item.icon}
-              <Link href={item.path}>{item.title} </Link>
+              
+              <Link href={item.path}>{item.iconAlt ? item.iconAlt : item.icon} {item.title}</Link>
             </li>
           ))}
-          {/* <li >
-              {newFile}
-              <Link href={'/skills'}>Skills... </Link>
-            </li>
-            <li >
-              {folderOpen}
-              <Link href={'/projects'}>Projects... </Link>
-            </li>
-            <li >
-              {nodeJs}
-              <Link href={'/skills'}>Skills... </Link>
-            </li> */}
+
         </ul>
         <h4>Recent Projects</h4>
         <ul className={styles.mainLinks}>
           {SIDENAV_ITEMS[3].subMenuItems &&
             SIDENAV_ITEMS[3].subMenuItems.map((item, index) => (
               <li key={index}>
-                {item.iconAlt ? item.iconAlt : item.icon}
-                <Link href={item.path}>{item.title} </Link>
+                
+                <Link href={item.path}>{item.iconAlt ? item.iconAlt : item.icon} {item.title}</Link>
               </li>
             ))}
         </ul>

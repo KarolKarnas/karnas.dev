@@ -1,7 +1,7 @@
 import { sql } from "@vercel/postgres"
 import { Post, User } from "../utils/types"
 import { unstable_noStore as noStore } from "next/cache"
-import { typeScript } from "../utils/icons"
+import { typeScriptAlt } from "../utils/icons"
 
 export async function fetchPosts() {
   // Add noStore() here prevent the response from being cached.
@@ -26,7 +26,7 @@ export async function fetchBlogLinks() {
     const blogLinks = data.rows.map((row) => ({
       title: row.short_title,
       path: `/blog/${row.slug}`,
-      icon: typeScript,
+      icon: typeScriptAlt,
     }))
     // console.log(blogLinks)
     return blogLinks

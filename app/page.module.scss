@@ -38,24 +38,23 @@
     list-style: none;
     color: colors.$grey-500;
     li {
-      padding: spacing.$s1 0px;
-      display: flex;
-      align-items: flex-end;
-      gap: spacing.$s3;
-      svg {
-        color: colors.$blue-700;
-        height: fonts.$xl3;
-        g {
-          fill: colors.$blue-700;
-        }
-        path {
-          fill: colors.$blue-700;
-        }
-      }
-
       a {
+        padding: spacing.$s1 0px;
+        display: flex;
+        align-items: center;
+        gap: spacing.$s3;
         color: colors.$blue-700;
         text-decoration: none;
+        svg {
+          color: colors.$blue-700;
+          height: fonts.$xl3;
+          g {
+            fill: colors.$blue-700;
+          }
+          path {
+            fill: colors.$blue-700;
+          }
+        }
       }
     }
     &:first-of-type {
@@ -65,6 +64,7 @@
 }
 
 .socialLinks {
+  padding-top: 115px;
   ul {
     display: flex;
     flex-direction: column;

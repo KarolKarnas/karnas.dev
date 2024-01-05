@@ -2,28 +2,28 @@
 @use "../scss/fonts.scss";
 @use "../scss/spacing.scss";
 
-
 .container {
   list-style: none;
   li {
-    padding: spacing.$s1 0px;
-    display: flex;
-    align-items: flex-end;
-    gap: spacing.$s3;
-    svg {
-      color: colors.$blue-700;
-      height: fonts.$xl3;
-      g {
-        fill: colors.$blue-700;
-      }
-      // path {
-      //   fill: colors.$blue-700;
-      // }
-    }
-
     a {
       color: colors.$blue-700;
       text-decoration: none;
+
+      padding: spacing.$s1 0px;
+      display: flex;
+      align-items: center;
+      gap: spacing.$s3;
+
+      svg {
+        color: colors.$blue-700;
+        height: fonts.$xl3;
+        g {
+          fill: colors.$blue-700;
+        }
+        path {
+          fill: colors.$blue-700;
+        }
+      }
     }
   }
 }

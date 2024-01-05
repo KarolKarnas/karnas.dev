@@ -28,10 +28,10 @@ export default async function RootLayout({
    
           <SideNav blogLinks={blogLinks} />
      
-        <main className={styles.main}>
+        <div className={styles.container}>
           <Header />
-          <div className={styles.content}>{children}</div>
-        </main>
+          <main className={styles.content}>{children}</main>
+        </div>
       </body>
     </html>
   )

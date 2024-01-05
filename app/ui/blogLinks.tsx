@@ -1,6 +1,5 @@
 "use client"
 
-import { SocialItem } from "../utils/types"
 import Link from "next/link"
 import styles from "./blogLinks.module.scss"
 import { navStore } from "../store/nav"
@@ -25,8 +24,8 @@ const BlogLinks = () => {
           blogLinks.subMenuItems &&
           blogLinks.subMenuItems.map((item, index) => (
             <li key={index}>
-              {item.icon}
-              <Link href={item.path}>{item.title}</Link>
+              
+              <Link href={item.path}>{item.icon} {item.title}</Link>
             </li>
           ))
         : null}
