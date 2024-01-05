@@ -52,5 +52,7 @@ export type Post = {
   content: string
   main_image: string
   fields: Field[]
+  category: string,
+  tags: string[]
   date: string
 }

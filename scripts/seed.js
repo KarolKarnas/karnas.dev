@@ -57,6 +57,8 @@ async function seedPosts(client) {
     content TEXT NOT NULL,
     main_image TEXT NOT NULL,
     fields JSONB NOT NULL,
+    category TEXT NOT NULL,
+    tags TEXT[] NOT NULL,
     date DATE NOT NULL
   );
 `
@@ -67,8 +69,8 @@ async function seedPosts(client) {
     const insertedPosts = await Promise.all(
       posts.map(
         (post) => client.sql`
-        INSERT INTO posts (author_id, title, short_title, sub_title, slug, content, main_image, fields, date)
-        VALUES (${post.author_id}, ${post.title}, ${post.short_title}, ${post.sub_title}, ${post.slug}, ${post.content}, ${post.main_image}, ${JSON.stringify(post.fields)}, ${post.date})
+        INSERT INTO posts (author_id, title, short_title, sub_title, slug, content, main_image, fields, category, tags, date)
+        VALUES (${post.author_id}, ${post.title}, ${post.short_title}, ${post.sub_title}, ${post.slug}, ${post.content}, ${post.main_image}, ${JSON.stringify(post.fields)}, ${post.category}, ${post.tags}, ${post.date})
         ON CONFLICT (id) DO NOTHING;
       `
       )

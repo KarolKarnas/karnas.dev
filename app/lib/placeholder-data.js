@@ -49,6 +49,8 @@ const posts = [
         image: "/next.svg",
       }
     ],
+    category: "Technology",
+    tags: ["JavaScript", "TypeScript", "Figma"],
     date: "2022-12-06",
   },
   {
@@ -71,6 +73,8 @@ const posts = [
         image: "/next.svg",
       },
     ],
+    category: "Philosophy",
+    tags: ["JavaScript", "TypeScript", "Figma"],
     date: "2024-01-01",
   },
 ]
