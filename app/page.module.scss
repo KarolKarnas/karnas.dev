@@ -20,18 +20,18 @@
 
   h1 {
     font-size: fonts.$xl6;
-    color: colors.$greyMenu;
+    color: colors.$grey-100;
     font-weight: 400;
   }
   h3 {
     margin-bottom: spacing.$s5;
-    color: colors.$greySubMenu;
+    color: colors.$grey-200;
     font-size: fonts.$xl2;
   }
 
   h4 {
     font-size: fonts.$xl2;
-    color: colors.$white;
+    color: colors.$white-100;
     margin-bottom: spacing.$s2;
   }
   ul.mainLinks {
@@ -43,16 +43,16 @@
         display: flex;
         align-items: center;
         gap: spacing.$s3;
-        color: colors.$blue-700;
+        color: colors.$navy-500;
         text-decoration: none;
         svg {
-          color: colors.$blue-700;
+          color: colors.$navy-500;
           height: fonts.$xl3;
           g {
-            fill: colors.$blue-700;
+            fill: colors.$navy-500;
           }
           path {
-            fill: colors.$blue-700;
+            fill: colors.$navy-500;
           }
         }
       }

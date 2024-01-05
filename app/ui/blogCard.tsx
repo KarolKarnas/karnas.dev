@@ -12,7 +12,7 @@ const BlogCard = ({ card }: Props) => {
       <Image
               src={card.main_image}
               width={400}
-              height={400}
+              height={500}
               alt={`${card.sub_title}`}
             />
     </div>

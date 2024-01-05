@@ -1,9 +1,9 @@
-@use '../scss/colors';
+@use "../scss/colors";
 
 .logo {
-  color: colors.$white;
+  color: colors.$white-100;
   font-weight: 900;
-  background-color: colors.$grey;
+  background-color: colors.$grey-900;
   text-transform: uppercase;
   display: flex;
   align-items: center;

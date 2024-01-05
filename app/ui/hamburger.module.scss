@@ -1,7 +1,7 @@
 @use "../scss/colors";
 
 .hamburger {
-  color: colors.$greyMenu;
+  color: colors.$grey-100;
   width: 30px;
   &:hover {
     cursor: pointer;

@@ -9,26 +9,24 @@
   color: colors.$grey-500;
   width: 500px;
   // padding: spacing.$s2;
-  border-bottom: 3px solid colors.$blue-700;
+  border-bottom: 3px solid colors.$navy-500;
   border-radius: 5px;
   border-radius: 5px;
 
   a {
     display: flex;
     gap: spacing.$s3;
-    color: colors.$greyMenu;
+    color: colors.$grey-100;
     height: 100%;
     padding: spacing.$s3;
     text-decoration: none;
-    background-color: colors.$greySide;
+    background-color: colors.$grey-950;
     border-radius: 5px 5px 0 0;
     &:hover {
       background-color: colors.$grey-800;
     }
-      svg {
-        height: fonts.$xl;
-      }
-
+    svg {
+      height: fonts.$xl;
+    }
   }
-
 }

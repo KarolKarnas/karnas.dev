@@ -12,7 +12,7 @@ export default function Contact() {
         <span>### </span>Full Stack <span>Developer</span> from Poland
       </h3>
       <hr />
-<Json code={ABOUT}></Json>
+      <Json code={ABOUT}></Json>
     </div>
   )
 }

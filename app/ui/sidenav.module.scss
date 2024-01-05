@@ -2,12 +2,11 @@
 @use "../scss/spacing";
 
 .sidenav {
-  background-color: colors.$greySide;
-  color: colors.$greyMenu;
+  background-color: colors.$grey-950;
+  color: colors.$grey-100;
   position: sticky;
   top: 0px;
   height: 100vh;
-
 }
 .open {
   width: 15%;
@@ -27,7 +26,7 @@
 // ______________
 
 // .pathBtn {
-//   background-color: colors.$grey-200;
+//   background-color: colors.$grey-600;
 // }
 
 .contentBtn {
@@ -35,7 +34,6 @@
 
   align-items: center;
   gap: spacing.$s1;
-
 }
 
 .rotate180 {
@@ -59,7 +57,7 @@
 
 .subMenuItem {
   padding: spacing.$s2;
-  color: colors.$greyMenu;
+  color: colors.$grey-100;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -70,12 +68,12 @@
   }
 
   &:hover {
-    background-color: colors.$grey-200;
+    background-color: colors.$grey-600;
   }
 }
 
 .pathSubMenu {
-  background-color: colors.$grey-200;
+  background-color: colors.$grey-600;
 }
 
 .subMenuLink {
@@ -87,27 +85,23 @@
   flex-direction: row;
   align-items: center;
   padding: spacing.$s2;
-  color: colors.$greyMenu;
+  color: colors.$grey-100;
   text-decoration: none;
   gap: spacing.$s1;
   &:hover {
-    background-color: colors.$grey-200;
+    background-color: colors.$grey-600;
     cursor: pointer;
   }
   svg {
     height: spacing.$s5;
   }
-  .chevron svg{
-      
+  .chevron svg {
     height: spacing.$s4;
-  } 
-
+  }
 }
 
-
-
 .pathLink {
-  background-color: colors.$grey-200;
+  background-color: colors.$grey-600;
 }
 
 .spanLink {

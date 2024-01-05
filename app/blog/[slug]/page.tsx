@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   // }
   return (
     <div className={styles.container}>
-      <Image src={post.main_image} width={500} height={500} alt="Main image" />
+      <Image src={post.main_image} width={400} height={500} alt="Main image" />
       <h1>{post.title}</h1>
       <h4>{post.sub_title}</h4>
       <p>{post.content}</p>

@@ -11,15 +11,13 @@
     li {
       ul {
         padding-left: spacing.$s6;
-li {
-  line-height: 1.5;
-}
+        li {
+          line-height: 1.5;
+        }
       }
     }
   }
 }
-
-
 
 .text_yellow {
   color: colors.$yellow-500;
@@ -28,9 +26,9 @@ li {
   color: colors.$pink-200;
 }
 .text_blue {
-  color: colors.$blue-300;
+  color: colors.$blue-500;
 }
 .text_white {
-  color: colors.$white;
+  color: colors.$white-100;
   font-weight: 700;
 }

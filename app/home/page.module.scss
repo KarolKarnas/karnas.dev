@@ -3,7 +3,7 @@
 @use "../scss/spacing.scss";
 
 // .title {
-//   color: colors.$orange;
+//   color: colors.$orange-500;
 // }
 
 .container {
@@ -22,7 +22,7 @@
   hr {
     margin: spacing.$s5 spacing.$s0;
     border: none;
-    border-top: 1px solid colors.$greyLight;
+    border-top: 1px solid colors.$grey-625;
   }
   .code {
     font-size: fonts.$lg;
@@ -32,22 +32,8 @@
       li {
         ul {
           padding-left: spacing.$s6;
-
         }
       }
     }
   }
-}
-
-.text_yellow {
-  color: colors.$yellow-500;
-}
-.text_pink {
-  color: colors.$pink-200;
-}
-.text_blue {
-  color: colors.$blue-300;
-}
-.text_white {
-  color: colors.$white;
 }

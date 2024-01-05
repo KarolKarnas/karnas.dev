@@ -3,19 +3,21 @@
 @use "../scss/fonts";
 
 .header {
-  background-color: colors.$grey-900;
+  background-color: colors.$grey-950;
   height: 40px;
-  position: sticky;
+  width: 100%;
+  // position: sticky;
   top: 0px;
-  // position: fixed;
+  position: fixed;
+  // overflow-x: scroll
   // width: 100%;
 }
 
 .container {
-height: 100%;
-position: relative;
-display: flex;
-align-items: center;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .ul {
@@ -27,10 +29,10 @@ align-items: center;
     display: flex;
     align-items: center;
     height: 100%;
-    background-color: colors.$greySide;
+    background-color: colors.$grey-950;
     border-right: solid 1px black;
     font-size: fonts.$sm;
-    color: colors.$greyMenu;
+    color: colors.$grey-100;
     padding-left: spacing.$s5;
     padding-right: spacing.$s6;
     text-decoration: none;
@@ -47,8 +49,8 @@ align-items: center;
 
 .ul {
   .active {
-    background-color: colors.$grey;
-    color: colors.$accent;
+    background-color: colors.$grey-900;
+    color: colors.$accent-500;
   }
 }
 
@@ -59,11 +61,11 @@ align-items: center;
   top: 11px;
   border-radius: 6px;
   padding: 2px;
-  svg{
+  svg {
     height: spacing.$s4;
   }
   &:hover {
     cursor: pointer;
-    background-color: colors.$greyLight;
+    background-color: colors.$grey-625;
   }
 }

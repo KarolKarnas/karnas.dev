@@ -10,10 +10,11 @@
 
 .container {
   min-height: 100%;
-  background-color: colors.$grey;
+  background-color: colors.$grey-900;
   width: 100%;
-  color: colors.$greyMenu;
+  color: colors.$grey-100;
   overflow: hidden;
+  margin-top: spacing.$s6;
 }
 
 .content {

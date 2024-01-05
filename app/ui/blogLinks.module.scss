@@ -6,7 +6,7 @@
   list-style: none;
   li {
     a {
-      color: colors.$blue-700;
+      color: colors.$navy-500;
       text-decoration: none;
 
       padding: spacing.$s1 0px;
@@ -15,13 +15,13 @@
       gap: spacing.$s3;
 
       svg {
-        color: colors.$blue-700;
+        color: colors.$navy-500;
         height: fonts.$xl3;
         g {
-          fill: colors.$blue-700;
+          fill: colors.$navy-500;
         }
         path {
-          fill: colors.$blue-700;
+          fill: colors.$navy-500;
         }
       }
     }
@@ -35,18 +35,18 @@
 //   color: colors.$grey-500;
 //   width: 500px;
 //   // padding: spacing.$s2;
-//   border-bottom: 3px solid colors.$blue-700;
+//   border-bottom: 3px solid colors.$navy-500;
 //   border-radius: 5px;
 //   border-radius: 5px;
 
 //   a {
 //     display: flex;
 //     gap: spacing.$s3;
-//     color: colors.$greyMenu;
+//     color: colors.$grey-100;
 //     height: 100%;
 //     padding: spacing.$s3;
 //     text-decoration: none;
-//     background-color: colors.$greySide;
+//     background-color: colors.$grey-950;
 //     border-radius: 5px 5px 0 0;
 //     &:hover {
 //       background-color: colors.$grey-800;

@@ -18,7 +18,7 @@ const posts = [
     slug: "tdd-and-figma",
     content:
       "In the ever-evolving landscape of software development, two methodologies stand out as pillars of efficiency and innovation: Test-Driven Development (TDD) and Figma prototyping. While on the surface, these two practices may seem worlds apart, a closer examination reveals profound philosophical analogies that bridge the gap between the meticulous coding process of TDD and the creative design realm of Figma.",
-    main_image: "/next.svg",
+    main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "TDD as the Stoic Craftsman",
@@ -82,9 +82,9 @@ const posts = [
   {
     author_id: users[0].id,
     title: "My third article",
-    short_title: "mySecondArticle.ts",
+    short_title: "myThirdArticle.ts",
     sub_title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-    slug: "my-second-article",
+    slug: "my-third-article",
     content: "test content 0",
     main_image: "/next.svg",
     fields: [
@@ -106,9 +106,9 @@ const posts = [
   {
     author_id: users[0].id,
     title: "My fourth article lorem ipsum",
-    short_title: "mySecondArticle.ts",
+    short_title: "myFourthArticle.ts",
     sub_title: "Lorem ipsum dolor sit amet.",
-    slug: "my-second-article",
+    slug: "my-fourth-article",
     content: "test content 0",
     main_image: "/next.svg",
     fields: [
@@ -130,9 +130,9 @@ const posts = [
   {
     author_id: users[0].id,
     title: "Lorem ipsum dolor same My fifth article",
-    short_title: "mySecondArticle.ts",
+    short_title: "myFifthArticle.ts",
     sub_title: "Subtitle",
-    slug: "my-second-article",
+    slug: "my-fifth-article",
     content: "test content 0",
     main_image: "/next.svg",
     fields: [
