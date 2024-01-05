@@ -52,7 +52,17 @@ export type Post = {
   content: string
   main_image: string
   fields: Field[]
-  category: string,
+  category: string
   tags: string[]
   date: string
+}
+
+export type BlogCard = {
+  short_title: string
+  slug: string
+  title: string
+  sub_title: string
+  main_image: string
+  path: string
+  icon: JSX.Element
 }

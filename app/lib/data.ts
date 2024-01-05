@@ -36,6 +36,27 @@ export async function fetchBlogLinks() {
   }
 }
 
+export async function fetchBlogCards() {
+  // Add noStore() here prevent the response from being cached.
+  // This is equivalent to in fetch(..., {cache: 'no-store'}).
+  noStore()
+  try {
+    const data =
+      await sql<Post>`SELECT short_title, slug, title, sub_title, main_image FROM posts`
+    // console.log("data rows!", data.rows)
+    const blogCards = data.rows.map((row) => ({
+      ...row,
+      path: `/blog/${row.slug}`,
+      icon: typeScriptAlt,
+    }))
+    // console.log(blogLinks)
+    return blogCards
+  } catch (error) {
+    console.error("Database Error:", error)
+    throw new Error("Failed to fetch posts data.")
+  }
+}
+
 export async function fetchBlogBySlug(slug: string) {
   noStore()
   try {

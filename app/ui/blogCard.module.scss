@@ -1,0 +1,13 @@
+@use "../scss/colors";
+@use "../scss/fonts.scss";
+@use "../scss/spacing.scss";
+
+.card {
+  padding: spacing.$s4;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  h3 {
+    color: colors.$orange;
+  }
+}
