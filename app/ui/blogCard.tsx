@@ -6,6 +6,8 @@ type Props = {
   card: BlogCard
 }
 const BlogCard = ({ card }: Props) => {
+
+  
   return (
     <div className={styles.card}>
       <h3>{card.title}</h3>

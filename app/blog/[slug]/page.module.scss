@@ -3,18 +3,125 @@
 @use "../../scss/fonts";
 @use "../../scss/spacing";
 
-// .container {
-//   height: 100%;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   gap: 200px;
-//   justify-content: center;
-//   align-items: center;
-
-// }
 .container {
-  section {
-    margin: spacing.$s2 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: spacing.$s10;
+  .image-container {
+    // position: relative;
+    border-radius: 15px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: "no-repeat";
+    background-position: 50% 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+  .text-container {
+    border-radius: 15px;
+    width: 80%;
+    margin-top: -50%;
+    margin-bottom: 5rem;
+    background-color: rgba(colors.$white-300, 0.75);
+    padding: spacing.$s8;
+    // height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    // justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    .date-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      color: colors.$grey-600;
+      font-size: fonts.$xl;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    }
+
+    h1 {
+      font-size: fonts.$xl7;
+      color: colors.$grey-950;
+      text-align: center;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    }
+    h2 {
+      text-align: center;
+      color: colors.$grey-600;
+      font-size: fonts.$xl2;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+      // padding: spacing.$s5;
+    }
+    p {
+      text-align: center;
+      color: colors.$grey-600;
+      width: 75%;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    }
+  }
+  .main-container {
+    border-radius: 15px;
+    // margin-top: -30%;
+    background-color: rgba(colors.$grey-950, 0.9);
+    backdrop-filter: blur(10px);
+    padding: spacing.$s8 spacing.$s10;
+    width: 80%;
+    section {
+      margin: spacing.$s6 0px;
+
+      h3 {
+        margin-bottom: spacing.$s2;
+        color: colors.$white-100;
+        font-size: fonts.$xl2;
+        filter: drop-shadow(0 4px 3px rgb(255 255 255 / 0.07))
+          drop-shadow(0 2px 2px rgb(255 255 255 / 0.06));
+      }
+      p {
+        color: colors.$white-300;
+        font-size: fonts.$lg;
+        filter: drop-shadow(0 4px 3px rgb(255 255 255 / 0.07))
+          drop-shadow(0 2px 2px rgb(255 255 255 / 0.06));
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        margin: spacing.$s6 0px;
+      }
+    }
+    .author-container {
+      display: flex;
+      justify-content: space-between;
+      // text-align: right;
+      color: colors.$white-100;
+      div {
+        display: flex;
+        flex-direction: column;
+        span {
+          filter: drop-shadow(0 4px 3px rgb(255 255 255 / 0.07))
+            drop-shadow(0 2px 2px rgb(255 255 255 / 0.06));
+          &:first-of-type {
+            font-size: fonts.$xl2;
+          }
+          &:last-of-type {
+            margin-bottom: spacing.$s4;
+          }
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: spacing.$s3;
+      }
+    }
   }
 }
