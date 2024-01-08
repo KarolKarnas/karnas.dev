@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div>
-        <h1>Karol Karnas</h1>
+        <h1 >Karol Karnas</h1>
         <h3>Full Stack Developer</h3>
         <h4>Start</h4>
         <ul className={styles.mainLinks}>

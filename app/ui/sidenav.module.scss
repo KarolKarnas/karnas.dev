@@ -1,5 +1,31 @@
+@use "../scss/breakpoints";
 @use "../scss/colors";
 @use "../scss/spacing";
+
+// @include breakpoints.xs {
+//   .title {
+//     color: colors.$blue-500;
+//   }
+// }
+
+// .title {
+//   color: colors.$orange-500;
+//   @include breakpoints.sm {
+//     color: colors.$pink-500;
+//   }
+//   @include breakpoints.md {
+//     color: colors.$blue-500;
+//   }
+//   @include breakpoints.lg {
+//     color: colors.$pink-100;
+//   }
+//   @include breakpoints.xl {
+//     color: colors.$green-500;
+//   }
+//   @include breakpoints.xl2 {
+//     color: colors.$yellow-500;
+//   }
+// }
 
 .sidenav {
   background-color: colors.$grey-950;
@@ -7,12 +33,12 @@
   position: sticky;
   top: 0px;
   height: 100vh;
-}
-.open {
-  width: 15%;
-}
-.close {
-  width: auto;
+  .open {
+    width: 15%;
+  }
+  .close {
+    width: auto;
+  }
 }
 
 .show {

@@ -26,8 +26,6 @@ const SideNav = ({ blogLinks }: Props) => {
     updateNavLinks(blogLinks)
   }, [blogLinks, updateNavLinks])
 
-
-
   return (
     <div className={`${styles.sidenav} ${isOpen ? styles.open : styles.close}`}>
       <Hamburger />
@@ -41,6 +39,7 @@ const SideNav = ({ blogLinks }: Props) => {
             {navLinks.map((item, index) => (
               <MenuItem key={index} item={item} />
             ))}
+            {/* <li className={styles.title}>TEST</li> */}
           </ul>
         </nav>
       </div>
