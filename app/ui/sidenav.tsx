@@ -16,15 +16,30 @@ type Props = {
 }
 const SideNav = ({ blogLinks }: Props) => {
   const isOpen = menuStore((state) => state.menu.isOpen)
+  const width = menuStore((state) => state.menu.width)
+  const setWidth = menuStore((state) => state.setWidth)
+  const openMenu = menuStore((state) => state.openMenu)
+  const closeMenu = menuStore((state) => state.closeMenu)
+
   const navLinks = navStore((state) => state.menu.navLinks)
   const updateNavLinks = navStore((state) => state.updateNavLinks)
-  // const updateOpenTabs = navStore((state) => state.updateOpenTabs)
-  // const activeTab = navStore((state) => state.menu.activeTab)
 
   // async? /pre rendering
   useEffect(() => {
     updateNavLinks(blogLinks)
   }, [blogLinks, updateNavLinks])
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth)
+    handleResize()
+    // window.addEventListener("resize", handleResize)
+    if (width > 640) {
+      openMenu()
+    } else {
+      closeMenu()
+    }
+    // return () => window.removeEventListener("resize", handleResize)
+  }, [closeMenu, openMenu, setWidth, width])
 
   return (
     // ${isOpen ? styles.open : styles.close}
@@ -36,8 +51,6 @@ const SideNav = ({ blogLinks }: Props) => {
 
       <div className={`${isOpen ? styles.show : styles.hide}`}>
         <Logo />
-
-        {/* <h2 className={styles.title}>SideNav</h2> */}
         <nav>
           <ul>
             {navLinks.map((item, index) => (
@@ -58,7 +71,11 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
   const toggleSubMenu = () => {
     setSubMenuOpen(!subMenuOpen)
   }
+  const width = menuStore((state) => state.menu.width)
   const updateOpenTabs = navStore((state) => state.updateOpenTabs)
+  const closeMenu = menuStore((state) => state.closeMenu)
+
+  const linkClick = () => {}
 
   return (
     <li className="">
@@ -66,7 +83,13 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
         <>
           <Link
             className={styles.subMenuLink}
-            onClick={() => updateOpenTabs(item)}
+            onClick={() => {
+              updateOpenTabs(item)
+              if (width < 640) {
+                closeMenu()
+              }
+              return
+            }}
             href={item.path}
           >
             <div
@@ -93,7 +116,13 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
               {item.subMenuItems?.map((subItem, idx) => {
                 return (
                   <Link
-                    onClick={() => updateOpenTabs(subItem)}
+                    onClick={() => {
+                      updateOpenTabs(item)
+                      if (width < 640) {
+                        closeMenu()
+                      }
+                      return
+                    }}
                     key={idx}
                     href={subItem.path}
                     className={`${styles.subMenuItem} ${
@@ -114,7 +143,13 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
         </>
       ) : (
         <Link
-          onClick={() => updateOpenTabs(item)}
+          onClick={() => {
+            updateOpenTabs(item)
+            if (width < 640) {
+              closeMenu()
+            }
+            return
+          }}
           href={item.path}
           className={`${styles.linkNew} ${
             item.path === pathname ? styles.pathLink : ""
