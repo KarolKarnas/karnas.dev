@@ -60,9 +60,11 @@ export type Post = {
 export type BlogCard = {
   short_title: string
   slug: string
+  date: string
   title: string
   sub_title: string
   main_image: string
+  content: string
   path: string
   icon: JSX.Element
 }

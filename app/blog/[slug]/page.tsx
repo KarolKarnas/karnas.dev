@@ -28,7 +28,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h2>{post.sub_title}</h2>
         <p>{post.content}</p>
       </div>
-      <div className={styles["main-container"]}>
+      <div className={styles["content-container"]}>
         {post.fields.map((field, index) => (
           <section key={index}>
             {field.title ? <h3>{field.title}</h3> : null}

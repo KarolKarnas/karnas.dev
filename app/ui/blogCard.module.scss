@@ -1,13 +1,94 @@
 @use "../scss/colors";
 @use "../scss/fonts.scss";
 @use "../scss/spacing.scss";
+@use "../scss/breakpoints.scss";
 
 .card {
-  padding: spacing.$s4;
+  width: 100%;
+  padding: spacing.$s2;
   border: 1px solid colors.$white-100;
   display: flex;
   flex-direction: column;
+  gap: spacing.$s4;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 800px;
+  background-position: 50% 50%;
+
+  @include breakpoints.md {
+    padding: spacing.$s6;
+    gap: spacing.$s6;
+    // background-attachment: fixed;
+    // background-size: 50%;
+    // background-position: left center;
+  }
+
   h3 {
     color: colors.$orange-500;
+  }
+
+  .text-container {
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgba(colors.$white-300, 0.75);
+    padding: spacing.$s2;
+    color: colors.$grey-600;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    @include breakpoints.md {
+      padding: spacing.$s6;
+    }
+
+    .date-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      color: colors.$grey-600;
+      font-size: fonts.$xs;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    }
+    h3 {
+      margin: spacing.$s2 0;
+      font-size: fonts.$xl2;
+      color: colors.$grey-950;
+      text-align: center;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    }
+    h4 {
+      font-size: fonts.$base;
+      text-align: center;
+      color: colors.$grey-600;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+      @include breakpoints.md {
+        font-size: fonts.$lg;
+        padding: spacing.$s6;
+      }
+    }
+  }
+
+  .content-container {
+    border-radius: 10px;
+    background-color: rgba(colors.$grey-950, 0.9);
+    backdrop-filter: blur(10px);
+
+    width: 100%;
+
+    @include breakpoints.md {
+      font-size: fonts.$lg;
+      padding: spacing.$s6;
+    }
+
+    p {
+      font-size: fonts.$base;
+      padding: spacing.$s4;
+      color: colors.$white-300;
+      filter: drop-shadow(0 4px 3px rgb(255 255 255 / 0.07))
+        drop-shadow(0 2px 2px rgb(255 255 255 / 0.06));
+    }
   }
 }

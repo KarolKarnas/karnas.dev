@@ -1,15 +1,18 @@
 import styles from "./page.module.scss"
 import { fetchBlogCards } from "../lib/data"
 import BlogCard from "../ui/blogCard"
+import Link from "next/link"
 
 export default async function Portfolio() {
   const blogCards = await fetchBlogCards()
   return (
     <>
-      <h1>BLOG</h1>
       <div className={styles.container}>
         {blogCards.map((card, index) => (
-          <BlogCard key={index} card={card} />
+          <Link key={index} href={card.path}>
+          <BlogCard  card={card} />
+          
+          </Link>
         ))}
       </div>
     </>

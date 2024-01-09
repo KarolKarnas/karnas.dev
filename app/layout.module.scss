@@ -1,5 +1,6 @@
 @use "./scss/colors";
 @use "./scss/spacing";
+@use "./scss/breakpoints";
 
 .layout {
   min-height: 100vh;
@@ -36,6 +37,11 @@
 
 .content {
   // height: 80%;
-  padding: spacing.$s6;
+  padding: spacing.$s2;
   // overflow: hidden;
+
+  @include breakpoints.md {
+    padding: spacing.$s6;
+  }
+
 }

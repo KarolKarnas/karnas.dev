@@ -48,17 +48,17 @@ const posts = [
     sub_title: "I am second KING of Lorem ipsum dolor sit  consectetur .",
     slug: "my-second-article",
     content: "test content 0",
-    main_image: "/next.svg",
+     main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
         content: "field content 1",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
       {
         title: "field title 2",
         content: "field content 2",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
     ],
     category: "Philosophy",
@@ -72,17 +72,17 @@ const posts = [
     sub_title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
     slug: "my-third-article",
     content: "test content 0",
-    main_image: "/next.svg",
+     main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
         content: "field content 1",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
       {
         title: "field title 2",
         content: "field content 2",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
     ],
     category: "Philosophy",
@@ -96,17 +96,17 @@ const posts = [
     sub_title: "Lorem ipsum dolor sit amet.",
     slug: "my-fourth-article",
     content: "test content 0",
-    main_image: "/next.svg",
+     main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
         content: "field content 1",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
       {
         title: "field title 2",
         content: "field content 2",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
     ],
     category: "Philosophy",
@@ -120,17 +120,17 @@ const posts = [
     sub_title: "Subtitle",
     slug: "my-fifth-article",
     content: "test content 0",
-    main_image: "/next.svg",
+     main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
         content: "field content 1",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
       {
         title: "field title 2",
         content: "field content 2",
-        image: "/next.svg",
+        image: "/tdd_16_9.jpg",
       },
     ],
     category: "Philosophy",
