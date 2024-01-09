@@ -11,14 +11,14 @@
   flex-direction: column;
   gap: spacing.$s4;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 800px;
+  min-height: 700px;
   background-position: 50% 50%;
 
   @include breakpoints.md {
-    padding: spacing.$s6;
+    padding: spacing.$s3;
     gap: spacing.$s6;
     // background-attachment: fixed;
     // background-size: 50%;
@@ -38,7 +38,7 @@
     align-items: center;
     backdrop-filter: blur(3px);
     @include breakpoints.md {
-      padding: spacing.$s6;
+      padding: spacing.$s4;
     }
 
     .date-container {
@@ -59,14 +59,14 @@
         drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
     }
     h4 {
-      font-size: fonts.$base;
+      font-size: fonts.$sm;
       text-align: center;
       color: colors.$grey-600;
       filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
         drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
       @include breakpoints.md {
-        font-size: fonts.$lg;
-        padding: spacing.$s6;
+        font-size: fonts.$base;
+        // padding: spacing.$s3;
       }
     }
   }
@@ -75,17 +75,17 @@
     border-radius: 10px;
     background-color: rgba(colors.$grey-950, 0.9);
     backdrop-filter: blur(10px);
-
+    padding: spacing.$s4;
     width: 100%;
 
     @include breakpoints.md {
       font-size: fonts.$lg;
-      padding: spacing.$s6;
+      padding: spacing.$s4;
     }
 
     p {
       font-size: fonts.$base;
-      padding: spacing.$s4;
+      // padding: spacing.$s4;
       color: colors.$white-300;
       filter: drop-shadow(0 4px 3px rgb(255 255 255 / 0.07))
         drop-shadow(0 2px 2px rgb(255 255 255 / 0.06));

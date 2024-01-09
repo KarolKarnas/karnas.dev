@@ -26,9 +26,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <h1>{post.title}</h1>
         <h2>{post.sub_title}</h2>
-        <p>{post.content}</p>
       </div>
+
       <div className={styles["content-container"]}>
+        <p>{post.content}</p>
         {post.fields.map((field, index) => (
           <section key={index}>
             {field.title ? <h3>{field.title}</h3> : null}
@@ -44,16 +45,23 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </section>
         ))}
 
+        {/* <Image
+          src={post.main_image}
+          width={800}
+          height={1000}
+          alt={`main image`}
+        /> */}
+
         <div className={styles["author-container"]}>
           <div>
             <span>Karol Karnas</span>
-            <span >Fullstack Developer</span>
+            <span>Fullstack Developer</span>
           </div>
           <ul>
-          {SOCIAL_ITEMS.map((item, index) => (
-            <SocialCard key={index} socialItem={item} />
+            {SOCIAL_ITEMS.map((item, index) => (
+              <SocialCard key={index} socialItem={item} />
             ))}
-        </ul>
+          </ul>
         </div>
       </div>
     </div>

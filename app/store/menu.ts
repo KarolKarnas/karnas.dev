@@ -17,7 +17,7 @@ export const menuStore = create<MenuState>((set) => ({
   menu: {
     //close menu on mobile
     width: 0,
-    isOpen: true,
+    isOpen: false,
   },
   setWidth: (width) =>
     set((state) => ({
