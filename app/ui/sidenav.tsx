@@ -27,7 +27,11 @@ const SideNav = ({ blogLinks }: Props) => {
   }, [blogLinks, updateNavLinks])
 
   return (
-    <div className={`${styles.sidenav} ${isOpen ? styles.open : styles.close}`}>
+    // ${isOpen ? styles.open : styles.close}
+    <div
+      className={`${styles.sidenav}
+     `}
+    >
       <Hamburger />
 
       <div className={`${isOpen ? styles.show : styles.hide}`}>

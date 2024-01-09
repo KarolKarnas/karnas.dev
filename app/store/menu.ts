@@ -12,7 +12,7 @@ export interface MenuState {
 
 export const menuStore = create<MenuState>((set) => ({
   menu: {
-    isOpen: true,
+    isOpen: false,
   },
   updateMenu: () =>
     set((state) => ({

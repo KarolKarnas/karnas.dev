@@ -30,19 +30,44 @@
 .sidenav {
   background-color: colors.$grey-950;
   color: colors.$grey-100;
-  position: sticky;
-  top: 0px;
-  height: 100vh;
-  .open {
-    width: 15%;
-  }
-  .close {
+  
+  z-index: 101;
+  position: fixed;
+  top: 5px;
+ 
+  // height: 100vh;
+  // width: 100vw;
+  
+  @include breakpoints.md {
+    position: sticky;
+    top: 0px;
+
+    height: 100vh;
     width: auto;
   }
+
+  // .open {
+  //   width: 100vw!important;
+  //   height: 100vh;
+  //   @include breakpoints.md {
+  //     width: 30%;
+  //   }
+  // }
+  // .close {
+  //   width: auto;
+  // }
 }
 
 .show {
   display: inherit;
+  width: 100vw;
+  height: 100vh;
+  @include breakpoints.md {
+    width: 25vw;
+  }
+  @include breakpoints.xl {
+    width: 15vw;
+  }
 }
 
 .hide {

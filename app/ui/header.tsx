@@ -46,7 +46,7 @@ const Header = (props: Props) => {
 
   return (
     <header className={styles.header}>
-      <ul className={styles.ul}>
+      <ul>
         {openTabs.map((item, index) => (
           <div
             onMouseOver={() => setShowRemove(item.title)}
@@ -72,7 +72,7 @@ const Header = (props: Props) => {
             showRemove === item.title ? (
               <div
                 onClick={() => removeTab(item, router)}
-                className={styles.span}
+                className={styles.xMark}
               >
                 {xMark}
               </div>
