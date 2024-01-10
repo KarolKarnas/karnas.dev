@@ -1,6 +1,6 @@
 import styles from "./blogCard.module.scss"
 import { BlogCard } from "../utils/types"
-import Image from "next/image"
+import Button from "./button"
 import Link from "next/link"
 
 type Props = {
@@ -8,6 +8,7 @@ type Props = {
 }
 const BlogCard = ({ card }: Props) => {
   return (
+
     <div
       className={styles.card}
       style={{ backgroundImage: `url(${card.main_image})` }}
@@ -17,15 +18,17 @@ const BlogCard = ({ card }: Props) => {
           <span>Karol Karnas</span>
           <span>{new Date(card.date).toLocaleDateString("en-GB")}</span>
         </div>
-        <h3>{card.title}</h3>
-        <h4>{card.sub_title}</h4>
+        <h2>{card.title}</h2>
+        <h3>{card.sub_title}</h3>
         {/* <p>{card.content}</p> */}
       </div>
 
       <div className={styles["content-container"]}>
         <p>{card.content}</p>
+      <Button text="Read more" color="orange" path={card.path} />
       </div>
     </div>
+
   )
 }
 export default BlogCard

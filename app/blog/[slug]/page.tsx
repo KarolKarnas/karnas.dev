@@ -1,4 +1,4 @@
-import { fetchBlogBySlug } from "@/app/lib/data"
+import { fetchPostBySlug } from "@/app/lib/data"
 import Image from "next/image"
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
@@ -7,7 +7,7 @@ import SocialCard from "@/app/ui/socialCard"
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
-  const post = await fetchBlogBySlug(slug)
+  const post = await fetchPostBySlug(slug)
 
   // if (!invoice) {
   //   notFound();
@@ -29,6 +29,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       <div className={styles["content-container"]}>
+        <h3>{post.content_title}</h3>
         <p>{post.content}</p>
         {post.fields.map((field, index) => (
           <section key={index}>

@@ -49,6 +49,7 @@ export type Post = {
   short_title: string
   sub_title: string
   slug: string
+  content_title: string
   content: string
   main_image: string
   fields: Field[]
@@ -64,6 +65,7 @@ export type BlogCard = {
   title: string
   sub_title: string
   main_image: string
+  content_title: string
   content: string
   path: string
   icon: JSX.Element

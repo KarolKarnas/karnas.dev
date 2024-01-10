@@ -42,7 +42,7 @@ export async function fetchBlogCards() {
   noStore()
   try {
     const data =
-      await sql<Post>`SELECT short_title, slug, title, date, content, sub_title, main_image FROM posts`
+      await sql<Post>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image FROM posts`
     // console.log("data rows!", data.rows)
     const blogCards = data.rows.map((row) => ({
       ...row,
@@ -57,7 +57,7 @@ export async function fetchBlogCards() {
   }
 }
 
-export async function fetchBlogBySlug(slug: string) {
+export async function fetchPostBySlug(slug: string) {
   noStore()
   try {
     const data = await sql<Post>`

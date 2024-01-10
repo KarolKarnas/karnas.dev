@@ -16,8 +16,9 @@ const posts = [
     short_title: "FigmaAndTDD.ts", //truncate
     sub_title: "Exploring Philosophical Analogies in Test-Driven Development (TDD) and Figma Prototyping",
     slug: "tdd-and-figma",
+    content_title: "In the ever-evolving landscape of software development",
     content:
-      "In the ever-evolving landscape of software development, two methodologies stand out as pillars of efficiency and innovation: Test-Driven Development (TDD) and Figma prototyping. While on the surface, these two practices may seem worlds apart, a closer examination reveals profound philosophical analogies that bridge the gap between the meticulous coding process of TDD and the creative design realm of Figma.",
+      "Two methodologies stand out as pillars of efficiency and innovation: Test-Driven Development (TDD) and Figma prototyping. While on the surface, these two practices may seem worlds apart, a closer examination reveals profound philosophical analogies that bridge the gap between the meticulous coding process of TDD and the creative design realm of Figma.",
     main_image: "/tddFigma.jpg",
     fields: [
       {
@@ -47,6 +48,7 @@ const posts = [
     short_title: "mySecondArticle.ts",
     sub_title: "I am second KING of Lorem ipsum dolor sit  consectetur .",
     slug: "my-second-article",
+    content_title: "Development is the king",
     content: "test content 0",
      main_image: "/tddFigma.jpg",
     fields: [
@@ -71,6 +73,7 @@ const posts = [
     short_title: "myThirdArticle.ts",
     sub_title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
     slug: "my-third-article",
+    content_title: "Development is the king",
     content: "test content 0",
      main_image: "/tddFigma.jpg",
     fields: [
@@ -95,6 +98,7 @@ const posts = [
     short_title: "myFourthArticle.ts",
     sub_title: "Lorem ipsum dolor sit amet.",
     slug: "my-fourth-article",
+    content_title: "Development is the king",
     content: "test content 0",
      main_image: "/tddFigma.jpg",
     fields: [
@@ -119,6 +123,7 @@ const posts = [
     short_title: "myFifthArticle.ts",
     sub_title: "Subtitle",
     slug: "my-fifth-article",
+    content_title: "Development is the king",
     content: "test content 0",
      main_image: "/tddFigma.jpg",
     fields: [

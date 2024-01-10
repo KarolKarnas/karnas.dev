@@ -9,10 +9,9 @@ export default async function Portfolio() {
     <>
       <div className={styles.container}>
         {blogCards.map((card, index) => (
-          <Link key={index} href={card.path}>
-          <BlogCard  card={card} />
-          
-          </Link>
+          // <Link key={index} href={card.path}>
+            <BlogCard key={index} card={card} />
+          // </Link>
         ))}
       </div>
     </>
