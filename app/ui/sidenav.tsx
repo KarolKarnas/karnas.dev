@@ -13,8 +13,9 @@ import { chevronDown } from "../utils/icons"
 
 type Props = {
   blogLinks: SideNavItem[]
+  projectLinks: SideNavItem[]
 }
-const SideNav = ({ blogLinks }: Props) => {
+const SideNav = ({ blogLinks, projectLinks }: Props) => {
   const isOpen = menuStore((state) => state.menu.isOpen)
   const width = menuStore((state) => state.menu.width)
   const setWidth = menuStore((state) => state.setWidth)
@@ -24,10 +25,12 @@ const SideNav = ({ blogLinks }: Props) => {
   const navLinks = navStore((state) => state.menu.navLinks)
   const updateNavLinks = navStore((state) => state.updateNavLinks)
 
+
   // async? /pre rendering
   useEffect(() => {
-    updateNavLinks(blogLinks)
-  }, [blogLinks, updateNavLinks])
+    updateNavLinks(blogLinks, 'blog')
+    updateNavLinks(projectLinks, 'projects')
+  }, [blogLinks, projectLinks, updateNavLinks])
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)
@@ -40,7 +43,6 @@ const SideNav = ({ blogLinks }: Props) => {
     }
     // return () => window.removeEventListener("resize", handleResize)
   }, [closeMenu, openMenu, setWidth, width])
-
   return (
     // ${isOpen ? styles.open : styles.close}
     <div

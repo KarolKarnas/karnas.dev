@@ -1,7 +1,10 @@
 import { sql } from "@vercel/postgres"
-import { Post, User } from "../utils/types"
+import { Post, User, Project } from "../utils/types"
 import { unstable_noStore as noStore } from "next/cache"
-import { typeScriptAlt } from "../utils/icons"
+import { typeScriptAlt, nextJs, react } from "../utils/icons"
+
+
+// Blog
 
 export async function fetchPosts() {
   // Add noStore() here prevent the response from being cached.
@@ -47,7 +50,7 @@ export async function fetchBlogCards() {
     const blogCards = data.rows.map((row) => ({
       ...row,
       path: `/blog/${row.slug}`,
-      icon: typeScriptAlt,
+      // icon: typeScriptAlt,
     }))
     // console.log(blogLinks)
     return blogCards
@@ -71,6 +74,8 @@ export async function fetchPostBySlug(slug: string) {
   }
 }
 
+//User
+
 export async function getUser(email: string) {
   noStore()
   try {
@@ -81,3 +86,62 @@ export async function getUser(email: string) {
     throw new Error("Failed to fetch user.")
   }
 }
+
+//Projects
+
+export async function fetchProjectLinks() {
+  // Add noStore() here prevent the response from being cached.
+  // This is equivalent to in fetch(..., {cache: 'no-store'}).
+  noStore()
+  try {
+    const data = await sql<Project>`SELECT short_title, slug, main_icon FROM projects`
+    // console.log("data rows!", data.rows)
+    const projectLinks = data.rows.map((row) => ({
+      title: row.short_title,
+      path: `/projects/${row.slug}`,
+      icon: row.main_icon === 'react' ? react : nextJs,
+    }))
+    // console.log(blogLinks)
+    return projectLinks
+  } catch (error) {
+    console.error("Database Error:", error)
+    throw new Error("Failed to fetch projects data.")
+  }
+}
+
+
+export async function fetchProjectBySlug(slug: string) {
+  noStore()
+  try {
+    const data = await sql<Project>`
+      SELECT * FROM projects WHERE projects.slug = ${slug};
+    `
+    // console.log(data.rows)
+    return data.rows[0]
+  } catch (error) {
+    console.error("Database Error:", error)
+    throw new Error("Failed to fetch project by slug.")
+  }
+}
+
+export async function fetchProjectCards() {
+  // Add noStore() here prevent the response from being cached.
+  // This is equivalent to in fetch(..., {cache: 'no-store'}).
+  noStore()
+  try {
+    const data =
+      await sql<Project>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image FROM projects`
+    // console.log("data rows!", data.rows)
+    const projectCards = data.rows.map((row) => ({
+      ...row,
+      path: `/projects/${row.slug}`,
+      // icon: typeScriptAlt,
+    }))
+    // console.log(blogLinks)
+    return projectCards
+  } catch (error) {
+    console.error("Database Error:", error)
+    throw new Error("Failed to fetch projects data.")
+  }
+}
+

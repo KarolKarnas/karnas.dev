@@ -40,6 +40,7 @@ export type Field = {
   title?: string
   content?: string
   image?: string
+  link?: string
 }
 
 export type Post = {
@@ -59,14 +60,54 @@ export type Post = {
 }
 
 export type BlogCard = {
-  short_title: string
-  slug: string
-  date: string
   title: string
+  short_title: string
   sub_title: string
-  main_image: string
+  slug: string
   content_title: string
   content: string
+  main_image: string
   path: string
-  icon: JSX.Element
+  date: string
+  // icon: JSX.Element
+}
+
+
+export type Project = {
+  id: string
+  author_id: string
+  title: string
+  short_title: string
+  sub_title: string
+  slug: string
+  content_title: string
+  content: string
+  main_image: string
+  main_icon: string
+  //
+  stack: string[]
+  live_demo: string
+  repo: string
+  //
+  fields: Field[]
+  category: string
+  tags: string[]
+  date: string
+}
+
+
+export type ProjectCard = {
+  title: string
+  short_title: string
+  sub_title: string
+  slug: string
+  content_title: string
+  content: string
+  main_image: string
+  stack: string[]
+
+
+  path: string
+  date: string
+  // icon: JSX.Element
 }

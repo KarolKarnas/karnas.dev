@@ -1,5 +1,25 @@
 @use "../scss/colors.scss";
+@use "../scss/spacing.scss";
+@use "../scss/breakpoints.scss";
 
-.title {
-  color: colors.$orange-500;
+.container {
+  margin-top: spacing.$s3;
+  display: grid;
+  gap: spacing.$s7;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  // min-height: 1000px;
+  // img {
+  //   width: 100px;
+  // }
+  a {
+    text-decoration: none;
+  }
+
+  @include breakpoints.md {
+    gap: spacing.$s7;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 0;
+  }
 }

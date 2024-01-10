@@ -12,7 +12,7 @@ export interface NavState {
 
   updateOpenTabs: (newTab: SideNavItem) => void
   removeTab: (tabRemove: SideNavItem, router: AppRouterInstance) => void
-  updateNavLinks: (blogTabs: SideNavItem[]) => void
+  updateNavLinks: (blogTabs: SideNavItem[], title: string) => void
   // removeAllTabs: () => void
 }
 
@@ -23,20 +23,25 @@ export const navStore = create<NavState>((set) => ({
   },
 
   //refactor
-  updateNavLinks: (blogTabs) => set((state) => {
-    const updatedNavLinks = [...state.menu.navLinks];
-    updatedNavLinks[4] = {
-      ...updatedNavLinks[4],
-      subMenuItems: blogTabs,
-    };
-  
-    return {
-      menu: {
-        ...state.menu,
-        navLinks: updatedNavLinks,
-      },
-    };
-  }),
+  updateNavLinks: (blogTabs, title) =>
+    set((state) => {
+      const subMenuIndex = state.menu.navLinks.findIndex(
+        (item) => item.title === title
+      )
+
+      const updatedNavLinks = [...state.menu.navLinks]
+      updatedNavLinks[subMenuIndex] = {
+        ...updatedNavLinks[subMenuIndex],
+        subMenuItems: blogTabs,
+      }
+
+      return {
+        menu: {
+          ...state.menu,
+          navLinks: updatedNavLinks,
+        },
+      }
+    }),
 
   updateOpenTabs: (newTab) =>
     set((state) => {

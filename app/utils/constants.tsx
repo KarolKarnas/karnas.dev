@@ -4,38 +4,52 @@ import { nodeJs, folderOpen, html, htmlAlt, react, git, vsc, twitter, gitHub, li
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
-    title: "Welcome",
+    title: "Home",
     path: "/",
     icon: vsc,
     // iconAlt: htmlAlt,
   },
+  // {
+  //   title: "home.tsx",
+  //   path: "/home",
+  //   icon: react,
+  // },
   {
-    title: "home.tsx",
-    path: "/home",
-    icon: react,
+    title: "experience.json",
+    path: "/experience",
+    icon: nodeJs,
   },
   {
     title: "skills.json",
     path: "/skills",
     icon: nodeJs,
   },
+  // {
+  //   title: "projects",
+  //   path: "/projects",
+  //   icon: folderOpen,
+  //   submenu: true,
+  //   subMenuItems: [
+  //     // { title: "All", path: "/projects" },
+  //     {
+  //       title: "ilustrografia.com",
+  //       path: "/projects/ilustrografia",
+  //       icon: react,
+  //     },
+  //     {
+  //       title: "karnas.dev",
+  //       path: "/projects/karnas",
+  //       icon: nextJs,
+  //     },
+  //   ],
+  // },
   {
     title: "projects",
     path: "/projects",
     icon: folderOpen,
     submenu: true,
     subMenuItems: [
-      // { title: "All", path: "/projects" },
-      {
-        title: "ilustrografia.com",
-        path: "/projects/ilustrografia",
-        icon: react,
-      },
-      {
-        title: "karnas.dev",
-        path: "/projects/karnas",
-        icon: nextJs,
-      },
+
     ],
   },
   {

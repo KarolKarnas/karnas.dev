@@ -9,12 +9,11 @@ const users = [
 
 const posts = [
   {
-    // tag/class
     author_id: users[0].id,
-    title:
-      "Building Bridges",
+    title: "Building Bridges",
     short_title: "FigmaAndTDD.ts", //truncate
-    sub_title: "Exploring Philosophical Analogies in Test-Driven Development (TDD) and Figma Prototyping",
+    sub_title:
+      "Exploring Philosophical Analogies in Test-Driven Development (TDD) and Figma Prototyping",
     slug: "tdd-and-figma",
     content_title: "In the ever-evolving landscape of software development",
     content:
@@ -50,7 +49,7 @@ const posts = [
     slug: "my-second-article",
     content_title: "Development is the king",
     content: "test content 0",
-     main_image: "/tddFigma.jpg",
+    main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
@@ -75,7 +74,7 @@ const posts = [
     slug: "my-third-article",
     content_title: "Development is the king",
     content: "test content 0",
-     main_image: "/tddFigma.jpg",
+    main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
@@ -100,7 +99,7 @@ const posts = [
     slug: "my-fourth-article",
     content_title: "Development is the king",
     content: "test content 0",
-     main_image: "/tddFigma.jpg",
+    main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
@@ -125,7 +124,7 @@ const posts = [
     slug: "my-fifth-article",
     content_title: "Development is the king",
     content: "test content 0",
-     main_image: "/tddFigma.jpg",
+    main_image: "/tddFigma.jpg",
     fields: [
       {
         title: "field title 1",
@@ -144,7 +143,85 @@ const posts = [
   },
 ]
 
+const projects = [
+  {
+    author_id: users[0].id,
+    title: "ilustrografia.com",
+    short_title: "ilustrografia.com",
+    sub_title: "Fullstack eCommerce platform",
+    slug: "ilustrografia",
+    content_title: "In the ever-evolving landscape of software development",
+    content:
+      "Beautifully styled and responsive e-commerce platform designed for an artist",
+    main_image: "/tddFigma.jpg",
+    main_icon: "react",
+    stack: ["React", "TypeScript"],
+    live_demo: "https://www.ilustrografia.com/",
+    repo: "https://github.com/KarolKarnas/ilustrografia.com",
+    fields: [
+      {
+        title: "Selling prints",
+        content:
+          "This is a beautifully styled and responsive e-commerce platform designed for an artist who sells prints of her digital paintings. The website offers a variety of print sizes, materials, and prices. To manage this diversity, the database was carefully structured to accommodate different product variants, including size, material, stock count, prices, names, descriptions, images of the digital paintings, and visualization images for each material.",
+        image: "/tdd_16_9.jpg",
+        link: "https://www.ilustrografia.com/shop",
+      },
+      {
+        title: "Hardest code part",
+        content: `To ensure a clean and user-friendly interface, Product Variants were created, allowing users to easily select the size or material they prefer while dynamically updating the price and images.`,
+      },
+      {
+        title: "Greatest feature",
+        content:
+          "For each product, there is an illustration page featuring the main image, various product variants, and a description of the illustrated creature. The shop page enables users to filter products by category, while the illustrations page provides filtering options for illustrations by category.",
+        image: "/tdd_16_9.jpg",
+      },
+    ],
+    category: "Technology",
+    tags: ["JavaScript", "TypeScript", "Figma"],
+    date: "2023-11-11",
+  },
+  {
+    author_id: users[0].id,
+    title: "karnas.dev",
+    short_title: "karnas.dev",
+    sub_title: "Fullstack Portfolio with Blog",
+    slug: "karnas",
+    content_title: "Karnas dev is very well designed portfolio blog",
+    content:
+      "Beautifully styled and responsive e-commerce platform designed for an artist",
+    main_image: "/tddFigma.jpg",
+    main_icon: "nextjs",
+    stack: ["React", "TypeScript"],
+    live_demo: "https://www.ilustrografia.com/",
+    repo: "https://github.com/KarolKarnas/ilustrografia.com",
+    fields: [
+      {
+        title: "introduction",
+        content:
+          "Introducing karnas.dev – a cutting-edge, full-stack portfolio application that showcases the pinnacle of modern web development. Crafted with precision and innovation, this dynamic platform is built on a robust tech stack comprising Next.js, PostgreSQL, React, TypeScript, Sass, CSS modules, and more.",
+        image: "/tdd_16_9.jpg",
+        link: "https://www.karnas.dev/",
+      },
+      {
+        title: "The foundation",
+        content: `The foundation of karnas.dev lies in Next.js, offering unparalleled performance and seamless navigation. Leveraging the power of React, the application boasts a responsive and user-friendly interface, ensuring a smooth and engaging experience for visitors. The integration of TypeScript enhances code quality, providing a strongly-typed and maintainable codebase.`,
+      },
+      {
+        title: "Few words about styling",
+        content:
+          "The styling of karnas.dev is a testament to meticulous design, employing Sass and CSS modules to create visually stunning and consistent layouts. The combination of these technologies allows for modular and maintainable styles, ensuring a polished aesthetic across the entire application",
+        image: "/tdd_16_9.jpg",
+      },
+    ],
+    category: "Fullstack",
+    tags: ["NextJs", "TypeScript", "Figma"],
+    date: "2024-01-06",
+  },
+]
+
 module.exports = {
   users,
   posts,
+  projects,
 }

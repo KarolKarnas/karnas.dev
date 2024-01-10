@@ -39,6 +39,11 @@
   // height: 80%;
   padding: spacing.$s2;
   // overflow: hidden;
+  
+  // height: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 
   @include breakpoints.md {
     padding: spacing.$s6;

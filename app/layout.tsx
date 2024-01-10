@@ -4,7 +4,7 @@ import styles from "./layout.module.scss"
 import SideNav from "./ui/sidenav"
 import Header from "./ui/header"
 import "./scss/_global.scss"
-import { fetchBlogLinks } from "./lib/data"
+import { fetchBlogLinks, fetchProjectLinks } from "./lib/data"
 
 
 
@@ -22,11 +22,12 @@ export default async function RootLayout({
 }) {
  
   const blogLinks = await fetchBlogLinks()
+  const projectLinks = await fetchProjectLinks()
   return (
     <html lang="en">
       <body className={`${roboto.className} ${styles.layout}`}>
    
-          <SideNav blogLinks={blogLinks} />
+          <SideNav blogLinks={blogLinks} projectLinks={projectLinks}/>
      
         <div className={styles.container}>
           <Header />
