@@ -95,7 +95,7 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
             href={item.path}
           >
             <div
-              onClick={toggleSubMenu}
+              onClick={() => toggleSubMenu()}
               className={`${styles.linkNew} ${
                 item.path === pathname ? styles.pathLink : ""
               }`}
@@ -119,7 +119,7 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
                 return (
                   <Link
                     onClick={() => {
-                      updateOpenTabs(item)
+                      updateOpenTabs(subItem)
                       if (width < 640) {
                         closeMenu()
                       }

@@ -68,7 +68,7 @@ const Header = (props: Props) => {
             </Link>
 
             {/* {openTabs.length === 1 ? null : (activeTab && item.title === activeTab.title) || */}
-            {item.title === 'Welcome' ? null : (activeTab && item.title === activeTab.title) ||
+            {item.path === '/' ? null : (activeTab && item.title === activeTab.title) ||
             showRemove === item.title ? (
               <div
                 onClick={() => removeTab(item, router)}
