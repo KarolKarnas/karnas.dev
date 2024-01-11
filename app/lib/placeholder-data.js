@@ -148,14 +148,38 @@ const projects = [
     author_id: users[0].id,
     title: "ilustrografia.com",
     short_title: "ilustrografia.com",
-    sub_title: "Fullstack eCommerce platform",
+    sub_title: "React fullstack eCommerce platform",
     slug: "ilustrografia",
     content_title: "In the ever-evolving landscape of software development",
     content:
       "Beautifully styled and responsive e-commerce platform designed for an artist",
-    main_image: "/tddFigma.jpg",
+    main_image:
+      "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-1.jpg",
     main_icon: "react",
     stack: ["React", "TypeScript"],
+    icons_stack: ["react", "typeScript, nodeJs"],
+    json_stack: [
+      {
+        title: "Stack",
+        value: [
+          {
+            title: "Frontend",
+            value: "React, Typescript, JavaScript ES6+, Redux",
+          },
+          { title: "Backend", value: "Node.js, Express, MongoDB, PostgreSQL" },
+          { title: "CSS", value: "TailwindCSS, SASS, CSS Modules, Bootstrap" },
+          {
+            title: "Testing",
+            value: "JEST, React Testing Library, Cypress, Playwright",
+          },
+          {
+            title: "Environment",
+            value: "Linux, Git, Github, Jira, Confluence, Figma",
+          },
+          { title: "Other", value: "Wordpress, WooCommerce" },
+        ],
+      },
+    ],
     live_demo: "https://www.ilustrografia.com/",
     repo: "https://github.com/KarolKarnas/ilustrografia.com",
     fields: [
@@ -163,7 +187,8 @@ const projects = [
         title: "Selling prints",
         content:
           "This is a beautifully styled and responsive e-commerce platform designed for an artist who sells prints of her digital paintings. The website offers a variety of print sizes, materials, and prices. To manage this diversity, the database was carefully structured to accommodate different product variants, including size, material, stock count, prices, names, descriptions, images of the digital paintings, and visualization images for each material.",
-        image: "/tdd_16_9.jpg",
+        image:
+          "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-2.jpg",
         link: "https://www.ilustrografia.com/shop",
       },
       {
@@ -174,7 +199,8 @@ const projects = [
         title: "Greatest feature",
         content:
           "For each product, there is an illustration page featuring the main image, various product variants, and a description of the illustrated creature. The shop page enables users to filter products by category, while the illustrations page provides filtering options for illustrations by category.",
-        image: "/tdd_16_9.jpg",
+        image:
+          "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-2.jpg",
       },
     ],
     category: "Technology",
@@ -185,14 +211,37 @@ const projects = [
     author_id: users[0].id,
     title: "karnas.dev",
     short_title: "karnas.dev",
-    sub_title: "Fullstack Portfolio with Blog",
+    sub_title: "VSC design inspired, Next.js Fullstack portfolio with blog",
     slug: "karnas",
     content_title: "Karnas dev is very well designed portfolio blog",
     content:
       "Beautifully styled and responsive e-commerce platform designed for an artist",
-    main_image: "/tddFigma.jpg",
+    main_image: "/karnas.jpg",
     main_icon: "nextjs",
-    stack: ["React", "TypeScript"],
+    stack: ["React", "TypeScript, Next.js"],
+    icons_stack: ["react", "typeScript, nextJs"],
+    json_stack: [
+      {
+        title: "Stack",
+        value: [
+          {
+            title: "Frontend",
+            value: "React, Typescript, JavaScript ES6+, Redux",
+          },
+          { title: "Backend", value: "Node.js, Express, MongoDB, PostgreSQL" },
+          { title: "CSS", value: "TailwindCSS, SASS, CSS Modules, Bootstrap" },
+          {
+            title: "Testing",
+            value: "JEST, React Testing Library, Cypress, Playwright",
+          },
+          {
+            title: "Environment",
+            value: "Linux, Git, Github, Jira, Confluence, Figma",
+          },
+          { title: "Other", value: "Wordpress, WooCommerce" },
+        ],
+      },
+    ],
     live_demo: "https://www.ilustrografia.com/",
     repo: "https://github.com/KarolKarnas/ilustrografia.com",
     fields: [

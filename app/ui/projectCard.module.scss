@@ -9,33 +9,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  // border-radius: 10px;
-  // padding: spacing.$s2;
-  // gap: spacing.$s1;
-  // min-height: 80vh;
-  // background-color: #fff;
+  // width: 100%;
+  // gap: 1rem;
+  // z-index: 10000;
+  padding: spacing.$s3;
+  border-radius: 15px;
+  background-color: colors.$grey-600;
+
+  transition-property: transform, background-color;
+  transition-duration: 100ms;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.015);
+    transition-property: transform, background-color;
+    transition-duration: 200ms;
+    background-color: colors.$blue-500;
+  }
+
+  @include breakpoints.md {
+    padding: spacing.$s3;
+    // gap: spacing.$s6;
+    // min-height: 55vh;
+  }
+
   img {
-    // height: 100%;
+    height: 100%;
     width: 100%;
     // border-radius: 50px 0 0 50px;
     // width: 60%;
   }
 
-  @include breakpoints.md {
-    // padding: spacing.$s3;
-    // gap: spacing.$s6;
-    // min-height: 55vh;
-  }
+
 
   .text-container {
-    // border-radius: 10px;
+    border-radius: 15px 15px 0px 0px;
     width: 100%;
-    background-color: rgba(colors.$white-300, 0.75);
+    background-color: colors.$grey-900;
     padding: spacing.$s2;
-    color: colors.$grey-600;
+    // color: colors.$grey-600;
     align-items: center;
-    backdrop-filter: blur(3px);
+    // backdrop-filter: blur(3px);
     @include breakpoints.md {
       padding: spacing.$s4;
     }
@@ -47,27 +60,30 @@
       color: colors.$grey-600;
       font-size: fonts.$xs;
       @include mixins.drop-shadow-md-color(
-        colors.$shadow-black-700,
-        colors.$shadow-black-600
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
       );
     }
     h2 {
       margin: spacing.$s2 0;
-      font-size: fonts.$xl2;
-      color: colors.$grey-950;
+      font-size: fonts.$xl;
+      color: colors.$orange-500;
       text-align: center;
       @include mixins.drop-shadow-md-color(
-        colors.$shadow-black-700,
-        colors.$shadow-black-600
+        colors.$shadow-orange-700,
+        colors.$shadow-orange-600
       );
+      @include breakpoints.md {
+        font-size: fonts.$xl4;
+      }
     }
     h3 {
       font-size: fonts.$sm;
       text-align: center;
-      color: colors.$grey-600;
+      color: colors.$purple-100;
       @include mixins.drop-shadow-md-color(
-        colors.$shadow-black-700,
-        colors.$shadow-black-600
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
       );
       @include breakpoints.md {
         font-size: fonts.$base;
@@ -78,8 +94,9 @@
   .info-container {
     width: 100%;
     height: 100%;
-    background-color: colors.$grey-950;
+    background-color: colors.$grey-900;
     padding: spacing.$s6;
+    border-radius: 0px 0px 15px 15px;
     // border-radius: 0 50px 50px 0;
 
     .content-container {
@@ -92,6 +109,16 @@
       flex-direction: column;
       gap: spacing.$s4;
 
+      ul {
+        list-style: none;
+        display: flex;
+        gap: spacing.$s1;
+        li {
+         svg {
+          height: fonts.$xl3;
+         }
+        }
+      }
       @include breakpoints.md {
         font-size: fonts.$lg;
         padding: spacing.$s4;

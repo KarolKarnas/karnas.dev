@@ -113,6 +113,8 @@ async function seedProjects(client) {
     main_image TEXT NOT NULL,
     main_icon TEXT NOT NULL,
     stack TEXT[] NOT NULL,
+    icons_stack TEXT[] NOT NULL,
+    json_stack JSONB NOT NULL,
     live_demo TEXT NOT NULL,
     repo TEXT NOT NULL,
     fields JSONB NOT NULL,
@@ -128,16 +130,18 @@ async function seedProjects(client) {
     const insertedProjects = await Promise.all(
       projects.map(
         (project) => client.sql`
-        INSERT INTO projects (author_id, title, short_title, sub_title, slug,content_title,  content, main_image, main_icon, stack, live_demo, repo, fields, category, tags, date)
+        INSERT INTO projects (author_id, title, short_title, sub_title, slug,content_title,  content, main_image, main_icon, stack, icons_stack, json_stack, live_demo, repo, fields, category, tags, date)
         VALUES (${project.author_id}, ${project.title}, ${
           project.short_title
         }, ${project.sub_title}, ${project.slug}, ${project.content_title}, ${
           project.content
         }, ${project.main_image}, ${project.main_icon},${project.stack}, ${
-          project.live_demo
-        }, ${project.repo}, ${JSON.stringify(project.fields)}, ${
-          project.category
-        }, ${project.tags}, ${project.date})
+          project.icons_stack
+        }, ${JSON.stringify(project.json_stack)}, ${project.live_demo}, ${
+          project.repo
+        }, ${JSON.stringify(project.fields)}, ${project.category}, ${
+          project.tags
+        }, ${project.date})
         ON CONFLICT (id) DO NOTHING;
       `
       )

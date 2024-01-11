@@ -1,3 +1,5 @@
+import { IconName } from "../hooks/useIcon"
+
 export type SideNavItem = {
   title: string
   path: string
@@ -72,7 +74,6 @@ export type BlogCard = {
   // icon: JSX.Element
 }
 
-
 export type Project = {
   id: string
   author_id: string
@@ -86,6 +87,8 @@ export type Project = {
   main_icon: string
   //
   stack: string[]
+  icons_stack: IconName[]
+  json_stack: FakeJson[]
   live_demo: string
   repo: string
   //
@@ -94,7 +97,6 @@ export type Project = {
   tags: string[]
   date: string
 }
-
 
 export type ProjectCard = {
   title: string
@@ -105,7 +107,7 @@ export type ProjectCard = {
   content: string
   main_image: string
   stack: string[]
-
+  icons_stack: IconName[]
 
   path: string
   date: string

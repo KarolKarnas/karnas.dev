@@ -3,6 +3,8 @@ import Image from "next/image"
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
 import SocialCard from "@/app/ui/socialCard"
+import { FakeJson } from "@/app/utils/types"
+import Json from "@/app/ui/json"
 
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -29,6 +31,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       <div className={styles["content-container"]}>
+        <Json code={post.json_stack} />
         <h3>{post.content_title}</h3>
         <p>{post.content}</p>
         {post.fields.map((field, index) => (

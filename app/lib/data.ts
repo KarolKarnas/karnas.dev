@@ -130,7 +130,7 @@ export async function fetchProjectCards() {
   noStore()
   try {
     const data =
-      await sql<Project>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image FROM projects`
+      await sql<Project>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image, stack, icons_stack, live_demo, repo FROM projects`
     // console.log("data rows!", data.rows)
     const projectCards = data.rows.map((row) => ({
       ...row,
