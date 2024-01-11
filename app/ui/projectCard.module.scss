@@ -5,26 +5,31 @@
 @use "../scss/mixins";
 
 .card {
-  width: 100%;
-  padding: spacing.$s2;
   display: flex;
   flex-direction: column;
-  gap: spacing.$s4;
   align-items: center;
   justify-content: space-between;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 80vh;
-  background-position: 50% 50%;
+  width: 100%;
+  // border-radius: 10px;
+  // padding: spacing.$s2;
+  // gap: spacing.$s1;
+  // min-height: 80vh;
+  // background-color: #fff;
+  img {
+    // height: 100%;
+    width: 100%;
+    // border-radius: 50px 0 0 50px;
+    // width: 60%;
+  }
 
   @include breakpoints.md {
-    padding: spacing.$s3;
-    gap: spacing.$s6;
-    min-height: 55vh;
+    // padding: spacing.$s3;
+    // gap: spacing.$s6;
+    // min-height: 55vh;
   }
 
   .text-container {
-    border-radius: 10px;
+    // border-radius: 10px;
     width: 100%;
     background-color: rgba(colors.$white-300, 0.75);
     padding: spacing.$s2;
@@ -70,32 +75,40 @@
     }
   }
 
-  .content-container {
-    border-radius: 10px;
-    background-color: rgba(colors.$grey-950, 0.9);
-    backdrop-filter: blur(10px);
-    padding: spacing.$s4;
+  .info-container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: spacing.$s4;
+    height: 100%;
+    background-color: colors.$grey-950;
+    padding: spacing.$s6;
+    // border-radius: 0 50px 50px 0;
 
-    @include breakpoints.md {
-      font-size: fonts.$lg;
+    .content-container {
+      border-radius: 10px;
+      background-color: rgba(colors.$grey-950, 0.9);
+      backdrop-filter: blur(10px);
       padding: spacing.$s4;
-    }
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$s4;
 
-    p {
-      font-size: fonts.$sm;
-      text-align: justify;
-      hyphens: auto;
-      color: colors.$white-300;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
       @include breakpoints.md {
-        font-size: fonts.$base;
+        font-size: fonts.$lg;
+        padding: spacing.$s4;
+      }
+
+      p {
+        font-size: fonts.$sm;
+        text-align: justify;
+        hyphens: auto;
+        color: colors.$white-300;
+        @include mixins.drop-shadow-md-color(
+          colors.$shadow-white-700,
+          colors.$shadow-white-600
+        );
+        @include breakpoints.md {
+          font-size: fonts.$base;
+        }
       }
     }
   }
