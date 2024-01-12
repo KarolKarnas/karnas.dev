@@ -16,21 +16,29 @@
   overflow-x: scroll;
   transform: rotateX(180deg);
   z-index: 100;
-  &::-webkit-scrollbar {
-    height: 5px;
-  }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: colors.$grey-600;
-    border-radius: 5px;
-    &:hover {
-      background-color: colors.$grey-100;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include breakpoints.md {
+    &::-webkit-scrollbar {
+      display: inherit;
+      height: 5px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: colors.$grey-600;
+      border-radius: 5px;
+      &:hover {
+        background-color: colors.$grey-100;
+      }
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: colors.$grey-950;
     }
   }
-
-  &::-webkit-scrollbar-track {
-    background-color: colors.$grey-950;
-  }
+ 
   ul {
     display: flex;
     list-style: none;

@@ -157,7 +157,19 @@ const projects = [
       "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-1.jpg",
     main_icon: "react",
     stack: ["React", "TypeScript"],
-    icons_stack: ["react", "typeScript, nodeJs"],
+    icons_stack: [
+      "react",
+      "redux",
+      "typeScript",
+      "nodeJs",
+      "express",
+      "mongo",
+      "postman",
+      "cypress",
+      "jest",
+      "rtl",
+      "tailwind",
+    ],
     json_stack: [
       {
         title: "Stack",
@@ -219,7 +231,18 @@ const projects = [
     main_image: "/karnas.jpg",
     main_icon: "nextjs",
     stack: ["React", "TypeScript, Next.js"],
-    icons_stack: ["react", "typeScript, nextJs"],
+    icons_stack: [
+      "react",
+      "typeScript",
+      "nextJs",
+      "postgres",
+      "sass",
+      "cssModules",
+      "playWright",
+      "jira",
+      "confluence",
+      "figma",
+    ],
     json_stack: [
       {
         title: "Stack",
