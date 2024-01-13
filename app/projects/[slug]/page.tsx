@@ -3,38 +3,53 @@ import Image from "next/image"
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
 import SocialCard from "@/app/ui/socialCard"
-import { FakeJson } from "@/app/utils/types"
+import { FakeJson, SocialItem } from "@/app/utils/types"
 import Json from "@/app/ui/json"
+import useIcon from "@/app/hooks/useIcon"
+import StackIcons from "@/app/ui/stackIcons"
+import { gitHub, link } from "@/app/utils/icons"
 
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
-  const post = await fetchProjectBySlug(slug)
-
-  // if (!invoice) {
-  //   notFound();
-  // }
+  const project = await fetchProjectBySlug(slug)
+  const icons = useIcon(project.icons_stack)
+  const socialItemLive: SocialItem = {
+    path: project.live_demo,
+    shortUrl: "Live Demo",
+    icon: link,
+  }
+  const socialItemGithub: SocialItem = {
+    path: project.repo,
+    shortUrl: "Github Repo",
+    icon: gitHub,
+  }
 
   return (
     <div className={styles.container}>
-      <div
-        className={styles["image-container"]}
-        style={{ backgroundImage: `url(${post.main_image})` }}
-      ></div>
       <div className={styles["text-container"]}>
-        <div className={styles["date-container"]}>
-          <span>Karol Karnas</span>
-          <span>{new Date(post.date).toLocaleDateString("en-GB")}</span>
-        </div>
-        <h1>{post.title}</h1>
-        <h2>{post.sub_title}</h2>
+
+        <h1>{project.title}</h1>
+        <StackIcons icons={icons} />
+        <h2>{project.sub_title}</h2>
       </div>
 
+      <ul className={styles.links}>
+        <SocialCard  socialItem={socialItemLive} />
+        <SocialCard socialItem={socialItemGithub} />
+      </ul>
+      <Image
+        src={project.main_image}
+        width={1920}
+        height={1080}
+        alt={`main image`}
+      />
       <div className={styles["content-container"]}>
-        <Json code={post.json_stack} />
-        <h3>{post.content_title}</h3>
-        <p>{post.content}</p>
-        {post.fields.map((field, index) => (
+        <h3>{project.content_title}</h3>
+        <p>{project.content}</p>
+        <Json code={project.json_stack} />
+
+        {project.fields.map((field, index) => (
           <section key={index}>
             {field.title ? <h3>{field.title}</h3> : null}
             {field.content ? <p>{field.content}</p> : null}
@@ -46,15 +61,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 alt={`field ${index} image`}
               />
             ) : null}
+             {field.link ?  <SocialCard socialItem={{path: field.link, shortUrl: field.short_link}} /> : null}
           </section>
         ))}
-
-        {/* <Image
-          src={post.main_image}
-          width={800}
-          height={1000}
-          alt={`main image`}
-        /> */}
 
         <div className={styles["author-container"]}>
           <div>

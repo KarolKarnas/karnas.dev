@@ -8,18 +8,14 @@
   gap: spacing.$s7;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  // min-height: 1000px;
-  // img {
-  //   width: 100px;
-  // }
-  // a {
-  //   text-decoration: none;
-  // }
+  width: 90%;
 
   @include breakpoints.md {
+    width: 90%;
     gap: spacing.$s7;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    margin-top: 0;
+
+    // margin-top: spacing.$s3;
   }
 }

@@ -6,6 +6,7 @@ import Button from "./button"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import useIcon from "../hooks/useIcon"
+import StackIcons from "./stackIcons"
 
 type Props = {
   card: ProjectCard
@@ -38,21 +39,23 @@ const ProjectCard = ({ card }: Props) => {
       </div>
       <Image
         src={card.main_image}
-        width={960}
-        height={540}
+        width={1920}
+        height={1080}
         alt={card.short_title}
       />
-      <div className={styles["info-container"]}>
+   
         <div className={styles["content-container"]}>
-          <ul>
+          <StackIcons icons={icons} />
+          {/* <ul>
             {icons.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
-          </ul>
+          </ul> */}
+          <h4>{card.content_title}</h4>
           <p>{card.content}</p>
           <Button text="Read more" color="orange" path={card.path} />
         </div>
-      </div>
+    
     </div>
   )
 }

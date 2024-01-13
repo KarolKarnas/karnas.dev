@@ -152,7 +152,7 @@ const projects = [
     slug: "ilustrografia",
     content_title: "In the ever-evolving landscape of software development",
     content:
-      "Beautifully styled and responsive e-commerce platform designed for an artist",
+      "Beautifully styled and responsive e-commerce platform designed for an artist, for selling prints purpose, promote art and more.",
     main_image:
       "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-1.jpg",
     main_icon: "react",
@@ -202,6 +202,7 @@ const projects = [
         image:
           "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-2.jpg",
         link: "https://www.ilustrografia.com/shop",
+        short_link: "ilustrografia.com/shop",
       },
       {
         title: "Hardest code part",
