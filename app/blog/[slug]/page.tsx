@@ -2,7 +2,7 @@ import { fetchPostBySlug } from "@/app/lib/data"
 import Image from "next/image"
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
-import SocialCard from "@/app/ui/socialCard"
+import SocialCard from "@/app/ui/linkCard"
 
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {

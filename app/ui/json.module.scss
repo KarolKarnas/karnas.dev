@@ -1,9 +1,16 @@
 @use "../scss/colors.scss";
 @use "../scss/fonts.scss";
 @use "../scss/spacing.scss";
+@use "../scss/mixins.scss";
+@use "../scss/breakpoints.scss";
 
 .code {
-  font-size: fonts.$lg;
+  font-size: fonts.$sm;
+  width: 100%;
+  @include breakpoints.md {
+    font-size: fonts.$base;
+    width: 600px;
+  }
   ul {
     list-style: none;
     padding-left: spacing.$s5;

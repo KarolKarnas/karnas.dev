@@ -81,24 +81,18 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 
 export const SOCIAL_ITEMS: SocialItem[] = [
   {
-    title: "Github",
-    path: "https://github.com/KarolKarnas",
-    // description: "Github Page",
-    shortUrl: "github.com/KarolKarnas",
+    link: "https://github.com/KarolKarnas",
+    short_link: "github.com/KarolKarnas",
     icon: gitHub,
   },
   {
-    title: "LinkedIn",
-    path: "https://www.linkedin.com/in/KarolKarnas/",
-    // description: "LinkedIn Profile",
-    shortUrl: "linkedin.com/in/KarolKarnas",
+    link: "https://www.linkedin.com/in/KarolKarnas/",
+    short_link: "linkedin.com/in/KarolKarnas",
     icon: linkedIn,
   },
   {
-    title: "Twitter",
-    path: "https://twitter.com/Karol_Karnas",
-    // description: "Twitter programming news",
-    shortUrl: "twitter.com/Karol_Karnas",
+    link: "https://twitter.com/Karol_Karnas",
+    short_link: "twitter.com/Karol_Karnas",
     icon: twitter,
   },
   // {

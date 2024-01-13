@@ -178,17 +178,42 @@ const projects = [
             title: "Frontend",
             value: "React, Typescript, JavaScript ES6+, Redux",
           },
-          { title: "Backend", value: "Node.js, Express, MongoDB, PostgreSQL" },
-          { title: "CSS", value: "TailwindCSS, SASS, CSS Modules, Bootstrap" },
+          { title: "Backend", value: "Node.js, Express, MongoDB, Mongoose" },
+          { title: "CSS", value: "CSS3, TailwindCSS" },
           {
             title: "Testing",
-            value: "JEST, React Testing Library, Cypress, Playwright",
+            value: "JEST, React Testing Library, Cypress",
           },
           {
             title: "Environment",
-            value: "Linux, Git, Github, Jira, Confluence, Figma",
+            value: "Linux, Git, Github, Photoshop",
           },
-          { title: "Other", value: "Wordpress, WooCommerce" },
+        ],
+      },
+      {
+        title: "About",
+        value: [
+          {
+            title: "Title",
+            value: "Ilustrografia",
+          },
+          { title: "Subtitle", value: "Reality Full of Magic" },
+          { title: "Client", value: "Meggie.M Art" },
+          { title: "Develop Time", value: "3 Months" },
+        ],
+      },
+      {
+        title: "Requirements",
+        value: [
+          {
+            title: "1",
+            value: "Fully functional eCommerce platform",
+          },
+          { title: "2", value: "Products with variations" },
+          { title: "3", value: "Real time update of price when changing variants (print size, print material)" },
+          { title: "4", value: "Well presents artwork" },
+          { title: "5", value: "Ability to add new products" },
+          { title: "5", value: "Full user journey" },
         ],
       },
     ],
@@ -201,8 +226,16 @@ const projects = [
           "This is a beautifully styled and responsive e-commerce platform designed for an artist who sells prints of her digital paintings. The website offers a variety of print sizes, materials, and prices. To manage this diversity, the database was carefully structured to accommodate different product variants, including size, material, stock count, prices, names, descriptions, images of the digital paintings, and visualization images for each material.",
         image:
           "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-2.jpg",
-        link: "https://www.ilustrografia.com/shop",
-        short_link: "ilustrografia.com/shop",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
       },
       {
         title: "Hardest code part",
@@ -250,19 +283,43 @@ const projects = [
         value: [
           {
             title: "Frontend",
-            value: "React, Typescript, JavaScript ES6+, Redux",
+            value: "React, Next.js, Typescript, JavaScript ES6+",
           },
-          { title: "Backend", value: "Node.js, Express, MongoDB, PostgreSQL" },
-          { title: "CSS", value: "TailwindCSS, SASS, CSS Modules, Bootstrap" },
+          { title: "Backend", value: "Next.js, PostgreSQL, NextAuth.js, " },
+          { title: "CSS", value: "CSS3, SCSS, CSS Modules" },
           {
             title: "Testing",
-            value: "JEST, React Testing Library, Cypress, Playwright",
+            value: "Playwright, React Testing Library",
           },
           {
             title: "Environment",
-            value: "Linux, Git, Github, Jira, Confluence, Figma",
+            value: "Linux, Git, Github, Jira, Confluence, Figma, Gimp",
           },
-          { title: "Other", value: "Wordpress, WooCommerce" },
+        ],
+      },
+      {
+        title: "About",
+        value: [
+          {
+            title: "Title",
+            value: "Karnas.dev",
+          },
+          { title: "Subtitle", value: "Fullstack Developer" },
+          { title: "Client", value: "Myself" },
+          { title: "Develop Time", value: "1 Month" },
+        ],
+      },
+      {
+        title: "Requirements",
+        value: [
+          {
+            title: "1",
+            value: "VSC inspired design",
+          },
+          { title: "2", value: "Well presents known technology stack" },
+          { title: "3", value: "Ability to write blog posts" },
+          { title: "4", value: "Best SEO practices" },
+          { title: "5", value: "Ability to add new projects" },
         ],
       },
     ],

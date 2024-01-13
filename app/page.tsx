@@ -1,7 +1,7 @@
 import styles from "./page.module.scss"
 import Link from "next/link"
 import { SIDENAV_ITEMS } from "./utils/constants"
-import SocialCard from "./ui/socialCard"
+import LinkCard from "./ui/linkCard"
 import { SOCIAL_ITEMS } from "./utils/constants"
 import BlogLinks from "./ui/blogLinks"
 import ProjectsLinks from "./ui/projectsLinks"
@@ -26,23 +26,13 @@ export default function Home() {
         </ul>
         <h4>Projects</h4>
         <ProjectsLinks />
-        {/* <ul className={styles.mainLinks}>
-          {SIDENAV_ITEMS[3].subMenuItems &&
-            SIDENAV_ITEMS[3].subMenuItems.map((item, index) => (
-              <li key={index}>
-                <Link href={item.path}>
-                  {item.iconAlt ? item.iconAlt : item.icon} {item.title}
-                </Link>
-              </li>
-            ))}
-        </ul> */}
       </div>
 
       <div className={styles.socialLinks}>
         <h4>Social Media</h4>
         <ul>
           {SOCIAL_ITEMS.map((item, index) => (
-            <SocialCard key={index} socialItem={item} />
+            <LinkCard key={index} socialItem={item} />
           ))}
         </ul>
         <h4>Blog</h4>

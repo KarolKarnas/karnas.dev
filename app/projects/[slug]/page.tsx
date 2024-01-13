@@ -2,7 +2,7 @@ import { fetchProjectBySlug } from "@/app/lib/data"
 import Image from "next/image"
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
-import SocialCard from "@/app/ui/socialCard"
+import LinkCard from "@/app/ui/linkCard"
 import { FakeJson, SocialItem } from "@/app/utils/types"
 import Json from "@/app/ui/json"
 import useIcon from "@/app/hooks/useIcon"
@@ -15,39 +15,38 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const project = await fetchProjectBySlug(slug)
   const icons = useIcon(project.icons_stack)
   const socialItemLive: SocialItem = {
-    path: project.live_demo,
-    shortUrl: "Live Demo",
+    link: project.live_demo,
+    short_link: "Live Demo",
     icon: link,
   }
   const socialItemGithub: SocialItem = {
-    path: project.repo,
-    shortUrl: "Github Repo",
+    link: project.repo,
+    short_link: "Github Repo",
     icon: gitHub,
   }
 
   return (
     <div className={styles.container}>
       <div className={styles["text-container"]}>
-
         <h1>{project.title}</h1>
         <StackIcons icons={icons} />
         <h2>{project.sub_title}</h2>
       </div>
 
-      <ul className={styles.links}>
-        <SocialCard  socialItem={socialItemLive} />
-        <SocialCard socialItem={socialItemGithub} />
-      </ul>
       <Image
         src={project.main_image}
         width={1920}
         height={1080}
         alt={`main image`}
       />
+      <ul className={styles.links}>
+        <LinkCard socialItem={socialItemLive} color="light" />
+        <LinkCard socialItem={socialItemGithub} color="light" />
+      </ul>
       <div className={styles["content-container"]}>
         <h3>{project.content_title}</h3>
         <p>{project.content}</p>
-        <Json code={project.json_stack} />
+    
 
         {project.fields.map((field, index) => (
           <section key={index}>
@@ -61,9 +60,28 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 alt={`field ${index} image`}
               />
             ) : null}
-             {field.link ?  <SocialCard socialItem={{path: field.link, shortUrl: field.short_link}} /> : null}
+            <ul>
+              {field.links
+                ? field.links.map((item, index) => (
+                    <LinkCard
+                      key={index}
+                      socialItem={{
+                        link: item.link,
+                        short_link: item.short_link,
+                      }}
+                      color="light"
+                    />
+                  ))
+                : null}
+            </ul>
           </section>
         ))}
+            <div className={styles.details}>
+              <h3>Details</h3>
+               <StackIcons icons={icons} />
+              <Json code={project.json_stack} />
+            </div>
+
 
         <div className={styles["author-container"]}>
           <div>
@@ -72,7 +90,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
-              <SocialCard key={index} socialItem={item} />
+              <LinkCard key={index} socialItem={item} color="light" />
             ))}
           </ul>
         </div>

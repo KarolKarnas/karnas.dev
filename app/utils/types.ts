@@ -10,10 +10,8 @@ export type SideNavItem = {
   gitignore?: boolean
 }
 export type SocialItem = {
-  title?: string
-  path: string
-  description?: string
-  shortUrl?: string
+  link: string
+  short_link?: string
   icon?: JSX.Element
 }
 
@@ -42,7 +40,7 @@ export type Field = {
   title?: string
   content?: string
   image?: string
-  link?: string
+  links?: SocialItem[]
   short_link?: string
 }
 
