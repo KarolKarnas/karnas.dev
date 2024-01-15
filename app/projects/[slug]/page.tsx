@@ -77,9 +77,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </section>
         ))}
             <div className={styles.details}>
-              <h3>Details</h3>
+              <h3>Technologies Used</h3>
                <StackIcons icons={icons} />
-              <Json code={project.json_stack} />
+              {/* <Json code={project.json_stack} /> */}
             </div>
 
 

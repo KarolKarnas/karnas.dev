@@ -1,19 +1,26 @@
 import Image from "next/image"
 import { SideNavItem, SocialItem } from "./types"
-import { nodeJs, folderOpen, html, htmlAlt, react, git, vsc, twitter, gitHub, linkedIn, nextJs} from "./icons"
+import {
+  nodeJs,
+  folderOpen,
+  html,
+  htmlAlt,
+  react,
+  git,
+  vsc,
+  twitter,
+  gitHub,
+  linkedIn,
+  nextJs,
+} from "./icons"
+import { IconName } from "../hooks/useIcon"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: "Home",
     path: "/",
     icon: vsc,
-    // iconAlt: htmlAlt,
   },
-  // {
-  //   title: "home.tsx",
-  //   path: "/home",
-  //   icon: react,
-  // },
   {
     title: "experience.json",
     path: "/experience",
@@ -24,42 +31,19 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/skills",
     icon: nodeJs,
   },
-  // {
-  //   title: "projects",
-  //   path: "/projects",
-  //   icon: folderOpen,
-  //   submenu: true,
-  //   subMenuItems: [
-  //     // { title: "All", path: "/projects" },
-  //     {
-  //       title: "ilustrografia.com",
-  //       path: "/projects/ilustrografia",
-  //       icon: react,
-  //     },
-  //     {
-  //       title: "karnas.dev",
-  //       path: "/projects/karnas",
-  //       icon: nextJs,
-  //     },
-  //   ],
-  // },
   {
     title: "projects",
     path: "/projects",
     icon: folderOpen,
     submenu: true,
-    subMenuItems: [
-
-    ],
+    subMenuItems: [],
   },
   {
     title: "blog",
     path: "/blog",
     icon: folderOpen,
     submenu: true,
-    subMenuItems: [
-
-    ],
+    subMenuItems: [],
   },
   {
     title: "contact.tsx",
@@ -105,4 +89,31 @@ export const SOCIAL_ITEMS: SocialItem[] = [
   //   path: "https://facebook.com/lensmanpl",
   //   icon: react,
   // }
+]
+
+export const MY_SKILLS: IconName[] = [
+  "react",
+  "redux",
+  "nextJs",
+  "typeScript",
+  "javaScript",
+  // "html",
+  "nodeJs",
+  "express",
+  "mongo",
+  "postgres",
+  "sass",
+  "cssModules",
+  "tailwind",
+  "cypress",
+  "jest",
+  "playWright",
+  "postman",
+  "rtl",
+  "linux",
+  "git",
+  "gitHub",
+  "jira",
+  "confluence",
+  "figma",
 ]

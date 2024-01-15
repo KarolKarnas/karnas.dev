@@ -43,13 +43,13 @@ const posts = [
   },
   {
     author_id: users[0].id,
-    title: "My second article",
-    short_title: "mySecondArticle.ts",
-    sub_title: "I am second KING of Lorem ipsum dolor sit  consectetur .",
-    slug: "my-second-article",
-    content_title: "Development is the king",
+    title: "Is Odin Project Good for a Beginner?",
+    short_title: "OdinProjectFoundations.ts",
+    sub_title: "Honest review of the Foundation Path from The Odin Project",
+    slug: "the-odin-project-foundations",
+    content_title: "The most important part of the house",
     content: "test content 0",
-    main_image: "/tddFigma.jpg",
+    main_image: "/odinProject.png",
     fields: [
       {
         title: "field title 1",

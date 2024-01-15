@@ -1,5 +1,71 @@
-@use "../scss/colors.scss";
+@use "../scss/colors";
+@use "../scss/mixins";
+@use "../scss/fonts";
+@use "../scss/spacing";
+@use "../scss/breakpoints";
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  // height: 85vh;
+  @include breakpoints.md {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4rem;
+  }
 
-.title {
-  color: colors.$orange-500;
+  .info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-between;
+
+    h1 {
+      font-size: fonts.$xl3;
+      color: colors.$orange-500;
+      text-align: center;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-orange-700,
+        colors.$shadow-orange-600
+      );
+      @include breakpoints.md {
+        font-size: fonts.$xl6;
+      }
+    }
+    h2 {
+      font-size: fonts.$base;
+      text-align: center;
+      color: colors.$purple-100;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
+      );
+      @include breakpoints.md {
+        font-size: fonts.$lg;
+      }
+    }
+  }
+  .image {
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include breakpoints.md {
+      width: 25%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: spacing.$s3;
+    }
+  }
 }
+// .title {
+//   color: colors.$orange-500;
+// }

@@ -9,7 +9,7 @@ export const ABOUT: FakeJson[] = [
   {
     title: "Stack",
     value: [
-      { title: "Frontend", value: "React, Typescript, JavaScript ES6+, Redux" },
+      { title: "Frontend", value: "React, Next.js, Typescript, JavaScript ES6+, Redux" },
       { title: "Backend", value: "Node.js, Express, MongoDB, PostgreSQL" },
       { title: "CSS", value: "TailwindCSS, SASS, CSS Modules, Bootstrap" },
       {
