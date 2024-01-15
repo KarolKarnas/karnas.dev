@@ -5,27 +5,40 @@
 @use "../scss/mixins";
 
 .card {
-  width: 100%;
-  padding: spacing.$s2;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: spacing.$s4;
   align-items: center;
-  justify-content: space-between;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 80vh;
-  background-position: 50% 50%;
+
+  padding: spacing.$s3;
+  border-radius: 15px;
+  background-color: colors.$grey-600;
+  transition-property: transform, background-color;
+  transition-duration: 100ms;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.015);
+    transition-property: transform, background-color;
+    transition-duration: 200ms;
+    background-color: colors.$blue-500;
+  }
 
   @include breakpoints.md {
-    padding: spacing.$s3;
-    gap: spacing.$s6;
-    min-height: 55vh;
+    // padding: spacing.$s3;
+    // gap: spacing.$s6;
+    // min-height: 55vh;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
   }
 
   .text-container {
+    position: absolute;
+    top: spacing.$s5;
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
     background-color: rgba(colors.$white-300, 0.75);
     padding: spacing.$s2;
     color: colors.$grey-600;
@@ -60,22 +73,26 @@
       font-size: fonts.$sm;
       text-align: center;
       color: colors.$grey-600;
+      display: none;
       @include mixins.drop-shadow-md-color(
         colors.$shadow-black-700,
         colors.$shadow-black-600
       );
       @include breakpoints.md {
+        display: inherit;
         font-size: fonts.$base;
       }
     }
   }
 
   .content-container {
+    position: absolute;
+    bottom: spacing.$s5;
     border-radius: 10px;
     background-color: rgba(colors.$grey-950, 0.9);
     backdrop-filter: blur(10px);
     padding: spacing.$s4;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: spacing.$s4;
@@ -86,7 +103,7 @@
     }
 
     p {
-      font-size: fonts.$sm;
+      font-size: fonts.$xs;
       text-align: justify;
       hyphens: auto;
       color: colors.$white-300;

@@ -11,6 +11,7 @@
   position: relative;
   margin-top: spacing.$s4;
   margin-bottom: spacing.$s4;
+  width: 100%;
 
   @include breakpoints.md {
     margin-top: 0;

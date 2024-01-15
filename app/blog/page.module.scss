@@ -5,7 +5,7 @@
 .container {
   margin-top: spacing.$s3;
   display: grid;
-  gap: spacing.$s7;
+  gap: spacing.$s5;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   // min-height: 1000px;
@@ -16,7 +16,7 @@
     text-decoration: none;
   }
 
-  @include breakpoints.md {
+  @include breakpoints.xl {
     gap: spacing.$s7;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
