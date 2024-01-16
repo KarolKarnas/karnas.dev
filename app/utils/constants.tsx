@@ -12,6 +12,7 @@ import {
   gitHub,
   linkedIn,
   nextJs,
+  gear
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -60,6 +61,13 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     title: ".gitignore",
     path: "/gitignore",
     icon: git,
+  },
+  {
+    title: "dashboard",
+    path: "/dashboard",
+    icon: gear,
+    submenu: false,
+
   },
 ]
 
