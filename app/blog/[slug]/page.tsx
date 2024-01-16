@@ -13,6 +13,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   //   notFound();
   // }
 
+  // console.log(post)
+  // console.log(typeof post.tags)
+  // console.log(Array.isArray(post.tags))
+
   return (
     <div className={styles.container}>
       <div

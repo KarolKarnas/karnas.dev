@@ -4,17 +4,13 @@ import * as Form from "@radix-ui/react-form"
 import styles from "./formPost.module.scss"
 import { SyntheticEvent, useState } from "react"
 
-const FormPost = () => {
-  const [email, setEmail] = useState("")
+import { createPost } from "../lib/actions"
 
-  const handleSubmit = (e: SyntheticEvent) => {
-    e.preventDefault()
-    console.log("email", email)
-  }
+const FormPost = () => {
   return (
     <div className={styles.container}>
-      <Form.Root className={styles.FormRoot} onSubmit={(e) => handleSubmit(e)}>
-        <Form.Field className={styles.FormField} name="email">
+      <Form.Root action={createPost} className={styles.FormRoot}>
+        <Form.Field className={styles.FormField} name="username">
           <div
             style={{
               display: "flex",
@@ -22,25 +18,19 @@ const FormPost = () => {
               justifyContent: "space-between",
             }}
           >
-            <Form.Label className={styles.FormLabel}>Email</Form.Label>
+            <Form.Label className={styles.FormLabel}>Username</Form.Label>
             <Form.Message className={styles.FormMessage} match="valueMissing">
-              Please enter your email
+              Please enter your Username
             </Form.Message>
             <Form.Message className={styles.FormMessage} match="typeMismatch">
-              Please provide a valid email
+              Please provide a valid Username
             </Form.Message>
           </div>
           <Form.Control asChild>
-            <input
-              className={styles.Input}
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <input className={styles.Input} type="text" required />
           </Form.Control>
         </Form.Field>
-        <Form.Field className={styles.FormField} name="question">
+        <Form.Field className={styles.FormField} name="password">
           <div
             style={{
               display: "flex",
@@ -48,15 +38,19 @@ const FormPost = () => {
               justifyContent: "space-between",
             }}
           >
-            <Form.Label className={styles.FormLabel}>Question</Form.Label>
+            <Form.Label className={styles.FormLabel}>Password</Form.Label>
             <Form.Message className={styles.FormMessage} match="valueMissing">
-              Please enter a question
+              Please enter your password
+            </Form.Message>
+            <Form.Message className={styles.FormMessage} match="typeMismatch">
+              Please provide a valid password
             </Form.Message>
           </div>
           <Form.Control asChild>
-            <textarea className={styles.Textarea} required />
+            <input className={styles.Input} type="text" required />
           </Form.Control>
         </Form.Field>
+
         <Form.Submit asChild>
           <button className={styles.Button} style={{ marginTop: 10 }}>
             Post question

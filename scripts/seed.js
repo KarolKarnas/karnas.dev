@@ -59,7 +59,7 @@ async function seedPosts(client) {
     main_image TEXT NOT NULL,
     fields JSONB NOT NULL,
     category TEXT NOT NULL,
-    tags TEXT[] NOT NULL,
+    tags JSONB NOT NULL,
     date DATE NOT NULL
   );
 `
@@ -75,7 +75,7 @@ async function seedPosts(client) {
           post.sub_title
         }, ${post.slug}, ${post.content_title}, ${post.content}, ${
           post.main_image
-        }, ${JSON.stringify(post.fields)}, ${post.category}, ${post.tags}, ${
+        }, ${JSON.stringify(post.fields)}, ${post.category}, ${JSON.stringify(post.tags)}, ${
           post.date
         })
         ON CONFLICT (id) DO NOTHING;
