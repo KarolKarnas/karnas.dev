@@ -50,6 +50,7 @@ async function seedPosts(client) {
     CREATE TABLE IF NOT EXISTS posts (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     author_id UUID NOT NULL,
+    author_name text NOT NULL,
     title TEXT NOT NULL,
     short_title TEXT NOT NULL,
     sub_title TEXT NOT NULL,
@@ -70,8 +71,8 @@ async function seedPosts(client) {
     const insertedPosts = await Promise.all(
       posts.map(
         (post) => client.sql`
-        INSERT INTO posts (author_id, title, short_title, sub_title, slug,content_title,  content, main_image, fields, category, tags, date)
-        VALUES (${post.author_id}, ${post.title}, ${post.short_title}, ${
+        INSERT INTO posts (author_id, author_name, title, short_title, sub_title, slug,content_title,  content, main_image, fields, category, tags, date)
+        VALUES (${post.author_id},${post.author_name}, ${post.title}, ${post.short_title}, ${
           post.sub_title
         }, ${post.slug}, ${post.content_title}, ${post.content}, ${
           post.main_image
@@ -104,6 +105,7 @@ async function seedProjects(client) {
     CREATE TABLE IF NOT EXISTS projects (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     author_id UUID NOT NULL,
+    author_name text NOT NULL,
     title TEXT NOT NULL,
     short_title TEXT NOT NULL,
     sub_title TEXT NOT NULL,
@@ -130,8 +132,8 @@ async function seedProjects(client) {
     const insertedProjects = await Promise.all(
       projects.map(
         (project) => client.sql`
-        INSERT INTO projects (author_id, title, short_title, sub_title, slug,content_title,  content, main_image, main_icon, stack, icons_stack, json_stack, live_demo, repo, fields, category, tags, date)
-        VALUES (${project.author_id}, ${project.title}, ${
+        INSERT INTO projects (author_id, author_name, title, short_title, sub_title, slug,content_title,  content, main_image, main_icon, stack, icons_stack, json_stack, live_demo, repo, fields, category, tags, date)
+        VALUES (${project.author_id}, ${project.author_name}, ${project.title}, ${
           project.short_title
         }, ${project.sub_title}, ${project.slug}, ${project.content_title}, ${
           project.content

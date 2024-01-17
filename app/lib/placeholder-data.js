@@ -1,7 +1,7 @@
 const users = [
   {
     id: "422111b1-4001-4271-9855-fec4b6a6442a",
-    name: "Admin",
+    name: "Karol Karnas",
     email: "admin@email.com",
     password: "123456",
   },
@@ -10,6 +10,8 @@ const users = [
 const posts = [
   {
     author_id: users[0].id,
+    author_name: users[0].name,
+    author_name: users[0].name,
     title: "Building Bridges",
     short_title: "FigmaAndTDD.ts", //truncate
     sub_title:
@@ -43,6 +45,7 @@ const posts = [
   },
   {
     author_id: users[0].id,
+    author_name: users[0].name,
     title: "Is Odin Project Good for a Beginner?",
     short_title: "OdinProjectFoundations.ts",
     sub_title: "Honest review of the Foundation Path from The Odin Project",
@@ -68,6 +71,7 @@ const posts = [
   },
   {
     author_id: users[0].id,
+    author_name: users[0].name,
     title: "My third article",
     short_title: "myThirdArticle.ts",
     sub_title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
@@ -93,6 +97,7 @@ const posts = [
   },
   {
     author_id: users[0].id,
+    author_name: users[0].name,
     title: "My fourth article lorem ipsum",
     short_title: "myFourthArticle.ts",
     sub_title: "Lorem ipsum dolor sit amet.",
@@ -118,6 +123,7 @@ const posts = [
   },
   {
     author_id: users[0].id,
+    author_name: users[0].name,
     title: "Lorem ipsum dolor same My fifth article",
     short_title: "myFifthArticle.ts",
     sub_title: "Subtitle",
@@ -146,6 +152,7 @@ const posts = [
 const projects = [
   {
     author_id: users[0].id,
+    author_name: users[0].name,
     title: "ilustrografia.com",
     short_title: "ilustrografia.com",
     sub_title: "React fullstack eCommerce platform",
@@ -255,6 +262,7 @@ const projects = [
   },
   {
     author_id: users[0].id,
+    author_name: users[0].name,
     title: "karnas.dev",
     short_title: "karnas.dev",
     sub_title: "VSC design inspired, Next.js Fullstack portfolio with blog",

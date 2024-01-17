@@ -53,7 +53,7 @@ const FormPost = () => {
 
         <Form.Submit asChild>
           <button className={styles.Button} style={{ marginTop: 10 }}>
-            Post question
+            Create Post
           </button>
         </Form.Submit>
       </Form.Root>

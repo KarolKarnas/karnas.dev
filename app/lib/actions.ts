@@ -5,7 +5,7 @@ import { sql } from "@vercel/postgres"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-import { signIn } from "@/auth"
+import { signIn, auth } from "@/auth"
 import { AuthError } from "next-auth"
 
 const fields = [
@@ -35,10 +35,18 @@ export async function createPost(formData: FormData) {
     password: formData.get("password"),
   })
 
+  //fetch logged in user id and name
+  const session = await auth()
+  const userData = await sql`SELECT id, name FROM users WHERE email = ${
+    session && session.user?.email
+  };`
+
+  const { id, name } = userData.rows[0]
+
   const date = new Date().toISOString().split("T")[0]
   try {
-    await sql`INSERT INTO posts (author_id, title, short_title, sub_title, slug,content_title,  content, main_image, fields, category, tags, date)
-  VALUES (${"422111b1-4001-4271-9855-fec4b6a6442a"}, ${password}, ${username}, ${"post.sub_title"}, ${password}, ${"/tddFigma.jpg"}, ${"post.content"}, ${"/tddFigma.jpg"}, ${JSON.stringify(
+    await sql`INSERT INTO posts (author_id, author_name, title, short_title, sub_title, slug,content_title,  content, main_image, fields, category, tags, date)
+  VALUES (${id}, ${name},  ${username}, ${username}, ${"post.sub_title"}, ${password}, ${"/tddFigma.jpg"}, ${"post.content"}, ${"/tddFigma.jpg"}, ${JSON.stringify(
     fields
   )}, ${"post.category"},  ${JSON.stringify(tags)}, ${date})`
   } catch (error) {
@@ -68,6 +76,8 @@ export async function authenticate(
     }
     throw error
   }
+  // revalidatePath("/dashboard")
+  // redirect("/dashboard")
 }
 
 // "use server"

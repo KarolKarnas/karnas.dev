@@ -9,7 +9,7 @@ type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
   const post = await fetchPostBySlug(slug)
-
+// console.log(post)
   if (!post) {
     notFound();
   }
@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ></div>
       <div className={styles["text-container"]}>
         <div className={styles["date-container"]}>
-          <span>Karol Karnas</span>
+          <span>{post.author_name}</span>
           <span>{new Date(post.date).toLocaleDateString("en-GB")}</span>
         </div>
         <h1>{post.title}</h1>

@@ -47,6 +47,7 @@ export type Field = {
 export type Post = {
   id: string
   author_id: string
+  author_name: string
   title: string
   short_title: string
   sub_title: string
@@ -76,6 +77,7 @@ export type BlogCard = {
 export type Project = {
   id: string
   author_id: string
+  author_name: string
   title: string
   short_title: string
   sub_title: string

@@ -62,11 +62,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/gitignore",
     icon: git,
   },
-  {
-    title: "login",
-    path: "/login",
-    icon: gear,
-  },
+  // {
+  //   title: "login",
+  //   path: "/login",
+  //   icon: gear,
+  // },
   {
     title: "dashboard",
     path: "/dashboard",

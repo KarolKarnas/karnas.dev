@@ -1,6 +1,10 @@
 import styles from "./page.module.scss"
 import FormPost from "@/app/ui/formPost"
-export default function About() {
+import { auth } from "@/auth"
+
+export default async function About() {
+  const session = await auth()
+
   return (
     <div className={styles.container}>
       <FormPost />
