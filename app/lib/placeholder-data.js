@@ -49,7 +49,7 @@ const posts = [
     slug: "the-odin-project-foundations",
     content_title: "The most important part of the house",
     content: "test content 0",
-    main_image: "/odinProject.png",
+    main_image: "/odinProject.svg",
     fields: [
       {
         title: "field title 1",

@@ -125,6 +125,7 @@
 .subMenu {
   display: flex;
   flex-direction: column;
+
 }
 
 .subMenuItem {
@@ -136,7 +137,13 @@
   gap: spacing.$s1;
   svg {
     margin-left: spacing.$s5;
-    height: spacing.$s5;
+    width: spacing.$s5;
+  }
+  span {
+    width: 100%;
+    //truncate
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &:hover {

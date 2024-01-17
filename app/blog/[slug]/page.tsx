@@ -3,15 +3,16 @@ import Image from "next/image"
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
 import SocialCard from "@/app/ui/linkCard"
+import { notFound } from "next/navigation"
 
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
   const post = await fetchPostBySlug(slug)
 
-  // if (!invoice) {
-  //   notFound();
-  // }
+  if (!post) {
+    notFound();
+  }
 
   // console.log(post)
   // console.log(typeof post.tags)

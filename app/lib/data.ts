@@ -66,7 +66,6 @@ export async function fetchPostBySlug(slug: string) {
     const data = await sql<Post>`
       SELECT * FROM posts WHERE posts.slug = ${slug};
     `
-    // console.log(data.rows)
     return data.rows[0]
   } catch (error) {
     console.error("Database Error:", error)
