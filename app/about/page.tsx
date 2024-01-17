@@ -7,13 +7,17 @@ import LinkCard from "../ui/linkCard"
 import { SOCIAL_ITEMS, MY_SKILLS } from "../utils/constants"
 import useIcon from "../hooks/useIcon"
 import StackIcons from "../ui/stackIcons"
+import { auth } from "@/auth"
 
 
-export default function About() {
+export default async function About() {
 
   const icons = useIcon(MY_SKILLS)
+  const session = await auth()
+
   return (
     <div className={styles.container}>
+      <p>{session && session.user?.email}</p>
       <div className={styles.info}>
         <h1>Karol Karnas</h1>
         <h2>Fullstack Developer</h2>

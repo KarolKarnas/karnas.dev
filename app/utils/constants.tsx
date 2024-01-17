@@ -63,11 +63,14 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: git,
   },
   {
+    title: "login",
+    path: "/login",
+    icon: gear,
+  },
+  {
     title: "dashboard",
     path: "/dashboard",
     icon: gear,
-    submenu: false,
-
   },
 ]
 
