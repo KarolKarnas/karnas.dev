@@ -8,33 +8,64 @@ import { redirect } from "next/navigation"
 import { signIn, auth } from "@/auth"
 import { AuthError } from "next-auth"
 
-const fields = [
-  {
-    title: "TDDCraftsman",
-    content: "Test-Driven importance of wr.",
-    image: "/tdd_16_9.jpg",
-  },
-  {
-    title: "TDD Path",
-    content: `Both a`,
-  },
-]
+// const fields = [
+//   {
+//     title: "TDDCraftsman",
+//     content: "Test-Driven importance of wr.",
+//     image: "/tdd_16_9.jpg",
+//   },
+//   {
+//     title: "TDD Path",
+//     content: `Both a`,
+//   },
+// ]
 
 const tags = ["JavaScript", "TypeScript", "Figma"]
 
 const FormSchema = z.object({
-  username: z.string(),
-  password: z.string(),
+  title: z.string(),
+  shortTitle: z.string(),
+  subTitle: z.string(),
+  fieldTitles: z.array(z.string()),
+  fieldContents: z.array(z.string()),
+  fieldImages: z.array(z.string()),
 })
 
 const CreatePost = FormSchema
 
 export async function createPost(formData: FormData) {
-  const { username, password } = CreatePost.parse({
-    username: formData.get("username"),
-    password: formData.get("password"),
+  console.log(formData)
+  const {
+    title,
+    shortTitle,
+    subTitle,
+    fieldTitles,
+    fieldContents,
+    fieldImages,
+  } = CreatePost.parse({
+    title: formData.get("title"),
+    shortTitle: formData.get("shortTitle"),
+    subTitle: formData.get("subTitle"),
+    fieldTitles: formData.getAll("fieldTitle"),
+    fieldContents: formData.getAll("fieldContent"),
+    fieldImages: formData.getAll("fieldImage"),
   })
 
+  // console.log(fieldTitles, fieldContents, fieldImages)
+
+  const fields = []
+
+  for (let i = 0; i < fieldTitles.length; i++) {
+    const title = fieldTitles[i]
+    const content = fieldContents[i]
+    const image = fieldImages[i]
+    fields.push({
+      title,
+      content,
+      image,
+    })
+  }
+//  console.log(fields2)
   //fetch logged in user id and name
   const session = await auth()
   const userData = await sql`SELECT id, name FROM users WHERE email = ${
@@ -42,11 +73,11 @@ export async function createPost(formData: FormData) {
   };`
 
   const { id, name } = userData.rows[0]
-
   const date = new Date().toISOString().split("T")[0]
+
   try {
     await sql`INSERT INTO posts (author_id, author_name, title, short_title, sub_title, slug,content_title,  content, main_image, fields, category, tags, date)
-  VALUES (${id}, ${name},  ${username}, ${username}, ${"post.sub_title"}, ${password}, ${"/tddFigma.jpg"}, ${"post.content"}, ${"/tddFigma.jpg"}, ${JSON.stringify(
+  VALUES (${id}, ${name},  ${title}, ${shortTitle}, ${subTitle}, ${shortTitle}, ${"/tddFigma.jpg"}, ${"post.content"}, ${"/tddFigma.jpg"}, ${JSON.stringify(
     fields
   )}, ${"post.category"},  ${JSON.stringify(tags)}, ${date})`
   } catch (error) {

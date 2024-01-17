@@ -3,54 +3,22 @@
 import * as Form from "@radix-ui/react-form"
 import styles from "./formPost.module.scss"
 import { SyntheticEvent, useState } from "react"
+import TextInput from "./atoms/textInput"
+import FieldSet from "./molecules/fieldSet"
 
 import { createPost } from "../lib/actions"
 
 const FormPost = () => {
+
+  const [fields, setFields] = useState(2)
   return (
     <div className={styles.container}>
       <Form.Root action={createPost} className={styles.FormRoot}>
-        <Form.Field className={styles.FormField} name="username">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-            }}
-          >
-            <Form.Label className={styles.FormLabel}>Username</Form.Label>
-            <Form.Message className={styles.FormMessage} match="valueMissing">
-              Please enter your Username
-            </Form.Message>
-            <Form.Message className={styles.FormMessage} match="typeMismatch">
-              Please provide a valid Username
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <input className={styles.Input} type="text" required />
-          </Form.Control>
-        </Form.Field>
-        <Form.Field className={styles.FormField} name="password">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-            }}
-          >
-            <Form.Label className={styles.FormLabel}>Password</Form.Label>
-            <Form.Message className={styles.FormMessage} match="valueMissing">
-              Please enter your password
-            </Form.Message>
-            <Form.Message className={styles.FormMessage} match="typeMismatch">
-              Please provide a valid password
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <input className={styles.Input} type="text" required />
-          </Form.Control>
-        </Form.Field>
+        <TextInput name="title" title="Title"/>
+        <TextInput name="shortTitle" title="Short Title"/>
+        <TextInput name="subTitle" title="Sub Title"/>
 
+        {Array.from({ length: fields }).map((item, index) => <FieldSet key={index} index={index}/>)}
         <Form.Submit asChild>
           <button className={styles.Button} style={{ marginTop: 10 }}>
             Create Post
