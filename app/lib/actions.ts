@@ -9,13 +9,12 @@ import { signIn, auth } from "@/auth"
 import { AuthError } from "next-auth"
 import cloudinary from "../utils/cloudinary"
 
-
 const cloudinaryUrlExtractor = async (file: any) => {
   const image = file as File
   const arrayBuffer = await image.arrayBuffer()
   const buffer = new Uint8Array(arrayBuffer)
-  let url = '';
-   await new Promise((resolve, reject) => {
+  let url = ""
+  await new Promise((resolve, reject) => {
     cloudinary.uploader
       .upload_stream({}, function (error, result) {
         if (error) {
@@ -23,7 +22,7 @@ const cloudinaryUrlExtractor = async (file: any) => {
           return
         }
         resolve(result)
-        console.log(result)
+        // console.log(result)
         if (result) {
           resolve(result)
           if (result) {
@@ -56,7 +55,7 @@ const FormSchema = z.object({
 const CreatePost = FormSchema
 
 export async function createPost(formData: FormData) {
-  // console.log(formData)
+  console.log(formData)
   const {
     title,
     shortTitle,
@@ -69,7 +68,7 @@ export async function createPost(formData: FormData) {
     content,
     mainImage,
     category,
-    tags
+    tags,
   } = CreatePost.parse({
     title: formData.get("title"),
     shortTitle: formData.get("shortTitle"),
@@ -82,9 +81,13 @@ export async function createPost(formData: FormData) {
     content: formData.get("content"),
     mainImage: formData.get("mainImage"),
     category: formData.get("category"),
-    tags: formData.get("category"),
+    tags: formData.get("tags"),
   })
 
+  const tagArr = tags.split(",")
+  // console.log(Array.isArray(tagArr))
+  // const tagArr = JSON.stringify(tags2)
+  // console.log(tagArr.split(","))
   const mainImageUrl = await cloudinaryUrlExtractor(mainImage)
 
   //Mutate fields data
@@ -93,7 +96,6 @@ export async function createPost(formData: FormData) {
     const image = await cloudinaryUrlExtractor(fieldImages[i])
     const title = fieldTitles[i]
     const content = fieldContents[i]
-
 
     fields.push({
       title,
@@ -116,7 +118,7 @@ export async function createPost(formData: FormData) {
     await sql`INSERT INTO posts (author_id, author_name, title, short_title, sub_title, slug, content_title, content, main_image, fields, category, tags, date)
   VALUES (${id}, ${name},  ${title}, ${shortTitle}, ${subTitle}, ${slug}, ${contentTitle}, ${content}, ${mainImageUrl}, ${JSON.stringify(
     fields
-  )}, ${category},  ${JSON.stringify(tags)}, ${date})`
+  )}, ${category},  ${JSON.stringify(tagArr)}, ${date})`
   } catch (error) {
     return {
       message: "Database Error: Failed to Create Post.",
@@ -224,9 +226,7 @@ export async function authenticate(
 //   redirect("/blog")
 // }
 
-
 // image url extractor
-
 
 // type Props = {
 //   image: any

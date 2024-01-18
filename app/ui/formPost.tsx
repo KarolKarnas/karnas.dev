@@ -8,12 +8,15 @@ import FieldSet from "./molecules/fieldSet"
 import { plus } from "../utils/icons"
 import { createPost } from "../lib/actions"
 import FileInput from "./atoms/fileInput"
+// import { Test } from "./atoms/arrayInput2"
+import ArrayInput from "./atoms/arrayInput"
 
 const FormPost = () => {
   const [fields, setFields] = useState(1)
   return (
     <div className={styles.container}>
       <Form.Root action={createPost} className={styles.FormRoot}>
+      {/* <Test /> */}
         <TextInput name="title" title="Title" />
         <TextInput name="shortTitle" title="Short Title" />
         <TextInput name="subTitle" title="Sub Title" />
@@ -29,7 +32,8 @@ const FormPost = () => {
 
 
           <TextInput name="category" title="Category" />
-          <TextInput name="tags" title="Tags" />
+          <ArrayInput name="tags" title="Tags" />
+          {/* <TextInput name="tags" title="Tags" /> */}
 
         <Form.Submit asChild>
           <button type="submit" className={styles.Button} style={{ marginTop: 10 }}>

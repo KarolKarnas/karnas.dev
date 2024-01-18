@@ -11,7 +11,6 @@ const posts = [
   {
     author_id: users[0].id,
     author_name: users[0].name,
-    author_name: users[0].name,
     title: "Building Bridges",
     short_title: "FigmaAndTDD.ts", //truncate
     sub_title:
