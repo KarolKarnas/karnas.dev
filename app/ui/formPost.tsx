@@ -7,6 +7,7 @@ import TextInput from "./atoms/textInput"
 import FieldSet from "./molecules/fieldSet"
 import { plus } from "../utils/icons"
 import { createPost } from "../lib/actions"
+import FileInput from "./atoms/fileInput"
 
 const FormPost = () => {
   const [fields, setFields] = useState(1)
@@ -16,12 +17,20 @@ const FormPost = () => {
         <TextInput name="title" title="Title" />
         <TextInput name="shortTitle" title="Short Title" />
         <TextInput name="subTitle" title="Sub Title" />
+        <TextInput name="slug" title="Slug" />
+        <TextInput name="contentTitle" title="Content Title" />
+        <TextInput name="content" title="Content" />
+        <FileInput name="mainImage" title="Main Image"/>
 
         {Array.from({ length: fields }).map((item, index) => (
           <FieldSet key={index} index={index} />
           ))}
-        
           <button className={styles.addButton} type="button" onClick={() => setFields(fields + 1)}>{plus} Add Field</button>
+
+
+          <TextInput name="category" title="Category" />
+          <TextInput name="tags" title="Tags" />
+
         <Form.Submit asChild>
           <button type="submit" className={styles.Button} style={{ marginTop: 10 }}>
             Create Post

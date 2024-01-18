@@ -35,6 +35,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       <div className={styles["content-container"]}>
+      <p>{post.tags}</p>
+      <p>{post.category}</p>
         <h3>{post.content_title}</h3>
         <p>{post.content}</p>
         {post.fields.map((field, index) => (

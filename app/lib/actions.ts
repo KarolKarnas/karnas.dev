@@ -8,21 +8,35 @@ import { redirect } from "next/navigation"
 import { signIn, auth } from "@/auth"
 import { AuthError } from "next-auth"
 import cloudinary from "../utils/cloudinary"
-import { resolve } from "path"
 
-// const fields = [
-//   {
-//     title: "TDDCraftsman",
-//     content: "Test-Driven importance of wr.",
-//     image: "/tdd_16_9.jpg",
-//   },
-//   {
-//     title: "TDD Path",
-//     content: `Both a`,
-//   },
-// ]
 
-const tags = ["JavaScript", "TypeScript", "Figma"]
+const cloudinaryUrlExtractor = async (file: any) => {
+  const image = file as File
+  const arrayBuffer = await image.arrayBuffer()
+  const buffer = new Uint8Array(arrayBuffer)
+  let url = '';
+   await new Promise((resolve, reject) => {
+    cloudinary.uploader
+      .upload_stream({}, function (error, result) {
+        if (error) {
+          reject(error)
+          return
+        }
+        resolve(result)
+        console.log(result)
+        if (result) {
+          resolve(result)
+          if (result) {
+            url = result.secure_url
+          }
+        }
+      })
+      .end(buffer)
+  })
+  return url
+}
+
+// const tags = ["JavaScript", "TypeScript", "Figma"]
 
 const FormSchema = z.object({
   title: z.string(),
@@ -31,6 +45,12 @@ const FormSchema = z.object({
   fieldTitles: z.array(z.string()),
   fieldContents: z.array(z.string()),
   fieldImages: z.array(z.any()),
+  slug: z.string(),
+  contentTitle: z.string(),
+  content: z.string(),
+  mainImage: z.any(),
+  category: z.string(),
+  tags: z.string(),
 })
 
 const CreatePost = FormSchema
@@ -44,6 +64,12 @@ export async function createPost(formData: FormData) {
     fieldTitles,
     fieldContents,
     fieldImages,
+    slug,
+    contentTitle,
+    content,
+    mainImage,
+    category,
+    tags
   } = CreatePost.parse({
     title: formData.get("title"),
     shortTitle: formData.get("shortTitle"),
@@ -51,34 +77,23 @@ export async function createPost(formData: FormData) {
     fieldTitles: formData.getAll("fieldTitle"),
     fieldContents: formData.getAll("fieldContent"),
     fieldImages: formData.getAll("fieldImage"),
+    slug: formData.get("slug"),
+    contentTitle: formData.get("contentTitle"),
+    content: formData.get("content"),
+    mainImage: formData.get("mainImage"),
+    category: formData.get("category"),
+    tags: formData.get("category"),
   })
 
-  // console.log(fieldTitles, fieldContents, fieldImages)
+  const mainImageUrl = await cloudinaryUrlExtractor(mainImage)
 
+  //Mutate fields data
   const fields = []
-
   for (let i = 0; i < fieldTitles.length; i++) {
-    let image = ""
+    const image = await cloudinaryUrlExtractor(fieldImages[i])
     const title = fieldTitles[i]
     const content = fieldContents[i]
-    const file = fieldImages[i] as File
-    const arrayBuffer = await file.arrayBuffer()
-    const buffer = new Uint8Array(arrayBuffer)
-    await new Promise((resolve, reject) => {
-      cloudinary.uploader
-        .upload_stream({}, function (error, result) {
-          if (error) {
-            reject(error)
-            return
-          }
-          resolve(result)
-          console.log(result)
-          if (result) {
-            image = result.secure_url
-          }
-        })
-        .end(buffer)
-    })
+
 
     fields.push({
       title,
@@ -86,7 +101,7 @@ export async function createPost(formData: FormData) {
       image,
     })
   }
-  console.log(fields)
+  // console.log(fields)
   //fetch logged in user id and name
   const session = await auth()
   const userData = await sql`SELECT id, name FROM users WHERE email = ${
@@ -96,11 +111,12 @@ export async function createPost(formData: FormData) {
   const { id, name } = userData.rows[0]
   const date = new Date().toISOString().split("T")[0]
 
+  // database Insert
   try {
-    await sql`INSERT INTO posts (author_id, author_name, title, short_title, sub_title, slug,content_title,  content, main_image, fields, category, tags, date)
-  VALUES (${id}, ${name},  ${title}, ${shortTitle}, ${subTitle}, ${shortTitle}, ${"/tddFigma.jpg"}, ${"post.content"}, ${"/tddFigma.jpg"}, ${JSON.stringify(
+    await sql`INSERT INTO posts (author_id, author_name, title, short_title, sub_title, slug, content_title, content, main_image, fields, category, tags, date)
+  VALUES (${id}, ${name},  ${title}, ${shortTitle}, ${subTitle}, ${slug}, ${contentTitle}, ${content}, ${mainImageUrl}, ${JSON.stringify(
     fields
-  )}, ${"post.category"},  ${JSON.stringify(tags)}, ${date})`
+  )}, ${category},  ${JSON.stringify(tags)}, ${date})`
   } catch (error) {
     return {
       message: "Database Error: Failed to Create Post.",
@@ -206,4 +222,38 @@ export async function authenticate(
 
 //   revalidatePath("/blog")
 //   redirect("/blog")
+// }
+
+
+// image url extractor
+
+
+// type Props = {
+//   image: any
+// }
+
+// const cloudinaryUrlExtractor = async ({image}: Props) => {
+//   const file = image as File
+//   const arrayBuffer = await file.arrayBuffer()
+//   const buffer = new Uint8Array(arrayBuffer)
+//   let url = '';
+//    await new Promise((resolve, reject) => {
+//     cloudinary.uploader
+//       .upload_stream({}, function (error, result) {
+//         if (error) {
+//           reject(error)
+//           return
+//         }
+//         resolve(result)
+//         console.log(result)
+//         if (result) {
+//           resolve(result)
+//           if (result) {
+//             url = result.secure_url
+//           }
+//         }
+//       })
+//       .end(buffer)
+//   })
+//   return url
 // }
