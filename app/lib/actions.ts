@@ -34,7 +34,7 @@ const FormSchema = z.object({
 const CreatePost = FormSchema
 
 export async function createPost(formData: FormData) {
-  console.log(formData)
+  // console.log(formData)
   const {
     title,
     shortTitle,
@@ -65,7 +65,7 @@ export async function createPost(formData: FormData) {
       image,
     })
   }
-//  console.log(fields2)
+   console.log(fields)
   //fetch logged in user id and name
   const session = await auth()
   const userData = await sql`SELECT id, name FROM users WHERE email = ${
@@ -107,6 +107,7 @@ export async function authenticate(
     }
     throw error
   }
+  // console.log('hdsfasf')
   // revalidatePath("/dashboard")
   // redirect("/dashboard")
 }

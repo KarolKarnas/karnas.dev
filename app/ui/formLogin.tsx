@@ -11,7 +11,7 @@ const FormLogin = () => {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined)
   return (
     <div className={styles.container}>
-      <h1>Please log in to continue.</h1>
+      {/* <h1>Please log in to continue.</h1> */}
       <Form.Root action={dispatch} className={styles.FormRoot}>
         <Form.Field className={styles.FormField} name="email">
           <div

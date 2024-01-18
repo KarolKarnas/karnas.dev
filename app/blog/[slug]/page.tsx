@@ -5,6 +5,7 @@ import { SOCIAL_ITEMS } from "@/app/utils/constants"
 import SocialCard from "@/app/ui/linkCard"
 import { notFound } from "next/navigation"
 
+
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug

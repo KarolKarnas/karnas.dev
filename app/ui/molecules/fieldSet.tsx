@@ -13,7 +13,7 @@ const FieldSet = ({ index }: Props) => {
       <h3>Field Set {index}</h3>
       <TextInput name={`fieldTitle`} title="Title" />
       <TextInput name={`fieldContent`} title="Content" />
-      <TextInput name={`fieldImage`} title="Image" />
+      {/* <TextInput name={`fieldImage`} title="Image" /> */}
     </div>
   )
 }
