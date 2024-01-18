@@ -7,6 +7,8 @@ import { redirect } from "next/navigation"
 
 import { signIn, auth } from "@/auth"
 import { AuthError } from "next-auth"
+import cloudinary from "../utils/cloudinary"
+import { resolve } from "path"
 
 // const fields = [
 //   {
@@ -28,7 +30,7 @@ const FormSchema = z.object({
   subTitle: z.string(),
   fieldTitles: z.array(z.string()),
   fieldContents: z.array(z.string()),
-  fieldImages: z.array(z.string()),
+  fieldImages: z.array(z.any()),
 })
 
 const CreatePost = FormSchema
@@ -56,16 +58,35 @@ export async function createPost(formData: FormData) {
   const fields = []
 
   for (let i = 0; i < fieldTitles.length; i++) {
+    let image = ""
     const title = fieldTitles[i]
     const content = fieldContents[i]
-    const image = fieldImages[i]
+    const file = fieldImages[i] as File
+    const arrayBuffer = await file.arrayBuffer()
+    const buffer = new Uint8Array(arrayBuffer)
+    await new Promise((resolve, reject) => {
+      cloudinary.uploader
+        .upload_stream({}, function (error, result) {
+          if (error) {
+            reject(error)
+            return
+          }
+          resolve(result)
+          console.log(result)
+          if (result) {
+            image = result.secure_url
+          }
+        })
+        .end(buffer)
+    })
+
     fields.push({
       title,
       content,
       image,
     })
   }
-   console.log(fields)
+  console.log(fields)
   //fetch logged in user id and name
   const session = await auth()
   const userData = await sql`SELECT id, name FROM users WHERE email = ${
@@ -107,7 +128,6 @@ export async function authenticate(
     }
     throw error
   }
-  // console.log('hdsfasf')
   // revalidatePath("/dashboard")
   // redirect("/dashboard")
 }

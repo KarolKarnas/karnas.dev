@@ -9,7 +9,7 @@ import { plus } from "../utils/icons"
 import { createPost } from "../lib/actions"
 
 const FormPost = () => {
-  const [fields, setFields] = useState(2)
+  const [fields, setFields] = useState(1)
   return (
     <div className={styles.container}>
       <Form.Root action={createPost} className={styles.FormRoot}>

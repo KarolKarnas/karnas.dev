@@ -2,6 +2,8 @@
 
 import styles from "./fieldSet.module.scss"
 import TextInput from "../atoms/textInput"
+import FileInput from "../atoms/fileInput"
+import Textarea from "../atoms/textarea"
 
 type Props = {
   index: number
@@ -12,7 +14,8 @@ const FieldSet = ({ index }: Props) => {
     <div className={styles.FieldSet}>
       <h3>Field Set {index}</h3>
       <TextInput name={`fieldTitle`} title="Title" />
-      <TextInput name={`fieldContent`} title="Content" />
+      <Textarea name={`fieldContent`} title="Content" />
+      <FileInput name={`fieldImage`} title="Image" />
       {/* <TextInput name={`fieldImage`} title="Image" /> */}
     </div>
   )
