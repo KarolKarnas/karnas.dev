@@ -8,9 +8,10 @@ type Props = {
   name: string
   title: string
   originalValue?: string
+  readOnly?: boolean
 }
 
-const TextInput = ({ name, title, originalValue }: Props) => {
+const TextInput = ({ name, title, originalValue, readOnly }: Props) => {
 
   const [value, setValue] = useState(originalValue)
   return (
@@ -37,6 +38,7 @@ const TextInput = ({ name, title, originalValue }: Props) => {
           required
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          readOnly={readOnly}
         />
       </Form.Control>
     </Form.Field>

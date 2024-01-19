@@ -5,7 +5,7 @@ import styles from "./formPost.module.scss"
 import { useState } from "react"
 import TextInput from "../../atoms/form/textInput"
 import FieldSet from "../../molecules/form/fieldSet"
-import { createPost } from "../../../lib/actions"
+import { createPost, editPost } from "../../../lib/actions"
 import FileInput from "../../atoms/form/fileInput"
 import ArrayInput from "../../atoms/form/arrayInput"
 import ButtonSubmit from "../../atoms/form/buttonSubmit"
@@ -18,9 +18,9 @@ type Props = {
 
 const FormPost = ({ post }: Props) => {
   const [fields, setFields] = useState(post?.fields.length || 1)
-
+// console.log(post?.fields)
   return (
-    <Form.Root action={createPost} className={styles.FormRoot}>
+    <Form.Root action={post ? editPost: createPost} className={styles.FormRoot}>
       {post ? (
         <>
           <div className={styles.col1}>
@@ -35,7 +35,8 @@ const FormPost = ({ post }: Props) => {
               title="Sub Title"
               originalValue={post.sub_title}
             />
-            <TextInput name="slug" title="Slug" originalValue={post.slug} />
+            <TextInput name="slug" title="Slug" originalValue={post.slug} readOnly />
+            <TextInput name="mainImagePath" title="Main Image Path" originalValue={post.main_image} readOnly />
             <div className={styles.oriMainImage}>
               <h4>Original Main Image</h4>
               <Image
@@ -45,7 +46,7 @@ const FormPost = ({ post }: Props) => {
                 alt={post.short_title}
               />
             </div>
-            <FileInput name="mainImage" title="Main Image" required={true} />
+            <FileInput name="mainImage" title="Main Image" required={false} />
             <TextInput
               name="category"
               title="Category"

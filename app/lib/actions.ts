@@ -8,6 +8,7 @@ import { redirect } from "next/navigation"
 import { signIn, auth } from "@/auth"
 import { AuthError } from "next-auth"
 import cloudinary from "../utils/cloudinary"
+import { Field } from "../utils/types"
 
 const cloudinaryUrlExtractor = async (file: any) => {
   const image = file as File
@@ -55,7 +56,7 @@ const FormSchema = z.object({
 const CreatePost = FormSchema
 
 export async function createPost(formData: FormData) {
-  console.log(formData)
+  // console.log(formData)
   const {
     title,
     shortTitle,
@@ -91,22 +92,20 @@ export async function createPost(formData: FormData) {
   const mainImageUrl = await cloudinaryUrlExtractor(mainImage)
 
   //Mutate fields data
-  const fields = []
+  const fields: Field[] = []
   for (let i = 0; i < fieldTitles.length; i++) {
     // console.log(fieldImages[i])
     const title = fieldTitles[i]
     const content = fieldContents[i]
-    fields.push({
+    const fieldEntry: Field = {
       title,
       content,
-    })
-    if (fieldImages[i].size > 0) {
-    
-      const image = await cloudinaryUrlExtractor(fieldImages[i])
-      fields.push({
-        image,
-      })
     }
+    if (fieldImages[i].size > 0) {
+      const image = await cloudinaryUrlExtractor(fieldImages[i])
+      fieldEntry.image = image
+    }
+    fields.push(fieldEntry)
   }
   // console.log(fields)
   //fetch logged in user id and name
@@ -132,6 +131,117 @@ export async function createPost(formData: FormData) {
 
   revalidatePath("/blog")
   redirect("/blog")
+}
+
+const EditPostFormSchema = z.object({
+  title: z.string(),
+  shortTitle: z.string(),
+  subTitle: z.string(),
+  fieldTitles: z.array(z.string()),
+  fieldContents: z.array(z.string()),
+  fieldImages: z.array(z.any()),
+  fieldImagesPaths: z.array(z.string()),
+  slug: z.string(),
+  contentTitle: z.string(),
+  content: z.string(),
+  mainImage: z.any(),
+  mainImagePath: z.string(),
+  category: z.string(),
+  tags: z.string(),
+})
+
+export async function editPost(formData: FormData) {
+  // console.log(formData)
+  const {
+    title,
+    shortTitle,
+    subTitle,
+    fieldTitles,
+    fieldContents,
+    fieldImages,
+    fieldImagesPaths,
+    slug,
+    contentTitle,
+    content,
+    mainImage,
+    mainImagePath,
+    category,
+    tags,
+  } = EditPostFormSchema.parse({
+    title: formData.get("title"),
+    shortTitle: formData.get("shortTitle"),
+    subTitle: formData.get("subTitle"),
+    fieldTitles: formData.getAll("fieldTitle"),
+    fieldContents: formData.getAll("fieldContent"),
+    fieldImages: formData.getAll("fieldImage"),
+    fieldImagesPaths: formData.getAll("fieldImagePath"),
+    slug: formData.get("slug"),
+    contentTitle: formData.get("contentTitle"),
+    content: formData.get("content"),
+    mainImage: formData.get("mainImage"),
+    mainImagePath: formData.get("mainImagePath"),
+    category: formData.get("category"),
+    tags: formData.get("tags"),
+  })
+
+  const tagArr = tags.split(",")
+  // // console.log(Array.isArray(tagArr))
+  // // const tagArr = JSON.stringify(tags2)
+  // // console.log(tagArr.split(","))
+  let mainImageUrl = ""
+  if (mainImage.size > 0) {
+    mainImageUrl = await cloudinaryUrlExtractor(mainImage)
+  } else {
+    mainImageUrl = mainImagePath
+  }
+
+  // console.log(mainImageUrl)
+
+  //Mutate fields data
+  const fields: Field[] = []
+  for (let i = 0; i < fieldTitles.length; i++) {
+    // console.log(fieldImages[i])
+    const title = fieldTitles[i]
+    const content = fieldContents[i]
+    const fieldEntry: Field = {
+      title,
+      content,
+    }
+    if (fieldImagesPaths[i]) {
+      fieldEntry.image = fieldImagesPaths[i]
+    }
+    if (fieldImages[i].size > 0) {
+      fieldEntry.image = await cloudinaryUrlExtractor(fieldImages[i])
+    }
+    fields.push(fieldEntry)
+  }
+
+  // console.log(fields)
+  // // console.log(fields)
+  // //fetch logged in user id and name
+  // const session = await auth()
+  // const userData = await sql`SELECT id, name FROM users WHERE email = ${
+  //   session && session.user?.email
+  // };`
+
+  // const { id, name } = userData.rows[0]
+  // const date = new Date().toISOString().split("T")[0]
+
+  // database Update
+  try {
+    await sql`UPDATE posts
+    SET title = ${title}, short_title = ${shortTitle}, sub_title = ${subTitle}, slug = ${slug}, content_title = ${contentTitle}, content = ${content}, main_image = ${mainImageUrl}, fields = ${JSON.stringify(
+      fields
+    )}, category = ${category}, tags = ${JSON.stringify(tagArr)}
+    WHERE slug = ${slug}`
+  } catch (error) {
+    return {
+      message: "Database Error: Failed to Create Post.",
+    }
+  }
+  // blog path try
+  revalidatePath(`/blog/${slug}`)
+  redirect(`/blog/${slug}`)
 }
 
 export async function authenticate(

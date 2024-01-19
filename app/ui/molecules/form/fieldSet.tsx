@@ -20,7 +20,8 @@ const FieldSet = ({ index,originalItem }: Props) => {
       <TextInput name={`fieldTitle`} title="Title" originalValue={originalItem?.title}/>
       <Textarea name={`fieldContent`} title="Content" originalValue={originalItem?.content}/>
       {originalItem?.image ?            <div className={styles.oriMainImage}>
-              <h4>Original Main Image</h4>
+      <TextInput name="fieldImagePath" title={`Original Image Path ${index}`} originalValue={originalItem.image} readOnly />
+              <h4>Original Image fieldset {index}</h4>
               <Image
                 src={originalItem.image}
                 width={600}
