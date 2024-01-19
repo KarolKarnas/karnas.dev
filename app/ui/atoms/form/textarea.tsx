@@ -2,14 +2,16 @@
 
 import * as Form from "@radix-ui/react-form"
 import styles from "./textInput.module.scss"
-
+import { useState } from "react"
 
 type Props = {
-  name: string,
+  name: string
   title: string
+  originalValue?: string
 }
 
-const Textarea = ({name, title}: Props) => {
+const Textarea = ({ name, title, originalValue }: Props) => {
+  const [value, setValue] = useState(originalValue)
   return (
     <Form.Field className={styles.FormField} name={name}>
       <div
@@ -28,7 +30,12 @@ const Textarea = ({name, title}: Props) => {
         </Form.Message>
       </div>
       <Form.Control asChild>
-        <textarea className={styles.Textarea} required />
+        <textarea
+          className={styles.Textarea}
+          required
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
       </Form.Control>
     </Form.Field>
   )

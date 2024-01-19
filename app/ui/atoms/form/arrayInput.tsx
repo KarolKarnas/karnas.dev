@@ -7,10 +7,11 @@ import { ChangeEvent, SyntheticEvent, useState } from "react"
 type Props = {
   name: string
   title: string
+  originalValue?: string[]
 }
 
-const ArrayInput = ({ name, title }: Props) => {
-  const [values, setValues] = useState<string[]>([])
+const ArrayInput = ({ name, title, originalValue }: Props) => {
+  const [values, setValues] = useState<string[]>(originalValue || [])
 
   return (
     <Form.Field className={styles.FormField} name={name}>

@@ -4,13 +4,15 @@ import * as Form from "@radix-ui/react-form"
 import styles from "./textInput.module.scss"
 import { SyntheticEvent, useState } from "react"
 
-
 type Props = {
-  name: string,
+  name: string
   title: string
+  originalValue?: string
 }
 
-const TextInput = ({name, title}: Props) => {
+const TextInput = ({ name, title, originalValue }: Props) => {
+
+  const [value, setValue] = useState(originalValue)
   return (
     <Form.Field className={styles.FormField} name={name}>
       <div
@@ -29,7 +31,13 @@ const TextInput = ({name, title}: Props) => {
         </Form.Message>
       </div>
       <Form.Control asChild>
-        <input className={styles.Input} type="text" required />
+        <input
+          className={styles.Input}
+          type="text"
+          required
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
       </Form.Control>
     </Form.Field>
   )

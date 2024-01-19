@@ -5,14 +5,13 @@ import { SOCIAL_ITEMS } from "@/app/utils/constants"
 import LinkCard from "@/app/ui/atoms/linkCard"
 import { notFound } from "next/navigation"
 
-
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
   const post = await fetchPostBySlug(slug)
-// console.log(post)
+  // console.log(post)
   if (!post) {
-    notFound();
+    notFound()
   }
 
   // console.log(post)
@@ -35,8 +34,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       <div className={styles["content-container"]}>
-      <p>{post.tags}</p>
-      <p>{post.category}</p>
+        <p>{post.tags}</p>
+        <p>{post.category}</p>
         <h3>{post.content_title}</h3>
         <p>{post.content}</p>
         {post.fields.map((field, index) => (

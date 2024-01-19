@@ -6,6 +6,7 @@ import BlogCard from "@/app/ui/molecules/blogCard"
 
 export default async function About() {
   const blogCards = await fetchBlogCards()
+
   return (
     <div className={styles.container}>
       <MainHeading color="blue">Edit some post Sir!</MainHeading>
@@ -15,7 +16,7 @@ export default async function About() {
           <div key={index} className={styles.cardContainer}>
             <BlogCard card={card} />
             <div className={styles.buttons}>
-              <Button color="blue" text="Edit" path="/" />
+              <Button color="blue" text="Edit" path={`/dashboard/posts/${card.slug}/edit`} />
               <Button color="pink" text="Delete" path="/" />
             </div>
           </div>
