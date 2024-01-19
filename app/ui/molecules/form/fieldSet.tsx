@@ -16,7 +16,6 @@ const FieldSet = ({ index }: Props) => {
       <TextInput name={`fieldTitle`} title="Title" />
       <Textarea name={`fieldContent`} title="Content" />
       <FileInput name={`fieldImage`} title="Image" required={false} />
-      {/* <TextInput name={`fieldImage`} title="Image" /> */}
     </div>
   )
 }
