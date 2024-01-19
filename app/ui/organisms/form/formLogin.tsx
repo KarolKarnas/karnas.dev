@@ -1,89 +1,48 @@
 "use client"
 
 import * as Form from "@radix-ui/react-form"
-import styles from "./formLogin.module.scss"
+import styles from "./formPost.module.scss"
+import { useState } from "react"
+import TextInput from "../../atoms/form/textInput"
+import FieldSet from "../../molecules/form/fieldSet"
+import { createPost } from "../../../lib/actions"
+import FileInput from "../../atoms/form/fileInput"
+import ArrayInput from "../../atoms/form/arrayInput"
+import ButtonSubmit from "../../atoms/form/buttonSubmit"
 
-import { authenticate } from "../../../lib/actions"
-
-import { useFormState, useFormStatus } from "react-dom"
-
-const FormLogin = () => {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined)
+const FormPost = () => {
+  const [fields, setFields] = useState(1)
   return (
-    <div className={styles.container}>
-      {/* <h1>Please log in to continue.</h1> */}
-      <Form.Root action={dispatch} className={styles.FormRoot}>
-        <Form.Field className={styles.FormField} name="email">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-            }}
-          >
-            <Form.Label className={styles.FormLabel}>Email</Form.Label>
-            <Form.Message className={styles.FormMessage} match="valueMissing">
-              Please enter your Email
-            </Form.Message>
-            <Form.Message className={styles.FormMessage} match="typeMismatch">
-              Please provide a valid Email
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <input
-              className={styles.Input}
-              type="email"
-              required
-              placeholder="Enter your email"
-            />
-          </Form.Control>
-        </Form.Field>
-        <Form.Field className={styles.FormField} name="password">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-            }}
-          >
-            <Form.Label className={styles.FormLabel}>Password</Form.Label>
-            <Form.Message className={styles.FormMessage} match="valueMissing">
-              Please enter your password
-            </Form.Message>
-            <Form.Message className={styles.FormMessage} match="typeMismatch">
-              Please provide a valid password
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <input
-              className={styles.Input}
-              type="password"
-              name="password"
-              placeholder="Enter password"
-              required
-            />
-          </Form.Control>
-        </Form.Field>
-
-        <Form.Submit asChild>
-          <button className={styles.Button} style={{ marginTop: 10 }}>
-            Login
-          </button>
-        </Form.Submit>
-        <div
-          className="flex h-8 items-end space-x-1"
-          aria-live="polite"
-          aria-atomic="true"
+    <Form.Root action={createPost} className={styles.FormRoot}>
+      {/* <Test /> */}
+      <div className={styles.col1}>
+        <TextInput name="title" title="Title" />
+        <TextInput name="shortTitle" title="Short Title" />
+        <TextInput name="subTitle" title="Sub Title" />
+        <TextInput name="slug" title="Slug" />
+        <FileInput name="mainImage" title="Main Image" required={true} />
+        <TextInput name="category" title="Category" />
+        <ArrayInput name="tags" title="Tags" />
+      </div>
+      <div className={styles.col2}>
+        <TextInput name="contentTitle" title="Content Title" />
+        <TextInput name="content" title="Content" />
+        {Array.from({ length: fields }).map((item, index) => (
+          <FieldSet key={index} index={index} />
+        ))}
+        <button
+          className={styles.addButton}
+          type="button"
+          onClick={() => setFields(fields + 1)}
         >
-          {errorMessage && (
-            <>
-              <p className="text-sm text-red-500">{errorMessage}</p>
-            </>
-          )}
-        </div>
-      </Form.Root>
-    </div>
+          <span>Add Field +</span>
+        </button>
+        <Form.Submit asChild>
+          <ButtonSubmit color="orange" text="Submit" type="submit" />
+        </Form.Submit>
+      </div>
+    </Form.Root>
   )
 }
 
-export default FormLogin
+export default FormPost

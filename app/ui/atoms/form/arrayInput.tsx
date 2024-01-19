@@ -30,7 +30,7 @@ const ArrayInput = ({ name, title }: Props) => {
         </Form.Message>
       </div>
       <Form.Control asChild>
-        <input
+        <textarea
           className={styles.Input}
           value={values.toString()}
           name="tags"

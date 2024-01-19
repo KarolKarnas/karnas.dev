@@ -9,13 +9,11 @@ import { createPost } from "../../../lib/actions"
 import FileInput from "../../atoms/form/fileInput"
 import ArrayInput from "../../atoms/form/arrayInput"
 import ButtonSubmit from "../../atoms/form/buttonSubmit"
-import MainHeading from "../../atoms/mainHeading"
 
 const FormPost = () => {
   const [fields, setFields] = useState(1)
   return (
-    <div className={styles.container}>
-      <MainHeading color="blue">Create a new post Sir!</MainHeading>
+   
       <Form.Root action={createPost} className={styles.FormRoot}>
         {/* <Test /> */}
         <div className={styles.col1}>
@@ -45,7 +43,7 @@ const FormPost = () => {
           </Form.Submit>
         </div>
       </Form.Root>
-    </div>
+  
   )
 }
 

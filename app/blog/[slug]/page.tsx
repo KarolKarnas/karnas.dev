@@ -2,7 +2,7 @@ import { fetchPostBySlug } from "@/app/lib/data"
 import Image from "next/image"
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
-import SocialCard from "@/app/ui/linkCard"
+import LinkCard from "@/app/ui/atoms/linkCard"
 import { notFound } from "next/navigation"
 
 
@@ -68,7 +68,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
-              <SocialCard key={index} socialItem={item} />
+              <LinkCard key={index} socialItem={item} />
             ))}
           </ul>
         </div>

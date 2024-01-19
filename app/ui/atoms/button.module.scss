@@ -47,5 +47,23 @@
   }
   a {
     color: colors.$white-300;
+        @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+  }
+}
+.pink {
+  background-color: rgba(colors.$pink-500, $alpha: 0.5);
+  color: colors.$pink-500;
+  &:hover {
+    background-color: rgba(colors.$pink-500, $alpha: 0.75);
+  }
+  a {
+    color: colors.$white-300;
+        @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
   }
 }

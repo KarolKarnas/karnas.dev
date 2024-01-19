@@ -1,32 +1,32 @@
 import styles from "./page.module.scss"
 import Button from "../../ui/atoms/button"
+import { fetchBlogCards } from "@/app/lib/data"
+import MainHeading from "@/app/ui/atoms/mainHeading"
+import BlogCard from "@/app/ui/molecules/blogCard"
 
-export default function About() {
+export default async function About() {
+  const blogCards = await fetchBlogCards()
   return (
     <div className={styles.container}>
-      <h1>Posts</h1>
-      <div className={styles["button-container"]}>
-        <div className={styles.col1}>
-          <Button text={"Posts"} color="blue" path="/dashboard/posts"></Button>
-          <Button
-            text={"Post Create"}
-            color="blue"
-            path="/dashboard/posts/create"
-          ></Button>
-        </div>
-        <div className={styles.col2}>
-          <Button
-            text={"Projects"}
-            color="orange"
-            path="/dashboard/projects"
-          ></Button>
-          <Button
-            text={"Project Create"}
-            color="orange"
-            path="/dashboard/projects/create"
-          ></Button>
-        </div>
+      <MainHeading color="blue">Edit some post Sir!</MainHeading>
+
+      <div className={styles.gridContainer}>
+        {blogCards.map((card, index) => (
+          <div key={index} className={styles.cardContainer}>
+            <BlogCard card={card} />
+            <div className={styles.buttons}>
+              <Button color="blue" text="Edit" path="/" />
+              <Button color="pink" text="Delete" path="/" />
+            </div>
+          </div>
+        ))}
       </div>
+
+      <Button
+        text={"Post Create"}
+        color="blue"
+        path="/dashboard/posts/create"
+      ></Button>
     </div>
   )
 }
