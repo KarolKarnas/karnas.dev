@@ -1,10 +1,10 @@
 import styles from "./page.module.scss"
 import Link from "next/link"
 import { SIDENAV_ITEMS } from "./utils/constants"
-import LinkCard from "./ui/linkCard"
+import LinkCard from "./ui/atoms/linkCard"
 import { SOCIAL_ITEMS } from "./utils/constants"
-import BlogLinks from "./ui/blogLinks"
-import ProjectsLinks from "./ui/projectsLinks"
+import BlogLinks from "./ui/atoms/blogLinks"
+import ProjectsLinks from "./ui/atoms/projectsLinks"
 
 export default function Home() {
   const startItems = [SIDENAV_ITEMS[1], SIDENAV_ITEMS[4]]

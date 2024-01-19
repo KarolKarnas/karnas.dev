@@ -1,0 +1,30 @@
+@use "../../scss/colors";
+@use "../../scss/fonts.scss";
+@use "../../scss/spacing.scss";
+@use "../../scss/breakpoints.scss";
+@use "../../scss/mixins";
+
+.container {
+      
+      border-radius: 15px;
+      background-color: rgba(colors.$blue-600, 0.2);
+      border: 1px solid colors.$blue-500;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: spacing.$s3;
+      width: 100%;
+      @include breakpoints.md {
+        padding: spacing.$s2;
+      }
+      li {
+        svg {
+          height: fonts.$xl3;
+          @include breakpoints.md {
+            height: fonts.$xl4;
+          }
+        }
+      }
+    }
+ 

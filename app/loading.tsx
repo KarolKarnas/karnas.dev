@@ -1,5 +1,5 @@
 import styles from "./loading.module.scss"
-import Spinner from "./ui/spinner"
+import Spinner from "./ui/atoms/spinner"
 
 type Props = {}
 const Loading = (props: Props) => {

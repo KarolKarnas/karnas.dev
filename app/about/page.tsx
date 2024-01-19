@@ -1,17 +1,15 @@
 import styles from "./page.module.scss"
-import Json from "../ui/json"
+import Json from "../ui/atoms/json"
 import { ABOUT } from "../utils/info"
 // import { mongo, rtl, playWright } from "../utils/icons"
 import Image from "next/image"
-import LinkCard from "../ui/linkCard"
+import LinkCard from "../ui/atoms/linkCard"
 import { SOCIAL_ITEMS, MY_SKILLS } from "../utils/constants"
 import useIcon from "../hooks/useIcon"
-import StackIcons from "../ui/stackIcons"
+import StackIcons from "../ui/atoms/stackIcons"
 // import { auth } from "@/auth"
 
-
 export default async function About() {
-
   const icons = useIcon(MY_SKILLS)
   // const session = await auth()
 
@@ -23,11 +21,10 @@ export default async function About() {
         <h2>Fullstack Developer</h2>
         <Json code={ABOUT}></Json>
         <ul>
-  {SOCIAL_ITEMS.map((item, index) => (
-    <LinkCard key={index} socialItem={item} />
-  ))}
-</ul>
-
+          {SOCIAL_ITEMS.map((item, index) => (
+            <LinkCard key={index} socialItem={item} />
+          ))}
+        </ul>
       </div>
 
       <div className={styles.image}>

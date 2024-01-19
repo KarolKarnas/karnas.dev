@@ -93,15 +93,20 @@ export async function createPost(formData: FormData) {
   //Mutate fields data
   const fields = []
   for (let i = 0; i < fieldTitles.length; i++) {
-    const image = await cloudinaryUrlExtractor(fieldImages[i])
+    // console.log(fieldImages[i])
     const title = fieldTitles[i]
     const content = fieldContents[i]
-
     fields.push({
       title,
       content,
-      image,
     })
+    if (fieldImages[i].size > 0) {
+    
+      const image = await cloudinaryUrlExtractor(fieldImages[i])
+      fields.push({
+        image,
+      })
+    }
   }
   // console.log(fields)
   //fetch logged in user id and name

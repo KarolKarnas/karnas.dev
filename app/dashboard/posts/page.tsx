@@ -1,11 +1,11 @@
 import styles from "./page.module.scss"
-import Button from "../../ui/button"
+import Button from "../../ui/atoms/button"
 
 export default function About() {
   return (
     <div className={styles.container}>
       <h1>Posts</h1>
-      <div className={styles['button-container']}>
+      <div className={styles["button-container"]}>
         <div className={styles.col1}>
           <Button text={"Posts"} color="blue" path="/dashboard/posts"></Button>
           <Button

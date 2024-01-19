@@ -1,5 +1,5 @@
 import styles from "./page.module.scss"
-import FormPost from "@/app/ui/formPost"
+import FormPost from "@/app/ui/organisms/form/formPost"
 import { auth } from "@/auth"
 
 export default async function About() {

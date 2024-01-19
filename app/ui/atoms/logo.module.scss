@@ -1,0 +1,11 @@
+@use "../../scss/colors";
+
+.logo {
+  color: colors.$white-100;
+  font-weight: 900;
+  background-color: colors.$grey-900;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}

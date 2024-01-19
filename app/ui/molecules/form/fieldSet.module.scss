@@ -1,0 +1,10 @@
+@use "../../../scss/colors";
+@use "../../../scss/fonts.scss";
+@use "../../../scss/spacing.scss";
+@use "../../../scss/breakpoints.scss";
+@use "../../../scss/mixins.scss";
+
+.FieldSet {
+  display: flex;
+  flex-direction: column;
+}

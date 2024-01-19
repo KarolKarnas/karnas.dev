@@ -1,4 +1,4 @@
-import FormLogin from "../ui/formLogin"
+import FormLogin from "../ui/organisms/form/formLogin"
 import { auth } from "@/auth"
 
 export default async function LoginPage() {

@@ -1,0 +1,6 @@
+@use "../../../scss/forms";
+
+.container {
+  @include forms.form-root
+}
+
