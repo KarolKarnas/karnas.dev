@@ -12,7 +12,8 @@ import {
   gitHub,
   linkedIn,
   nextJs,
-  gear
+  gear,
+  svg
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -28,9 +29,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   //   icon: nodeJs,
   // },
   {
-    title: "skills.json",
+    title: "skills.svg",
     path: "/skills",
-    icon: nodeJs,
+    icon: svg,
   },
   {
     title: "projects",
@@ -114,6 +115,7 @@ export const MY_SKILLS: IconName[] = [
   "postgres",
   "sql",
   "mongo",
+  "mongoose",
   "sass",
   "cssModules",
   "tailwind",
@@ -122,6 +124,48 @@ export const MY_SKILLS: IconName[] = [
   // "playWright",
   "postman",
   "rtl",
+  "linux",
+  "git",
+  "gitHub",
+  "jira",
+  "confluence",
+  "figma",
+]
+
+
+export const PROGRAMMING: IconName[] = [
+  "typeScript",
+  "javaScript",
+
+]
+export const FRONTEND: IconName[] = [
+
+  "react",
+  "redux",
+  "nextJs",
+  "sass",
+  "cssModules",
+  "tailwind",
+]
+export const BACKEND: IconName[] = [
+
+  "nodeJs",
+  "express",
+  "postgres",
+  "sql",
+  "mongo",
+"mongoose"
+
+]
+export const TEST: IconName[] = [
+
+  "jest",
+  "cypress",
+  "rtl",
+  "postman",
+]
+export const DEV_OPS: IconName[] = [
+
   "linux",
   "git",
   "gitHub",
