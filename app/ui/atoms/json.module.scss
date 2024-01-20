@@ -7,7 +7,11 @@
 .code {
   font-size: fonts.$sm;
   width: 100%;
-  @include breakpoints.md {
+  @include breakpoints.lg {
+    font-size: fonts.$base;
+    width: 500px;
+  }
+  @include breakpoints.xl {
     font-size: fonts.$base;
     width: 600px;
   }

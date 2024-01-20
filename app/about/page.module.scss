@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   // height: 85vh;
-  @include breakpoints.md {
+  @include breakpoints.lg {
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
@@ -24,30 +24,6 @@
     align-items: center;
     // justify-content: space-between;
 
-    h1 {
-      font-size: fonts.$xl3;
-      color: colors.$orange-500;
-      text-align: center;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-orange-700,
-        colors.$shadow-orange-600
-      );
-      @include breakpoints.md {
-        font-size: fonts.$xl6;
-      }
-    }
-    h2 {
-      font-size: fonts.$base;
-      text-align: center;
-      color: colors.$purple-100;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
-      @include breakpoints.md {
-        font-size: fonts.$lg;
-      }
-    }
   }
   .image {
     // height: 100%;
@@ -56,13 +32,13 @@
     align-items: center;
     width: 100%;
 
-    @include breakpoints.md {
-      width: 25%;
+    @include breakpoints.lg {
+      width: 30%;
     }
     img {
       width: 100%;
       height: 100%;
-      margin-bottom: spacing.$s3;
+      margin-bottom: spacing.$s5;
     }
   }
 }

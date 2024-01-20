@@ -1,8 +1,8 @@
 import styles from "./logo.module.scss"
-import { chevronDown } from "../../utils/icons"
+import Link from "next/link"
 
 type Props = {}
 const Logo = (props: Props) => {
-  return <div className={styles.logo}>karnas.dev</div>
+  return <Link href={'/'} className={styles.logo}>karnas.dev</Link>
 }
 export default Logo

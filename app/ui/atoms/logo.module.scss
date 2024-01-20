@@ -1,6 +1,7 @@
 @use "../../scss/colors";
 
 .logo {
+  text-decoration: none;
   color: colors.$white-100;
   font-weight: 900;
   background-color: colors.$grey-900;

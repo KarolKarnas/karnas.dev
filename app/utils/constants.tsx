@@ -22,11 +22,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/",
     icon: vsc,
   },
-  {
-    title: "experience.json",
-    path: "/experience",
-    icon: nodeJs,
-  },
+  // {
+  //   title: "experience.json",
+  //   path: "/experience",
+  //   icon: nodeJs,
+  // },
   {
     title: "skills.json",
     path: "/skills",
@@ -57,11 +57,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/about",
     icon: nodeJs,
   },
-  {
-    title: ".gitignore",
-    path: "/gitignore",
-    icon: git,
-  },
+  // {
+  //   title: ".gitignore",
+  //   path: "/gitignore",
+  //   icon: git,
+  // },
   // {
   //   title: "login",
   //   path: "/login",
@@ -103,22 +103,23 @@ export const SOCIAL_ITEMS: SocialItem[] = [
 ]
 
 export const MY_SKILLS: IconName[] = [
+  "typeScript",
+  "javaScript",
   "react",
   "redux",
   "nextJs",
-  "typeScript",
-  "javaScript",
   // "html",
   "nodeJs",
   "express",
-  "mongo",
   "postgres",
+  "sql",
+  "mongo",
   "sass",
   "cssModules",
   "tailwind",
   "cypress",
   "jest",
-  "playWright",
+  // "playWright",
   "postman",
   "rtl",
   "linux",

@@ -7,6 +7,8 @@ import LinkCard from "../ui/atoms/linkCard"
 import { SOCIAL_ITEMS, MY_SKILLS } from "../utils/constants"
 import useIcon from "../hooks/useIcon"
 import StackIcons from "../ui/atoms/stackIcons"
+import MainHeading from "../ui/atoms/mainHeading"
+import MainSubHeading from "../ui/atoms/mainSubHeading"
 // import { auth } from "@/auth"
 
 export default async function About() {
@@ -17,8 +19,8 @@ export default async function About() {
     <div className={styles.container}>
       {/* <p>{session && session.user?.email}</p> */}
       <div className={styles.info}>
-        <h1>Karol Karnas</h1>
-        <h2>Fullstack Developer</h2>
+        <MainHeading color="orange">Karol Karnas</MainHeading>
+        <MainSubHeading color="purple">Fullstack Developer</MainSubHeading>
         <Json code={ABOUT}></Json>
         <ul>
           {SOCIAL_ITEMS.map((item, index) => (
