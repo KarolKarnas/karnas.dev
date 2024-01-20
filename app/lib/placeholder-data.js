@@ -268,10 +268,10 @@ const projects = [
     slug: "karnas",
     content_title: "Karnas dev is very well designed portfolio blog",
     content:
-      "Beautifully styled and responsive e-commerce platform designed for an artist",
+      "Fullstack personal portfolio + blog. VSC design inspired",
     main_image: "/karnas.jpg",
     main_icon: "nextjs",
-    stack: ["React", "TypeScript, Next.js"],
+    stack: ["React", "TypeScript, Next.js, PostgreSQL, SQL"],
     icons_stack: [
       "react",
       "typeScript",
@@ -331,8 +331,8 @@ const projects = [
         ],
       },
     ],
-    live_demo: "https://www.ilustrografia.com/",
-    repo: "https://github.com/KarolKarnas/ilustrografia.com",
+    live_demo: "https://www.karnas.dev/",
+    repo: "https://github.com/KarolKarnas/karnas.dev",
     fields: [
       {
         title: "introduction",

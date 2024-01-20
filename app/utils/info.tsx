@@ -38,3 +38,23 @@ export const ABOUT: FakeJson[] = [
     value: "I am experienced with various Frontend and Backend technologies",
   },
 ]
+
+export const CONTACT: FakeJson[] = [
+  {
+    title: "Contact Info",
+    value: [
+      {
+        title: "E-mail",
+        value:
+          "karol.karnas@gmail.com",
+      },
+      {
+        title: "Phone",
+        value:
+          "+48 784 034 778",
+      },
+    ],
+  },
+
+
+]

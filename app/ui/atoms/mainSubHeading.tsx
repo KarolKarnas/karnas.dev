@@ -5,7 +5,7 @@ type Props = {
   children: ReactNode
   color: "blue" | "orange" | "purple"
 }
-const MainHeading = ({ color, children }: Props) => {
+const MainSubHeading = ({ color, children }: Props) => {
   return (
     <h2
       className={`${styles.heading} ${color === "orange" && styles.orange} ${
@@ -16,4 +16,4 @@ const MainHeading = ({ color, children }: Props) => {
     </h2>
   )
 }
-export default MainHeading
+export default MainSubHeading

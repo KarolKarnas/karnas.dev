@@ -22,11 +22,11 @@ export default async function About() {
         <MainHeading color="orange">Karol Karnas</MainHeading>
         <MainSubHeading color="purple">Fullstack Developer</MainSubHeading>
         <Json code={ABOUT}></Json>
-        <ul>
+        {/* <ul>
           {SOCIAL_ITEMS.map((item, index) => (
             <LinkCard key={index} socialItem={item} />
           ))}
-        </ul>
+        </ul> */}
       </div>
 
       <div className={styles.image}>

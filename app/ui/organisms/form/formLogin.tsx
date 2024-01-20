@@ -6,12 +6,12 @@ import styles from "./formLogin.module.scss"
 import { authenticate } from "@/app/lib/actions"
 
 import { useFormState, useFormStatus } from "react-dom"
+import ButtonSubmit from "../../atoms/form/buttonSubmit"
 
 const FormLogin = () => {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined)
   return (
-    <div className={styles.container}>
-      {/* <h1>Please log in to continue.</h1> */}
+   
       <Form.Root action={dispatch} className={styles.FormRoot}>
         <Form.Field className={styles.FormField} name="email">
           <div
@@ -66,9 +66,7 @@ const FormLogin = () => {
         </Form.Field>
 
         <Form.Submit asChild>
-          <button className={styles.Button} style={{ marginTop: 10 }}>
-            Login
-          </button>
+        <ButtonSubmit color="orange" text="Submit" type="submit" />
         </Form.Submit>
         <div
           className="flex h-8 items-end space-x-1"
@@ -77,12 +75,11 @@ const FormLogin = () => {
         >
           {errorMessage && (
             <>
-              <p className="text-sm text-red-500">{errorMessage}</p>
+              <p className={styles.FormMessage}>{errorMessage}</p>
             </>
           )}
         </div>
       </Form.Root>
-    </div>
   )
 }
 
