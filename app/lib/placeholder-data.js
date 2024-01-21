@@ -154,7 +154,7 @@ const projects = [
     author_name: users[0].name,
     title: "ilustrografia.com",
     short_title: "ilustrografia.com",
-    sub_title: "React fullstack eCommerce platform",
+    sub_title: "Fullstack eCommerce platform built with the MERN stack & Redux & Typescript",
     slug: "ilustrografia",
     content_title: "In the ever-evolving landscape of software development",
     content:

@@ -54,7 +54,8 @@
     @include breakpoints.md {
       gap: spacing.$s4;
       // top: 4rem;
-      padding: spacing.$s4;
+      padding-top: spacing.$s4;
+      padding-bottom: spacing.$s7;
     }
 
     h1 {
@@ -85,10 +86,12 @@
 
   .links {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    // justify-content: space-between;
     width: 100%;
     gap: spacing.$s2;
     @include breakpoints.md {
+      flex-direction: row;
       width: 80%;
     }
   }

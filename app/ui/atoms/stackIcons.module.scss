@@ -31,15 +31,19 @@
 
 
     .large {
-      gap: spacing.$s6;
+      // gap: spacing.$s3;
       padding: spacing.$s3 spacing.$s6;
       li {
         svg {
-          height: fonts.$xl3;
+          // height: fonts.$xl3;
           @include breakpoints.md {
             height: 2.5rem;
           }
         }
+      }
+      @include breakpoints.md {
+        
+        gap: spacing.$s6;
       }
     }
  
