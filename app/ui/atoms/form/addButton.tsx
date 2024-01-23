@@ -11,7 +11,7 @@ const AddButton = ({ color }: Props) => {
         color === "blue" && styles.blue
       } `}
     >
-{plus}
+{plus.icon}
     </button>
   )
 }
