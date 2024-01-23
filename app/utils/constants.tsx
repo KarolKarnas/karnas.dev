@@ -1,19 +1,14 @@
-import Image from "next/image"
 import { SideNavItem, SocialItem } from "./types"
 import {
   nodeJs,
   folderOpen,
-  html,
-  htmlAlt,
   react,
-  git,
   vsc,
   twitter,
   gitHub,
   linkedIn,
-  nextJs,
   gear,
-  svg
+  svg,
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -21,7 +16,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: "Home",
     path: "/",
-    icon: vsc,
+    icon: vsc.icon,
   },
   // {
   //   title: "experience.json",
@@ -31,32 +26,32 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: "skills.svg",
     path: "/skills",
-    icon: svg,
+    icon: svg.icon,
   },
   {
     title: "projects",
     path: "/projects",
-    icon: folderOpen,
+    icon: folderOpen.icon,
     submenu: true,
     subMenuItems: [],
   },
   {
     title: "blog",
     path: "/blog",
-    icon: folderOpen,
+    icon: folderOpen.icon,
     submenu: true,
     subMenuItems: [],
   },
   {
     title: "contact.tsx",
     path: "/contact",
-    icon: react,
+    icon: react.icon,
   },
 
   {
     title: "about.json",
     path: "/about",
-    icon: nodeJs,
+    icon: nodeJs.icon,
   },
   // {
   //   title: ".gitignore",
@@ -71,7 +66,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: "dashboard",
     path: "/dashboard",
-    icon: gear,
+    icon: gear.icon,
   },
 ]
 
@@ -79,17 +74,17 @@ export const SOCIAL_ITEMS: SocialItem[] = [
   {
     link: "https://github.com/KarolKarnas",
     short_link: "github.com/KarolKarnas",
-    icon: gitHub,
+    icon: gitHub.icon,
   },
   {
     link: "https://www.linkedin.com/in/KarolKarnas/",
     short_link: "linkedin.com/in/KarolKarnas",
-    icon: linkedIn,
+    icon: linkedIn.icon,
   },
   {
     link: "https://twitter.com/Karol_Karnas",
     short_link: "twitter.com/Karol_Karnas",
-    icon: twitter,
+    icon: twitter.icon,
   },
   // {
   //   title: "Instagram",
@@ -132,14 +127,8 @@ export const MY_SKILLS: IconName[] = [
   "figma",
 ]
 
-
-export const PROGRAMMING: IconName[] = [
-  "typeScript",
-  "javaScript",
-
-]
+export const PROGRAMMING: IconName[] = ["typeScript", "javaScript"]
 export const FRONTEND: IconName[] = [
-
   "react",
   "redux",
   "nextJs",
@@ -148,24 +137,15 @@ export const FRONTEND: IconName[] = [
   "tailwind",
 ]
 export const BACKEND: IconName[] = [
-
   "nodeJs",
   "express",
   "postgres",
   "sql",
   "mongo",
-"mongoose"
-
+  "mongoose",
 ]
-export const TEST: IconName[] = [
-
-  "jest",
-  "cypress",
-  "rtl",
-  "postman",
-]
+export const TEST: IconName[] = ["jest", "cypress", "rtl", "postman"]
 export const DEV_OPS: IconName[] = [
-
   "linux",
   "git",
   "gitHub",

@@ -76,7 +76,7 @@ const Header = (props: Props) => {
                 onClick={() => removeTab(item, router)}
                 className={styles.xMark}
               >
-                {xMark}
+                {xMark.icon}
               </div>
             ) : null}
           </div>

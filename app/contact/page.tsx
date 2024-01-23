@@ -27,10 +27,10 @@ export default async function About() {
         </MainSubHeading>
 
         <ul>
-          <ContactCard icon={mail} href="mailto: karol.karnas@gmail.com">
+          <ContactCard icon={mail.icon} href="mailto: karol.karnas@gmail.com">
             karol.karnas@gmail.com
           </ContactCard>
-          <ContactCard icon={phone} href="tel: +48784034778">
+          <ContactCard icon={phone.icon} href="tel: +48784034778">
             +48 784 034 778
           </ContactCard>
         </ul>

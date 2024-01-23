@@ -5,9 +5,12 @@ import LinkCard from "./ui/atoms/linkCard"
 import { SOCIAL_ITEMS } from "./utils/constants"
 import BlogLinks from "./ui/atoms/blogLinks"
 import ProjectsLinks from "./ui/atoms/projectsLinks"
+// import * as icons from './utils/icons';
+
 
 export default function Home() {
-  const startItems = [SIDENAV_ITEMS[1], SIDENAV_ITEMS[4]]
+
+  //  console.log(icons)
 
   return (
     <div className={styles.container}>

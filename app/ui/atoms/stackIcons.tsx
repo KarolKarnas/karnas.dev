@@ -1,6 +1,7 @@
 import styles from "./stackIcons.module.scss"
+import { IconText } from "@/app/utils/types"
 
-type Props = { icons: JSX.Element[]; size?: "large" }
+type Props = { icons: IconText[]; size?: "large" }
 const StackIcons = ({ icons, size }: Props) => {
   return (
     <ul
@@ -9,7 +10,7 @@ const StackIcons = ({ icons, size }: Props) => {
       }`}
     >
       {icons.map((item, index) => (
-        <li key={index}>{item}</li>
+        <li key={index}>{item.icon}</li>
       ))}
     </ul>
   )

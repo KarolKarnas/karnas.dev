@@ -105,7 +105,7 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
                     subMenuOpen ? styles.rotate180 : styles.transition
                   } ${styles.flex}`}
                 >
-                  <div className={styles.chevron}>{chevronDown}</div>
+                  <div className={styles.chevron}>{chevronDown.icon}</div>
                 </div>
                 {item.icon}
                 <span className="">{item.title}</span>

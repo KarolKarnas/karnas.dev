@@ -16,12 +16,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const socialItemLive: SocialItem = {
     link: project.live_demo,
     short_link: "Live Demo",
-    icon: link,
+    icon: link.icon,
   }
   const socialItemGithub: SocialItem = {
     link: project.repo,
     short_link: "Github Repo",
-    icon: gitHub,
+    icon: gitHub.icon,
   }
 
   return (
@@ -82,7 +82,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <LinkCard socialItem={socialItemLive} color="light" />
         <LinkCard socialItem={socialItemGithub} color="light" />
       </ul>
-              {/* <Json code={project.json_stack} /> */}
             </div>
 
 

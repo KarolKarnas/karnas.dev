@@ -89,7 +89,7 @@ export type Project = {
   //
   stack: string[]
   icons_stack: IconName[]
-  json_stack: FakeJson[]
+  // json_stack: FakeJson[]
   live_demo: string
   repo: string
   //
@@ -117,3 +117,7 @@ export type ProjectCard = {
   // icon: JSX.Element
 }
 
+export type IconText = {
+  icon: JSX.Element
+  text: string
+}

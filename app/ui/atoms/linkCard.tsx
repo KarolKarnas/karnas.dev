@@ -16,7 +16,7 @@ const LinkCard = ({ socialItem, color }: Props) => {
         target="_blank"
         href={socialItem.link}
       >
-        {socialItem.icon ? socialItem.icon : link}{" "}
+        {socialItem.icon ? socialItem.icon : link.icon}{" "}
         <span>{socialItem.short_link}</span>
       </a>
     </li>

@@ -29,7 +29,7 @@ export async function fetchBlogLinks() {
     const blogLinks = data.rows.map((row) => ({
       title: row.short_title,
       path: `/blog/${row.slug}`,
-      icon: typeScriptAlt,
+      icon: typeScriptAlt.icon,
     }))
     // console.log(blogLinks)
     return blogLinks
@@ -98,7 +98,7 @@ export async function fetchProjectLinks() {
     const projectLinks = data.rows.map((row) => ({
       title: row.short_title,
       path: `/projects/${row.slug}`,
-      icon: row.main_icon === 'react' ? react : nextJs,
+      icon: row.main_icon === 'react' ? react.icon : nextJs.icon,
     }))
     // console.log(blogLinks)
     return projectLinks

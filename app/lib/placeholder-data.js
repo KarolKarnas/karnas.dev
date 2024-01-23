@@ -176,53 +176,6 @@ const projects = [
       "rtl",
       "tailwind",
     ],
-    json_stack: [
-      {
-        title: "Stack",
-        value: [
-          {
-            title: "Frontend",
-            value: "React, Typescript, JavaScript ES6+, Redux",
-          },
-          { title: "Backend", value: "Node.js, Express, MongoDB, Mongoose" },
-          { title: "CSS", value: "CSS3, TailwindCSS" },
-          {
-            title: "Testing",
-            value: "JEST, React Testing Library, Cypress",
-          },
-          {
-            title: "Environment",
-            value: "Linux, Git, Github, Photoshop",
-          },
-        ],
-      },
-      {
-        title: "About",
-        value: [
-          {
-            title: "Title",
-            value: "Ilustrografia",
-          },
-          { title: "Subtitle", value: "Reality Full of Magic" },
-          { title: "Client", value: "Meggie.M Art" },
-          { title: "Develop Time", value: "3 Months" },
-        ],
-      },
-      {
-        title: "Requirements",
-        value: [
-          {
-            title: "1",
-            value: "Fully functional eCommerce platform",
-          },
-          { title: "2", value: "Products with variations" },
-          { title: "3", value: "Real time update of price when changing variants (print size, print material)" },
-          { title: "4", value: "Well presents artwork" },
-          { title: "5", value: "Ability to add new products" },
-          { title: "5", value: "Full user journey" },
-        ],
-      },
-    ],
     live_demo: "https://www.ilustrografia.com/",
     repo: "https://github.com/KarolKarnas/ilustrografia.com",
     fields: [
@@ -285,52 +238,6 @@ const projects = [
       "confluence",
       "figma",
     ],
-    json_stack: [
-      {
-        title: "Stack",
-        value: [
-          {
-            title: "Frontend",
-            value: "React, Next.js, Typescript, JavaScript ES6+",
-          },
-          { title: "Backend", value: "Next.js, PostgreSQL, NextAuth.js, " },
-          { title: "CSS", value: "CSS3, SCSS, CSS Modules" },
-          {
-            title: "Testing",
-            value: "Playwright, React Testing Library",
-          },
-          {
-            title: "Environment",
-            value: "Linux, Git, Github, Jira, Confluence, Figma, Gimp",
-          },
-        ],
-      },
-      {
-        title: "About",
-        value: [
-          {
-            title: "Title",
-            value: "Karnas.dev",
-          },
-          { title: "Subtitle", value: "Fullstack Developer" },
-          { title: "Client", value: "Myself" },
-          { title: "Develop Time", value: "1 Month" },
-        ],
-      },
-      {
-        title: "Requirements",
-        value: [
-          {
-            title: "1",
-            value: "VSC inspired design",
-          },
-          { title: "2", value: "Well presents known technology stack" },
-          { title: "3", value: "Ability to write blog posts" },
-          { title: "4", value: "Best SEO practices" },
-          { title: "5", value: "Ability to add new projects" },
-        ],
-      },
-    ],
     live_demo: "https://www.karnas.dev/",
     repo: "https://github.com/KarolKarnas/karnas.dev",
     fields: [
@@ -363,3 +270,52 @@ module.exports = {
   posts,
   projects,
 }
+
+
+
+// json_stack: [
+//   {
+//     title: "Stack",
+//     value: [
+//       {
+//         title: "Frontend",
+//         value: "React, Next.js, Typescript, JavaScript ES6+",
+//       },
+//       { title: "Backend", value: "Next.js, PostgreSQL, NextAuth.js, " },
+//       { title: "CSS", value: "CSS3, SCSS, CSS Modules" },
+//       {
+//         title: "Testing",
+//         value: "Playwright, React Testing Library",
+//       },
+//       {
+//         title: "Environment",
+//         value: "Linux, Git, Github, Jira, Confluence, Figma, Gimp",
+//       },
+//     ],
+//   },
+//   {
+//     title: "About",
+//     value: [
+//       {
+//         title: "Title",
+//         value: "Karnas.dev",
+//       },
+//       { title: "Subtitle", value: "Fullstack Developer" },
+//       { title: "Client", value: "Myself" },
+//       { title: "Develop Time", value: "1 Month" },
+//     ],
+//   },
+//   {
+//     title: "Requirements",
+//     value: [
+//       {
+//         title: "1",
+//         value: "VSC inspired design",
+//       },
+//       { title: "2", value: "Well presents known technology stack" },
+//       { title: "3", value: "Ability to write blog posts" },
+//       { title: "4", value: "Best SEO practices" },
+//       { title: "5", value: "Ability to add new projects" },
+//     ],
+//   },
+// ],
