@@ -30,10 +30,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1>{project.title}</h1>
         <StackIcons icons={icons} />
         <h2>{project.sub_title}</h2>
-      <ul className={styles.links}>
-        <LinkCard socialItem={socialItemLive} color="light" />
-        <LinkCard socialItem={socialItemGithub} color="light" />
-      </ul>
+        <ul className={styles.links}>
+          <LinkCard socialItem={socialItemLive} color="light" />
+          <LinkCard socialItem={socialItemGithub} color="light" />
+        </ul>
       </div>
 
       <Image
@@ -45,8 +45,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <div className={styles["content-container"]}>
         <h3>{project.content_title}</h3>
         <p>{project.content}</p>
-    
-           {project.fields.map((field, index) => (
+
+        {project.fields.map((field, index) => (
           <section key={index}>
             {field.title ? <h3>{field.title}</h3> : null}
             {field.content ? <p>{field.content}</p> : null}
@@ -74,16 +74,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </ul>
           </section>
         ))}
-            <div className={styles.details}>
-              <h3>Technologies Used</h3>
-               <StackIcons icons={icons} />
-              <h3>Check live or the code</h3>
-               <ul className={styles.links}>
-        <LinkCard socialItem={socialItemLive} color="light" />
-        <LinkCard socialItem={socialItemGithub} color="light" />
-      </ul>
-            </div>
-
+        <div className={styles.details}>
+          <h3>Technologies Used</h3>
+          <StackIcons icons={icons} texts />
+          <h3>Check live or the code</h3>
+          <ul className={styles.links}>
+            <LinkCard socialItem={socialItemLive} color="light" />
+            <LinkCard socialItem={socialItemGithub} color="light" />
+          </ul>
+        </div>
 
         <div className={styles["author-container"]}>
           <div>

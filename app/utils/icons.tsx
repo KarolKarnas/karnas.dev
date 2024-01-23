@@ -1456,7 +1456,7 @@ export const rtl: IconText = {
       ></path>
     </svg>
   ),
-  text: "React Testing Library",
+  text: "Testing Library",
 }
 
 export const cypress: IconText = {

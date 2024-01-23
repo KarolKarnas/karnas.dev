@@ -23,23 +23,23 @@ export default async function About() {
 
       <div className={styles.SkillSection}>
         <SectionHeading color="purple">Programming</SectionHeading>
-        <StackIcons size="large" icons={programmingIcons} />
+        <StackIcons size="large" icons={programmingIcons} texts />
       </div>
       <div className={styles.SkillSection}>
         <SectionHeading color="purple">Frontend</SectionHeading>
-        <StackIcons size="large" icons={frontendIcons} />
+        <StackIcons size="large" icons={frontendIcons} texts />
       </div>
       <div className={styles.SkillSection}>
         <SectionHeading color="purple">Backend</SectionHeading>
-        <StackIcons size="large" icons={backendIcons} />
+        <StackIcons size="large" icons={backendIcons} texts />
       </div>
       <div className={styles.SkillSection}>
         <SectionHeading color="purple">Test</SectionHeading>
-        <StackIcons size="large" icons={testIcons} />
+        <StackIcons size="large" icons={testIcons} texts />
       </div>
       <div className={styles.SkillSection}>
         <SectionHeading color="purple">DevOps</SectionHeading>
-        <StackIcons size="large" icons={devOpsIcons} />
+        <StackIcons size="large" icons={devOpsIcons} texts />
       </div>
     </div>
   )

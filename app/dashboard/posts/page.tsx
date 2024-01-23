@@ -18,7 +18,6 @@ export default async function About() {
             <BlogCard card={card} />
             <div className={styles.buttons}>
               <Button color="blue" text="Edit" path={`/dashboard/posts/${card.slug}/edit`} />
-              {/* <Button color="pink" text="Delete" path="/" /> */}
               <FormDeletePost slug={card.slug} />
             </div>
           </div>

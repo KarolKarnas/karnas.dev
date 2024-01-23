@@ -12,8 +12,8 @@ icon?: JSX.Element
 const ContactCard = ({ icon, color, children, href }: Props) => {
 
 
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-      event.preventDefault();
+  const handleClick = (e: React.SyntheticEvent) => {
+      e.preventDefault();
 
     window.open(href, "_blank");
   };
