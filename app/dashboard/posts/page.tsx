@@ -3,6 +3,7 @@ import Button from "../../ui/atoms/button"
 import { fetchBlogCards } from "@/app/lib/data"
 import MainHeading from "@/app/ui/atoms/mainHeading"
 import BlogCard from "@/app/ui/molecules/blogCard"
+import FormDeletePost from "@/app/ui/molecules/form/formDeletePost"
 
 export default async function About() {
   const blogCards = await fetchBlogCards()
@@ -17,7 +18,8 @@ export default async function About() {
             <BlogCard card={card} />
             <div className={styles.buttons}>
               <Button color="blue" text="Edit" path={`/dashboard/posts/${card.slug}/edit`} />
-              <Button color="pink" text="Delete" path="/" />
+              {/* <Button color="pink" text="Delete" path="/" /> */}
+              <FormDeletePost slug={card.slug} />
             </div>
           </div>
         ))}

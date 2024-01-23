@@ -244,6 +244,15 @@ export async function editPost(formData: FormData) {
   redirect(`/blog/${slug}`)
 }
 
+export async function deletePost(slug: string) {
+	try {
+		await sql`DELETE FROM posts WHERE slug = ${slug}`;
+	} catch (error) {
+		return { message: 'Database Error: Failed to Delete Post' };
+	}
+	revalidatePath('/dashboard/posts');
+}
+
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData
@@ -264,6 +273,38 @@ export async function authenticate(
   // revalidatePath("/dashboard")
   // redirect("/dashboard")
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // "use server"
 
