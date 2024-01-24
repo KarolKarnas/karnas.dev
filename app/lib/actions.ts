@@ -157,6 +157,7 @@ export async function createPost(formData: FormData) {
     fields
   )}, ${category},  ${JSON.stringify(tagArr)}, ${date})`
   } catch (error) {
+    console.log(error)
     return {
       message: "Database Error: Failed to Create Post.",
     }
@@ -323,6 +324,163 @@ export async function authenticate(
   }
   // revalidatePath("/dashboard")
   // redirect("/dashboard")
+}
+
+// CREATE PROJECT
+
+const CreateProjectSchema = z.object({
+  title: z.string(),
+  shortTitle: z.string(),
+  subTitle: z.string(),
+  fieldTitles: z.array(z.string()),
+  fieldContents: z.array(z.string()),
+  fieldLists: z.array(z.string()),
+  fieldSecondContents: z.array(z.string()),
+  fieldImages: z.array(z.any()),
+  fieldLinks: z.array(z.string()),
+  slug: z.string(),
+  contentTitle: z.string(),
+  content: z.string(),
+  mainImage: z.any(),
+  mainIcon: z.string(),
+  stack: z.string(),
+  iconsStack: z.string(),
+  liveDemo: z.string(),
+  repo: z.string(),
+  category: z.string(),
+  tags: z.string(),
+})
+
+// const CreatePost = FormSchema
+
+export async function createProject(formData: FormData) {
+  // console.log(formData)
+  const {
+    title,
+    shortTitle,
+    subTitle,
+    fieldTitles,
+    fieldContents,
+    fieldLists,
+    fieldSecondContents,
+    fieldImages,
+    fieldLinks,
+    slug,
+    contentTitle,
+    content,
+    mainImage,
+    mainIcon,
+    stack,
+    iconsStack,
+    liveDemo,
+    repo,
+    category,
+    tags,
+  } = CreateProjectSchema.parse({
+    title: formData.get("title"),
+    shortTitle: formData.get("shortTitle"),
+    subTitle: formData.get("subTitle"),
+    fieldTitles: formData.getAll("fieldTitle"),
+    fieldContents: formData.getAll("fieldContent"),
+    fieldLists: formData.getAll("fieldList"),
+    fieldSecondContents: formData.getAll("fieldSecondContent"),
+    fieldImages: formData.getAll("fieldImage"),
+    fieldLinks: formData.getAll("fieldLink"),
+    slug: formData.get("slug"),
+    contentTitle: formData.get("contentTitle"),
+    content: formData.get("content"),
+    mainImage: formData.get("mainImage"),
+    mainIcon: formData.get("mainIcon"),
+    stack: formData.get("stack"),
+    iconsStack: formData.get("iconsStack"),
+    liveDemo: formData.get("liveDemo"),
+    repo: formData.get("repo"),
+    category: formData.get("category"),
+    tags: formData.get("tags"),
+  })
+
+  const tagArr = tags.split(",")
+  // console.log('1', fieldLists)
+  // console.log(Array.isArray(tagArr))
+  // const tagArr = JSON.stringify(tags2)
+
+  const mainImageUrl = await cloudinaryUrlExtractor(mainImage)
+  // console.log(mainImageUrl)
+  //Mutate fields data
+  const fields: Field[] = []
+  for (let i = 0; i < fieldTitles.length; i++) {
+    const title = fieldTitles[i]
+    const content = fieldContents[i]
+    const second_content = fieldSecondContents[i]
+
+    const fieldEntry: Field = {
+      title,
+      content,
+      second_content,
+    }
+    if (fieldImages[i].size > 0) {
+      const image = await cloudinaryUrlExtractor(fieldImages[i])
+      fieldEntry.image = image
+    }
+
+    if (fieldLinks[i]) {
+      const links = fieldLinks[i]
+        .split(",")
+        .map((link) => ({ link: link, short_link: extractDomain(link) }))
+      fieldEntry.links = links
+    }
+
+    if (fieldLists[i]) {
+      const list = fieldLists[i].split(",")
+      fieldEntry.list = list
+    }
+    fields.push(fieldEntry)
+    // console.log(fieldEntry)
+  }
+
+  //fetch logged in user id and name
+  const session = await auth()
+  const userData = await sql`SELECT id, name FROM users WHERE email = ${
+    session && session.user?.email
+  };`
+
+  const { id, name } = userData.rows[0]
+  const date = new Date().toISOString().split("T")[0]
+
+  // database Insert
+
+  const stackArr = stack.split(",")
+  const iconsStackArr = iconsStack.split(",")
+
+  // console.log(iconsStackArr)
+
+  try {
+    await sql`INSERT INTO projects (author_id, author_name, title, short_title, sub_title, slug, content_title, content, main_image, main_icon, stack, icons_stack, live_demo, repo, fields, category, tags, date)
+    VALUES (${id}, ${name},  ${title}, ${shortTitle}, ${subTitle}, ${slug}, ${contentTitle}, ${content}, ${mainImageUrl}, ${mainIcon}, ${JSON.stringify(
+      stackArr
+    )}, ${JSON.stringify(
+      iconsStackArr
+    )}, ${liveDemo}, ${repo}, ${JSON.stringify(
+      fields
+    )}, ${category}, ${JSON.stringify(tagArr)}, ${date})`
+  } catch (error) {
+    console.log(error)
+    return {
+      message: "Database Error: Failed to Create Project.",
+    }
+  }
+  revalidatePath("/projects")
+  redirect("/projects")
+}
+
+export async function deleteProject(slug: string) {
+  try {
+    await sql`DELETE FROM projects WHERE slug = ${slug}`
+  } catch (error) {
+    console.log(error)
+    return { message: "Database Error: Failed to Delete Project" }
+  }
+  revalidatePath("/dashboard/posts")
 }
 
 // "use server"

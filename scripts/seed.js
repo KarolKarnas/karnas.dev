@@ -72,13 +72,13 @@ async function seedPosts(client) {
       posts.map(
         (post) => client.sql`
         INSERT INTO posts (author_id, author_name, title, short_title, sub_title, slug,content_title,  content, main_image, fields, category, tags, date)
-        VALUES (${post.author_id},${post.author_name}, ${post.title}, ${post.short_title}, ${
-          post.sub_title
-        }, ${post.slug}, ${post.content_title}, ${post.content}, ${
-          post.main_image
-        }, ${JSON.stringify(post.fields)}, ${post.category}, ${JSON.stringify(post.tags)}, ${
-          post.date
-        })
+        VALUES (${post.author_id},${post.author_name}, ${post.title}, ${
+          post.short_title
+        }, ${post.sub_title}, ${post.slug}, ${post.content_title}, ${
+          post.content
+        }, ${post.main_image}, ${JSON.stringify(post.fields)}, ${
+          post.category
+        }, ${JSON.stringify(post.tags)}, ${post.date})
         ON CONFLICT (id) DO NOTHING;
       `
       )
@@ -114,13 +114,13 @@ async function seedProjects(client) {
     content TEXT NOT NULL,
     main_image TEXT NOT NULL,
     main_icon TEXT NOT NULL,
-    stack TEXT[] NOT NULL,
-    icons_stack TEXT[] NOT NULL,
+    stack JSONB NOT NULL,
+    icons_stack JSONB NOT NULL,
     live_demo TEXT NOT NULL,
     repo TEXT NOT NULL,
     fields JSONB NOT NULL,
     category TEXT NOT NULL,
-    tags TEXT[] NOT NULL,
+    tags JSONB NOT NULL,
     date DATE NOT NULL
   );
 `
@@ -132,17 +132,19 @@ async function seedProjects(client) {
       projects.map(
         (project) => client.sql`
         INSERT INTO projects (author_id, author_name, title, short_title, sub_title, slug,content_title,  content, main_image, main_icon, stack, icons_stack, live_demo, repo, fields, category, tags, date)
-        VALUES (${project.author_id}, ${project.author_name}, ${project.title}, ${
-          project.short_title
-        }, ${project.sub_title}, ${project.slug}, ${project.content_title}, ${
-          project.content
-        }, ${project.main_image}, ${project.main_icon},${project.stack}, ${
+        VALUES (${project.author_id}, ${project.author_name}, ${
+          project.title
+        }, ${project.short_title}, ${project.sub_title}, ${project.slug}, ${
+          project.content_title
+        }, ${project.content}, ${project.main_image}, ${
+          project.main_icon
+        },${JSON.stringify(project.stack)}, ${JSON.stringify(
           project.icons_stack
-        }, ${project.live_demo}, ${
-          project.repo
-        }, ${JSON.stringify(project.fields)}, ${project.category}, ${
-          project.tags
-        }, ${project.date})
+        )}, ${project.live_demo}, ${project.repo}, ${JSON.stringify(
+          project.fields
+        )}, ${project.category}, ${JSON.stringify(project.tags)}, ${
+          project.date
+        })
         ON CONFLICT (id) DO NOTHING;
       `
       )

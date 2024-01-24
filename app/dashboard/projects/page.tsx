@@ -1,32 +1,39 @@
 import styles from "./page.module.scss"
 import Button from "../../ui/atoms/button"
+import { fetchBlogCards, fetchProjectCards } from "@/app/lib/data"
+import MainHeading from "@/app/ui/atoms/mainHeading"
+import BlogCard from "@/app/ui/molecules/blogCard"
+import ProjectCard from "@/app/ui/molecules/projectCard"
+import FormDeleteProject from "@/app/ui/molecules/form/formDeleteProject"
 
-export default function About() {
+export default async function About() {
+  const projectCards = await fetchProjectCards()
+
   return (
     <div className={styles.container}>
-      <h1>Projects</h1>
-      <div className={styles["button-container"]}>
-        <div className={styles.col1}>
-          <Button text={"Posts"} color="blue" path="/dashboard/posts"></Button>
-          <Button
-            text={"Post Create"}
-            color="blue"
-            path="/dashboard/posts/create"
-          ></Button>
-        </div>
-        <div className={styles.col2}>
-          <Button
-            text={"Projects"}
-            color="orange"
-            path="/dashboard/projects"
-          ></Button>
-          <Button
-            text={"Project Create"}
-            color="orange"
-            path="/dashboard/projects/create"
-          ></Button>
-        </div>
+      <MainHeading color="blue">Edit some Projects Sir!</MainHeading>
+
+      <div className={styles.gridContainer}>
+        {projectCards.map((card, index) => (
+          <div key={index} className={styles.cardContainer}>
+            <ProjectCard card={card} />
+            <div className={styles.buttons}>
+              <Button
+                color="blue"
+                text="Edit"
+                path={`/dashboard/projects/${card.slug}/edit`}
+              />
+              <FormDeleteProject slug={card.slug} />
+            </div>
+          </div>
+        ))}
       </div>
+
+      <Button
+        text={"Project Create"}
+        color="blue"
+        path="/dashboard/projects/create"
+      ></Button>
     </div>
   )
 }

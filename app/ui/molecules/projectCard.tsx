@@ -17,7 +17,6 @@ const ProjectCard = ({ card }: Props) => {
   const changeDirectory = (path: string) => {
     router.push(path)
   }
-
   const icons = useIcon(card.icons_stack)
   // console.log(card.stack)
   // console.log(icons)
