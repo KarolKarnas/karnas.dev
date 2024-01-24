@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Textarea = ({ name, title, originalValue }: Props) => {
-  const [value, setValue] = useState(originalValue)
+  const [value, setValue] = useState(originalValue || '')
   return (
     <Form.Field className={styles.FormField} name={name}>
       <div

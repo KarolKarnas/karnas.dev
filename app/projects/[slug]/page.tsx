@@ -58,20 +58,21 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 alt={`field ${index} image`}
               />
             ) : null}
-            <ul>
-              {field.links
-                ? field.links.map((item, index) => (
-                    <LinkCard
-                      key={index}
-                      socialItem={{
-                        link: item.link,
-                        short_link: item.short_link,
-                      }}
-                      color="light"
-                    />
-                  ))
-                : null}
-            </ul>
+
+            {field.links ? (
+              <ul>
+                {field.links.map((item, index) => (
+                  <LinkCard
+                    key={index}
+                    socialItem={{
+                      link: item.link,
+                      short_link: item.short_link,
+                    }}
+                    color="light"
+                  />
+                ))}
+              </ul>
+            ) : null}
           </section>
         ))}
         <div className={styles.details}>

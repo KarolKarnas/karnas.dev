@@ -39,9 +39,11 @@ export type User = {
 export type Field = {
   title?: string
   content?: string
+  list?: string[]
+  second_content?: string
   image?: string
   links?: SocialItem[]
-  short_link?: string
+  // short_link?: string
 }
 
 export type Post = {

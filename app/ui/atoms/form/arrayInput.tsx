@@ -12,7 +12,7 @@ type Props = {
 
 const ArrayInput = ({ name, title, originalValue }: Props) => {
   const [values, setValues] = useState<string[]>(originalValue || [])
-
+  // console.log(values)
   return (
     <Form.Field className={styles.FormField} name={name}>
       <div
@@ -34,7 +34,6 @@ const ArrayInput = ({ name, title, originalValue }: Props) => {
         <textarea
           className={styles.Input}
           value={values.toString()}
-          name="tags"
           required
           onChange={(e) =>
             setValues(e.target.value.split(",").map((val) => val.trim()))

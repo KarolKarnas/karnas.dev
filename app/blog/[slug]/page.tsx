@@ -42,6 +42,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <section key={index}>
             {field.title ? <h3>{field.title}</h3> : null}
             {field.content ? <p>{field.content}</p> : null}
+            {field.list ? (
+              <ul>
+                {field.list.map((item, liIndex) => (
+                  <li key={liIndex}>{item}</li>
+                ))}
+              </ul>
+            ) : null}
+            {field.second_content ? <p>{field.second_content}</p> : null}
             {field.image ? (
               <Image
                 src={field.image}
@@ -49,6 +57,20 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 height={673}
                 alt={`field ${index} image`}
               />
+            ) : null}
+            {field.links ? (
+              <ul>
+                {field.links.map((item, index) => (
+                  <LinkCard
+                    key={index}
+                    socialItem={{
+                      link: item.link,
+                      short_link: item.short_link,
+                    }}
+                    color="light"
+                  />
+                ))}
+              </ul>
             ) : null}
           </section>
         ))}

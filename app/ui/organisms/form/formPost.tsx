@@ -22,6 +22,7 @@ const FormPost = ({ post }: Props) => {
   return (
     <Form.Root action={post ? editPost: createPost} className={styles.FormRoot}>
       {post ? (
+        //EDIT FORM
         <>
           <div className={styles.col1}>
             <TextInput name="title" title="Title" originalValue={post.title} />
@@ -87,6 +88,7 @@ const FormPost = ({ post }: Props) => {
           </div>
         </>
       ) : (
+        // CREATE NEW FORM
         <>
           <div className={styles.col1}>
             <TextInput name="title" title="Title" />

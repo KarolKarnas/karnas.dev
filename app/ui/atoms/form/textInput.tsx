@@ -13,7 +13,7 @@ type Props = {
 
 const TextInput = ({ name, title, originalValue, readOnly }: Props) => {
 
-  const [value, setValue] = useState(originalValue)
+  const [value, setValue] = useState(originalValue || '')
   return (
     <Form.Field className={styles.FormField} name={name}>
       <div

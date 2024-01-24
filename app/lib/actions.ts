@@ -10,6 +10,13 @@ import { AuthError } from "next-auth"
 import cloudinary from "../utils/cloudinary"
 import { Field } from "../utils/types"
 
+function extractDomain(url: string) {
+  const parsedUrl = new URL(url)
+  const domain = parsedUrl.hostname.replace("www.", "")
+  const domainWithPath = domain + parsedUrl.pathname
+  return domainWithPath
+}
+
 const cloudinaryUrlExtractor = async (file: any) => {
   const image = file as File
   const arrayBuffer = await image.arrayBuffer()
@@ -44,7 +51,10 @@ const FormSchema = z.object({
   subTitle: z.string(),
   fieldTitles: z.array(z.string()),
   fieldContents: z.array(z.string()),
+  fieldLists: z.array(z.string()),
+  fieldSecondContents: z.array(z.string()),
   fieldImages: z.array(z.any()),
+  fieldLinks: z.array(z.string()),
   slug: z.string(),
   contentTitle: z.string(),
   content: z.string(),
@@ -63,7 +73,10 @@ export async function createPost(formData: FormData) {
     subTitle,
     fieldTitles,
     fieldContents,
+    fieldLists,
+    fieldSecondContents,
     fieldImages,
+    fieldLinks,
     slug,
     contentTitle,
     content,
@@ -76,7 +89,10 @@ export async function createPost(formData: FormData) {
     subTitle: formData.get("subTitle"),
     fieldTitles: formData.getAll("fieldTitle"),
     fieldContents: formData.getAll("fieldContent"),
+    fieldLists: formData.getAll("fieldList"),
+    fieldSecondContents: formData.getAll("fieldSecondContent"),
     fieldImages: formData.getAll("fieldImage"),
+    fieldLinks: formData.getAll("fieldLink"),
     slug: formData.get("slug"),
     contentTitle: formData.get("contentTitle"),
     content: formData.get("content"),
@@ -86,20 +102,25 @@ export async function createPost(formData: FormData) {
   })
 
   const tagArr = tags.split(",")
+  // console.log('1', fieldLists)
   // console.log(Array.isArray(tagArr))
   // const tagArr = JSON.stringify(tags2)
   // console.log(tagArr.split(","))
   const mainImageUrl = await cloudinaryUrlExtractor(mainImage)
-
   //Mutate fields data
   const fields: Field[] = []
   for (let i = 0; i < fieldTitles.length; i++) {
-    // console.log(fieldImages[i])
     const title = fieldTitles[i]
     const content = fieldContents[i]
+    const second_content = fieldSecondContents[i]
+    const list = fieldLists[i].split(',')
+    const links = fieldLinks[i].split(',').map((link) => ({link: link, short_link: extractDomain(link)}))
     const fieldEntry: Field = {
       title,
       content,
+      list,
+      second_content,
+      links
     }
     if (fieldImages[i].size > 0) {
       const image = await cloudinaryUrlExtractor(fieldImages[i])
@@ -139,8 +160,11 @@ const EditPostFormSchema = z.object({
   subTitle: z.string(),
   fieldTitles: z.array(z.string()),
   fieldContents: z.array(z.string()),
+  fieldLists: z.array(z.string()),
+  fieldSecondContents: z.array(z.string()),
   fieldImages: z.array(z.any()),
   fieldImagesPaths: z.array(z.string()),
+  fieldLinks: z.array(z.string()),
   slug: z.string(),
   contentTitle: z.string(),
   content: z.string(),
@@ -158,8 +182,11 @@ export async function editPost(formData: FormData) {
     subTitle,
     fieldTitles,
     fieldContents,
+    fieldLists,
+    fieldSecondContents,
     fieldImages,
     fieldImagesPaths,
+    fieldLinks,
     slug,
     contentTitle,
     content,
@@ -173,8 +200,11 @@ export async function editPost(formData: FormData) {
     subTitle: formData.get("subTitle"),
     fieldTitles: formData.getAll("fieldTitle"),
     fieldContents: formData.getAll("fieldContent"),
+    fieldLists: formData.getAll("fieldList"),
+    fieldSecondContents: formData.getAll("fieldSecondContent"),
     fieldImages: formData.getAll("fieldImage"),
     fieldImagesPaths: formData.getAll("fieldImagePath"),
+    fieldLinks: formData.getAll("fieldLink"),
     slug: formData.get("slug"),
     contentTitle: formData.get("contentTitle"),
     content: formData.get("content"),
@@ -203,9 +233,15 @@ export async function editPost(formData: FormData) {
     // console.log(fieldImages[i])
     const title = fieldTitles[i]
     const content = fieldContents[i]
+    const second_content = fieldSecondContents[i]
+    const list = fieldLists[i].split(',')
+    const links = fieldLinks[i].split(',').map((link) => ({link: link, short_link: extractDomain(link)}))
     const fieldEntry: Field = {
       title,
       content,
+      list,
+      second_content,
+      links
     }
     if (fieldImagesPaths[i]) {
       fieldEntry.image = fieldImagesPaths[i]

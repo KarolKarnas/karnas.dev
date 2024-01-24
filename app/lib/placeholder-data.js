@@ -26,6 +26,19 @@ const posts = [
         content:
           "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code. This approach echoes the Stoic philosophy, where practitioners focus on what they can control and accept what they cannot. The TDD practitioner, much like a Stoic craftsman, meticulously plans and tests every component of their code, anticipating challenges and embracing the iterative nature of development. In the world of design, Figma prototyping serves as a canvas where ideas take shape and evolve. This process finds resonance with Plato's theory of Forms, where he posited that abstract, ideal forms exist beyond the tangible world. In Figma, designers create prototypes that represent the idealized version of the final product before it materializes, emphasizing the pursuit of perfection in design.",
         image: "/tdd_16_9.jpg",
+        list: ["li 1", "li 2", "li 3"],
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
       },
       {
         title: "TDD's Red-Green-Refactor and the Buddhist Path",
@@ -154,7 +167,8 @@ const projects = [
     author_name: users[0].name,
     title: "ilustrografia.com",
     short_title: "ilustrografia.com",
-    sub_title: "Fullstack eCommerce platform built with the MERN stack & Redux & Typescript",
+    sub_title:
+      "Fullstack eCommerce platform built with the MERN stack & Redux & Typescript",
     slug: "ilustrografia",
     content_title: "In the ever-evolving landscape of software development",
     content:
@@ -220,8 +234,7 @@ const projects = [
     sub_title: "VSC design inspired, Next.js Fullstack portfolio with blog",
     slug: "karnas",
     content_title: "Karnas dev is very well designed portfolio blog",
-    content:
-      "Fullstack personal portfolio + blog. VSC design inspired",
+    content: "Fullstack personal portfolio + blog. VSC design inspired",
     main_image: "/karnas.jpg",
     main_icon: "nextjs",
     stack: ["React", "TypeScript, Next.js, PostgreSQL, SQL"],
@@ -270,8 +283,6 @@ module.exports = {
   posts,
   projects,
 }
-
-
 
 // json_stack: [
 //   {
