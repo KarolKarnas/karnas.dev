@@ -8,9 +8,10 @@ type Props = {
   name: string
   title: string
   originalValue?: string[]
+  required?: boolean
 }
 
-const ArrayInput = ({ name, title, originalValue }: Props) => {
+const ArrayInput = ({ name, title, originalValue, required=false }: Props) => {
   const [values, setValues] = useState<string[]>(originalValue || [])
   // console.log(values)
   return (
@@ -34,7 +35,7 @@ const ArrayInput = ({ name, title, originalValue }: Props) => {
         <textarea
           className={styles.Input}
           value={values.toString()}
-          required
+          required={required}
           onChange={(e) =>
             setValues(e.target.value.split(",").map((val) => val.trim()))
           }

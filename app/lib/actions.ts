@@ -17,6 +17,19 @@ function extractDomain(url: string) {
   return domainWithPath
 }
 
+// function extractDomain(url: string) {
+//   console.log('hello', url)
+//   const parsedUrl = new URL(url)
+//   // console.log(parsedUrl)
+//   const domain = parsedUrl.hostname
+//   let domainWithPath = ""
+//   if (parsedUrl.hostname.includes("www.")) {
+//     domainWithPath = domain + parsedUrl.pathname.replace("www.", "")
+//   }
+//   domainWithPath = domain + parsedUrl.pathname
+//   return domainWithPath
+// }
+
 const cloudinaryUrlExtractor = async (file: any) => {
   const image = file as File
   const arrayBuffer = await image.arrayBuffer()
@@ -105,7 +118,7 @@ export async function createPost(formData: FormData) {
   // console.log('1', fieldLists)
   // console.log(Array.isArray(tagArr))
   // const tagArr = JSON.stringify(tags2)
-  // console.log(tagArr.split(","))
+
   const mainImageUrl = await cloudinaryUrlExtractor(mainImage)
   //Mutate fields data
   const fields: Field[] = []
@@ -113,22 +126,31 @@ export async function createPost(formData: FormData) {
     const title = fieldTitles[i]
     const content = fieldContents[i]
     const second_content = fieldSecondContents[i]
-    const list = fieldLists[i].split(',')
-    const links = fieldLinks[i].split(',').map((link) => ({link: link, short_link: extractDomain(link)}))
+
     const fieldEntry: Field = {
       title,
       content,
-      list,
       second_content,
-      links
     }
     if (fieldImages[i].size > 0) {
       const image = await cloudinaryUrlExtractor(fieldImages[i])
       fieldEntry.image = image
     }
+
+    if (fieldLinks[i]) {
+      const links = fieldLinks[i]
+        .split(",")
+        .map((link) => ({ link: link, short_link: extractDomain(link) }))
+      fieldEntry.links = links
+    }
+
+    if (fieldLists[i]) {
+      const list = fieldLists[i].split(",")
+      fieldEntry.list = list
+    }
     fields.push(fieldEntry)
   }
-  // console.log(fields)
+
   //fetch logged in user id and name
   const session = await auth()
   const userData = await sql`SELECT id, name FROM users WHERE email = ${
@@ -225,23 +247,17 @@ export async function editPost(formData: FormData) {
     mainImageUrl = mainImagePath
   }
 
-  // console.log(mainImageUrl)
-
   //Mutate fields data
   const fields: Field[] = []
   for (let i = 0; i < fieldTitles.length; i++) {
-    // console.log(fieldImages[i])
     const title = fieldTitles[i]
     const content = fieldContents[i]
     const second_content = fieldSecondContents[i]
-    const list = fieldLists[i].split(',')
-    const links = fieldLinks[i].split(',').map((link) => ({link: link, short_link: extractDomain(link)}))
+
     const fieldEntry: Field = {
       title,
       content,
-      list,
       second_content,
-      links
     }
     if (fieldImagesPaths[i]) {
       fieldEntry.image = fieldImagesPaths[i]
@@ -249,11 +265,20 @@ export async function editPost(formData: FormData) {
     if (fieldImages[i].size > 0) {
       fieldEntry.image = await cloudinaryUrlExtractor(fieldImages[i])
     }
+    if (fieldLinks[i]) {
+      const links = fieldLinks[i]
+        .split(",")
+        .map((link) => ({ link: link, short_link: extractDomain(link) }))
+      fieldEntry.links = links
+    }
+    if (fieldLists[i]) {
+      const list = fieldLists[i].split(",")
+      fieldEntry.list = list
+    }
+
     fields.push(fieldEntry)
   }
 
-  // console.log(fields)
-  // // console.log(fields)
   // //fetch logged in user id and name
   // const session = await auth()
   // const userData = await sql`SELECT id, name FROM users WHERE email = ${
@@ -281,12 +306,12 @@ export async function editPost(formData: FormData) {
 }
 
 export async function deletePost(slug: string) {
-	try {
-		await sql`DELETE FROM posts WHERE slug = ${slug}`;
-	} catch (error) {
-		return { message: 'Database Error: Failed to Delete Post' };
-	}
-	revalidatePath('/dashboard/posts');
+  try {
+    await sql`DELETE FROM posts WHERE slug = ${slug}`
+  } catch (error) {
+    return { message: "Database Error: Failed to Delete Post" }
+  }
+  revalidatePath("/dashboard/posts")
 }
 
 export async function authenticate(
@@ -309,38 +334,6 @@ export async function authenticate(
   // revalidatePath("/dashboard")
   // redirect("/dashboard")
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // "use server"
 
