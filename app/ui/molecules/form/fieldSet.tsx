@@ -58,9 +58,13 @@ const FieldSet = ({ index, originalItem }: Props) => {
       <ArrayInput
         name={`fieldLink`}
         title="Links"
-        originalValue={originalItem?.links ? originalItem.links.map(item => item.link) : undefined}
+        originalValue={
+          originalItem?.links
+            ? originalItem.links.map((item) => item.link)
+            : undefined
+        }
       />
-      <FileInput name={`fieldImage`} title="Image" required={false} />
+      <FileInput name={`fieldImage`} title="Image" />
     </div>
   )
 }

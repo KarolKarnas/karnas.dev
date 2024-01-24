@@ -18,26 +18,46 @@ type Props = {
 
 const FormPost = ({ post }: Props) => {
   const [fields, setFields] = useState(post?.fields.length || 1)
-// console.log(post?.fields)
+  // console.log(post?.fields)
   return (
-    <Form.Root action={post ? editPost: createPost} className={styles.FormRoot}>
+    <Form.Root
+      action={post ? editPost : createPost}
+      className={styles.FormRoot}
+    >
       {post ? (
         //EDIT FORM
         <>
           <div className={styles.col1}>
-            <TextInput name="title" title="Title" originalValue={post.title} />
+            <TextInput
+              name="title"
+              title="Title"
+              originalValue={post.title}
+              required
+            />
             <TextInput
               name="shortTitle"
               title="Short Title"
               originalValue={post.short_title}
+              required
             />
             <TextInput
               name="subTitle"
               title="Sub Title"
               originalValue={post.sub_title}
+              required
             />
-            <TextInput name="slug" title="Slug" originalValue={post.slug} readOnly />
-            <TextInput name="mainImagePath" title="Main Image Path" originalValue={post.main_image} readOnly />
+            <TextInput
+              name="slug"
+              title="Slug"
+              originalValue={post.slug}
+              readOnly
+            />
+            <TextInput
+              name="mainImagePath"
+              title="Main Image Path"
+              originalValue={post.main_image}
+              readOnly
+            />
             <div className={styles.oriMainImage}>
               <h4>Original Main Image</h4>
               <Image
@@ -47,24 +67,31 @@ const FormPost = ({ post }: Props) => {
                 alt={post.short_title}
               />
             </div>
-            <FileInput name="mainImage" title="Main Image" required={false} />
+            <FileInput name="mainImage" title="Main Image" />
             <TextInput
               name="category"
               title="Category"
               originalValue={post.category}
             />
-            <ArrayInput name="tags" title="Tags" originalValue={post.tags} />
+            <ArrayInput
+              name="tags"
+              title="Tags"
+              originalValue={post.tags}
+              required
+            />
           </div>
           <div className={styles.col2}>
             <TextInput
               name="contentTitle"
               title="Content Title"
               originalValue={post.content_title}
+              required
             />
             <TextInput
               name="content"
               title="Content"
               originalValue={post.content}
+              required
             />
 
             {Array.from({ length: fields }).map((item, index) => (
@@ -91,17 +118,17 @@ const FormPost = ({ post }: Props) => {
         // CREATE NEW FORM
         <>
           <div className={styles.col1}>
-            <TextInput name="title" title="Title" />
-            <TextInput name="shortTitle" title="Short Title" />
-            <TextInput name="subTitle" title="Sub Title" />
-            <TextInput name="slug" title="Slug" />
-            <FileInput name="mainImage" title="Main Image" required={true} />
-            <TextInput name="category" title="Category" />
-            <ArrayInput name="tags" title="Tags" />
+            <TextInput name="title" title="Title" required />
+            <TextInput name="shortTitle" title="Short Title" required />
+            <TextInput name="subTitle" title="Sub Title" required />
+            <TextInput name="slug" title="Slug" required />
+            <FileInput name="mainImage" title="Main Image" required/>
+            <TextInput name="category" title="Category" required />
+            <ArrayInput name="tags" title="Tags" required />
           </div>
           <div className={styles.col2}>
-            <TextInput name="contentTitle" title="Content Title" />
-            <TextInput name="content" title="Content" />
+            <TextInput name="contentTitle" title="Content Title" required />
+            <TextInput name="content" title="Content" required />
             {Array.from({ length: fields }).map((item, index) => (
               <FieldSet key={index} index={index} />
             ))}

@@ -10,7 +10,7 @@ type Props = {
   required?: boolean
 }
 
-const FileInput = ({name, title, required}: Props) => {
+const FileInput = ({name, title, required=false}: Props) => {
   return (
     <Form.Field className={styles.FormField} name={name}>
       <div

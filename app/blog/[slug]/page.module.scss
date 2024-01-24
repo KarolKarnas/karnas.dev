@@ -159,6 +159,9 @@
     }
     section {
       margin: spacing.$s6 0px;
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$s2;
 
       h3 {
         margin-bottom: spacing.$s2;
@@ -188,7 +191,18 @@
       img {
         width: 100%;
         height: 100%;
-        margin: spacing.$s6 0px;
+        margin: spacing.$s4 0px;
+      }
+
+      .ListContainer {
+        list-style: square;
+        padding-left: spacing.$s6;
+      }
+      .LinksContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: spacing.$s3;
       }
     }
     .author-container {

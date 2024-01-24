@@ -2,7 +2,7 @@
 
 import * as Form from "@radix-ui/react-form"
 import styles from "./arrayInput.module.scss"
-import { ChangeEvent, SyntheticEvent, useState } from "react"
+import { SyntheticEvent, useState } from "react"
 
 type Props = {
   name: string
@@ -47,27 +47,3 @@ const ArrayInput = ({ name, title, originalValue, required=false }: Props) => {
 }
 
 export default ArrayInput
-
-// interface PropsStringArrayInput {
-//   values: string[]
-//   onChange: (values: string[]) => void
-// }
-
-// const StringArrayInput = ({ values, onChange }: PropsStringArrayInput) => {
-//   const textValue = values.join(",")
-
-//   console.log(textValue)
-//   const onChangeTextValue = ({ target }: ChangeEvent<HTMLInputElement>) => {
-//     onChange(target.value.split(","))
-//   }
-
-//   return (
-//     <input
-//       className={styles.Input}
-//       value={textValue}
-//       name="tags"
-//       required
-//       onChange={onChangeTextValue}
-//     />
-//   )
-// }

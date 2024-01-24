@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             {field.title ? <h3>{field.title}</h3> : null}
             {field.content ? <p>{field.content}</p> : null}
             {field.list ? (
-              <ul>
+              <ul className={styles.ListContainer}>
                 {field.list.map((item, liIndex) => (
                   <li key={liIndex}>{item}</li>
                 ))}
@@ -59,7 +59,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
               />
             ) : null}
             {field.links ? (
-              <ul>
+              // component
+              <ul className={styles.LinksContainer}>
                 {field.links.map((item, index) => (
                   <LinkCard
                     key={index}

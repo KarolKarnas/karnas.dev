@@ -11,24 +11,14 @@ import cloudinary from "../utils/cloudinary"
 import { Field } from "../utils/types"
 
 function extractDomain(url: string) {
+  // if (url === "") {
+  //   return
+  // }
   const parsedUrl = new URL(url)
   const domain = parsedUrl.hostname.replace("www.", "")
   const domainWithPath = domain + parsedUrl.pathname
   return domainWithPath
 }
-
-// function extractDomain(url: string) {
-//   console.log('hello', url)
-//   const parsedUrl = new URL(url)
-//   // console.log(parsedUrl)
-//   const domain = parsedUrl.hostname
-//   let domainWithPath = ""
-//   if (parsedUrl.hostname.includes("www.")) {
-//     domainWithPath = domain + parsedUrl.pathname.replace("www.", "")
-//   }
-//   domainWithPath = domain + parsedUrl.pathname
-//   return domainWithPath
-// }
 
 const cloudinaryUrlExtractor = async (file: any) => {
   const image = file as File
