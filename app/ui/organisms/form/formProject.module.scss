@@ -20,13 +20,16 @@
     // }
   // }
   .col1 {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: spacing.$s3;
+    p {
+      // width: 400px;
+    }
   }
   .col2 {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: spacing.$s3;

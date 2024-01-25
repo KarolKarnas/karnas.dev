@@ -1,11 +1,12 @@
 "use client"
 
+import * as icons from "../../../utils/icons"
 import * as Form from "@radix-ui/react-form"
 import styles from "./formProject.module.scss"
 import { useState } from "react"
 import TextInput from "../../atoms/form/textInput"
 import FieldSet from "../../molecules/form/fieldSet"
-import { createProject, editPost } from "../../../lib/actions"
+import { createProject, editProject } from "../../../lib/actions"
 import FileInput from "../../atoms/form/fileInput"
 import ArrayInput from "../../atoms/form/arrayInput"
 import ButtonSubmit from "../../atoms/form/buttonSubmit"
@@ -18,10 +19,11 @@ type Props = {
 
 const FormProject = ({ project }: Props) => {
   const [fields, setFields] = useState(project?.fields.length || 1)
+  const iconsKeys = Object.keys(icons)
   // console.log(project?.fields)
   return (
     <Form.Root
-      action={project ? editPost : createProject}
+      action={project ? editProject : createProject}
       // action={project ? editPost : createPost}
       className={styles.FormRoot}
     >
@@ -52,6 +54,7 @@ const FormProject = ({ project }: Props) => {
               title="Slug"
               originalValue={project.slug}
               readOnly
+              required
             />
             <TextInput
               name="mainImagePath"
@@ -69,10 +72,47 @@ const FormProject = ({ project }: Props) => {
               />
             </div>
             <FileInput name="mainImage" title="Main Image" />
+
+            {/* <div>
+              {iconsKeys.map((item, i) => (
+                <span key={i}>{item}</span>
+              ))}
+            </div> */}
+            <TextInput
+              name="mainIcon"
+              title="Main Icon"
+              originalValue={project.main_icon}
+              required
+            />
+              <ArrayInput
+                name="stack"
+                title="Stack"
+                originalValue={project.stack}
+                required
+              />
+              <ArrayInput
+                name="iconsStack"
+                title="Icons Stack"
+                originalValue={project.icons_stack}
+                required
+              />
+            <TextInput
+              name="liveDemo"
+              title="Live Demo"
+              originalValue={project.live_demo}
+              required
+            />
+            <TextInput
+              name="repo"
+              title="Repo"
+              originalValue={project.repo}
+              required
+            />
             <TextInput
               name="category"
               title="Category"
               originalValue={project.category}
+              required
             />
             <ArrayInput
               name="tags"
@@ -124,7 +164,9 @@ const FormProject = ({ project }: Props) => {
             <TextInput name="subTitle" title="Sub Title" required />
             <TextInput name="slug" title="Slug" required />
             <FileInput name="mainImage" title="Main Image" required />
+
             <TextInput name="mainIcon" title="Main Icon" required />
+
             <ArrayInput name="stack" title="Stack" required />
             <ArrayInput name="iconsStack" title="Icons Stack" required />
             <TextInput name="liveDemo" title="Live Demo" required />

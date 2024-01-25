@@ -287,6 +287,7 @@ export async function editPost(formData: FormData) {
     )}, category = ${category}, tags = ${JSON.stringify(tagArr)}
     WHERE slug = ${slug}`
   } catch (error) {
+    console.log(error)
     return {
       message: "Database Error: Failed to Create Post.",
     }
@@ -300,6 +301,7 @@ export async function deletePost(slug: string) {
   try {
     await sql`DELETE FROM posts WHERE slug = ${slug}`
   } catch (error) {
+    console.log(error)
     return { message: "Database Error: Failed to Delete Post" }
   }
   revalidatePath("/dashboard/posts")
@@ -481,6 +483,149 @@ export async function deleteProject(slug: string) {
     return { message: "Database Error: Failed to Delete Project" }
   }
   revalidatePath("/dashboard/posts")
+}
+
+const EditProjectFormSchema = z.object({
+  title: z.string(),
+  shortTitle: z.string(),
+  subTitle: z.string(),
+  fieldTitles: z.array(z.string()),
+  fieldContents: z.array(z.string()),
+  fieldLists: z.array(z.string()),
+  fieldSecondContents: z.array(z.string()),
+  fieldImages: z.array(z.any()),
+  fieldImagesPaths: z.array(z.string()),
+  fieldLinks: z.array(z.string()),
+  slug: z.string(),
+  contentTitle: z.string(),
+  content: z.string(),
+  mainImage: z.any(),
+  mainImagePath: z.string(),
+  mainIcon: z.string(),
+  stack: z.string(),
+  iconsStack: z.string(),
+  liveDemo: z.string(),
+  repo: z.string(),
+  category: z.string(),
+  tags: z.string(),
+})
+
+export async function editProject(formData: FormData) {
+  // console.log(formData)
+  const {
+    title,
+    shortTitle,
+    subTitle,
+    fieldTitles,
+    fieldContents,
+    fieldLists,
+    fieldSecondContents,
+    fieldImages,
+    fieldImagesPaths,
+    fieldLinks,
+    slug,
+    contentTitle,
+    content,
+    mainImage,
+    mainImagePath,
+    mainIcon,
+    stack,
+    iconsStack,
+    liveDemo,
+    repo,
+    category,
+    tags,
+  } = EditProjectFormSchema.parse({
+    title: formData.get("title"),
+    shortTitle: formData.get("shortTitle"),
+    subTitle: formData.get("subTitle"),
+    fieldTitles: formData.getAll("fieldTitle"),
+    fieldContents: formData.getAll("fieldContent"),
+    fieldLists: formData.getAll("fieldList"),
+    fieldSecondContents: formData.getAll("fieldSecondContent"),
+    fieldImages: formData.getAll("fieldImage"),
+    fieldImagesPaths: formData.getAll("fieldImagePath"),
+    fieldLinks: formData.getAll("fieldLink"),
+    slug: formData.get("slug"),
+    contentTitle: formData.get("contentTitle"),
+    content: formData.get("content"),
+    mainImage: formData.get("mainImage"),
+    mainImagePath: formData.get("mainImagePath"),
+    mainIcon: formData.get("mainIcon"),
+    stack: formData.get("stack"),
+    iconsStack: formData.get("iconsStack"),
+    liveDemo: formData.get("liveDemo"),
+    repo: formData.get("repo"),
+    category: formData.get("category"),
+    tags: formData.get("tags"),
+  })
+
+  const tagArr = tags.split(",")
+  // // console.log(Array.isArray(tagArr))
+  // // const tagArr = JSON.stringify(tags2)
+  // // console.log(tagArr.split(","))
+  let mainImageUrl = ""
+  if (mainImage.size > 0) {
+    mainImageUrl = await cloudinaryUrlExtractor(mainImage)
+  } else {
+    mainImageUrl = mainImagePath
+  }
+
+  //Mutate fields data
+  const fields: Field[] = []
+  for (let i = 0; i < fieldTitles.length; i++) {
+    const title = fieldTitles[i]
+    const content = fieldContents[i]
+    const second_content = fieldSecondContents[i]
+
+    const fieldEntry: Field = {
+      title,
+      content,
+      second_content,
+    }
+    if (fieldImagesPaths[i]) {
+      fieldEntry.image = fieldImagesPaths[i]
+    }
+    if (fieldImages[i].size > 0) {
+      fieldEntry.image = await cloudinaryUrlExtractor(fieldImages[i])
+    }
+    if (fieldLinks[i]) {
+      const links = fieldLinks[i]
+        .split(",")
+        .map((link) => ({ link: link, short_link: extractDomain(link) }))
+      fieldEntry.links = links
+    }
+    if (fieldLists[i]) {
+      const list = fieldLists[i].split(",")
+      fieldEntry.list = list
+    }
+
+    fields.push(fieldEntry)
+  }
+
+  const stackArr = stack.split(",")
+  const iconsStackArr = iconsStack.split(",")
+
+  // database Update
+  try {
+    await sql`UPDATE projects
+    SET title = ${title}, short_title = ${shortTitle}, sub_title = ${subTitle}, slug = ${slug}, content_title = ${contentTitle}, content = ${content}, main_image = ${mainImageUrl}, main_icon = ${mainIcon}, stack = ${JSON.stringify(
+      stackArr
+    )}, icons_stack = ${JSON.stringify(
+      iconsStackArr
+    )}, live_demo = ${liveDemo}, repo = ${repo},  fields = ${JSON.stringify(
+      fields
+    )}, category = ${category}, tags = ${JSON.stringify(tagArr)}
+    WHERE slug = ${slug}`
+  } catch (error) {
+    console.log(error)
+    return {
+      message: "Database Error: Failed to Update Project.",
+    }
+  }
+  // blog path try
+  revalidatePath(`/projects/${slug}`)
+  redirect(`/projects/${slug}`)
 }
 
 // "use server"
