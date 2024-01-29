@@ -12,18 +12,18 @@ icon?: JSX.Element
 const ContactCard = ({ icon, color, children, href }: Props) => {
 
 
-  const handleClick = (e: React.SyntheticEvent) => {
-      e.preventDefault();
+  // const handleClick = (e: React.SyntheticEvent) => {
+  //     e.preventDefault();
 
-    window.open(href, "_blank");
-  };
+  //   window.open(href, "_blank");
+  // };
   return (
     <li className={`${styles.listItem}`}>
       <a
         className={`${color === "light" ? styles.light : ""}`}
         href={href}
-        onClick={handleClick}
-        rel="noopener noreferrer"
+        // onClick={handleClick}
+        // rel="noopener noreferrer"
       >
         {icon ? icon : null}
         <span>{children}</span>

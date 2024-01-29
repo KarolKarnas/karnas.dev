@@ -189,9 +189,9 @@ const projects = [
     sub_title:
       "Fullstack eCommerce platform built with the MERN stack & Redux & Typescript",
     slug: "ilustrografia",
-    content_title: "In the ever-evolving landscape of software development",
+    content_title: "What is it?",
     content:
-      "Beautifully styled and responsive e-commerce platform designed for an artist, for selling prints purpose, promote art and more.",
+      "This is a beautifully styled and responsive e-commerce platform designed for an artist who sells prints of her digital paintings. The website offers a variety of print sizes, materials, and prices.",
     main_image:
       "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-1.jpg",
     main_icon: "react",
@@ -213,9 +213,52 @@ const projects = [
     repo: "https://github.com/KarolKarnas/ilustrografia.com",
     fields: [
       {
-        title: "Selling prints",
+        title: "About",
         content:
-          "This is a beautifully styled and responsive e-commerce platform designed for an artist who sells prints of her digital paintings. ",
+        "This project is the culmination of my several months of learning full stack development, it combines my passion for programming, modern technologies and good UX/UI. The platform key features:",
+        list: [
+          "Full-featured shopping cart",
+          "Product reviews and ratings",
+          "Product and illustration filtering",
+          "User profiles with order history",
+          "Admin panel for product and user management",
+          "Admin Order details page",
+          "Order tracking and status updates",
+          "Checkout process with shipping and payment method selection",
+          "PayPal and credit card integration",
+          "Database seeding for products and users",
+          "Fetching the latest YouTube animations using the YouTube API",
+          "Dark/Light theme",
+        ],
+      },
+      {
+        title: "Full-featured shopping cart",
+        content:
+        "Clear and intuitive design. Ability to change quantity of the products. Fixed positioned cart summary, always visible for the user - desktop and mobile. To enhance sales opportunities, the addition of 'Clients also liked' section on the bottom",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706530748/cskuxryw0irg7pgs0bqz.jpg",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/cart",
+            short_link: "ilustrografia.com/cart",
+          },
+        ],
+      },
+      {
+        title: "Product reviews and ratings",
+        content:
+          "Every registered user can leave the product review with star rating (1-5)",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop/shopping-baba?material=art-print&size=s20x40",
+            short_link: "ilustrografia.com/shop/shopping-baba",
+          },
+        ],
+      },
+      {
+        title: "About",
+        content:
+          "This project is the culmination of my several months of learning full stack development, it combines my passion for programming, modern technologies and good UX/UI.",
         image:
           "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-2.jpg",
         links: [
@@ -228,9 +271,13 @@ const projects = [
             short_link: "ilustrografia.com/about",
           },
         ],
+        list: [
+          "The website offers a variety of print sizes, materials, and prices.",
+          "images of the digital paintings",
+          "and visualization images for each material",
+        ],
         second_content:
           "The website offers a variety of print sizes, materials, and prices. To manage this diversity, the database was carefully structured to accommodate different product variants, including size, material, stock count, prices, names, descriptions, images of the digital paintings, and visualization images for each material.",
-          list: ['The website offers a variety of print sizes, materials, and prices.', 'images of the digital paintings', 'and visualization images for each material' ]
       },
       {
         title: "Hardest code part",

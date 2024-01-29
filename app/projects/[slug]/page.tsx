@@ -7,6 +7,7 @@ import { SocialItem } from "@/app/utils/types"
 import useIcon from "@/app/hooks/useIcon"
 import StackIcons from "@/app/ui/atoms/stackIcons"
 import { gitHub, link } from "@/app/utils/icons"
+import Link from "next/link"
 
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -35,13 +36,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <LinkCard socialItem={socialItemGithub} color="light" />
         </ul>
       </div>
-
-      <Image
-        src={project.main_image}
-        width={1920}
-        height={1080}
-        alt={`main image`}
-      />
+      <Link href={project.main_image} target="blank">
+        <Image
+          src={project.main_image}
+          width={1920}
+          height={1080}
+          alt={`main image`}
+        />
+      </Link>
       <div className={styles["content-container"]}>
         <h3>{project.content_title}</h3>
         <p>{project.content}</p>
@@ -59,12 +61,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
             ) : null}
             {field.second_content ? <p>{field.second_content}</p> : null}
             {field.image ? (
-              <Image
-                src={field.image}
-                width={1200}
-                height={673}
-                alt={`field ${index} image`}
-              />
+              <Link href={field.image} target="blank">
+                <Image
+                  src={field.image}
+                  width={1200}
+                  height={673}
+                  alt={`field ${index} image`}
+                />
+              </Link>
             ) : null}
 
             {field.links ? (
