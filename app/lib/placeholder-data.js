@@ -236,7 +236,7 @@ const projects = [
         content:
         "Clear and intuitive design. Ability to change quantity of the products. Fixed positioned cart summary, always visible for the user - desktop and mobile. To enhance sales opportunities, the addition of 'Clients also liked' section on the bottom",
         image:
-          "https://res.cloudinary.com/djadfridw/image/upload/v1706530748/cskuxryw0irg7pgs0bqz.jpg",
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706538125/doeop226udzg2icotee7.jpg",
         links: [
           {
             link: "https://www.ilustrografia.com/cart",
@@ -256,11 +256,46 @@ const projects = [
         ],
       },
       {
+        title: "Product and illustration filtering",
+        content:
+          "Intuitive products and illustration filtering. Improving the user experience",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/illustrations",
+            short_link: "ilustrografia.com/illustrations",
+          },
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+        ],
+      },
+      {
+        title: "User profiles with order history",
+        content:
+          "Change profile Name/Email/Password. Table with all user orders, orders status, id, date, total price, date of pay, delivery, link to details",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/profile",
+            short_link: "ilustrografia.com/profile",
+          },
+        ],
+      },
+      {
+        title: "Admin panel for product and user management",
+        content:
+          "An extensive admin panel for product/users/orders edition / deletion",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/profile",
+            short_link: "ilustrografia.com/profile",
+          },
+        ],
+      },
+      {
         title: "About",
         content:
           "This project is the culmination of my several months of learning full stack development, it combines my passion for programming, modern technologies and good UX/UI.",
-        image:
-          "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-2.jpg",
         links: [
           {
             link: "https://www.ilustrografia.com/shop",
