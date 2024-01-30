@@ -9,6 +9,7 @@ import { signIn, auth } from "@/auth"
 import { AuthError } from "next-auth"
 import cloudinary from "../utils/cloudinary"
 import { Field } from "../utils/types"
+import { NextResponse } from "next/server"
 
 function extractDomain(url: string) {
   // if (url === "") {
@@ -22,28 +23,38 @@ function extractDomain(url: string) {
 
 const cloudinaryUrlExtractor = async (file: any) => {
   const image = file as File
-  const arrayBuffer = await image.arrayBuffer()
-  const buffer = new Uint8Array(arrayBuffer)
-  let url = ""
-  await new Promise((resolve, reject) => {
-    cloudinary.uploader
-      .upload_stream({}, function (error, result) {
-        if (error) {
-          reject(error)
-          return
-        }
-        resolve(result)
-        // console.log(result)
-        if (result) {
+  const fileBuffer = await image.arrayBuffer()
+
+  const mime = image.type
+  const encoding = "base64"
+  const base64Data = Buffer.from(fileBuffer).toString("base64")
+  const fileUri = "data:" + mime + ";" + encoding + "," + base64Data
+
+  let imageUrl = ""
+
+    await new Promise((resolve, reject) => {
+      cloudinary.uploader
+        .upload(fileUri, {
+          invalidate: true,
+        })
+        .then((result) => {
+          // console.log(result)
           resolve(result)
           if (result) {
-            url = result.secure_url
+            resolve(result)
+            if (result) {
+              imageUrl = result.secure_url
+            }
           }
-        }
-      })
-      .end(buffer)
-  })
-  return url
+        })
+        .catch((error) => {
+          console.log(error)
+          reject(error)
+        })
+    })
+
+    return imageUrl
+
 }
 
 // const tags = ["JavaScript", "TypeScript", "Figma"]
@@ -724,6 +735,34 @@ export async function editProject(formData: FormData) {
 //         }
 //         resolve(result)
 //         console.log(result)
+//         if (result) {
+//           resolve(result)
+//           if (result) {
+//             url = result.secure_url
+//           }
+//         }
+//       })
+//       .end(buffer)
+//   })
+//   return url
+// }
+
+
+
+// const cloudinaryUrlExtractor = async (file: any) => {
+//   const image = file as File
+//   const arrayBuffer = await image.arrayBuffer()
+//   const buffer = new Uint8Array(arrayBuffer)
+//   let url = ""
+//   await new Promise((resolve, reject) => {
+//     cloudinary.uploader
+//       .upload_stream({}, function (error, result) {
+//         if (error) {
+//           reject(error)
+//           return
+//         }
+//         resolve(result)
+//         // console.log(result)
 //         if (result) {
 //           resolve(result)
 //           if (result) {
