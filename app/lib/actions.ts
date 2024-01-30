@@ -249,9 +249,13 @@ export async function editPost(formData: FormData) {
     mainImageUrl = mainImagePath
   }
 
+  // console.log(fieldTitles.length)
+  // console.log(fieldImages)
+  // console.log(fieldImagesPaths)
+
   //Mutate fields data
   const fields: Field[] = []
-  for (let i = 0; i < fieldTitles.length; i++) {
+  for (let i = 0; i < fieldImages.length; i++) {
     const title = fieldTitles[i]
     const content = fieldContents[i]
     const second_content = fieldSecondContents[i]
@@ -262,9 +266,11 @@ export async function editPost(formData: FormData) {
       second_content,
     }
     if (fieldImagesPaths[i]) {
+      // console.log(i + ' ' + fieldImagesPaths[i])
       fieldEntry.image = fieldImagesPaths[i]
     }
     if (fieldImages[i].size > 0) {
+      // console.log(i + ' ' + fieldImages[i])
       fieldEntry.image = await cloudinaryUrlExtractor(fieldImages[i])
     }
     if (fieldLinks[i]) {
@@ -584,7 +590,7 @@ export async function editProject(formData: FormData) {
 
   //Mutate fields data
   const fields: Field[] = []
-  for (let i = 0; i < fieldTitles.length; i++) {
+  for (let i = 0; i < fieldImages.length; i++) {
     const title = fieldTitles[i]
     const content = fieldContents[i]
     const second_content = fieldSecondContents[i]
@@ -610,6 +616,8 @@ export async function editProject(formData: FormData) {
       const list = fieldLists[i].split(",")
       fieldEntry.list = list
     }
+
+    console.log(fields)
 
     fields.push(fieldEntry)
   }

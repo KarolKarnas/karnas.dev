@@ -112,13 +112,51 @@ const posts = [
     main_image: "/tddFigma.jpg",
     fields: [
       {
-        title: "field title 1",
-        content: "field content 1",
+        title: "TDD as the Stoic Craftsman",
+        content:
+          "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
         image: "/tdd_16_9.jpg",
+        list: ["li 1", "li 2", "li 3"],
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
       },
       {
-        title: "field title 2",
-        content: "field content 2",
+        title: "TDD's Red-Green-Refactor and the Buddhist Path",
+        content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        list: [
+          "Exploring Philosophical Analogies in Test-Driven Development 1",
+          "li 2",
+          "li Exploring Philosophical Analogies in Test 3",
+        ],
+      },
+      {
+        title: "Conclusion",
+        content:
+          "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
         image: "/tdd_16_9.jpg",
       },
     ],
@@ -138,13 +176,51 @@ const posts = [
     main_image: "/tddFigma.jpg",
     fields: [
       {
-        title: "field title 1",
-        content: "field content 1",
+        title: "TDD as the Stoic Craftsman",
+        content:
+          "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
         image: "/tdd_16_9.jpg",
+        list: ["li 1", "li 2", "li 3"],
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
       },
       {
-        title: "field title 2",
-        content: "field content 2",
+        title: "TDD's Red-Green-Refactor and the Buddhist Path",
+        content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        list: [
+          "Exploring Philosophical Analogies in Test-Driven Development 1",
+          "li 2",
+          "li Exploring Philosophical Analogies in Test 3",
+        ],
+      },
+      {
+        title: "Conclusion",
+        content:
+          "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
         image: "/tdd_16_9.jpg",
       },
     ],
@@ -164,13 +240,51 @@ const posts = [
     main_image: "/tddFigma.jpg",
     fields: [
       {
-        title: "field title 1",
-        content: "field content 1",
+        title: "TDD as the Stoic Craftsman",
+        content:
+          "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
         image: "/tdd_16_9.jpg",
+        list: ["li 1", "li 2", "li 3"],
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
       },
       {
-        title: "field title 2",
-        content: "field content 2",
+        title: "TDD's Red-Green-Refactor and the Buddhist Path",
+        content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop",
+            short_link: "ilustrografia.com/shop",
+          },
+          {
+            link: "https://www.ilustrografia.com/about",
+            short_link: "ilustrografia.com/about",
+          },
+        ],
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        list: [
+          "Exploring Philosophical Analogies in Test-Driven Development 1",
+          "li 2",
+          "li Exploring Philosophical Analogies in Test 3",
+        ],
+      },
+      {
+        title: "Conclusion",
+        content:
+          "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
+        second_content:
+          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
         image: "/tdd_16_9.jpg",
       },
     ],
@@ -215,7 +329,7 @@ const projects = [
       {
         title: "About",
         content:
-        "This project is the culmination of my several months of learning full stack development, it combines my passion for programming, modern technologies and good UX/UI. The platform key features:",
+          "This project is the culmination of my several months of learning full stack development, it combines my passion for programming, modern technologies and good UX/UI. The platform key features:",
         list: [
           "Full-featured shopping cart",
           "Product reviews and ratings",
@@ -234,7 +348,7 @@ const projects = [
       {
         title: "Full-featured shopping cart",
         content:
-        "Clear and intuitive design. Ability to change quantity of the products. Fixed positioned cart summary, always visible for the user - desktop and mobile. To enhance sales opportunities, the addition of 'Clients also liked' section on the bottom",
+          "Clear and intuitive design. Ability to change quantity of the products. Fixed positioned cart summary, always visible for the user - desktop and mobile. To enhance sales opportunities, the addition of 'Clients also liked' section on the bottom",
         image:
           "https://res.cloudinary.com/djadfridw/image/upload/v1706538125/doeop226udzg2icotee7.jpg",
         links: [

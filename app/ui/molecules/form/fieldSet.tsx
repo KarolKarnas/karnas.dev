@@ -16,7 +16,9 @@ type Props = {
 const FieldSet = ({ index, originalItem }: Props) => {
   // console.log(originalItem)
   return (
-    <div className={styles.FieldSet}>
+    <div
+      className={`${styles.FieldSet} ${index % 2 === 0 ? styles.even : styles.odd}`}
+    >
       <h3>Field Set {index}</h3>
       <TextInput
         name={`fieldTitle`}
@@ -38,14 +40,16 @@ const FieldSet = ({ index, originalItem }: Props) => {
         title="Second Content"
         originalValue={originalItem?.second_content}
       />
+
+      <TextInput
+        name="fieldImagePath"
+        title={`Original Image Path ${index}`}
+        originalValue={originalItem?.image}
+        readOnly
+      />
+
       {originalItem?.image ? (
         <div className={styles.oriMainImage}>
-          <TextInput
-            name="fieldImagePath"
-            title={`Original Image Path ${index}`}
-            originalValue={originalItem.image}
-            readOnly
-          />
           <h4>Original Image fieldset {index}</h4>
           <Image
             src={originalItem.image}

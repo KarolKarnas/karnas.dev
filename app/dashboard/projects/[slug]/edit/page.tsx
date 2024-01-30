@@ -9,7 +9,8 @@ export default async function About({ params }: { params: { slug: string } }) {
   // console.log(Array.isArray(post.tags))
   return (
     <div className={styles.container}>
-      <MainHeading color="blue">Edit project Sir!</MainHeading>     <FormProject project={project}/>
+      <MainHeading color="blue">Edit project Sir!</MainHeading>{" "}
+      <FormProject project={project} />
     </div>
   )
 }

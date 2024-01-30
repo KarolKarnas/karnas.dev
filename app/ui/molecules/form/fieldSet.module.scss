@@ -7,4 +7,13 @@
 .FieldSet {
   display: flex;
   flex-direction: column;
+  padding: spacing.$s5;
+}
+
+.even {
+  background-color: colors.$grey-600;
+}
+
+.odd {
+  background-color: colors.$grey-975;
 }
