@@ -112,8 +112,12 @@
       // width: 80%;
       padding: spacing.$s8 spacing.$s10;
     }
+    .technologies {
+      margin-top: spacing.$s7;
+    }
 
     h3 {
+      text-align: center;
       margin-bottom: spacing.$s2;
       color: colors.$white-100;
       font-style: italic;
@@ -153,6 +157,7 @@
         margin-bottom: spacing.$s2;
         color: colors.$white-100;
         font-size: fonts.$xl;
+        text-align: center;
         @include mixins.drop-shadow-md-color(
           colors.$shadow-white-700,
           colors.$shadow-white-600
@@ -190,6 +195,26 @@
         align-items: center;
         gap: spacing.$s3;
       }
+
+      hr {
+        width: 80%;
+        border: none;
+        border-top: 3px double colors.$grey-600;
+        // color: #333;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+margin: spacing.$s6 auto;
+
+      }
+
+      // hr::after {
+        // background: #fff;
+        // content: '§';
+        // padding: 0 4px;
+        // position: relative;
+        // top: -13px;
+      // }
     }
 
     .details {

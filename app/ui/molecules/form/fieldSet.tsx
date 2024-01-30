@@ -45,7 +45,7 @@ const FieldSet = ({ index, originalItem }: Props) => {
         name="fieldImagePath"
         title={`Original Image Path ${index}`}
         originalValue={originalItem?.image}
-        readOnly
+        
       />
 
       {originalItem?.image ? (

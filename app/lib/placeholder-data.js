@@ -307,7 +307,7 @@ const projects = [
     content:
       "This is a beautifully styled and responsive e-commerce platform designed for an artist who sells prints of her digital paintings. The website offers a variety of print sizes, materials, and prices.",
     main_image:
-      "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-1.jpg",
+      "https://res.cloudinary.com/djadfridw/image/upload/v1706625285/u2yg75ygsansmfpl6nir.jpg",
     main_icon: "react",
     stack: ["React", "TypeScript"],
     icons_stack: [
@@ -344,13 +344,30 @@ const projects = [
           "Fetching the latest YouTube animations using the YouTube API",
           "Dark/Light theme",
         ],
+        second_content:
+          "Clear and intuitive design. Ability to change quantity of the products. Fixed positioned cart summary, always visible for the user - desktop and mobile. To enhance sales opportunities, the addition of 'Clients also liked' section on the bottom",
+      },
+      {
+        title: "Product Page",
+        content:
+          "Product page is a visual feast, thoughtfully designed to showcase each digital painting with the utmost elegance. Enjoy a clean and modern layout that highlights the beauty of MeggieM.Art's creations, allowing the art to speak for itself",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706618785/qrctu4hyl91mcxq9b0sp.jpg",
+        second_content:
+          "product variants feature empowers you to customize your purchase effortlessly. Change the size or material of the artwork with a simple click, and watch as the product images and pricing dynamically adjust to reflect your choices. This interactive feature ensures a personalized and engaging shopping journey",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/shop/spring-nymph?material=art-print&size=s20x40",
+            short_link: "https://www.ilustrografia.com/shop/spring-nymph",
+          },
+        ],
       },
       {
         title: "Full-featured shopping cart",
         content:
-          "Clear and intuitive design. Ability to change quantity of the products. Fixed positioned cart summary, always visible for the user - desktop and mobile. To enhance sales opportunities, the addition of 'Clients also liked' section on the bottom",
+          "Discover a user-friendly shopping cart on ilustrografia.com designed for simplicity and efficiency. Easily adjust product quantities with an intuitive interface, and observe real-time price updates. The cart features a visually appealing layout, showcasing thumbnail images for easy identification. Explore related products under 'Clients Also Liked' for additional options. Seamlessly integrated into the platform, the cart ensures a consistent experience across devices. With secure checkout options and responsive design, ilustrografia.com prioritizes a straightforward shopping process.",
         image:
-          "https://res.cloudinary.com/djadfridw/image/upload/v1706538125/doeop226udzg2icotee7.jpg",
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706618784/uiqtc2luj8ckxjacuinm.jpg",
         links: [
           {
             link: "https://www.ilustrografia.com/cart",
@@ -359,85 +376,59 @@ const projects = [
         ],
       },
       {
-        title: "Product reviews and ratings",
+        title: "Admin Panel Overview (write me an e-mail)",
         content:
-          "Every registered user can leave the product review with star rating (1-5)",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop/shopping-baba?material=art-print&size=s20x40",
-            short_link: "ilustrografia.com/shop/shopping-baba",
-          },
-        ],
-      },
-      {
-        title: "Product and illustration filtering",
-        content:
-          "Intuitive products and illustration filtering. Improving the user experience",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/illustrations",
-            short_link: "ilustrografia.com/illustrations",
-          },
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-        ],
-      },
-      {
-        title: "User profiles with order history",
-        content:
-          "Change profile Name/Email/Password. Table with all user orders, orders status, id, date, total price, date of pay, delivery, link to details",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/profile",
-            short_link: "ilustrografia.com/profile",
-          },
-        ],
-      },
-      {
-        title: "Admin panel for product and user management",
-        content:
-          "An extensive admin panel for product/users/orders edition / deletion",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/profile",
-            short_link: "ilustrografia.com/profile",
-          },
-        ],
-      },
-      {
-        title: "About",
-        content:
-          "This project is the culmination of my several months of learning full stack development, it combines my passion for programming, modern technologies and good UX/UI.",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
+          "The admin panel on ilustrografia.com offers a clear and intuitive interface for efficient management, please write me a e-mail to gain access to the admin panel!",
         list: [
-          "The website offers a variety of print sizes, materials, and prices.",
-          "images of the digital paintings",
-          "and visualization images for each material",
+          "Table Layout: 'Product List,' 'Users List,' and 'Order List' sections provide a quick overview.",
+          "Product List: overview of all products, delete product, add new product, access to edit product page",
+          "Product Update: Easily edit every aspect of a product, add/delete variations, change prices, and update images.",
+          "User List: Delete users, assign admin privileges.",
+          "Order List: Track payment status, and access comprehensive order details.",
+          "Order Details: Mark orders as delivered",
         ],
-        second_content:
-          "The website offers a variety of print sizes, materials, and prices. To manage this diversity, the database was carefully structured to accommodate different product variants, including size, material, stock count, prices, names, descriptions, images of the digital paintings, and visualization images for each material.",
-      },
-      {
-        title: "Hardest code part",
-        content: `To ensure a clean and user-friendly interface, Product Variants were created, allowing users to easily select the size or material they prefer while dynamically updating the price and images.`,
-      },
-      {
-        title: "Greatest feature",
-        content:
-          "For each product, there is an illustration page featuring the main image, various product variants, and a description of the illustrated creature. The shop page enables users to filter products by category, while the illustrations page provides filtering options for illustrations by category.",
         image:
-          "https://raw.githubusercontent.com/KarolKarnas/ilustrografia.com/main/frontend/public/images/github-screens/ilustrografia-fullstack-app-2.jpg",
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706618786/fc77iz2zqn0y0nxgvcmk.jpg",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/admin/product-list",
+            short_link: "ilustrografia.com/admin/product-list",
+          },
+          {
+            link: "https://www.ilustrografia.com/admin/user-list",
+            short_link: "ilustrografia.com/admin/user-list",
+          },
+          {
+            link: "https://www.ilustrografia.com/admin/order-list",
+            short_link: "ilustrografia.com/admin/order-list",
+          },
+        ],
+      },
+      {
+        title: "Dark/Light Theme",
+        content: "Your eyes will never get used to the Light Theme. Experience ilustrografia.com with our dynamic Dark/Light theme feature. Accessible from the top menu on every page, users can effortlessly switch between themes. Crafted with Tailwind CSS, the implementation ensures a cohesive and visually pleasing design across product pages and the admin panel. The transition is seamless, offering enhanced user comfort and adaptability to various devices. Tailor your visual experience with ilustrografia.com's versatile Dark/Light theme.",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706618784/nj3vnnzod6hjbc6asw6p.jpg",
+          second_content:"I find the Dark Theme particularly appealing on Project Page, where an advanced visual design is implemented. The inclusion of moving lineart pictures on mouse movement adds an interesting dynamic to the composition. The overall look in the Dark Theme is especially pleasing on this page. However, I must note that both the Dark and Light themes contribute to an attractive appearance across the entire application.",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/projects/fantasy-illustrations",
+            short_link: "ilustrografia.com/projects/fantasy-illustrations",
+          },
+        ],
+      },
+
+      {
+        title: "Summary",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706625286/yuopmrtlimeahqzxhcw3.jpg",
+        content: "Summary",
+        links: [
+          {
+            link: "https://www.ilustrografia.com/",
+            short_link: "ilustrografia.com",
+          },
+        ],
       },
     ],
     category: "Technology",

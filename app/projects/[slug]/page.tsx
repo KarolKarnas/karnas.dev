@@ -13,6 +13,7 @@ type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
   const project = await fetchProjectBySlug(slug)
+  // console.log(project)
   const icons = useIcon(project.icons_stack)
   const socialItemLive: SocialItem = {
     link: project.live_demo,
@@ -48,6 +49,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h3>{project.content_title}</h3>
         <p>{project.content}</p>
 
+        <div className={styles.technologies}>
+          <h3>Technologies Used</h3>
+          <StackIcons icons={icons} texts />
+        </div>
+
         {project.fields.map((field, index) => (
           <section key={index}>
             {field.title ? <h3>{field.title}</h3> : null}
@@ -59,7 +65,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 ))}
               </ul>
             ) : null}
-            {field.second_content ? <p>{field.second_content}</p> : null}
             {field.image ? (
               <Link href={field.image} target="blank">
                 <Image
@@ -85,6 +90,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 ))}
               </ul>
             ) : null}
+            {field.second_content ? <p>{field.second_content}</p> : null}
+            {project.fields.length > index + 1 ? <hr /> : null}
           </section>
         ))}
         <div className={styles.details}>
