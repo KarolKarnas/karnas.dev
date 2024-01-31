@@ -26,8 +26,8 @@ const FormPost = ({ post }: Props) => {
     >
       {post ? (
         //EDIT FORM
-        <>
-          <div className={styles.col1}>
+        <div>
+ 
             <TextInput
               name="title"
               title="Title"
@@ -79,8 +79,6 @@ const FormPost = ({ post }: Props) => {
               originalValue={post.tags}
               required
             />
-          </div>
-          <div className={styles.col2}>
             <TextInput
               name="contentTitle"
               title="Content Title"
@@ -113,11 +111,10 @@ const FormPost = ({ post }: Props) => {
               <ButtonSubmit color="orange" text="Update" type="submit" />
             </Form.Submit>
           </div>
-        </>
       ) : (
         // CREATE NEW FORM
-        <>
-          <div className={styles.col1}>
+        <div>
+
             <TextInput name="title" title="Title" required />
             <TextInput name="shortTitle" title="Short Title" required />
             <TextInput name="subTitle" title="Sub Title" required />
@@ -125,8 +122,7 @@ const FormPost = ({ post }: Props) => {
             <FileInput name="mainImage" title="Main Image" required/>
             <TextInput name="category" title="Category" required />
             <ArrayInput name="tags" title="Tags" required />
-          </div>
-          <div className={styles.col2}>
+      
             <TextInput name="contentTitle" title="Content Title" required />
             <TextInput name="content" title="Content" required />
             {Array.from({ length: fields }).map((item, index) => (
@@ -143,7 +139,6 @@ const FormPost = ({ post }: Props) => {
               <ButtonSubmit color="orange" text="Submit" type="submit" />
             </Form.Submit>
           </div>
-        </>
       )}
     </Form.Root>
   )

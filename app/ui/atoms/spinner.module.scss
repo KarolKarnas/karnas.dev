@@ -3,6 +3,8 @@
 @use "../../scss/spacing.scss";
 
 .spinner {
+  width: 10%;
+  height: 10%;
   @keyframes spin {
     from {
       transform: rotate(0deg);

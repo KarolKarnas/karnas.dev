@@ -406,10 +406,12 @@ const projects = [
       },
       {
         title: "Dark/Light Theme",
-        content: "Your eyes will never get used to the Light Theme. Experience ilustrografia.com with our dynamic Dark/Light theme feature. Accessible from the top menu on every page, users can effortlessly switch between themes. Crafted with Tailwind CSS, the implementation ensures a cohesive and visually pleasing design across product pages and the admin panel. The transition is seamless, offering enhanced user comfort and adaptability to various devices. Tailor your visual experience with ilustrografia.com's versatile Dark/Light theme.",
+        content:
+          "Your eyes will never get used to the Light Theme. Experience ilustrografia.com with our dynamic Dark/Light theme feature. Accessible from the top menu on every page, users can effortlessly switch between themes. Crafted with Tailwind CSS, the implementation ensures a cohesive and visually pleasing design across product pages and the admin panel. The transition is seamless, offering enhanced user comfort and adaptability to various devices. Tailor your visual experience with ilustrografia.com's versatile Dark/Light theme.",
         image:
           "https://res.cloudinary.com/djadfridw/image/upload/v1706618784/nj3vnnzod6hjbc6asw6p.jpg",
-          second_content:"I find the Dark Theme particularly appealing on Project Page, where an advanced visual design is implemented. The inclusion of moving lineart pictures on mouse movement adds an interesting dynamic to the composition. The overall look in the Dark Theme is especially pleasing on this page. However, I must note that both the Dark and Light themes contribute to an attractive appearance across the entire application.",
+        second_content:
+          "I find the Dark Theme particularly appealing on Project Page, where an advanced visual design is implemented. The inclusion of moving lineart pictures on mouse movement adds an interesting dynamic to the composition. The overall look in the Dark Theme is especially pleasing on this page. However, I must note that both the Dark and Light themes contribute to an attractive appearance across the entire application.",
         links: [
           {
             link: "https://www.ilustrografia.com/projects/fantasy-illustrations",
@@ -417,12 +419,31 @@ const projects = [
           },
         ],
       },
+      {
+        title: "Testing (backend, frontend, e2e)",
+        content:
+          "The application undergoes rigorous testing to ensure robust functionality and reliability. Here's an overview of the testing approach:",
+        list: [
+          "- **Backend Testing:** Backend functionalities are rigorously tested using JEST and Supertest, ensuring the reliability and correctness of server-side operations.",
+          "- **Frontend Integration Testing:** The frontend is subjected to thorough integration tests leveraging JEST and React Testing Library. This ensures seamless collaboration between different components and a smooth user experience.",
+          "- **End-to-End (E2E) Testing:** Comprehensive end-to-end testing is conducted with Cypress, covering all aspects of the application. This helps identify and address potential issues that may arise from user interactions.",
+          "- **API Testing:** The REST API of the application is systematically tested using Postman, ensuring that each API endpoint functions as expected.",
+        ],
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706618784/nj3vnnzod6hjbc6asw6p.jpg",
+        second_content:
+          "I find the Dark Theme particularly appealing on Project Page, where an advanced visual design is implemented. The inclusion of moving lineart pictures on mouse movement adds an interesting dynamic to the composition. The overall look in the Dark Theme is especially pleasing on this page. However, I must note that both the Dark and Light themes contribute to an attractive appearance across the entire application.",
+        second_content:
+          "This testing strategy prioritizes the most comprehensive E2E testing, guaranteeing a robust and reliable application across all layers.",
+      },
 
       {
         title: "Summary",
         image:
           "https://res.cloudinary.com/djadfridw/image/upload/v1706625286/yuopmrtlimeahqzxhcw3.jpg",
-        content: "Summary",
+        content:
+          "The ilustrografia.com has many more interesting design/functionality aspects. I look forward to tell about them.",
+
         links: [
           {
             link: "https://www.ilustrografia.com/",
