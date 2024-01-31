@@ -4,6 +4,7 @@ import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "@/app/utils/constants"
 import LinkCard from "@/app/ui/atoms/linkCard"
 import { notFound } from "next/navigation"
+import Link from "next/link"
 
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -34,8 +35,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       <div className={styles["content-container"]}>
-        <p>{post.tags}</p>
-        <p>{post.category}</p>
+        {/* <p>{post.tags}</p>
+        <p>{post.category}</p> */}
         <h3>{post.content_title}</h3>
         <p>{post.content}</p>
         {post.fields.map((field, index) => (
@@ -58,6 +59,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 alt={`field ${index} image`}
               />
             ) : null}
+            {post.fields.length > index + 1 ? <hr /> : null}
             {field.links ? (
               // component
               <ul className={styles.LinksContainer}>
@@ -84,13 +86,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
         /> */}
 
         <div className={styles["author-container"]}>
-          <div>
+          <Link className={styles.authorName} href='/about'>
             <span>Karol Karnas</span>
             <span>Fullstack Developer</span>
-          </div>
+          </Link>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
-              <LinkCard key={index} socialItem={item} />
+              <LinkCard key={index} socialItem={item} color="light" />
             ))}
           </ul>
         </div>

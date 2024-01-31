@@ -59,7 +59,7 @@
     backdrop-filter: blur(3px);
     @include breakpoints.md {
       gap: spacing.$s4;
-      width: 80%;
+      width: 90%;
       position: absolute;
       top: 4rem;
       padding: spacing.$s8;
@@ -121,7 +121,7 @@
     backdrop-filter: blur(10px);
     padding: spacing.$s2 spacing.$s4;
     @include breakpoints.md {
-      width: 80%;
+      width: 90%;
       padding: spacing.$s8 spacing.$s10;
       margin-top: -24rem;
     }
@@ -131,6 +131,7 @@
     //   margin: spacing.$s6 0px;
     // }
     h3 {
+      text-align: center;
       margin-bottom: spacing.$s2;
       color: colors.$white-100;
       font-style: italic;
@@ -167,6 +168,7 @@
         margin-bottom: spacing.$s2;
         color: colors.$white-100;
         font-size: fonts.$xl;
+        text-align: center;
         @include mixins.drop-shadow-md-color(
           colors.$shadow-white-700,
           colors.$shadow-white-600
@@ -176,8 +178,9 @@
         }
       }
       p {
-        color: colors.$white-300;
+        color: colors.$white-100;
         font-size: fonts.$base;
+        font-style: normal;
         text-align: justify;
         hyphens: auto;
         @include mixins.drop-shadow-md-color(
@@ -204,6 +207,17 @@
         align-items: center;
         gap: spacing.$s3;
       }
+
+      hr {
+        width: 80%;
+        border: none;
+        border-top: 3px double colors.$grey-600;
+        // color: #333;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        margin: spacing.$s6 auto;
+      }
     }
     .author-container {
       display: flex;
@@ -220,9 +234,11 @@
         padding-bottom: spacing.$s6;
         // align-items: start;
       }
-      div {
+      .authorName {
         display: flex;
         flex-direction: column;
+        color: colors.$white-100;
+        text-decoration: none;
         span {
           @include mixins.drop-shadow-md-color(
             colors.$shadow-white-700,
@@ -234,6 +250,10 @@
           &:last-of-type {
             margin-bottom: spacing.$s4;
           }
+        }
+        &:hover {
+          color: colors.$blue-500;
+          text-decoration-line: underline;
         }
       }
       ul {

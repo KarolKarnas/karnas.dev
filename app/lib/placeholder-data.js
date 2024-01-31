@@ -11,6 +11,120 @@ const posts = [
   {
     author_id: users[0].id,
     author_name: users[0].name,
+    title: "From Zero to Pentester Course",
+    short_title: "PentesterCourse.ts", //truncate
+    sub_title: "10 hours of exercises",
+    slug: "pentester-course",
+    content_title: "Not only for aspiring pentesters",
+    content:
+      "Cybersecurity is one of the most critical aspects of modern web development. Often, aspiring developers don't receive enough educational emphasis on this subject. As an aspiring developer, it was fascinating to explore 'the other side'.",
+    // Bridging this gap is essential to constructing a safe online world and empowering new developers.
+    main_image:
+      "https://res.cloudinary.com/djadfridw/image/upload/v1706706030/hdkryzyzvhdv867niz04.png",
+    fields: [
+      {
+        title: "The overview",
+        content:
+          "It was a very valuable experience for me and undoubtedly for each of the participants as well. The lecturer is a great enthusiast and practitioner of cybersecurity, additionally possessing educational talents. During the training, we learned about numerous potential vulnerabilities of web applications, as well as methods of conducting attacks and the tools used for that purpose.",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706706030/hdkryzyzvhdv867niz04.png",
+        links: [
+          {
+            link: "https://blog.szurek.tv/",
+            short_link: "blog.szurek.tv",
+          },
+        ],
+      },
+      {
+        title: "The exercises",
+        content:
+          "The course lasted for 10 days, with nearly 3 hours each day and included 10 exercises daily. All of these exercises were from the PortSwigger page, the creators of Burp. While solving the exercises, Kacper translated all the concepts and discussed the nuances associated with them.",
+        list: [
+          "Access control vulnerabilities",
+          "Cross-site scripting (XSS)",
+          "SQL injection",
+          "Server-side request forgery (SSRF)",
+          "OS command injection",
+          "Path traversal",
+          "Information disclosure",
+          "Web LLM attacks",
+        ],
+        links: [
+          {
+            link: "https://portswigger.net/web-security/all-labs",
+            short_link: "portswigger.net/web-security/all-labs",
+          },
+        ],
+      },
+      {
+        title: "The sources",
+        content:
+          "During the course, Kacper generously shared an extensive list of reliable cybersecurity knowledge sources. These resources cover a wide range of topics to enhance our understanding and skills in the field. Here are some of the recommended sources",
+        links: [
+          {
+            link: "https://otwartezrodla.pl/",
+            short_link: "otwartezrodla.pl",
+          },
+          {
+            link: "https://highon.coffee/blog/ssrf-cheat-sheet/",
+            short_link: "highon.coffee/blog/ssrf-cheat-sheet/",
+          },
+          {
+            link: "https://owasp.org/www-project-juice-shop/",
+            short_link: "owasp.org/www-project-juice-shop",
+          },
+          {
+            link: "https://www.vulnhub.com/",
+            short_link: "vulnhub.com",
+          },
+          {
+            link: "https://portswigger.net/web-security/sql-injection/cheat-sheet",
+            short_link:
+              "portswigger.net/web-security/sql-injection/cheat-sheet",
+          },
+          {
+            link: "https://docs.projectdiscovery.io/tools/nuclei/overview",
+            short_link: "docs.projectdiscovery.io/tools/nuclei/overview",
+          },
+        ],
+      },
+      {
+        title: "The developers packages",
+        content:
+          "Particularly valuable for me was the package for DOM sanitization - Dompurify - recommended by Kacper. Additionally, the emphasis on avoiding the use of inner HTML and the method name that should serve as a warning for any developer considering its use in React: 'dangerouslySetInnerHTML.'",
+        links: [
+          {
+            link: "https://www.npmjs.com/package/dompurify?activeTab=readme",
+            short_link: "npmjs.com/package/dompurify?activeTab=readme",
+          },
+          {
+            link: "https://blog.logrocket.com/using-dangerouslysetinnerhtml-react-application/",
+            short_link:
+              "blog.logrocket.com/using-dangerouslysetinnerhtml-react-application/",
+          },
+        ],
+      },
+      {
+        title: "Summary",
+        content:
+          "This is just a brief overview of the course. It's difficult to convey the extent of knowledge Kacper shared with the group. After the course, participants who completed the necessary exercises and confirmed their completion received certificates acknowledging their participation in the course. Once again, thank you; I'll be a better developer thanks to this course. I would definitely recommend such a course to every aspiring developer, pentester, or cybersecurity specialist. I highly recommend such a course to developers, pentesters, cybersecurity specialists, or anyone else. Given the inherent dangers of the web, understanding the threats is crucial for everyone's online safety.",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706712819/wvnl4zouggh6z2jhbc9a.png",
+        links: [
+          {
+            link: "https://blog.szurek.tv/",
+            short_link: "blog.szurek.tv",
+          },
+        ],
+      },
+    ],
+    category: "CyberSecurity",
+    tags: ["Burp", "PortSwigger"],
+    date: "2024-01-30",
+  },
+  {
+    author_id: users[0].id,
+    author_name: users[0].name,
     title: "Building Bridges",
     short_title: "FigmaAndTDD.ts", //truncate
     sub_title:
@@ -70,9 +184,9 @@ const posts = [
         image: "/tdd_16_9.jpg",
       },
     ],
-    category: "Technology",
-    tags: ["JavaScript", "TypeScript", "Figma"],
-    date: "2022-12-06",
+    category: "CyberSecurity",
+    tags: ["Burp"],
+    date: "2024-01-30",
   },
   {
     author_id: users[0].id,
@@ -407,7 +521,7 @@ const projects = [
       {
         title: "Dark/Light Theme",
         content:
-          "Your eyes will never get used to the Light Theme. Experience ilustrografia.com with our dynamic Dark/Light theme feature. Accessible from the top menu on every page, users can effortlessly switch between themes. Crafted with Tailwind CSS, the implementation ensures a cohesive and visually pleasing design across product pages and the admin panel. The transition is seamless, offering enhanced user comfort and adaptability to various devices. Tailor your visual experience with ilustrografia.com's versatile Dark/Light theme.",
+          "Your eyes will never get used to the Light Theme again! Experience ilustrografia.com with our dynamic Dark/Light theme feature. Accessible from the top menu on every page, users can effortlessly switch between themes. Crafted with Tailwind CSS, the implementation ensures a cohesive and visually pleasing design across product pages and the admin panel. The transition is seamless, offering enhanced user comfort and adaptability to various devices. Tailor your visual experience with ilustrografia.com's versatile Dark/Light theme.",
         image:
           "https://res.cloudinary.com/djadfridw/image/upload/v1706618784/nj3vnnzod6hjbc6asw6p.jpg",
         second_content:
@@ -430,7 +544,7 @@ const projects = [
           "- **API Testing:** The REST API of the application is systematically tested using Postman, ensuring that each API endpoint functions as expected.",
         ],
         image:
-          "https://res.cloudinary.com/djadfridw/image/upload/v1706618784/nj3vnnzod6hjbc6asw6p.jpg",
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706698349/m5kqluoyxlwph6z5sntq.jpg",
         second_content:
           "I find the Dark Theme particularly appealing on Project Page, where an advanced visual design is implemented. The inclusion of moving lineart pictures on mouse movement adds an interesting dynamic to the composition. The overall look in the Dark Theme is especially pleasing on this page. However, I must note that both the Dark and Light themes contribute to an attractive appearance across the entire application.",
         second_content:

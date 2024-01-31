@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <LinkCard socialItem={socialItemGithub} color="light" />
         </ul>
       </div>
-      <Link href={project.main_image} target="blank">
+      <Link className={styles.imgWrapper} href={project.main_image} target="blank">
         <Image
           src={project.main_image}
           width={1920}
@@ -105,10 +105,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
 
         <div className={styles["author-container"]}>
-          <div>
+        <Link className={styles.authorName} href='/about'>
             <span>Karol Karnas</span>
             <span>Fullstack Developer</span>
-          </div>
+          </Link>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
               <LinkCard key={index} socialItem={item} color="light" />

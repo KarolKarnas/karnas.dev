@@ -9,6 +9,7 @@ import useIcon from "../hooks/useIcon"
 import StackIcons from "../ui/atoms/stackIcons"
 import MainHeading from "../ui/atoms/mainHeading"
 import MainSubHeading from "../ui/atoms/mainSubHeading"
+// import { Modal } from "../ui/atoms/modal"
 // import { auth } from "@/auth"
 
 export default async function About() {
@@ -30,6 +31,7 @@ export default async function About() {
       </div>
 
       <div className={styles.image}>
+        {/* <Modal src="/karol_karnas_full_stack_developer.jpg" alt="sada" width={683} height={1024} ></Modal> */}
         <Image
           src={"/karol_karnas_full_stack_developer.jpg"}
           width={683}
