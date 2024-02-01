@@ -10,6 +10,7 @@ import {
   linkedIn,
   gear,
   svg,
+  karnasAlt,
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -18,6 +19,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     title: "Home",
     path: "/",
     icon: karnas.icon,
+    iconAlt: karnasAlt.icon,
   },
   // {
   //   title: "experience.json",
@@ -28,6 +30,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     title: "skills.svg",
     path: "/skills",
     icon: svg.icon,
+  },
+  {
+    title: "about.json",
+    path: "/about",
+    icon: nodeJs.icon,
   },
   {
     title: "projects",
@@ -49,11 +56,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: react.icon,
   },
 
-  {
-    title: "about.json",
-    path: "/about",
-    icon: nodeJs.icon,
-  },
+
   // {
   //   title: ".gitignore",
   //   path: "/gitignore",

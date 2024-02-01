@@ -43,17 +43,10 @@ export default async function About() {
             <LinkCard key={index} socialItem={item} />
           ))}
         </ul>
+        {/* <StackIcons icons={icons} /> */}
       </div>
 
-      <div className={styles.image}>
-        <Image
-          src={"/karol_karnas_full_stack_developer.jpg"}
-          width={683}
-          height={1024}
-          alt={"Karol Karnas full stack developer"}
-        ></Image>
-        <StackIcons icons={icons} />
-      </div>
+
     </div>
   )
 }

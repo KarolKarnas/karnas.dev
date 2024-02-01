@@ -128,7 +128,8 @@ const posts = [
     author_name: users[0].name,
     title: "Odin Project Foundation Course",
     short_title: "OdinProjectFoundation.ts", //truncate
-    sub_title: " A hands-on introduction to all of the essential tools you'll need to build real, working websites",
+    sub_title:
+      "A hands-on introduction to all of the essential tools you'll need to build real, working websites",
     slug: "odin-foundation-course",
     content_title: "A great place to start learning web development",
     content:
@@ -143,7 +144,8 @@ const posts = [
         links: [
           {
             link: "https://www.theodinproject.com/paths/foundations/courses/foundations",
-            short_link: "theodinproject.com/paths/foundations/courses/foundations",
+            short_link:
+              "theodinproject.com/paths/foundations/courses/foundations",
           },
         ],
       },
@@ -163,6 +165,13 @@ const posts = [
         ],
       },
       {
+        title: "The sources",
+        content:
+          "In almost every lesson, we are provided with knowledge and instructions from the course authors. Additionally, we are introduced to valuable knowledge sources. These sources often lead us to places where the concepts were born and developed. Following these sources gives us an idea of the complex and lengthy journey that has led to the way web apps are written today. This is not just a simple concept; it is a long story of constant improvement of imperfect languages, tools, and methods.",
+        second_content:
+          "Someone who believes that this is a fully organized world with a strict way of doing things should quickly reassess their position. This is a very complex world where one idea gives rise to another, and this cycle continues. It is not inherently negative, it is an evolutionary process. However, gaining a holistic understanding of this complexity is very challenging",
+      },
+      {
         title: "The environment",
         content:
           "I highly value knowledge on how to learn. The Odin Project emphasizes avoiding distractions, such as social media. The Linux environment can help mitigate this issue if we treat it as a dedicated space for learning, without logging into our social media accounts here. Noise distractions can be minimized by using headphones with ANC - an excellent solution. Pomodoro technique is also recommended – learning in sequences of 25 minutes of study followed by 5 minutes of break – significantly enhances efficiency. The Linux Ubuntu has a good Pomodoro app",
@@ -177,8 +186,8 @@ const posts = [
         title: "Summary",
         content:
           "After completing all 8 chapters of The Odin Project Foundation, equipped with the right tools, we are poised to embark on a deep dive into the vast world of web development. Thankfully you are now prepared to avoid beginner's mistakes and navigate the tutorial hell confidently. Our journey continues within The Odin Project, where we can choose one of the remaining paths:",
-list: ["Full Stack Ruby on Rails", "Full Stack JavaScript" ],
-second_content: "I have chosen the Full Stack JavaScript...", 
+        list: ["Full Stack Ruby on Rails", "Full Stack JavaScript"],
+        second_content: "I have chosen the Full Stack JavaScript...",
         image:
           "https://res.cloudinary.com/djadfridw/image/upload/v1706787624/sqn863dldracoznxnpgj.jpg",
         links: [
@@ -191,74 +200,154 @@ second_content: "I have chosen the Full Stack JavaScript...",
     ],
     category: "WebDevelopment",
     tags: ["HTML", "CSS", "JavaScript"],
-    date: "2024-01-20",
+    date: "2023-07-20",
   },
   {
     author_id: users[0].id,
     author_name: users[0].name,
-    title: "Building Bridges",
-    short_title: "FigmaAndTDD.ts", //truncate
-    sub_title:
-      "Exploring Philosophical Analogies in Test-Driven Development (TDD) and Figma Prototyping",
-    slug: "tdd-and-figma",
-    content_title: "In the ever-evolving landscape of software development",
+    title: "Full Stack Open Core Course",
+    short_title: "FSO_PARTS_0_7.ts", //truncate
+    sub_title: "Parts 0-7 Full Stack Web Development",
+    slug: "full-stack-open-parts-0-7",
+    content_title: "Deep Dive Into Modern Web Development",
     content:
-      "Two methodologies stand out as pillars of efficiency and innovation: Test-Driven Development (TDD) and Figma prototyping. While on the surface, these two practices may seem worlds apart, a closer examination reveals profound philosophical analogies that bridge the gap between the meticulous coding process of TDD and the creative design realm of Figma.",
-    main_image: "/tddFigma.jpg",
+      "Creating comprehensive applications, complete with features such as an administration panel, users and products, requires us to operate as full-stack developers. I had always wanted to create such an application myself, and actively participating in this course allowed me to do just that. It wasn't easy, and it wasn't enough to build my first eCommerce platform, but it was a significant milestone in achieving that goal.",
+    main_image:
+      "https://res.cloudinary.com/djadfridw/image/upload/v1706793659/viaex6ouox8wy6lr3tlp.png",
     fields: [
       {
-        title: "TDD as the Stoic Craftsman",
+        title: "The Prerequisites",
         content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code. This approach echoes the Stoic philosophy, where practitioners focus on what they can control and accept what they cannot. The TDD practitioner, much like a Stoic craftsman, meticulously plans and tests every component of their code, anticipating challenges and embracing the iterative nature of development. In the world of design, Figma prototyping serves as a canvas where ideas take shape and evolve. This process finds resonance with Plato's theory of Forms, where he posited that abstract, ideal forms exist beyond the tangible world. In Figma, designers create prototypes that represent the idealized version of the final product before it materializes, emphasizing the pursuit of perfection in design.",
-        image: "/tdd_16_9.jpg",
-        list: ["li 1", "li 2", "li 3"],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+          "The Full Stack Open requires us to have good programming skills, a basic knowledge of web programming and databases, and familiarity with the basics of the Git version control system. Additionally, perseverance and the ability to solve problems and seek information independently are expected. That's why I highly recommend completing The Odin Project course before starting FSO, unless you already possess such skills, in which case you can begin with FSO directly.",
         links: [
           {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
+            link: "https://fullstackopen.com/en/part0/general_info",
           },
         ],
       },
       {
-        title: "TDD's Red-Green-Refactor and the Buddhist Path",
-        content: `Both TDD and Figma prototyping share a fundamental principle – iteration. In TDD, developers iteratively write tests and refine code, while in Figma, designers iterate through prototypes to refine the user experience. This iterative nature aligns with Nietzsche's concept of eternal recurrence, where the cyclical nature of existence invites continual refinement and improvement. TDD's mantra of "Red-Green-Refactor" mirrors the Buddhist path of enlightenment. The "Red" phase represents identifying the problem, the "Green" phase symbolizes the solution, and the "Refactor" phase embodies continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+        title: "The course content",
+        content:
+          "The course content is exceptionally comprehensive and well-structured. It provides a robust foundation for web development. Though the journey is not a walk in the woods, the knowledge gained is undoubtedly worth the effort.",
         list: [
-          "Exploring Philosophical Analogies in Test-Driven Development 1",
-          "li 2",
-          "li Exploring Philosophical Analogies in Test 3",
+          "PART 0 - Fundamentals of Web apps (a. General Info, b. Fundamentals of Web apps)",
+          "PART 1 - Introduction to React (a. Introduction to React, b. JavaScript, c. Component state, event handlers, d. A more complex state, debugging React apps)",
+          "PART 2 - Communicating with server (a. Rendering a collection, modules, b. Forms, c. Getting data from server, d. Altering data in server, e. Adding styles to React app)",
+          "PART 3 - Programming a server with NodeJS and Express (a. Node.js and Express, b. Deploying app to the internet, c. Saving data to MongoDB, d. Validation and ESLint)",
+          "PART 4 - Testing Express servers, user administration (a. Structure of backend application, introduction to testing, b. Testing the backend, c. User administration, d. Token authentication)",
+          "PART 5 - Testing React apps (a. Login in frontend, b. props.children and PropTypes, c. Testing React apps, d. End-to-end testing)",
+          "PART 6 - Advanced state management (a. Flux architecture and Redux, b. Many reducers, c. Communicating with the server in a Redux application, d. React Query, useReducer, and the context)",
+          "PART 7 - React router, custom hooks, styling app with CSS and webpack (a. React Router, b. Custom hooks, c. More about styles, d. Webpack, e. Class components, Miscellaneous, f. Exercises: extending the bloglist)",
         ],
       },
       {
-        title: "Conclusion",
+        title: "The exercises",
         content:
-          "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract theory. Just as individuals in a society agree to abide by certain rules for mutual benefit, designers in Figma collaborate within a framework, adhering to a shared design system that ensures coherence and efficiency. In the marriage of Test-Driven Development and Figma prototyping, we discover a rich tapestry of philosophical analogies that underscore the interconnectedness of seemingly disparate practices. The Stoic craftsman, Platonic ideal forms, Nietzschean eternal recurrence, Buddhist enlightenment, and social contract theory all find expression in the realms of TDD and Figma, offering developers and designers alike a holistic perspective on their crafts. As we build bridges between philosophy and technology, we find that the pursuit of excellence and innovation transcends disciplinary boundaries.",
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        image: "/tdd_16_9.jpg",
+          "Each part of the course includes approximately 20 exercises (except for Part 0, which has only 6), which we solve in real-time. It's not a scenario where we read the theory and do exercises only at the end. Here, we solve exercises literally every few paragraphs. This approach allows us to reinforce the knowledge we acquire while reading by immediately applying it through exercises. The difficulty of the exercises is remarkably well-balanced; they are neither too easy nor too challenging. This balance is beneficial as it keeps us motivated without causing discouragement. The exercises differ sufficiently from the examples provided in the source material, requiring effort and allowing for better retention of knowledge. Some exercises are marked with an asterisk, indicating that they are optional. However, I recommend completing all available exercises.",
+        // links: [
+        //   {
+        //     link: "https://studies.cs.helsinki.fi/stats/courses/fullstackopen",
+        //   },
+        // ],
+      },
+      {
+        title: "The submission system",
+        content:
+          "To submit exercise solutions, follow the specified process and submit them to a GitHub repository. After completing a specific number of exercises, mark your progress in the submission system, and remember, you can do this only once for each part. Be sure to use an appropriate naming system for directories when submitting exercises from different parts to the same repository. Plagiarism is monitored, and the University of Helsinki's policy on plagiarism is enforced if violations are detected",
+          image: "https://res.cloudinary.com/djadfridw/image/upload/v1706800611/drrpqlkra1dltkanizc5.jpg",
+          links: [
+            {
+              link: "https://fullstackopen.com/en/part0/general_info#submitting-exercises",
+            },
+            {
+              link: "https://studies.cs.helsinki.fi/stats/courses/fullstackopen",
+            },
+          ],
+      },
+      {
+        title: "Summary",
+        content:
+          "The course doesn't particularly emphasize styling applications. The majority of time is dedicated to programming both the frontend and backend, as well as testing our code. This is not a criticism but rather a strength. Contemporary CSS frameworks are introduced in a sufficient manner. However, if someone masters the main programming aspects of the course, they can refine styling on their own. It's not a drawback but an advantage.",
+          image:
+            "https://res.cloudinary.com/djadfridw/image/upload/v1706801466/t0i49afg2uk0ztoe7tly.jpg",
+        second_content: "Upon completion of each exercise, you will receive an accessible online certificate!",
+        links: [
+          {
+            link: "https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/26a9bc441296f05e655e5526eac6494c",
+          },
+        ],
       },
     ],
-    category: "Philosophy",
-    tags: ["TDD"],
-    date: "2024-01-29",
+    category: "WebDevelopment",
+    tags: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Testing"],
+    date: "2023-10-27",
   },
+  // {
+  //   author_id: users[0].id,
+  //   author_name: users[0].name,
+  //   title: "Building Bridges",
+  //   short_title: "FigmaAndTDD.ts", //truncate
+  //   sub_title:
+  //     "Exploring Philosophical Analogies in Test-Driven Development (TDD) and Figma Prototyping",
+  //   slug: "tdd-and-figma",
+  //   content_title: "In the ever-evolving landscape of software development",
+  //   content:
+  //     "Two methodologies stand out as pillars of efficiency and innovation: Test-Driven Development (TDD) and Figma prototyping. While on the surface, these two practices may seem worlds apart, a closer examination reveals profound philosophical analogies that bridge the gap between the meticulous coding process of TDD and the creative design realm of Figma.",
+  //   main_image: "/tddFigma.jpg",
+  //   fields: [
+  //     {
+  //       title: "TDD as the Stoic Craftsman",
+  //       content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code. This approach echoes the Stoic philosophy, where practitioners focus on what they can control and accept what they cannot. The TDD practitioner, much like a Stoic craftsman, meticulously plans and tests every component of their code, anticipating challenges and embracing the iterative nature of development. In the world of design, Figma prototyping serves as a canvas where ideas take shape and evolve. This process finds resonance with Plato's theory of Forms, where he posited that abstract, ideal forms exist beyond the tangible world. In Figma, designers create prototypes that represent the idealized version of the final product before it materializes, emphasizing the pursuit of perfection in design.",
+  //       image: "/tdd_16_9.jpg",
+  //       list: ["li 1", "li 2", "li 3"],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
+  //       content: `Both TDD and Figma prototyping share a fundamental principle – iteration. In TDD, developers iteratively write tests and refine code, while in Figma, designers iterate through prototypes to refine the user experience. This iterative nature aligns with Nietzsche's concept of eternal recurrence, where the cyclical nature of existence invites continual refinement and improvement. TDD's mantra of "Red-Green-Refactor" mirrors the Buddhist path of enlightenment. The "Red" phase represents identifying the problem, the "Green" phase symbolizes the solution, and the "Refactor" phase embodies continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       list: [
+  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
+  //         "li 2",
+  //         "li Exploring Philosophical Analogies in Test 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Conclusion",
+  //       content:
+  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract theory. Just as individuals in a society agree to abide by certain rules for mutual benefit, designers in Figma collaborate within a framework, adhering to a shared design system that ensures coherence and efficiency. In the marriage of Test-Driven Development and Figma prototyping, we discover a rich tapestry of philosophical analogies that underscore the interconnectedness of seemingly disparate practices. The Stoic craftsman, Platonic ideal forms, Nietzschean eternal recurrence, Buddhist enlightenment, and social contract theory all find expression in the realms of TDD and Figma, offering developers and designers alike a holistic perspective on their crafts. As we build bridges between philosophy and technology, we find that the pursuit of excellence and innovation transcends disciplinary boundaries.",
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       image: "/tdd_16_9.jpg",
+  //     },
+  //   ],
+  //   category: "Philosophy",
+  //   tags: ["TDD"],
+  //   date: "2024-01-29",
+  // },
   // {
   //   author_id: users[0].id,
   //   author_name: users[0].name,
@@ -650,7 +739,8 @@ const projects = [
     slug: "karnas",
     content_title: "Karnas dev is very well designed portfolio blog",
     content: "Fullstack personal portfolio + blog. VSC design inspired",
-    main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706788999/djmiq1n04nxzmcabod4l.png",
+    main_image:
+      "https://res.cloudinary.com/djadfridw/image/upload/v1706788999/djmiq1n04nxzmcabod4l.png",
     main_icon: "nextjs",
     stack: ["React", "TypeScript, Next.js, PostgreSQL, SQL"],
     icons_stack: [
