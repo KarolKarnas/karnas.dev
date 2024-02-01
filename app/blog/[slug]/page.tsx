@@ -50,8 +50,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 ))}
               </ul>
             ) : null}
-            {field.second_content ? <p>{field.second_content}</p> : null}
             {field.image ? (
+              
               <Image
                 src={field.image}
                 width={1200}
@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 alt={`field ${index} image`}
               />
             ) : null}
-            {post.fields.length > index + 1 ? <hr /> : null}
+            {field.second_content ? <p>{field.second_content}</p> : null}
             {field.links ? (
               // component
               <ul className={styles.LinksContainer}>
@@ -75,6 +75,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 ))}
               </ul>
             ) : null}
+            {post.fields.length > index + 1 ? <hr /> : null}
           </section>
         ))}
 
@@ -86,7 +87,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         /> */}
 
         <div className={styles["author-container"]}>
-          <Link className={styles.authorName} href='/about'>
+          <Link className={styles.authorName} href="/about">
             <span>Karol Karnas</span>
             <span>Fullstack Developer</span>
           </Link>

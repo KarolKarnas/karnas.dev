@@ -24,7 +24,7 @@ export async function fetchBlogLinks() {
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore()
   try {
-    const data = await sql<Post>`SELECT short_title, slug FROM posts`
+    const data = await sql<Post>`SELECT short_title, slug FROM posts ORDER BY date DESC`
     // console.log("data rows!", data.rows)
     const blogLinks = data.rows.map((row) => ({
       title: row.short_title,
@@ -45,7 +45,7 @@ export async function fetchBlogCards() {
   noStore()
   try {
     const data =
-      await sql<Post>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image FROM posts`
+      await sql<Post>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image FROM posts ORDER BY date DESC`
     // console.log("data rows!", data.rows)
     const blogCards = data.rows.map((row) => ({
       ...row,
@@ -93,7 +93,7 @@ export async function fetchProjectLinks() {
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore()
   try {
-    const data = await sql<Project>`SELECT short_title, slug, main_icon FROM projects ORDER BY date`
+    const data = await sql<Project>`SELECT short_title, slug, main_icon FROM projects ORDER BY date DESC`
     // console.log("data rows!", data.rows)
     const projectLinks = data.rows.map((row) => ({
       title: row.short_title,
@@ -129,7 +129,7 @@ export async function fetchProjectCards() {
   noStore()
   try {
     const data =
-      await sql<Project>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image, stack, icons_stack, live_demo, repo FROM projects ORDER BY date`
+      await sql<Project>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image, stack, icons_stack, live_demo, repo FROM projects ORDER BY date DESC`
     // console.log("data rows!", data.rows)
     const projectCards = data.rows.map((row) => ({
       ...row,

@@ -66,7 +66,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </ul>
             ) : null}
             {field.image ? (
-              <Link href={field.image} target="blank">
+              <Link className={styles.imgWrapper} href={field.image} target="blank">
                 <Image
                   src={field.image}
                   width={1200}

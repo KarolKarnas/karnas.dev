@@ -4,6 +4,7 @@ import {
   folderOpen,
   react,
   vsc,
+  karnas,
   twitter,
   gitHub,
   linkedIn,
@@ -16,7 +17,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: "Home",
     path: "/",
-    icon: vsc.icon,
+    icon: karnas.icon,
   },
   // {
   //   title: "experience.json",

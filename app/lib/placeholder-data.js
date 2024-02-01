@@ -38,7 +38,7 @@ const posts = [
       {
         title: "The exercises",
         content:
-          "The course lasted for 10 days, with nearly 3 hours each day and included 10 exercises daily. All of these exercises were from the PortSwigger page, the creators of Burp. While solving the exercises, Kacper translated all the concepts and discussed the nuances associated with them.",
+          "The course lasted for 10 days, with nearly 3 hours each day and included 10 exercises daily. All of these exercises were from the PortSwigger page, the creators of Burp. While solving the exercises, Kacper translated all the concepts and discussed the nuances associated with them, for example what is URL encoding, basic syntax of: SQL, JavaScript, Linux commands",
         list: [
           "Access control vulnerabilities",
           "Cross-site scripting (XSS)",
@@ -91,7 +91,7 @@ const posts = [
       {
         title: "The developers packages",
         content:
-          "Particularly valuable for me was the package for DOM sanitization - Dompurify - recommended by Kacper. Additionally, the emphasis on avoiding the use of inner HTML and the method name that should serve as a warning for any developer considering its use in React: 'dangerouslySetInnerHTML.'",
+          "Particularly valuable for me was the package for DOM sanitization - Dompurify - recommended by Kacper. Additionally, the emphasis on avoiding the use of innerHTML and the method name that should serve as a warning for any developer considering its use in React: 'dangerouslySetInnerHTML.'",
         links: [
           {
             link: "https://www.npmjs.com/package/dompurify?activeTab=readme",
@@ -107,7 +107,8 @@ const posts = [
       {
         title: "Summary",
         content:
-          "This is just a brief overview of the course. It's difficult to convey the extent of knowledge Kacper shared with the group. After the course, participants who completed the necessary exercises and confirmed their completion received certificates acknowledging their participation in the course. Once again, thank you; I'll be a better developer thanks to this course. I would definitely recommend such a course to every aspiring developer, pentester, or cybersecurity specialist. I highly recommend such a course to developers, pentesters, cybersecurity specialists, or anyone else. Given the inherent dangers of the web, understanding the threats is crucial for everyone's online safety.",
+          "This is just a brief overview of the course. It's difficult to convey the extent of knowledge Kacper shared with the group. After the course, participants who completed the necessary exercises and confirmed their completion received certificates acknowledging their participation in the course. Once again, thank you! Hopefully I'll be a better developer thanks to this course. I highly recommend such a course to developers, pentesters, cybersecurity specialists, or anyone else. Given the inherent dangers of the web, understanding the threats is crucial for everyone's online safety.",
+        // I would definitely recommend such a course to every aspiring developer, pentester, or cybersecurity specialist.
         image:
           "https://res.cloudinary.com/djadfridw/image/upload/v1706712819/wvnl4zouggh6z2jhbc9a.png",
         links: [
@@ -121,6 +122,76 @@ const posts = [
     category: "CyberSecurity",
     tags: ["Burp", "PortSwigger"],
     date: "2024-01-30",
+  },
+  {
+    author_id: users[0].id,
+    author_name: users[0].name,
+    title: "Odin Project Foundation Course",
+    short_title: "OdinProjectFoundation.ts", //truncate
+    sub_title: " A hands-on introduction to all of the essential tools you'll need to build real, working websites",
+    slug: "odin-foundation-course",
+    content_title: "A great place to start learning web development",
+    content:
+      "The Odin Project Foundation Course provides an excellent jumpstart into the world of web development, immersing you in hands-on experience right from the beginning. ",
+    main_image:
+      "https://res.cloudinary.com/djadfridw/image/upload/v1706779139/hlgvdwlnsipqtv7t0sco.svg",
+    fields: [
+      {
+        title: "Tutorial hell medicine",
+        content:
+          "The Odin Project is effective medicine for the tutorial hell problem. I have been there many times, watching another YT video, thinking that I can replicate the process easily. The Odin Project is not about procrastinating by watching videos or reading extensively about web development; it's about actively engaging in the process. The course encourages practical learning using essential tools like IDE (Visual Studio Code), Linux, Terminal, Git, and Github. Throughout the program, you'll delve into extensive documentation, draw your own conclusions, and apply your knowledge by building simple projects.",
+        links: [
+          {
+            link: "https://www.theodinproject.com/paths/foundations/courses/foundations",
+            short_link: "theodinproject.com/paths/foundations/courses/foundations",
+          },
+        ],
+      },
+      {
+        title: "The internal system",
+        content:
+          "The entire process is documented in the internal system of the Odin Project. It gives you sense of progress and motivate to progress. The scope of the course is divided in chapters. After some of them you have to make real projects in pure HTML, CSS, JavaScript. For me was very important to learn about the basics before jump start into React, Next.js or Object Oriented Programming",
+        list: [
+          "Introduction (How This Course Will Work,Introduction to Web Development, Motivation and Mindset, Asking For Help, Join the Odin Community)",
+          "Prerequisites(Computer Basics, How Does the Web Work?, Installation Overview, Installations, Text Editors, Command Line Basics, Setting up Git)",
+          "Git Basics (Introduction to Git, Git Basics)",
+          "HTML Foundations (Introduction to HTML and CSS, Elements and Tags, HTML Boilerplate, Working with Text, Lists, Links and Images, Commit Messages, Project: Recipes)",
+          "CSS Foundations (Intro to CSS, The Cascade, Inspecting HTML and CSS, The Box Model, Block and Inline)",
+          "Flexbox (Introduction to Flexbox, Growing and Shrinking, Axes, Alignment, Project: Landing Page)",
+          "JavaScript Basics (Fundamentals Part 1, Fundamentals Part 2, JavaScript Developer Tools, Fundamentals Part 3, Problem Solving, Understanding Errors, Project: Rock Paper Scissors, Clean Code, Installing Node.js, Fundamentals Part 4, DOM Manipulation and Events, Revisiting Rock Paper Scissors, Project: Etch-a-Sketch, Fundamentals Part 5, Project: Calculator)",
+          "Conclusion (Choose Your Path Forward)",
+        ],
+      },
+      {
+        title: "The environment",
+        content:
+          "I highly value knowledge on how to learn. The Odin Project emphasizes avoiding distractions, such as social media. The Linux environment can help mitigate this issue if we treat it as a dedicated space for learning, without logging into our social media accounts here. Noise distractions can be minimized by using headphones with ANC - an excellent solution. Pomodoro technique is also recommended – learning in sequences of 25 minutes of study followed by 5 minutes of break – significantly enhances efficiency. The Linux Ubuntu has a good Pomodoro app",
+        links: [
+          {
+            link: "https://gnomepomodoro.org/",
+            short_link: "gnomepomodoro.org",
+          },
+        ],
+      },
+      {
+        title: "Summary",
+        content:
+          "After completing all 8 chapters of The Odin Project Foundation, equipped with the right tools, we are poised to embark on a deep dive into the vast world of web development. Thankfully you are now prepared to avoid beginner's mistakes and navigate the tutorial hell confidently. Our journey continues within The Odin Project, where we can choose one of the remaining paths:",
+list: ["Full Stack Ruby on Rails", "Full Stack JavaScript" ],
+second_content: "I have chosen the Full Stack JavaScript...", 
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706787624/sqn863dldracoznxnpgj.jpg",
+        links: [
+          {
+            link: "https://www.theodinproject.com/",
+            short_link: "theodinproject.com/",
+          },
+        ],
+      },
+    ],
+    category: "WebDevelopment",
+    tags: ["HTML", "CSS", "JavaScript"],
+    date: "2024-01-20",
   },
   {
     author_id: users[0].id,
@@ -184,228 +255,228 @@ const posts = [
         image: "/tdd_16_9.jpg",
       },
     ],
-    category: "CyberSecurity",
-    tags: ["Burp"],
-    date: "2024-01-30",
-  },
-  {
-    author_id: users[0].id,
-    author_name: users[0].name,
-    title: "Is Odin Project Good for a Beginner?",
-    short_title: "OdinProjectFoundations.ts",
-    sub_title: "Honest review of the Foundation Path from The Odin Project",
-    slug: "the-odin-project-foundations",
-    content_title: "The most important part of the house",
-    content: "test content 0",
-    main_image: "/odinProject.svg",
-    fields: [
-      {
-        title: "field title 1",
-        content: "field content 1",
-        image: "/tdd_16_9.jpg",
-      },
-      {
-        title: "field title 2",
-        content: "field content 2",
-        image: "/tdd_16_9.jpg",
-      },
-    ],
     category: "Philosophy",
-    tags: ["JavaScript", "TypeScript", "Figma"],
-    date: "2024-01-01",
+    tags: ["TDD"],
+    date: "2024-01-29",
   },
-  {
-    author_id: users[0].id,
-    author_name: users[0].name,
-    title: "My third article",
-    short_title: "myThirdArticle.ts",
-    sub_title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-    slug: "my-third-article",
-    content_title: "Development is the king",
-    content: "test content 0",
-    main_image: "/tddFigma.jpg",
-    fields: [
-      {
-        title: "TDD as the Stoic Craftsman",
-        content:
-          "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
-        image: "/tdd_16_9.jpg",
-        list: ["li 1", "li 2", "li 3"],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
-      },
-      {
-        title: "TDD's Red-Green-Refactor and the Buddhist Path",
-        content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        list: [
-          "Exploring Philosophical Analogies in Test-Driven Development 1",
-          "li 2",
-          "li Exploring Philosophical Analogies in Test 3",
-        ],
-      },
-      {
-        title: "Conclusion",
-        content:
-          "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        image: "/tdd_16_9.jpg",
-      },
-    ],
-    category: "Philosophy",
-    tags: ["JavaScript", "TypeScript", "Figma"],
-    date: "2024-01-01",
-  },
-  {
-    author_id: users[0].id,
-    author_name: users[0].name,
-    title: "My fourth article lorem ipsum",
-    short_title: "myFourthArticle.ts",
-    sub_title: "Lorem ipsum dolor sit amet.",
-    slug: "my-fourth-article",
-    content_title: "Development is the king",
-    content: "test content 0",
-    main_image: "/tddFigma.jpg",
-    fields: [
-      {
-        title: "TDD as the Stoic Craftsman",
-        content:
-          "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
-        image: "/tdd_16_9.jpg",
-        list: ["li 1", "li 2", "li 3"],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
-      },
-      {
-        title: "TDD's Red-Green-Refactor and the Buddhist Path",
-        content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        list: [
-          "Exploring Philosophical Analogies in Test-Driven Development 1",
-          "li 2",
-          "li Exploring Philosophical Analogies in Test 3",
-        ],
-      },
-      {
-        title: "Conclusion",
-        content:
-          "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        image: "/tdd_16_9.jpg",
-      },
-    ],
-    category: "Philosophy",
-    tags: ["JavaScript", "TypeScript", "Figma"],
-    date: "2024-01-01",
-  },
-  {
-    author_id: users[0].id,
-    author_name: users[0].name,
-    title: "Lorem ipsum dolor same My fifth article",
-    short_title: "myFifthArticle.ts",
-    sub_title: "Subtitle",
-    slug: "my-fifth-article",
-    content_title: "Development is the king",
-    content: "test content 0",
-    main_image: "/tddFigma.jpg",
-    fields: [
-      {
-        title: "TDD as the Stoic Craftsman",
-        content:
-          "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
-        image: "/tdd_16_9.jpg",
-        list: ["li 1", "li 2", "li 3"],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
-      },
-      {
-        title: "TDD's Red-Green-Refactor and the Buddhist Path",
-        content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-        links: [
-          {
-            link: "https://www.ilustrografia.com/shop",
-            short_link: "ilustrografia.com/shop",
-          },
-          {
-            link: "https://www.ilustrografia.com/about",
-            short_link: "ilustrografia.com/about",
-          },
-        ],
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        list: [
-          "Exploring Philosophical Analogies in Test-Driven Development 1",
-          "li 2",
-          "li Exploring Philosophical Analogies in Test 3",
-        ],
-      },
-      {
-        title: "Conclusion",
-        content:
-          "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
-        second_content:
-          "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-        image: "/tdd_16_9.jpg",
-      },
-    ],
-    category: "Philosophy",
-    tags: ["JavaScript", "Confluence", "Jira"],
-    date: "2024-01-01",
-  },
+  // {
+  //   author_id: users[0].id,
+  //   author_name: users[0].name,
+  //   title: "Is Odin Project Good for a Beginner?",
+  //   short_title: "OdinProjectFoundations.ts",
+  //   sub_title: "Honest review of the Foundation Path from The Odin Project",
+  //   slug: "the-odin-project-foundations",
+  //   content_title: "The most important part of the house",
+  //   content: "test content 0",
+  //   main_image: "/odinProject.svg",
+  //   fields: [
+  //     {
+  //       title: "field title 1",
+  //       content: "field content 1",
+  //       image: "/tdd_16_9.jpg",
+  //     },
+  //     {
+  //       title: "field title 2",
+  //       content: "field content 2",
+  //       image: "/tdd_16_9.jpg",
+  //     },
+  //   ],
+  //   category: "Philosophy",
+  //   tags: ["JavaScript", "TypeScript", "Figma"],
+  //   date: "2024-01-01",
+  // },
+  // {
+  //   author_id: users[0].id,
+  //   author_name: users[0].name,
+  //   title: "My third article",
+  //   short_title: "myThirdArticle.ts",
+  //   sub_title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  //   slug: "my-third-article",
+  //   content_title: "Development is the king",
+  //   content: "test content 0",
+  //   main_image: "/tddFigma.jpg",
+  //   fields: [
+  //     {
+  //       title: "TDD as the Stoic Craftsman",
+  //       content:
+  //         "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
+  //       image: "/tdd_16_9.jpg",
+  //       list: ["li 1", "li 2", "li 3"],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
+  //       content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       list: [
+  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
+  //         "li 2",
+  //         "li Exploring Philosophical Analogies in Test 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Conclusion",
+  //       content:
+  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       image: "/tdd_16_9.jpg",
+  //     },
+  //   ],
+  //   category: "Philosophy",
+  //   tags: ["JavaScript", "TypeScript", "Figma"],
+  //   date: "2024-01-01",
+  // },
+  // {
+  //   author_id: users[0].id,
+  //   author_name: users[0].name,
+  //   title: "My fourth article lorem ipsum",
+  //   short_title: "myFourthArticle.ts",
+  //   sub_title: "Lorem ipsum dolor sit amet.",
+  //   slug: "my-fourth-article",
+  //   content_title: "Development is the king",
+  //   content: "test content 0",
+  //   main_image: "/tddFigma.jpg",
+  //   fields: [
+  //     {
+  //       title: "TDD as the Stoic Craftsman",
+  //       content:
+  //         "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
+  //       image: "/tdd_16_9.jpg",
+  //       list: ["li 1", "li 2", "li 3"],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
+  //       content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       list: [
+  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
+  //         "li 2",
+  //         "li Exploring Philosophical Analogies in Test 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Conclusion",
+  //       content:
+  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       image: "/tdd_16_9.jpg",
+  //     },
+  //   ],
+  //   category: "Philosophy",
+  //   tags: ["JavaScript", "TypeScript", "Figma"],
+  //   date: "2024-01-01",
+  // },
+  // {
+  //   author_id: users[0].id,
+  //   author_name: users[0].name,
+  //   title: "Lorem ipsum dolor same My fifth article",
+  //   short_title: "myFifthArticle.ts",
+  //   sub_title: "Subtitle",
+  //   slug: "my-fifth-article",
+  //   content_title: "Development is the king",
+  //   content: "test content 0",
+  //   main_image: "/tddFigma.jpg",
+  //   fields: [
+  //     {
+  //       title: "TDD as the Stoic Craftsman",
+  //       content:
+  //         "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
+  //       image: "/tdd_16_9.jpg",
+  //       list: ["li 1", "li 2", "li 3"],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
+  //       content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
+  //       links: [
+  //         {
+  //           link: "https://www.ilustrografia.com/shop",
+  //           short_link: "ilustrografia.com/shop",
+  //         },
+  //         {
+  //           link: "https://www.ilustrografia.com/about",
+  //           short_link: "ilustrografia.com/about",
+  //         },
+  //       ],
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       list: [
+  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
+  //         "li 2",
+  //         "li Exploring Philosophical Analogies in Test 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Conclusion",
+  //       content:
+  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
+  //       second_content:
+  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
+  //       image: "/tdd_16_9.jpg",
+  //     },
+  //   ],
+  //   category: "Philosophy",
+  //   tags: ["JavaScript", "Confluence", "Jira"],
+  //   date: "2024-01-01",
+  // },
 ]
 
 const projects = [
@@ -544,7 +615,7 @@ const projects = [
           "- **API Testing:** The REST API of the application is systematically tested using Postman, ensuring that each API endpoint functions as expected.",
         ],
         image:
-          "https://res.cloudinary.com/djadfridw/image/upload/v1706698349/m5kqluoyxlwph6z5sntq.jpg",
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706779937/xejqxj7xrgb1lvpzvlma.jpg",
         second_content:
           "I find the Dark Theme particularly appealing on Project Page, where an advanced visual design is implemented. The inclusion of moving lineart pictures on mouse movement adds an interesting dynamic to the composition. The overall look in the Dark Theme is especially pleasing on this page. However, I must note that both the Dark and Light themes contribute to an attractive appearance across the entire application.",
         second_content:
@@ -579,7 +650,7 @@ const projects = [
     slug: "karnas",
     content_title: "Karnas dev is very well designed portfolio blog",
     content: "Fullstack personal portfolio + blog. VSC design inspired",
-    main_image: "/karnas.jpg",
+    main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706788999/djmiq1n04nxzmcabod4l.png",
     main_icon: "nextjs",
     stack: ["React", "TypeScript, Next.js, PostgreSQL, SQL"],
     icons_stack: [
