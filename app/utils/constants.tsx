@@ -11,12 +11,13 @@ import {
   gear,
   svg,
   karnasAlt,
+  sass
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
-    title: "Home",
+    title: "home",
     path: "/",
     icon: karnas.icon,
     iconAlt: karnasAlt.icon,
@@ -51,9 +52,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     subMenuItems: [],
   },
   {
-    title: "contact.tsx",
+    title: "contact.sass",
     path: "/contact",
-    icon: react.icon,
+    icon: sass.icon,
   },
 
 

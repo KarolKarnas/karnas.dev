@@ -20,8 +20,8 @@ export default async function About() {
     <div className={styles.container}>
       {/* <p>{session && session.user?.email}</p> */}
       <div className={styles.info}>
-        <MainHeading color="orange">Karol Karnas</MainHeading>
-        <MainSubHeading color="purple">Fullstack Developer</MainSubHeading>
+        <MainHeading color="orange">About</MainHeading>
+        <MainSubHeading color="purple">Karol Karnas - Full Stack Developer</MainSubHeading>
         <Json code={ABOUT}></Json>
         {/* <ul>
           {SOCIAL_ITEMS.map((item, index) => (

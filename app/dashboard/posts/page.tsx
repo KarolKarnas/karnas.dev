@@ -10,7 +10,7 @@ export default async function About() {
 
   return (
     <div className={styles.container}>
-      <MainHeading color="blue">Edit some post Sir!</MainHeading>
+      <MainHeading color="blue">Edit Post</MainHeading>
 
       <div className={styles.gridContainer}>
         {blogCards.map((card, index) => (
@@ -28,11 +28,11 @@ export default async function About() {
         ))}
       </div>
 
-      <Button
+      {/* <Button
         text={"Post Create"}
         color="blue"
         path="/dashboard/posts/create"
-      ></Button>
+      ></Button> */}
     </div>
   )
 }

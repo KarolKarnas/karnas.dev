@@ -11,8 +11,7 @@ export default async function About() {
 
   return (
     <div className={styles.container}>
-      <MainHeading color="blue">Edit some Projects Sir!</MainHeading>
-
+      <MainHeading color="blue">Edit Project</MainHeading>
       <div className={styles.gridContainer}>
         {projectCards.map((card, index) => (
           <div key={index} className={styles.cardContainer}>
@@ -29,11 +28,11 @@ export default async function About() {
         ))}
       </div>
 
-      <Button
+      {/* <Button
         text={"Project Create"}
         color="blue"
         path="/dashboard/projects/create"
-      ></Button>
+      ></Button> */}
     </div>
   )
 }

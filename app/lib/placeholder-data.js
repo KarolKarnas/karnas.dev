@@ -135,7 +135,7 @@ const posts = [
     content:
       "The Odin Project Foundation Course provides an excellent jumpstart into the world of web development, immersing you in hands-on experience right from the beginning. ",
     main_image:
-      "https://res.cloudinary.com/djadfridw/image/upload/v1706779139/hlgvdwlnsipqtv7t0sco.svg",
+      "https://res.cloudinary.com/djadfridw/image/upload/v1706868930/efrrljo7l7kvrx2o1vym.png",
     fields: [
       {
         title: "Tutorial hell medicine",
@@ -205,8 +205,8 @@ const posts = [
   {
     author_id: users[0].id,
     author_name: users[0].name,
-    title: "Full Stack Open Core Course",
-    short_title: "FSO_PARTS_0_7.ts", //truncate
+    title: "Full Stack Open by The University of Helsinki",
+    short_title: "FullStackOpenCore.ts", //truncate
     sub_title: "Parts 0-7 Full Stack Web Development",
     slug: "full-stack-open-parts-0-7",
     content_title: "Deep Dive Into Modern Web Development",
@@ -243,7 +243,9 @@ const posts = [
       {
         title: "The exercises",
         content:
-          "Each part of the course includes approximately 20 exercises (except for Part 0, which has only 6), which we solve in real-time. It's not a scenario where we read the theory and do exercises only at the end. Here, we solve exercises literally every few paragraphs. This approach allows us to reinforce the knowledge we acquire while reading by immediately applying it through exercises. The difficulty of the exercises is remarkably well-balanced; they are neither too easy nor too challenging. This balance is beneficial as it keeps us motivated without causing discouragement. The exercises differ sufficiently from the examples provided in the source material, requiring effort and allowing for better retention of knowledge. Some exercises are marked with an asterisk, indicating that they are optional. However, I recommend completing all available exercises.",
+          "Each part of the course includes approximately 20 exercises (except for Part 0, which has only 6), which we solve in real-time. It's not a scenario where we read the theory and do exercises only at the end. Here, we solve exercises literally every few paragraphs. This approach allows us to reinforce the knowledge we acquire while reading by immediately applying it through exercises. The difficulty of the exercises is remarkably well-balanced; they are neither too easy nor too challenging. This balance is beneficial as it keeps us motivated without causing discouragement. The exercises differ sufficiently from the examples provided in the source material, requiring effort and allowing for better retention of knowledge. Some exercises are marked with an asterisk, indicating that they are optional. However, I recommend completing all of them.",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706802339/bd5qyrx6clsnig1pyl9i.jpg",
         // links: [
         //   {
         //     link: "https://studies.cs.helsinki.fi/stats/courses/fullstackopen",
@@ -254,26 +256,65 @@ const posts = [
         title: "The submission system",
         content:
           "To submit exercise solutions, follow the specified process and submit them to a GitHub repository. After completing a specific number of exercises, mark your progress in the submission system, and remember, you can do this only once for each part. Be sure to use an appropriate naming system for directories when submitting exercises from different parts to the same repository. Plagiarism is monitored, and the University of Helsinki's policy on plagiarism is enforced if violations are detected",
-          image: "https://res.cloudinary.com/djadfridw/image/upload/v1706800611/drrpqlkra1dltkanizc5.jpg",
-          links: [
-            {
-              link: "https://fullstackopen.com/en/part0/general_info#submitting-exercises",
-            },
-            {
-              link: "https://studies.cs.helsinki.fi/stats/courses/fullstackopen",
-            },
-          ],
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706800611/drrpqlkra1dltkanizc5.jpg",
+        links: [
+          {
+            link: "https://fullstackopen.com/en/part0/general_info#submitting-exercises",
+          },
+          {
+            link: "https://studies.cs.helsinki.fi/stats/courses/fullstackopen",
+          },
+        ],
       },
       {
-        title: "Summary",
+        title: "Quick Summary",
         content:
-          "The course doesn't particularly emphasize styling applications. The majority of time is dedicated to programming both the frontend and backend, as well as testing our code. This is not a criticism but rather a strength. Contemporary CSS frameworks are introduced in a sufficient manner. However, if someone masters the main programming aspects of the course, they can refine styling on their own. It's not a drawback but an advantage.",
-          image:
-            "https://res.cloudinary.com/djadfridw/image/upload/v1706801466/t0i49afg2uk0ztoe7tly.jpg",
-        second_content: "Upon completion of each exercise, you will receive an accessible online certificate!",
+          "The course doesn't particularly emphasize styling applications. The majority of time is dedicated to programming both the frontend and backend, as well as testing our code. It's not a drawback but an advantage. Contemporary CSS frameworks are introduced in a sufficient manner. However, if someone masters the main programming aspects of the course, they can refine styling on their own.  If I could change something in the Core Course, I would prefer to learn SQL + PostgreSQL, instead of MongoDB. I would place MongoDB in the supplementary course. However, from a teaching perspective, using MongoDB in the Core Course was probably justified due to its ease of use. In that case, maybe it should stay that way.",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706801466/t0i49afg2uk0ztoe7tly.jpg",
+        second_content:
+          "As I mentioned at the beginning of this short review, the course is just great. It is probably the best online source for learning full-stack development. And if that wasn't enough, it is officially conducted by the University of Helsinki, it's free, and you receive ECTS points. Additionally, upon completion of each exercise, you will receive an accessible online certificate!",
         links: [
           {
             link: "https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/26a9bc441296f05e655e5526eac6494c",
+          },
+        ],
+      },
+      {
+        title: "The Practice",
+        content:
+          "The crucial step after completing the course is to apply the newly acquired knowledge by building a real-world project. No course can fully prepare us for solving real-world problems independently, navigating through package documentations, exploring MDN docs, or seeking solutions on Stack Overflow. I took that step and built a full-stack eCommerce platform using the MERN stack + TypeScript (I took a supplementary TypeScript course)",
+        image:
+          "https://res.cloudinary.com/djadfridw/image/upload/v1706625285/u2yg75ygsansmfpl6nir.jpg",
+        second_content:
+          "It took me about three months, and this was another milestone in my journey to becoming a full-stack developer. You can read about the project or check it live with the links below.",
+        links: [
+          {
+            link: "https://www.karnas.dev/projects/ilustrografia",
+          },
+          {
+            link: "https://www.ilustrografia.com/",
+          },
+        ],
+      },
+      {
+        title: "This is not the end",
+        content:
+          "Completing the Core Course (Parts 0-7) is just the beginning of what Helsinki's Full Stack Open has to offer. Participants can also take part in many excellent supplementary courses, including:",
+        list: [
+          "PART 8 - GraphQL (a. GraphQL-server, b. React and GraphQL, c. Database and user administration, d. Login and updating the cache, e. Fragments and subscriptions)",
+          "PART 9 - TypeScript (a. Background and introduction, b. First steps with TypeScript, c. Typing an Express app, d. React with types, e. Grande finale: Patientor)",
+          "PART 10 - React Native (a. Introduction to React Native, b. React Native basics, c. Communicating with server, d. Testing and extending our application)",
+          "PART 11 - CI/CD (a. Introduction to CI/CD, b. Getting started with GitHub Actions, c. Deployment, d. Keeping green, e. Expanding Further)",
+          "PART 12 - Containers (a. Introduction to Containers, b. Building and configuring environments, c. Basics of Orchestration)",
+          "PART 13 - Using relational databases (a. Using relational databases with Sequelize, b. Join tables and queries, c. Migrations, many-to-many relationships)",
+        ],
+        second_content:
+          "I've completed two of them so far: PART 9 - TypeScript and PART 13 - Using relational databases. I'll share my experiences with them next time :)",
+        links: [
+          {
+            link: "https://fullstackopen.com/en/#course-contents",
           },
         ],
       },
@@ -282,290 +323,6 @@ const posts = [
     tags: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Testing"],
     date: "2023-10-27",
   },
-  // {
-  //   author_id: users[0].id,
-  //   author_name: users[0].name,
-  //   title: "Building Bridges",
-  //   short_title: "FigmaAndTDD.ts", //truncate
-  //   sub_title:
-  //     "Exploring Philosophical Analogies in Test-Driven Development (TDD) and Figma Prototyping",
-  //   slug: "tdd-and-figma",
-  //   content_title: "In the ever-evolving landscape of software development",
-  //   content:
-  //     "Two methodologies stand out as pillars of efficiency and innovation: Test-Driven Development (TDD) and Figma prototyping. While on the surface, these two practices may seem worlds apart, a closer examination reveals profound philosophical analogies that bridge the gap between the meticulous coding process of TDD and the creative design realm of Figma.",
-  //   main_image: "/tddFigma.jpg",
-  //   fields: [
-  //     {
-  //       title: "TDD as the Stoic Craftsman",
-  //       content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code. This approach echoes the Stoic philosophy, where practitioners focus on what they can control and accept what they cannot. The TDD practitioner, much like a Stoic craftsman, meticulously plans and tests every component of their code, anticipating challenges and embracing the iterative nature of development. In the world of design, Figma prototyping serves as a canvas where ideas take shape and evolve. This process finds resonance with Plato's theory of Forms, where he posited that abstract, ideal forms exist beyond the tangible world. In Figma, designers create prototypes that represent the idealized version of the final product before it materializes, emphasizing the pursuit of perfection in design.",
-  //       image: "/tdd_16_9.jpg",
-  //       list: ["li 1", "li 2", "li 3"],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
-  //       content: `Both TDD and Figma prototyping share a fundamental principle – iteration. In TDD, developers iteratively write tests and refine code, while in Figma, designers iterate through prototypes to refine the user experience. This iterative nature aligns with Nietzsche's concept of eternal recurrence, where the cyclical nature of existence invites continual refinement and improvement. TDD's mantra of "Red-Green-Refactor" mirrors the Buddhist path of enlightenment. The "Red" phase represents identifying the problem, the "Green" phase symbolizes the solution, and the "Refactor" phase embodies continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       list: [
-  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
-  //         "li 2",
-  //         "li Exploring Philosophical Analogies in Test 3",
-  //       ],
-  //     },
-  //     {
-  //       title: "Conclusion",
-  //       content:
-  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract theory. Just as individuals in a society agree to abide by certain rules for mutual benefit, designers in Figma collaborate within a framework, adhering to a shared design system that ensures coherence and efficiency. In the marriage of Test-Driven Development and Figma prototyping, we discover a rich tapestry of philosophical analogies that underscore the interconnectedness of seemingly disparate practices. The Stoic craftsman, Platonic ideal forms, Nietzschean eternal recurrence, Buddhist enlightenment, and social contract theory all find expression in the realms of TDD and Figma, offering developers and designers alike a holistic perspective on their crafts. As we build bridges between philosophy and technology, we find that the pursuit of excellence and innovation transcends disciplinary boundaries.",
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       image: "/tdd_16_9.jpg",
-  //     },
-  //   ],
-  //   category: "Philosophy",
-  //   tags: ["TDD"],
-  //   date: "2024-01-29",
-  // },
-  // {
-  //   author_id: users[0].id,
-  //   author_name: users[0].name,
-  //   title: "Is Odin Project Good for a Beginner?",
-  //   short_title: "OdinProjectFoundations.ts",
-  //   sub_title: "Honest review of the Foundation Path from The Odin Project",
-  //   slug: "the-odin-project-foundations",
-  //   content_title: "The most important part of the house",
-  //   content: "test content 0",
-  //   main_image: "/odinProject.svg",
-  //   fields: [
-  //     {
-  //       title: "field title 1",
-  //       content: "field content 1",
-  //       image: "/tdd_16_9.jpg",
-  //     },
-  //     {
-  //       title: "field title 2",
-  //       content: "field content 2",
-  //       image: "/tdd_16_9.jpg",
-  //     },
-  //   ],
-  //   category: "Philosophy",
-  //   tags: ["JavaScript", "TypeScript", "Figma"],
-  //   date: "2024-01-01",
-  // },
-  // {
-  //   author_id: users[0].id,
-  //   author_name: users[0].name,
-  //   title: "My third article",
-  //   short_title: "myThirdArticle.ts",
-  //   sub_title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-  //   slug: "my-third-article",
-  //   content_title: "Development is the king",
-  //   content: "test content 0",
-  //   main_image: "/tddFigma.jpg",
-  //   fields: [
-  //     {
-  //       title: "TDD as the Stoic Craftsman",
-  //       content:
-  //         "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
-  //       image: "/tdd_16_9.jpg",
-  //       list: ["li 1", "li 2", "li 3"],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
-  //       content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       list: [
-  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
-  //         "li 2",
-  //         "li Exploring Philosophical Analogies in Test 3",
-  //       ],
-  //     },
-  //     {
-  //       title: "Conclusion",
-  //       content:
-  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       image: "/tdd_16_9.jpg",
-  //     },
-  //   ],
-  //   category: "Philosophy",
-  //   tags: ["JavaScript", "TypeScript", "Figma"],
-  //   date: "2024-01-01",
-  // },
-  // {
-  //   author_id: users[0].id,
-  //   author_name: users[0].name,
-  //   title: "My fourth article lorem ipsum",
-  //   short_title: "myFourthArticle.ts",
-  //   sub_title: "Lorem ipsum dolor sit amet.",
-  //   slug: "my-fourth-article",
-  //   content_title: "Development is the king",
-  //   content: "test content 0",
-  //   main_image: "/tddFigma.jpg",
-  //   fields: [
-  //     {
-  //       title: "TDD as the Stoic Craftsman",
-  //       content:
-  //         "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
-  //       image: "/tdd_16_9.jpg",
-  //       list: ["li 1", "li 2", "li 3"],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
-  //       content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       list: [
-  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
-  //         "li 2",
-  //         "li Exploring Philosophical Analogies in Test 3",
-  //       ],
-  //     },
-  //     {
-  //       title: "Conclusion",
-  //       content:
-  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       image: "/tdd_16_9.jpg",
-  //     },
-  //   ],
-  //   category: "Philosophy",
-  //   tags: ["JavaScript", "TypeScript", "Figma"],
-  //   date: "2024-01-01",
-  // },
-  // {
-  //   author_id: users[0].id,
-  //   author_name: users[0].name,
-  //   title: "Lorem ipsum dolor same My fifth article",
-  //   short_title: "myFifthArticle.ts",
-  //   sub_title: "Subtitle",
-  //   slug: "my-fifth-article",
-  //   content_title: "Development is the king",
-  //   content: "test content 0",
-  //   main_image: "/tddFigma.jpg",
-  //   fields: [
-  //     {
-  //       title: "TDD as the Stoic Craftsman",
-  //       content:
-  //         "Test-Driven Development, at its core, emphasizes the  pursuit of perfection in design.",
-  //       image: "/tdd_16_9.jpg",
-  //       list: ["li 1", "li 2", "li 3"],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: "TDD's Red-Green-Refactor and the Buddhist Path",
-  //       content: `Both TDD and Figma prototyping share a fundamental continuous improvement. This cyclic process aligns with the Buddhist pursuit of self-discovery and refinement on the path to enlightenment.`,
-  //       links: [
-  //         {
-  //           link: "https://www.ilustrografia.com/shop",
-  //           short_link: "ilustrografia.com/shop",
-  //         },
-  //         {
-  //           link: "https://www.ilustrografia.com/about",
-  //           short_link: "ilustrografia.com/about",
-  //         },
-  //       ],
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       list: [
-  //         "Exploring Philosophical Analogies in Test-Driven Development 1",
-  //         "li 2",
-  //         "li Exploring Philosophical Analogies in Test 3",
-  //       ],
-  //     },
-  //     {
-  //       title: "Conclusion",
-  //       content:
-  //         "Figma's collaborative design environment fosters collective creativity, drawing parallels with social contract",
-  //       second_content:
-  //         "Test-Driven Development, at its core, emphasizes the importance of writing tests before writing the actual code.",
-  //       image: "/tdd_16_9.jpg",
-  //     },
-  //   ],
-  //   category: "Philosophy",
-  //   tags: ["JavaScript", "Confluence", "Jira"],
-  //   date: "2024-01-01",
-  // },
 ]
 
 const projects = [
@@ -575,7 +332,7 @@ const projects = [
     title: "ilustrografia.com",
     short_title: "ilustrografia.com",
     sub_title:
-      "Fullstack eCommerce platform built with the MERN stack & Redux & Typescript",
+      "Full stack eCommerce platform built with the MERN stack & Redux & Typescript",
     slug: "ilustrografia",
     content_title: "What is it?",
     content:
@@ -654,7 +411,7 @@ const projects = [
         content:
           "The admin panel on ilustrografia.com offers a clear and intuitive interface for efficient management, please write me a e-mail to gain access to the admin panel!",
         list: [
-          "Table Layout: 'Product List,' 'Users List,' and 'Order List' sections provide a quick overview.",
+          "Table Layout: 'Product List' 'Users List' and 'Order List' sections provide a quick overview.",
           "Product List: overview of all products, delete product, add new product, access to edit product page",
           "Product Update: Easily edit every aspect of a product, add/delete variations, change prices, and update images.",
           "User List: Delete users, assign admin privileges.",
@@ -735,10 +492,12 @@ const projects = [
     author_name: users[0].name,
     title: "karnas.dev",
     short_title: "karnas.dev",
-    sub_title: "VSC design inspired, Next.js Fullstack portfolio with blog",
+    sub_title:
+      "Full stack portfolio with a blog, inspired by VSC design, built using Next.js.",
     slug: "karnas",
-    content_title: "Karnas dev is very well designed portfolio blog",
-    content: "Fullstack personal portfolio + blog. VSC design inspired",
+    content_title: "What is it?",
+    content:
+      "This project is a full stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC). ",
     main_image:
       "https://res.cloudinary.com/djadfridw/image/upload/v1706788999/djmiq1n04nxzmcabod4l.png",
     main_icon: "nextjs",
@@ -760,24 +519,32 @@ const projects = [
     repo: "https://github.com/KarolKarnas/karnas.dev",
     fields: [
       {
-        title: "introduction",
+        title: "About",
         content:
-          "Introducing karnas.dev – a cutting-edge, full-stack portfolio application that showcases the pinnacle of modern web development. Crafted with precision and innovation, this dynamic platform is built on a robust tech stack comprising Next.js, PostgreSQL, React, TypeScript, Sass, CSS modules, and more.",
+          "This dynamic platform is built on a robust tech stack comprising Next.js, Zustand, React, TypeScript, PostgreSQL, Sass, CSS modules, and more. The app key features:",
+        list: [
+          "Utilize Next.js server-side components for enhanced performance and dynamic rendering",
+          "Organize content with distinct grids for projects and blog posts, providing visual clarity",
+          "Create a secure admin panel with Next Auth for seamless authentication and management",
+          "Enable administrators to create, edit, and delete blog posts and portfolio items after logging in",
+          "Implement Zustand for efficient global state management, ensuring a consistent user experience",
+          "Craft a tab menu and sidebar that closely mimic Visual Studio Code (VSC) behavior, enhancing user navigation",
+          "Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface",
+          "Utilize Cloudinary for secure and scalable object storage, optimizing media file handling",
+          "Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture",
+          "Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application"
+        ],
         image: "/tdd_16_9.jpg",
         link: "https://www.karnas.dev/",
       },
       {
-        title: "The foundation",
-        content: `The foundation of karnas.dev lies in Next.js, offering unparalleled performance and seamless navigation. Leveraging the power of React, the application boasts a responsive and user-friendly interface, ensuring a smooth and engaging experience for visitors. The integration of TypeScript enhances code quality, providing a strongly-typed and maintainable codebase.`,
-      },
-      {
-        title: "Few words about styling",
+        title: "The Process",
         content:
-          "The styling of karnas.dev is a testament to meticulous design, employing Sass and CSS modules to create visually stunning and consistent layouts. The combination of these technologies allows for modular and maintainable styles, ensuring a polished aesthetic across the entire application",
-        image: "/tdd_16_9.jpg",
+          "This time, I experimented with applying the Kanban methodology to my personal workflow. I utilized Jira for planning and tracked my progress using a Kanban Board. Additionally, I designed crucial elements in Figma. Subsequently, I initiated the development process, meticulously monitoring my progress, creating and managing tasks, and categorizing them as 'TO DO', 'IN PROGRESS' or 'DONE'. The application has been successfully published as an MVP. Currently, I am conducting thorough testing using Playwright, reviewing and addressing any errors, and continuously refining the design for optimal performance.",
+        image: "https://res.cloudinary.com/djadfridw/image/upload/v1706875858/yvyahqv24mm0ta8s0uf1.jpg",
       },
     ],
-    category: "Fullstack",
+    category: "FullStack",
     tags: ["NextJs", "TypeScript", "Figma"],
     date: "2024-01-06",
   },
@@ -788,50 +555,3 @@ module.exports = {
   posts,
   projects,
 }
-
-// json_stack: [
-//   {
-//     title: "Stack",
-//     value: [
-//       {
-//         title: "Frontend",
-//         value: "React, Next.js, Typescript, JavaScript ES6+",
-//       },
-//       { title: "Backend", value: "Next.js, PostgreSQL, NextAuth.js, " },
-//       { title: "CSS", value: "CSS3, SCSS, CSS Modules" },
-//       {
-//         title: "Testing",
-//         value: "Playwright, React Testing Library",
-//       },
-//       {
-//         title: "Environment",
-//         value: "Linux, Git, Github, Jira, Confluence, Figma, Gimp",
-//       },
-//     ],
-//   },
-//   {
-//     title: "About",
-//     value: [
-//       {
-//         title: "Title",
-//         value: "Karnas.dev",
-//       },
-//       { title: "Subtitle", value: "Fullstack Developer" },
-//       { title: "Client", value: "Myself" },
-//       { title: "Develop Time", value: "1 Month" },
-//     ],
-//   },
-//   {
-//     title: "Requirements",
-//     value: [
-//       {
-//         title: "1",
-//         value: "VSC inspired design",
-//       },
-//       { title: "2", value: "Well presents known technology stack" },
-//       { title: "3", value: "Ability to write blog posts" },
-//       { title: "4", value: "Best SEO practices" },
-//       { title: "5", value: "Ability to add new projects" },
-//     ],
-//   },
-// ],

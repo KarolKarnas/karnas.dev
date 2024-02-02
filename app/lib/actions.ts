@@ -115,7 +115,7 @@ export async function createPost(formData: FormData) {
     tags: formData.get("tags"),
   })
 
-  const tagArr = tags.split(",")
+  const tagArr = tags.split("|||")
   // console.log('1', fieldLists)
   // console.log(Array.isArray(tagArr))
   // const tagArr = JSON.stringify(tags2)
@@ -140,13 +140,13 @@ export async function createPost(formData: FormData) {
 
     if (fieldLinks[i]) {
       const links = fieldLinks[i]
-        .split(",")
+        .split("|||")
         .map((link) => ({ link: link, short_link: extractDomain(link) }))
       fieldEntry.links = links
     }
 
     if (fieldLists[i]) {
-      const list = fieldLists[i].split(",")
+      const list = fieldLists[i].split("|||")
       fieldEntry.list = list
     }
     fields.push(fieldEntry)
@@ -238,10 +238,10 @@ export async function editPost(formData: FormData) {
     tags: formData.get("tags"),
   })
 
-  const tagArr = tags.split(",")
+  const tagArr = tags.split("|||")
   // // console.log(Array.isArray(tagArr))
   // // const tagArr = JSON.stringify(tags2)
-  // // console.log(tagArr.split(","))
+  // // console.log(tagArr.split("|||"))
   let mainImageUrl = ""
   if (mainImage.size > 0) {
     mainImageUrl = await cloudinaryUrlExtractor(mainImage)
@@ -275,12 +275,12 @@ export async function editPost(formData: FormData) {
     }
     if (fieldLinks[i]) {
       const links = fieldLinks[i]
-        .split(",")
+        .split("|||")
         .map((link) => ({ link: link, short_link: extractDomain(link) }))
       fieldEntry.links = links
     }
     if (fieldLists[i]) {
-      const list = fieldLists[i].split(",")
+      const list = fieldLists[i].split("|||")
       fieldEntry.list = list
     }
 
@@ -418,7 +418,7 @@ export async function createProject(formData: FormData) {
     tags: formData.get("tags"),
   })
 
-  const tagArr = tags.split(",")
+  const tagArr = tags.split("|||")
   // console.log('1', fieldLists)
   // console.log(Array.isArray(tagArr))
   // const tagArr = JSON.stringify(tags2)
@@ -444,13 +444,13 @@ export async function createProject(formData: FormData) {
 
     if (fieldLinks[i]) {
       const links = fieldLinks[i]
-        .split(",")
+        .split("|||")
         .map((link) => ({ link: link, short_link: extractDomain(link) }))
       fieldEntry.links = links
     }
 
     if (fieldLists[i]) {
-      const list = fieldLists[i].split(",")
+      const list = fieldLists[i].split("|||")
       fieldEntry.list = list
     }
     fields.push(fieldEntry)
@@ -468,8 +468,8 @@ export async function createProject(formData: FormData) {
 
   // database Insert
 
-  const stackArr = stack.split(",")
-  const iconsStackArr = iconsStack.split(",")
+  const stackArr = stack.split("|||")
+  const iconsStackArr = iconsStack.split("|||")
 
   // console.log(iconsStackArr)
 
@@ -577,10 +577,10 @@ export async function editProject(formData: FormData) {
     tags: formData.get("tags"),
   })
 
-  const tagArr = tags.split(",")
+  const tagArr = tags.split("|||")
   // // console.log(Array.isArray(tagArr))
   // // const tagArr = JSON.stringify(tags2)
-  // // console.log(tagArr.split(","))
+  // // console.log(tagArr.split("|||"))
   let mainImageUrl = ""
   if (mainImage.size > 0) {
     mainImageUrl = await cloudinaryUrlExtractor(mainImage)
@@ -608,22 +608,22 @@ export async function editProject(formData: FormData) {
     }
     if (fieldLinks[i]) {
       const links = fieldLinks[i]
-        .split(",")
+        .split("|||")
         .map((link) => ({ link: link, short_link: extractDomain(link) }))
       fieldEntry.links = links
     }
     if (fieldLists[i]) {
-      const list = fieldLists[i].split(",")
+      const list = fieldLists[i].split("|||")
       fieldEntry.list = list
     }
 
-    console.log(fields)
+    // console.log(fields)
 
     fields.push(fieldEntry)
   }
 
-  const stackArr = stack.split(",")
-  const iconsStackArr = iconsStack.split(",")
+  const stackArr = stack.split("|||")
+  const iconsStackArr = iconsStack.split("|||")
 
   // database Update
   try {

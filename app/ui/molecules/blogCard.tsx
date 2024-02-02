@@ -42,7 +42,7 @@ const BlogCard = ({ card }: Props) => {
 
       <div className={styles["content-container"]}>
         <p>{card.content}</p>
-        <Button text="Read more" color="orange" path={card.path} />
+        <Button text="Read more" color="blue" path={card.path} />
       </div>
     </div>
   )

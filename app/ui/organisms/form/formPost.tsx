@@ -56,7 +56,7 @@ const FormPost = ({ post }: Props) => {
               name="mainImagePath"
               title="Main Image Path"
               originalValue={post.main_image}
-              readOnly
+              // readOnly
             />
             <div className={styles.oriMainImage}>
               <h4>Original Main Image</h4>

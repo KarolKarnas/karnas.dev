@@ -34,10 +34,10 @@ const ArrayInput = ({ name, title, originalValue, required=false }: Props) => {
       <Form.Control asChild>
         <textarea
           className={styles.Input}
-          value={values.toString()}
+          value={values.join('|||')}
           required={required}
           onChange={(e) =>
-            setValues(e.target.value.split(",").map((val) => val.trim()))
+            setValues(e.target.value.split("|||").map((val) => val.trim()))
           }
         />
       </Form.Control>
