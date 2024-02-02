@@ -8,6 +8,31 @@ import useIcon from "@/app/hooks/useIcon"
 import StackIcons from "@/app/ui/atoms/stackIcons"
 import { gitHub, link } from "@/app/utils/icons"
 import Link from "next/link"
+import type { Metadata, ResolvingMetadata } from 'next'
+
+type PropsMetadata = {
+  params: { slug: string }
+}
+
+export async function generateMetadata(
+  { params }: PropsMetadata,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug
+  // fetch data
+  const project = await fetchProjectBySlug(slug)
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: project.title,
+    description: project.content,
+    openGraph: {
+      images: [`${project.main_image}`, ...previousImages],
+    },
+  }
+}
 
 type Props = {}
 export default async function Page({ params }: { params: { slug: string } }) {

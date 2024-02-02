@@ -5,6 +5,12 @@ import StackIcons from "../ui/atoms/stackIcons"
 import MainHeading from "../ui/atoms/mainHeading"
 import MainSubHeading from "../ui/atoms/mainSubHeading"
 import SectionHeading from "../ui/atoms/sectionHeading"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Skills',
+  description: 'All my hard earn knowledge and skills on the one page :). TypeScript, JavaScript, React, Node.js, Next.js, PostgreSQL, Linux, Testing Library, Playwright, Tailwind, SASS'
+};
 
 export default async function About() {
   const frontendIcons = useIcon(FRONTEND)

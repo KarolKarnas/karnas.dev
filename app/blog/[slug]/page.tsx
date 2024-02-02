@@ -25,6 +25,7 @@ export async function generateMetadata(
  
   return {
     title: post.title,
+    description: post.content,
     openGraph: {
       images: [`${post.main_image}`, ...previousImages],
     },

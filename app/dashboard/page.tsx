@@ -1,6 +1,12 @@
 import styles from "./page.module.scss"
 import Button from "../ui/atoms/button"
 import { signOut } from "@/auth"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+  description: 'Manage and edit posts and projects with admin privileges on the Dashboard',
+};
 
 export default function About() {
   return (

@@ -6,6 +6,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: 'Blog',
+  description: 'Posts about programming courses, front-end, back-end, best practices, TypeScript, React, Next.js, SASS, TailwindCSS'
 };
 
 export default async function Portfolio() {
