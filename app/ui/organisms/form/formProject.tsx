@@ -59,7 +59,7 @@ const FormProject = ({ project }: Props) => {
             name="mainImagePath"
             title="Main Image Path"
             originalValue={project.main_image}
-            readOnly
+            // readOnly
           />
           <div className={styles.oriMainImage}>
             <h4>Original Main Image</h4>

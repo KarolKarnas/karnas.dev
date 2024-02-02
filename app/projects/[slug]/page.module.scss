@@ -236,11 +236,11 @@
 
       @include breakpoints.md {
         margin-bottom: spacing.$s8;
-        padding: spacing.$s8 0;
+        padding: spacing.$s8;
       }
 
       ul {
-        width: auto;
+        // width: auto;
         padding: spacing.$s2;
 
         @include breakpoints.md {
@@ -269,15 +269,19 @@
       align-items: center;
       justify-content: space-between;
       gap: spacing.$s4;
-      padding-bottom: spacing.$s6;
       color: colors.$white-100;
+      background-color: colors.$grey-900;
+      padding: spacing.$s6 spacing.$s2;
+      border-radius: 15px;
       @include breakpoints.md {
         flex-direction: row;
         gap: 0;
-        padding-bottom: spacing.$s6;
+        margin-bottom: spacing.$s8;
+        padding: spacing.$s8 ;
+        // padding-bottom: spacing.$s6;
       }
       .authorName {
-        width: auto;
+        // width: auto;
         display: flex;
         flex-direction: column;
         color: colors.$white-100;

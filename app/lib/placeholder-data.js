@@ -499,7 +499,7 @@ const projects = [
     content:
       "This project is a full stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC). ",
     main_image:
-      "https://res.cloudinary.com/djadfridw/image/upload/v1706788999/djmiq1n04nxzmcabod4l.png",
+      "https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg",
     main_icon: "nextjs",
     stack: ["React", "TypeScript, Next.js, PostgreSQL, SQL"],
     icons_stack: [
@@ -534,7 +534,7 @@ const projects = [
           "Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture",
           "Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application"
         ],
-        image: "/tdd_16_9.jpg",
+        image: "https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg",
         link: "https://www.karnas.dev/",
       },
       {
