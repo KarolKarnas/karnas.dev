@@ -9,8 +9,12 @@ import { fetchBlogLinks, fetchProjectLinks } from "./lib/data"
 const roboto = Roboto_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Karol Karnas",
-  description: "Fullstack Developer",
+  title: {
+    template: '%s | Karol Karnas | Full Stack Developer | Portfolio',
+    default: 'Karol Karnas | Full Stack Developer | Portfolio',
+  },
+  description: "Checkout Karol Karnas Projects and Posts about Development",
+  metadataBase: new URL("https://www.karnas.dev"),
 }
 
 export default async function RootLayout({

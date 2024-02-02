@@ -1,8 +1,12 @@
 import styles from "./page.module.scss"
 import { fetchBlogCards } from "../lib/data"
 import BlogCard from "../ui/molecules/blogCard"
-import Link from "next/link"
 import MainHeading from "../ui/atoms/mainHeading"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Blog',
+};
 
 export default async function Portfolio() {
   const blogCards = await fetchBlogCards()

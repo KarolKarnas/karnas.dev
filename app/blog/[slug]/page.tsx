@@ -5,19 +5,42 @@ import { SOCIAL_ITEMS } from "@/app/utils/constants"
 import LinkCard from "@/app/ui/atoms/linkCard"
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import type { Metadata, ResolvingMetadata } from 'next'
 
-type Props = {}
+type PropsMetadata = {
+  params: { slug: string }
+}
+
+export async function generateMetadata(
+  { params }: PropsMetadata,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug
+  // fetch data
+  const post = await fetchPostBySlug(slug)
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: post.title,
+    openGraph: {
+      images: [`${post.main_image}`, ...previousImages],
+    },
+  }
+}
+
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
   const post = await fetchPostBySlug(slug)
-  // console.log(post)
   if (!post) {
     notFound()
   }
 
-  // console.log(post)
-  // console.log(typeof post.tags)
-  // console.log(Array.isArray(post.tags))
+
+
 
   return (
     <div className={styles.container}>
@@ -89,7 +112,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className={styles["author-container"]}>
           <Link className={styles.authorName} href="/about">
             <span>Karol Karnas</span>
-            <span>Fullstack Developer</span>
+            <span>Full Stack Developer</span>
           </Link>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
