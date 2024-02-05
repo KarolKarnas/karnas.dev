@@ -510,6 +510,7 @@ const projects = [
       "sql",
       "sass",
       "cssModules",
+      "cloudinary",
       // "playWright",
       "jira",
       "confluence",
