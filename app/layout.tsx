@@ -5,6 +5,7 @@ import SideNav from "./ui/organisms/sidenav"
 import Header from "./ui/organisms/header"
 import "./scss/_global.scss"
 import { fetchBlogLinks, fetchProjectLinks } from "./lib/data"
+import { Analytics } from '@vercel/analytics/react';
 
 const roboto = Roboto_Mono({ subsets: ["latin"] })
 
@@ -33,6 +34,7 @@ export default async function RootLayout({
           <Header />
           <main className={styles.content}>{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   )

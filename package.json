@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/react-form": "^0.0.3",
+    "@vercel/analytics": "^1.1.2",
     "@vercel/postgres": "^0.5.1",
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.41.2",
