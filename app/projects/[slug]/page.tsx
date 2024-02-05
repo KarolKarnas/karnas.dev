@@ -67,7 +67,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           src={project.main_image}
           width={1920}
           height={1080}
-          alt={`main image`}
+          alt={`${project.title}`}
         />
       </Link>
       <div className={styles["content-container"]}>
@@ -96,7 +96,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   src={field.image}
                   width={1200}
                   height={673}
-                  alt={`field ${index} image`}
+                  alt={`${field.title}`}
                 />
               </Link>
             ) : null}

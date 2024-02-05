@@ -40,7 +40,7 @@ const ProjectCard = ({ card }: Props) => {
         src={card.main_image}
         width={1920}
         height={1080}
-        alt={card.short_title}
+        alt={card.title}
       />
 
       <div className={styles["content-container"]}>

@@ -37,7 +37,7 @@ const BlogCard = ({ card }: Props) => {
         src={card.main_image}
         width={600}
         height={600}
-        alt={card.short_title}
+        alt={card.title}
       />
 
       <div className={styles["content-container"]}>

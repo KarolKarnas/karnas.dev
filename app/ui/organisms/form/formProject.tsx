@@ -67,7 +67,7 @@ const FormProject = ({ project }: Props) => {
               src={project.main_image}
               width={400}
               height={500}
-              alt={project.short_title}
+              alt={project.title}
             />
           </div>
           <FileInput name="mainImage" title="Main Image" />

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Karol Karnas | Full Stack Developer | Portfolio',
     default: 'Karol Karnas | Full Stack Developer | Portfolio',
   },
-  description: "Checkout Karol Karnas Projects and Posts about Development",
+  description: "Karol Karnas - Explore the diverse projects and insightful development posts. Karol Karnas, a dedicated Full Stack Developer. Dive into a web programming...",
   metadataBase: new URL("https://www.karnas.dev"),
 }
 

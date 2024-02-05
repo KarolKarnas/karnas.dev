@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 src={field.image}
                 width={1200}
                 height={673}
-                alt={`field ${index} image`}
+                alt={`${field.title}`}
               />
             ) : null}
             {field.second_content ? <p>{field.second_content}</p> : null}

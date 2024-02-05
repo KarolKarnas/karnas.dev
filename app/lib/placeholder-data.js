@@ -1,10 +1,10 @@
 const users = [
-  {
-    id: "422111b1-4001-4271-9855-fec4b6a6442a",
-    name: "Karol Karnas",
-    email: "admin@email.com",
-    password: "123456",
-  },
+  // {
+  //   id: "422111b1-4001-4271-9855-fec4b6a6442a",
+  //   name: "Admin",
+  //   email: "admin@email.com",
+  //   password: "123456",
+  // },
 ]
 
 const posts = [
@@ -497,7 +497,7 @@ const projects = [
     slug: "karnas",
     content_title: "What is it?",
     content:
-      "This project is a full stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC). ",
+      "This project is a full stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC) with the Monokai Theme.",
     main_image:
       "https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg",
     main_icon: "nextjs",
@@ -521,9 +521,9 @@ const projects = [
       {
         title: "About",
         content:
-          "This dynamic platform is built on a robust tech stack comprising Next.js, Zustand, React, TypeScript, PostgreSQL, Sass, CSS modules, and more. The app key features:",
+          "This dynamic platform is built with Next.js, Zustand, React, TypeScript, PostgreSQL, Sass, CSS modules, and more. The app key features:",
         list: [
-          "Utilize Next.js server-side components for enhanced performance and dynamic rendering",
+          "Utilize Next.js server-side components for enhanced SEO, performance and dynamic rendering",
           "Organize content with distinct grids for projects and blog posts, providing visual clarity",
           "Create a secure admin panel with Next Auth for seamless authentication and management",
           "Enable administrators to create, edit, and delete blog posts and portfolio items after logging in",
@@ -534,9 +534,20 @@ const projects = [
           "Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture",
           "Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application"
         ],
-        image: "https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg",
-        link: "https://www.karnas.dev/",
+        image: "https://res.cloudinary.com/djadfridw/image/upload/v1707131042/pm7f1szandr9c661l3pf.jpg",
       },
+      {
+        title: "The Responsiveness",
+        content:
+          "The application is designed to be fully responsive, aiming to maintain a consistent user experience across different screen sizes. The goal is to provide a practical and user-friendly interface on par with Visual Studio Code (VSC) across all devices.",
+        image: "https://res.cloudinary.com/djadfridw/image/upload/v1707116567/anvrceff2msqke1oanep.jpg",
+      },
+      // {
+      //   title: "The Code Snippets and JSON",
+      //   content:
+      //     "The application is designed to be fully responsive, aiming to maintain a consistent user experience across different screen sizes. The goal is to provide a practical and user-friendly interface on par with Visual Studio Code (VSC) across all devices.",
+      //   image: "https://res.cloudinary.com/djadfridw/image/upload/v1707116567/anvrceff2msqke1oanep.jpg",
+      // },
       {
         title: "The Process",
         content:

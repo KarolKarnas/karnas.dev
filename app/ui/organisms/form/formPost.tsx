@@ -64,7 +64,7 @@ const FormPost = ({ post }: Props) => {
                 src={post.main_image}
                 width={400}
                 height={500}
-                alt={post.short_title}
+                alt={post.title}
               />
             </div>
             <FileInput name="mainImage" title="Main Image" />
