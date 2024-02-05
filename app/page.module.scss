@@ -62,6 +62,18 @@ padding-left: spacing.$s3;
             fill: colors.$navy-500;
           }
         }
+        // &:hover {
+        //   color: colors.$grey-200;
+        //   svg {
+        //     color: initial
+        //   }
+        //   g{
+        //     fill: initial;
+        //   }
+        //   path {
+        //     fill: initial;
+        //   }
+        // }
       }
     }
     &:first-of-type {

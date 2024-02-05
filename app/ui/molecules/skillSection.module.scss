@@ -1,0 +1,13 @@
+@use "../../scss/colors";
+@use "../../scss/fonts.scss";
+@use "../../scss/spacing.scss";
+@use "../../scss/breakpoints.scss";
+@use "../../scss/mixins";
+
+.SkillSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$s4;
+  margin-bottom: spacing.$s5;
+}
