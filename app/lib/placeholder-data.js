@@ -511,7 +511,7 @@ const projects = [
       "sass",
       "cssModules",
       "cloudinary",
-      // "playWright",
+      "playWright",
       "jira",
       "confluence",
       "figma",
