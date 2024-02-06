@@ -39,3 +39,8 @@ next-env.d.ts
 
 
 codeHigh/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/tests-examples/

@@ -163,7 +163,7 @@ async function seedProjects(client) {
 }
 
 async function main() {
-  const client = await db.connect()
+  const client = await db.connect(z)
 
   await seedUsers(client)
   await seedPosts(client)
