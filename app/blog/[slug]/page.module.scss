@@ -229,7 +229,7 @@
       background-color: colors.$grey-900;
       padding: spacing.$s6 spacing.$s2;
       border-radius: 15px;
-      @include breakpoints.md {
+      @include breakpoints.xl {
         flex-direction: row;
         gap: 0;
         margin-bottom: spacing.$s8;

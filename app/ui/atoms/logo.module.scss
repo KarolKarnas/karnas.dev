@@ -6,7 +6,15 @@
   font-weight: 900;
   background-color: colors.$grey-900;
   text-transform: uppercase;
+  
+  // padding: 0.5rem;
+}
+
+.logoPadding {
+  padding: 0.5rem;
+}
+
+.logoFlex {
   display: flex;
   align-items: center;
-  padding: 0.5rem;
 }

@@ -9,11 +9,14 @@
   flex-direction: column;
 
   // color: colors.$grey-500;
-  width: 300px;
+  width: 240px;
+  @include breakpoints.sm {
+    width: 300px;
+  }
   @include breakpoints.lg {
     width: 400px;
   }
-  @include breakpoints.xl {
+  @include breakpoints.xl2 {
     width: 500px;
   }
   // padding: spacing.$s2;

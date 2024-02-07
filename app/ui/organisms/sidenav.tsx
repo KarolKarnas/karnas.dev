@@ -51,7 +51,7 @@ const SideNav = ({ blogLinks, projectLinks }: Props) => {
       <Hamburger />
 
       <div className={`${isOpen ? styles.show : styles.hide}`}>
-        <Logo />
+        <Logo padding flex/>
         <nav>
           <ul>
             {navLinks.map((item, index) => (
