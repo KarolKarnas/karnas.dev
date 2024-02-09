@@ -22,7 +22,7 @@ export async function fetchPosts() {
 export async function fetchBlogLinks() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
-  // noStore()
+  noStore()
   try {
     const data = await sql<Post>`SELECT short_title, slug FROM posts ORDER BY date DESC`
     // console.log("data rows!", data.rows)
@@ -91,7 +91,7 @@ export async function getUser(email: string) {
 export async function fetchProjectLinks() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
-  // noStore()
+  noStore()
   try {
     const data = await sql<Project>`SELECT short_title, slug, main_icon FROM projects ORDER BY date DESC`
     // console.log("data rows!", data.rows)
