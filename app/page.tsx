@@ -8,6 +8,7 @@ import ProjectsLinks from "./ui/atoms/projectsLinks"
 import Logo from "./ui/atoms/logo"
 
 export default function Home() {
+
   return (
     <div className={styles.container}>
       <div className={styles.col1}>

@@ -5,16 +5,17 @@ import SideNav from "./ui/organisms/sidenav"
 import Header from "./ui/organisms/header"
 import "./scss/_global.scss"
 import { fetchBlogLinks, fetchProjectLinks } from "./lib/data"
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react"
 
-const roboto = Roboto_Mono({ subsets: ["latin"] })
+const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Karol Karnas | Full Stack Developer | Portfolio',
-    default: 'Karol Karnas | Full Stack Developer | Portfolio',
+    template: "%s | Karol Karnas | Full Stack Developer | Portfolio",
+    default: "Karol Karnas | Full Stack Developer | Portfolio",
   },
-  description: "Karol Karnas - Explore the diverse projects and insightful development posts. Karol Karnas, a dedicated Full Stack Developer. Dive into a web programming...",
+  description:
+    "Karol Karnas - Explore the diverse projects and insightful development posts. Karol Karnas, a dedicated Full Stack Developer. Dive into a web programming...",
   metadataBase: new URL("https://www.karnas.dev"),
 }
 

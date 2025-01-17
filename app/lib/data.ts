@@ -9,7 +9,7 @@ import { typeScriptAlt, nextJs, react } from "../utils/icons"
 export async function fetchPosts() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
-  // noStore()
+  noStore()
   try {
     const data = await sql<Post>`SELECT * FROM posts`
     return data.rows
@@ -42,7 +42,7 @@ export async function fetchBlogLinks() {
 export async function fetchBlogCards() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
-  // noStore()
+  noStore()
   try {
     const data =
       await sql<Post>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image FROM posts ORDER BY date DESC`
@@ -61,7 +61,7 @@ export async function fetchBlogCards() {
 }
 
 export async function fetchPostBySlug(slug: string) {
-  // noStore()
+  noStore()
   try {
     const data = await sql<Post>`
       SELECT * FROM posts WHERE posts.slug = ${slug};
@@ -110,7 +110,7 @@ export async function fetchProjectLinks() {
 
 
 export async function fetchProjectBySlug(slug: string) {
-  // noStore()
+  noStore()
   try {
     const data = await sql<Project>`
       SELECT * FROM projects WHERE projects.slug = ${slug};
@@ -126,7 +126,7 @@ export async function fetchProjectBySlug(slug: string) {
 export async function fetchProjectCards() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
-  // noStore()
+  noStore()
   try {
     const data =
       await sql<Project>`SELECT short_title, slug, content_title, title, date, content, sub_title, main_image, stack, icons_stack, live_demo, repo FROM projects ORDER BY date DESC`
