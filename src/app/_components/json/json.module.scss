@@ -1,0 +1,45 @@
+@use "../../scss/colors.scss";
+@use "../../scss/fonts.scss";
+@use "../../scss/spacing.scss";
+@use "../../scss/mixins.scss";
+@use "../../scss/breakpoints.scss";
+
+.code {
+  font-size: fonts.$sm;
+  width: 100%;
+  @include breakpoints.lg {
+    font-size: fonts.$base;
+    width: 500px;
+  }
+  @include breakpoints.xl {
+    font-size: fonts.$base;
+    width: 600px;
+  }
+  ul {
+    list-style: none;
+    padding-left: spacing.$s5;
+    line-height: 1.5;
+    li {
+      ul {
+        padding-left: spacing.$s6;
+        li {
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+.text_yellow {
+  color: colors.$yellow-500;
+}
+.text_pink {
+  color: colors.$pink-200;
+}
+.text_blue {
+  color: colors.$blue-500;
+}
+.text_white {
+  color: colors.$white-100;
+  font-weight: 700;
+}

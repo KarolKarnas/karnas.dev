@@ -2,19 +2,11 @@ import styles from "./page.module.scss"
 import Link from "next/link"
 import { SIDENAV_ITEMS } from "../utils/constants"
 import { SOCIAL_ITEMS } from "../utils/constants"
-// import ProjectsLinks from "./ui/atoms/projectsLinks"
-// import Logo from "./ui/atoms/logo"
 import LinkCard from "./_components/link-card/link-card"
-import { getAllPosts } from "@/lib/api"
 import BlogLinks from "./_components/blog-links/blog-links"
 
 export default function Home() {
-  const allPosts = getAllPosts()
-  const postLinks = allPosts.map((post) => ({
-    slug: post.slug,
-    programmingLink: post.programmingLink,
-    icon: post.icon,
-  }))
+  const postLinks = SIDENAV_ITEMS.find((item) => item.title === "blog")
 
   return (
     <div className={styles.container}>
@@ -48,7 +40,9 @@ export default function Home() {
           ))}
         </ul>
         <h4>Blog</h4>
-        <BlogLinks postLinks={postLinks} />
+        {postLinks?.subMenuItems && (
+          <BlogLinks postLinks={postLinks.subMenuItems} />
+        )}
       </div>
     </div>
   )

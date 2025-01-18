@@ -5,19 +5,12 @@ import Hamburger from "../hamburger/hamburger"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { SideNavItem } from "../../../utils/types"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { chevronDown } from "../../../utils/icons"
 import Logo from "../logo/logo"
 import { SIDENAV_ITEMS } from "@/utils/constants"
-import { getAllPosts } from "@/lib/api"
 
-export type SideNavProps = {
-  initialNavItems: SideNavItem[]
-}
-
-const SideNav = ({ initialNavItems }: SideNavProps) => {
-  // const allPosts = getAllPosts()
-
+const SideNav = () => {
   return (
     <div
       className={`${styles.sidenav}
@@ -29,10 +22,9 @@ const SideNav = ({ initialNavItems }: SideNavProps) => {
         <Logo padding flex />
         <nav>
           <ul>
-            {initialNavItems.map((item, index) => (
+            {SIDENAV_ITEMS.map((item, index) => (
               <MenuItem key={index} item={item} />
             ))}
-            {/* <li className={styles.title}>TEST</li> */}
           </ul>
         </nav>
       </div>
@@ -47,14 +39,9 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
   const toggleSubMenu = () => {
     setSubMenuOpen(!subMenuOpen)
   }
-  // const width = menuStore((state) => state.menu.width)
-  // const updateOpenTabs = navStore((state) => state.updateOpenTabs)
-  // const closeMenu = menuStore((state) => state.closeMenu)
-
-  const linkClick = () => {}
 
   return (
-    <li className="">
+    <li>
       {item.submenu ? (
         <>
           <Link
@@ -88,23 +75,12 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
               {item.subMenuItems?.map((subItem, idx) => {
                 return (
                   <Link
-                    onClick={() => {
-                      // updateOpenTabs(subItem)
-                      // if (width < 640) {
-                      //   closeMenu()
-                      // }
-                      // return
-                    }}
                     key={idx}
                     href={subItem.path}
                     className={`${styles.subMenuItem} ${
                       subItem.path === pathname ? styles.pathSubMenu : ""
                     }`}
-                    // className={`${styles.subMenuItem} ${
-                    //   subItem.path === pathname ? styles.pathSubMenu : ""
-                    // }`}
                   >
-                    {" "}
                     {subItem.icon}
                     <span>{subItem.title}</span>
                   </Link>
@@ -115,13 +91,6 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
         </>
       ) : (
         <Link
-          onClick={() => {
-            // updateOpenTabs(item)
-            // if (width < 640) {
-            //   closeMenu()
-            // }
-            // return
-          }}
           href={item.path}
           className={`${styles.linkNew} ${
             item.path === pathname ? styles.pathLink : ""

@@ -4,12 +4,6 @@ import styles from "./layout.module.scss"
 import "./scss/_global.scss"
 import SideNav from "./_components/side-nav/side-nav"
 import { Analytics } from "@vercel/analytics/react"
-import { IconText } from "@/utils/types"
-import { getAllPosts } from "@/lib/api"
-import * as Icons from "../utils/icons"
-import { SIDENAV_ITEMS } from "@/utils/constants"
-
-const iconsTyped: { [key: string]: IconText } = Icons
 
 const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] })
 
@@ -28,27 +22,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const allPosts = getAllPosts()
-  const postLinks = allPosts.map((post) => ({
-    title: post.programmingLink,
-    path: `/blog/${post.slug}`,
-    icon: iconsTyped[post.icon].icon,
-  }))
-
-  const SIDENAV_ITEMS_WITH_SUBS = SIDENAV_ITEMS.map((item) => {
-    if (item.title === "blog") {
-      return {
-        ...item,
-        subMenuItems: postLinks,
-      }
-    }
-    return item
-  })
 
   return (
     <html lang="en">
       <body className={`${roboto.className} ${styles.layout}`}>
-        <SideNav initialNavItems={SIDENAV_ITEMS_WITH_SUBS}/>
+        <SideNav />
         <div className={styles.container}>
           <main className={styles.content}>{children}</main>
         </div>

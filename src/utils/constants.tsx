@@ -11,7 +11,9 @@ import {
   gear,
   svg,
   karnasAlt,
-  sass
+  sass,
+  typeScript,
+  typeScriptAlt
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -49,7 +51,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/blog",
     icon: folderOpen.icon,
     submenu: true,
-    subMenuItems: [],
+    subMenuItems: [{    title: "dynamic.ts",
+      path: "/blog/dynamic-routing",
+      icon: typeScriptAlt.icon,}],
   },
   {
     title: "contact.sass",
@@ -68,11 +72,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   //   path: "/login",
   //   icon: gear,
   // },
-  {
-    title: "dashboard",
-    path: "/dashboard",
-    icon: gear.icon,
-  },
+  // {
+  //   title: "dashboard",
+  //   path: "/dashboard",
+  //   icon: gear.icon,
+  // },
 ]
 
 export const SOCIAL_ITEMS: SocialItem[] = [
