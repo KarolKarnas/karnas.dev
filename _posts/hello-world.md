@@ -1,13 +1,41 @@
 ---
+id: "id3"
+author_id: "author id"
+author_name: "author name"
 title: "Learn How to Pre-render Pages Using Static Generation with Next.js"
+short_title: "short_title"
+sub_title: "sub title"
+content_title: "content title"
+content: "content"
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
 coverImage: "/assets/blog/hello-world/cover.jpg"
+main_image: "/assets/blog/hello-world/cover.jpg"
+category: "category"
+tags: ["tag1", "tag2"]
 date: "2020-03-16T05:35:07.322Z"
+programmingLink: "LearnHowTo.ts"
 author:
   name: Tim Neutkens
   picture: "/assets/blog/authors/tim.jpeg"
 ogImage:
   url: "/assets/blog/hello-world/cover.jpg"
+icon: "cloudinary"
+fields: [
+    {
+      title: "Technical Implementation Details",
+      content: "This article explores the implementation of dynamic routing and static generation in Next.js. Key concepts covered include getStaticProps, getStaticPaths, and the benefits of static generation for performance optimization. We'll examine real-world use cases and best practices for choosing between static generation and server-side rendering based on your application's requirements."
+    },
+    {
+      title: "Related Topics",
+      list: [
+        "Server-side Rendering (SSR) vs Static Site Generation (SSG)",
+        "Performance Optimization in Next.js",
+        "Dynamic vs Static Routes",
+        "Data Fetching Methods",
+        "Build Time vs Runtime Generation"
+      ]
+    }
+  ]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.

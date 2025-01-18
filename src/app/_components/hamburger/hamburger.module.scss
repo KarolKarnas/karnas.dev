@@ -1,0 +1,22 @@
+@use "../../scss/colors";
+@use "../../scss/breakpoints";
+
+.hamburger {
+  color: colors.$grey-100;
+  width: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  @include breakpoints.md {
+    padding: 0;
+    height: 40px;
+  }
+}

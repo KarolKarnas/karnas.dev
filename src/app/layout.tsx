@@ -1,38 +1,55 @@
-import Footer from "@/app/_components/footer";
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
 import { Roboto_Mono } from "next/font/google"
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 import styles from "./layout.module.scss"
-import { Inter } from "next/font/google";
-import cn from "classnames";
-import { ThemeSwitcher } from "./_components/theme-switcher";
-
 import "./scss/_global.scss"
+import SideNav from "./_components/side-nav/side-nav"
+import { Analytics } from "@vercel/analytics/react"
+import { IconText } from "@/utils/types"
+import { getAllPosts } from "@/lib/api"
+import * as Icons from "../utils/icons"
+import { SIDENAV_ITEMS } from "@/utils/constants"
+
+const iconsTyped: { [key: string]: IconText } = Icons
 
 const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] })
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: `Next.js Blog Example with ${CMS_NAME}`,
-  description: `A statically generated blog example using Next.js and ${CMS_NAME}.`,
-  openGraph: {
-    images: [HOME_OG_IMAGE_URL],
+  title: {
+    template: "%s | Karol Karnas | Full Stack Developer | Portfolio",
+    default: "Karol Karnas | Full Stack Developer | Portfolio",
   },
-};
+  description:
+    "Karol Karnas - Explore the diverse projects and insightful development posts. Karol Karnas, a dedicated Full Stack Developer. Dive into a web programming...",
+  metadataBase: new URL("https://www.karnas.dev"),
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
+  const allPosts = getAllPosts()
+  const postLinks = allPosts.map((post) => ({
+    title: post.programmingLink,
+    path: `/blog/${post.slug}`,
+    icon: iconsTyped[post.icon].icon,
+  }))
+
+  const SIDENAV_ITEMS_WITH_SUBS = SIDENAV_ITEMS.map((item) => {
+    if (item.title === "blog") {
+      return {
+        ...item,
+        subMenuItems: postLinks,
+      }
+    }
+    return item
+  })
+
   return (
     <html lang="en">
       <body className={`${roboto.className} ${styles.layout}`}>
-        <SideNav blogLinks={blogLinks} projectLinks={projectLinks} />
-
+        <SideNav initialNavItems={SIDENAV_ITEMS_WITH_SUBS}/>
         <div className={styles.container}>
-          <Header />
           <main className={styles.content}>{children}</main>
         </div>
         <Analytics />

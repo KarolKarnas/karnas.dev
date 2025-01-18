@@ -1,90 +1,35 @@
 "use client"
 
 import styles from "./side-nav.module.scss"
-import Hamburger from "../atoms/hamburger"
-import { menuStore } from "../../store/menu"
-import { navStore } from "../../store/nav"
+import Hamburger from "../hamburger/hamburger"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { SideNavItem } from "../../utils/types"
+import { SideNavItem } from "../../../utils/types"
 import { useEffect, useState } from "react"
-import { chevronDown } from "../../utils/icons"
+import { chevronDown } from "../../../utils/icons"
 import Logo from "../logo/logo"
+import { SIDENAV_ITEMS } from "@/utils/constants"
+import { getAllPosts } from "@/lib/api"
 
-type Props = {
-  blogLinks: SideNavItem[]
-  projectLinks: SideNavItem[]
+export type SideNavProps = {
+  initialNavItems: SideNavItem[]
 }
 
-const navLinks = [
-  {
-    title: "home",
-    path: "/",
-  },
-  {
-    title: "skills.svg",
-    path: "/skills",
-  },
-  {
-    title: "about.json",
-    path: "/about",
-  },
-  {
-    title: "projects",
-    path: "/projects",
-    submenu: true,
-    subMenuItems: [],
-  },
-  {
-    title: "blog",
-    path: "/blog",
-    submenu: true,
-    subMenuItems: [],
-  },
-  {
-    title: "contact.sass",
-    path: "/contact",
-  },
-  {
-    title: "dashboard",
-    path: "/dashboard",
-  },
-]
-const SideNav = ({ blogLinks, projectLinks }: Props) => {
-  // const isOpen = menuStore((state) => state.menu.isOpen)
-  // const width = menuStore((state) => state.menu.width)
-  // const setWidth = menuStore((state) => state.setWidth)
-  // const openMenu = menuStore((state) => state.openMenu)
-  // const closeMenu = menuStore((state) => state.closeMenu)
+const SideNav = ({ initialNavItems }: SideNavProps) => {
+  // const allPosts = getAllPosts()
 
-  // const navLinks = navStore((state) => state.menu.navLinks)
-  // const updateNavLinks = navStore((state) => state.updateNavLinks)
-
-  // useEffect(() => {
-  //   const handleResize = () => setWidth(window.innerWidth)
-  //   handleResize()
-  //   // window.addEventListener("resize", handleResize)
-  //   if (width > 640) {
-  //     openMenu()
-  //   } else {
-  //     closeMenu()
-  //   }
-  //   // return () => window.removeEventListener("resize", handleResize)
-  // }, [closeMenu, openMenu, setWidth, width])
   return (
-    // ${isOpen ? styles.open : styles.close}
     <div
       className={`${styles.sidenav}
      `}
     >
       <Hamburger />
 
-      {/* <div className={`${isOpen ? styles.show : styles.hide}`}> */}
       <div className={styles.show}>
         <Logo padding flex />
         <nav>
           <ul>
-            {navLinks.map((item, index) => (
+            {initialNavItems.map((item, index) => (
               <MenuItem key={index} item={item} />
             ))}
             {/* <li className={styles.title}>TEST</li> */}
@@ -115,11 +60,7 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
           <Link
             className={styles.subMenuLink}
             onClick={() => {
-              updateOpenTabs(item)
-              if (width < 640) {
-                closeMenu()
-              }
-              return
+              console.log("click")
             }}
             href={item.path}
           >
@@ -148,11 +89,11 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
                 return (
                   <Link
                     onClick={() => {
-                      updateOpenTabs(subItem)
-                      if (width < 640) {
-                        closeMenu()
-                      }
-                      return
+                      // updateOpenTabs(subItem)
+                      // if (width < 640) {
+                      //   closeMenu()
+                      // }
+                      // return
                     }}
                     key={idx}
                     href={subItem.path}
@@ -175,11 +116,11 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
       ) : (
         <Link
           onClick={() => {
-            updateOpenTabs(item)
-            if (width < 640) {
-              closeMenu()
-            }
-            return
+            // updateOpenTabs(item)
+            // if (width < 640) {
+            //   closeMenu()
+            // }
+            // return
           }}
           href={item.path}
           className={`${styles.linkNew} ${

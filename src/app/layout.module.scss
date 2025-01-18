@@ -5,13 +5,8 @@
 .layout {
   min-height: 100vh;
   display: flex;
-  
-
-
-  // overflow: hidden;
 
   &::-webkit-scrollbar {
-    // height: 5px;
     width: 5px;
   }
 
@@ -34,21 +29,16 @@
   width: 100%;
   color: colors.$grey-100;
   overflow: hidden;
-  margin-top: spacing.$s6;
+  // TODO margin with header
+  // margin-top: spacing.$s6;
 }
 
 .content {
-  // height: 80%;
   padding: spacing.$s2;
-  // overflow: hidden;
-  
-  // height: 100%;
   display: flex;
   justify-content: center;
-  // align-items: center;
 
   @include breakpoints.md {
     padding: 43px;
   }
-
 }
