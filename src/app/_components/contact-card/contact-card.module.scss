@@ -7,8 +7,9 @@
 .listItem {
   display: flex;
   flex-direction: column;
-
-  // color: colors.$grey-500;
+  border-bottom: 3px solid colors.$navy-500;
+  border-radius: 5px;
+  border-radius: 5px;
   width: 300px;
   @include breakpoints.lg {
     width: 400px;
@@ -16,11 +17,6 @@
   @include breakpoints.xl {
     width: 500px;
   }
-  // padding: spacing.$s2;
-  border-bottom: 3px solid colors.$navy-500;
-
-  border-radius: 5px;
-  border-radius: 5px;
 
   a {
     display: flex;
@@ -31,7 +27,6 @@
     text-decoration: none;
     background-color: colors.$grey-950;
     border-radius: 5px 5px 0 0;
-    
 
     span {
       overflow: hidden;
@@ -47,7 +42,6 @@
       background-color: rgba(colors.$blue-600, 0.2);
     }
 
-
     svg {
       width: fonts.$xl;
     }
@@ -62,9 +56,6 @@
     }
   }
 }
-
-
-
 
 // .short {
 // list-style: none;
