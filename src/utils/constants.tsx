@@ -13,7 +13,7 @@ import {
   karnasAlt,
   sass,
   typeScript,
-  typeScriptAlt
+  typeScriptAlt,
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -51,16 +51,29 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/blog",
     icon: folderOpen.icon,
     submenu: true,
-    subMenuItems: [{    title: "dynamic.ts",
-      path: "/blog/dynamic-routing",
-      icon: typeScriptAlt.icon,}],
+    subMenuItems: [
+      {
+        title: "odinFoundationCourse.ts",
+        path: "/blog/odin-foundation-course",
+        icon: typeScriptAlt.icon,
+      },
+      {
+        title: "fullStackOpenCore.ts",
+        path: "/blog/full-stack-open-core",
+        icon: typeScriptAlt.icon,
+      },
+      {
+        title: "pentesterCourse.ts",
+        path: "/blog/pentester-course",
+        icon: typeScriptAlt.icon,
+      },
+    ],
   },
   {
     title: "contact.sass",
     path: "/contact",
     icon: sass.icon,
   },
-
 
   // {
   //   title: ".gitignore",

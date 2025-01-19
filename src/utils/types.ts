@@ -21,9 +21,6 @@ export type MenuItemWithSubMenuProps = {
   toggleOpen: () => void
 }
 
-// export type Info = {
-//   [key: string]: string | object
-// }
 
 export type FakeJson = {
   title: string
@@ -47,13 +44,9 @@ export type Field = {
 }
 
 export type Post = {
-  id: string
-  author_id: string
   author_name: string
   title: string
-  short_title: string
   sub_title: string
-  slug: string
   content_title: string
   content: string
   main_image: string
@@ -61,8 +54,6 @@ export type Post = {
   category: string
   tags: string[]
   date: string
-  icon: string
-  programmingLink: string
 }
 
 export type BlogCardType = {
@@ -79,8 +70,6 @@ export type BlogCardType = {
 }
 
 export type Project = {
-  id: string
-  author_id: string
   author_name: string
   title: string
   short_title: string
