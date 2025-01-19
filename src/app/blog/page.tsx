@@ -15,7 +15,6 @@ export default async function Portfolio() {
   const allPosts = getAllPosts()
   const blogs: BlogCardType[] = allPosts.map((blog) => ({
     title: blog.title,
-    short_title: blog.short_title,
     sub_title: blog.sub_title,
     slug: blog.slug,
     content_title: blog.content_title,

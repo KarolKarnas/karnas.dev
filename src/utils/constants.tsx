@@ -14,6 +14,7 @@ import {
   sass,
   typeScript,
   typeScriptAlt,
+  nextJs,
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -44,7 +45,18 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/projects",
     icon: folderOpen.icon,
     submenu: true,
-    subMenuItems: [],
+    subMenuItems: [
+      {
+        title: "ilustrografia.com",
+        path: "/projects/ilustrografia-com",
+        icon: react.icon,
+      },
+      {
+        title: "karnas.dev",
+        path: "/projects/karnas-dev",
+        icon: nextJs.icon,
+      },
+    ],
   },
   {
     title: "blog",

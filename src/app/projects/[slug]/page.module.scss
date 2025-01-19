@@ -1,0 +1,323 @@
+@use "../../scss/colors";
+@use "../../scss/mixins";
+@use "../../scss/fonts";
+@use "../../scss/spacing";
+@use "../../scss/breakpoints";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing.$s4;
+  width: 100%;
+  margin-top: spacing.$s3;
+  @include breakpoints.md {
+    width: 90%;
+    margin-top: 0;
+    gap: spacing.$s5;
+  }
+  .imgWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include breakpoints.md {
+      width: 80%;
+      height: 80%;
+      margin-top: spacing.$s2;
+      margin-bottom: spacing.$s2;
+      
+    }
+    img {
+      // margin-top: spacing.$s2;
+      // margin-bottom: spacing.$s2;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+
+    }
+  }
+  .text-container {
+    border-radius: 15px;
+    width: 100%;
+    // margin-bottom: spacing.$s8;
+    background-color: colors.$grey-950;
+    padding: spacing.$s2;
+    display: flex;
+    flex-direction: column;
+    gap: spacing.$s4;
+    align-items: center;
+    backdrop-filter: blur(3px);
+
+    ul {
+      width: auto;
+      padding: spacing.$s2;
+
+      @include breakpoints.md {
+        padding-left: spacing.$s7;
+        padding-right: spacing.$s7;
+      }
+    }
+    @include breakpoints.md {
+      gap: spacing.$s4;
+      // top: 4rem;
+      padding-top: spacing.$s4;
+      padding-bottom: spacing.$s7;
+    }
+
+    h1 {
+      font-size: fonts.$xl3;
+      color: colors.$orange-500;
+      text-align: center;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-orange-700,
+        colors.$shadow-orange-600
+      );
+      @include breakpoints.md {
+        font-size: fonts.$xl6;
+      }
+    }
+    h2 {
+      font-size: fonts.$base;
+      text-align: center;
+      color: colors.$purple-100;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
+      );
+      @include breakpoints.md {
+        font-size: fonts.$lg;
+      }
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    width: 100%;
+    gap: spacing.$s2;
+    @include breakpoints.md {
+      flex-direction: row;
+      width: 80%;
+    }
+  }
+
+  .content-container {
+    width: 100%;
+    border-radius: 15px;
+    background-color: rgba(colors.$grey-950, 0.9);
+    backdrop-filter: blur(10px);
+    padding: spacing.$s2 spacing.$s4;
+    @include breakpoints.md {
+      // width: 80%;
+      padding: spacing.$s8 spacing.$s10;
+    }
+    .technologies {
+      margin-top: spacing.$s7;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: spacing.$s2;
+      color: colors.$white-100;
+      font-style: italic;
+      font-size: fonts.$xl2;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
+      );
+      @include breakpoints.md {
+        font-size: fonts.$xl3;
+      }
+    }
+    p {
+      color: colors.$white-300;
+      font-size: fonts.$base;
+      font-style: italic;
+      text-align: justify;
+      hyphens: auto;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
+      );
+      @include breakpoints.md {
+        font-size: fonts.$xl2;
+      }
+    }
+    section {
+      margin: spacing.$s6 0px;
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$s2;
+      @include breakpoints.md {
+        gap: spacing.$s4;
+      }
+
+      h3 {
+        margin-bottom: spacing.$s2;
+        color: colors.$white-100;
+        font-size: fonts.$xl;
+        text-align: center;
+        @include mixins.drop-shadow-md-color(
+          colors.$shadow-white-700,
+          colors.$shadow-white-600
+        );
+        @include breakpoints.md {
+          font-size: fonts.$xl2;
+        }
+      }
+      p {
+        color: colors.$white-100;
+        font-size: fonts.$base;
+        font-style: normal;
+        text-align: justify;
+        hyphens: auto;
+        @include mixins.drop-shadow-md-color(
+          colors.$shadow-white-700,
+          colors.$shadow-white-600
+        );
+        @include breakpoints.md {
+          font-size: fonts.$lg;
+        }
+      }
+      .imgWrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 100%;
+          height: 100%;
+          margin: spacing.$s4 0px;
+        }
+      }
+
+      .ListContainer {
+        list-style: square;
+        padding-left: spacing.$s6;
+      }
+      .LinksContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: spacing.$s3;
+      }
+
+      hr {
+        width: 80%;
+        border: none;
+        border-top: 3px double colors.$grey-600;
+        // color: #333;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        margin: spacing.$s6 auto;
+      }
+
+      // hr::after {
+      // background: #fff;
+      // content: '§';
+      // padding: 0 4px;
+      // position: relative;
+      // top: -13px;
+      // }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: spacing.$s4;
+      margin-bottom: spacing.$s4;
+      background-color: colors.$grey-900;
+      padding: spacing.$s4 spacing.$s2;
+      border-radius: 15px;
+
+      @include breakpoints.md {
+        margin-bottom: spacing.$s8;
+        // padding: spacing.$s8;
+      }
+      @include breakpoints.lg {
+        // margin-bottom: spacing.$s8;
+        padding: spacing.$s8;
+      }
+
+      .links {
+        // width: auto;
+        display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+        // padding: spacing.$s2;
+
+        @include breakpoints.md {
+          // padding-left: spacing.$s7;
+          // padding-right: spacing.$s7;
+        }
+      }
+      h3 {
+        margin-bottom: spacing.$s2;
+        color: colors.$white-100;
+        font-style: italic;
+        font-size: fonts.$xl2;
+        @include mixins.drop-shadow-md-color(
+          colors.$shadow-white-700,
+          colors.$shadow-white-600
+        );
+        @include breakpoints.md {
+          font-size: fonts.$xl3;
+        }
+      }
+    }
+
+    .author-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: spacing.$s4;
+      color: colors.$white-100;
+      background-color: colors.$grey-900;
+      padding: spacing.$s6 spacing.$s2;
+      border-radius: 15px;
+      @include breakpoints.xl {
+        flex-direction: row;
+        gap: 0;
+        margin-bottom: spacing.$s8;
+        padding: spacing.$s8 ;
+        // padding-bottom: spacing.$s6;
+      }
+      .authorName {
+        // width: auto;
+        display: flex;
+        flex-direction: column;
+        color: colors.$white-100;
+        text-decoration: none;
+        span {
+          @include mixins.drop-shadow-md-color(
+            colors.$shadow-white-700,
+            colors.$shadow-white-600
+          );
+          &:first-of-type {
+            font-size: fonts.$xl2;
+          }
+          &:last-of-type {
+            margin-bottom: spacing.$s4;
+          }
+        }
+        &:hover {
+          color: colors.$blue-500;
+          text-decoration-line: underline;
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: spacing.$s3;
+      }
+    }
+  }
+}

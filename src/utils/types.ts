@@ -47,6 +47,7 @@ export type Post = {
   author_name: string
   title: string
   sub_title: string
+  slug: string
   content_title: string
   content: string
   main_image: string
@@ -58,7 +59,6 @@ export type Post = {
 
 export type BlogCardType = {
   title: string
-  short_title: string
   sub_title: string
   slug: string
   content_title: string
@@ -66,13 +66,11 @@ export type BlogCardType = {
   main_image: string
   path: string
   date: string
-  // icon: JSX.Element
 }
 
 export type Project = {
   author_name: string
   title: string
-  short_title: string
   sub_title: string
   slug: string
   content_title: string
@@ -92,9 +90,8 @@ export type Project = {
   date: string
 }
 
-export type ProjectCard = {
+export type ProjectCardType = {
   title: string
-  short_title: string
   sub_title: string
   slug: string
   content_title: string
@@ -107,7 +104,6 @@ export type ProjectCard = {
 
   path: string
   date: string
-  // icon: JSX.Element
 }
 
 export type IconText = {

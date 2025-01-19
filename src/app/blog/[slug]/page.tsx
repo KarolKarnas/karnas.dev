@@ -104,21 +104,16 @@ type Params = {
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
-  // read route params
   const params = await props.params
-  // fetch data
   const post = getPostBySlug(params.slug)
 
   if (!post) {
     return notFound()
   }
 
-  // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || []
-
   return {
     title: post.title,
-    description: post.content,
+    description: post.content.slice(0, 200),
     openGraph: {
       images: [post.main_image],
     },
