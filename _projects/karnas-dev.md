@@ -40,7 +40,7 @@ fields:
       - "Utilize Cloudinary for secure and scalable object storage, optimizing media file handling"
       - "Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture"
       - "Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application"
-      image: "https://res.cloudinary.com/djadfridw/image/upload/v1707131042/pm7f1szandr9c661l3pf.jpg"
+    image: "https://res.cloudinary.com/djadfridw/image/upload/v1707131042/pm7f1szandr9c661l3pf.jpg"
 
   - title: "The Responsiveness"
     content: "The application is designed to be fully responsive, aiming to maintain a consistent user experience across different screen sizes. The goal is to provide a practical and user-friendly interface on par with Visual Studio Code (VSC) across all devices."
