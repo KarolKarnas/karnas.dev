@@ -4,9 +4,11 @@ import { SIDENAV_ITEMS } from "../utils/constants"
 import { SOCIAL_ITEMS } from "../utils/constants"
 import LinkCard from "./_components/link-card/link-card"
 import BlogLinks from "./_components/blog-links/blog-links"
+import ProjectsLinks from "./_components/project-links/projects-links"
 
 export default function Home() {
   const postLinks = SIDENAV_ITEMS.find((item) => item.title === "blog")
+  const projectLinks = SIDENAV_ITEMS.find((item) => item.title === "projects")
 
   return (
     <div className={styles.container}>
@@ -29,7 +31,9 @@ export default function Home() {
           ))}
         </ul>
         <h4>Projects</h4>
-        {/* <ProjectsLinks /> */}
+        {projectLinks?.subMenuItems && (
+          <ProjectsLinks projectLinks={projectLinks.subMenuItems} />
+        )}
       </div>
 
       <div className={styles.socialLinks}>
