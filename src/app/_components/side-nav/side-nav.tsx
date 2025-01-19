@@ -17,7 +17,6 @@ const SideNav = () => {
      `}
     >
       <Hamburger />
-
       <div className={styles.show}>
         <Logo padding flex />
         <nav>

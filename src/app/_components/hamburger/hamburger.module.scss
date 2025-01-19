@@ -2,6 +2,8 @@
 @use "../../scss/breakpoints";
 
 .hamburger {
+  // TODO fix hamburger
+  display: none;
   color: colors.$grey-100;
   width: 30px;
 
