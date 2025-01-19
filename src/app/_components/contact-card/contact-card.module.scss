@@ -1,0 +1,90 @@
+@use "../../scss/colors.scss";
+@use "../../scss/fonts.scss";
+@use "../../scss/mixins.scss";
+@use "../../scss/spacing.scss";
+@use "../../scss/breakpoints.scss";
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid colors.$navy-500;
+  border-radius: 5px;
+  border-radius: 5px;
+  width: 300px;
+  @include breakpoints.lg {
+    width: 400px;
+  }
+  @include breakpoints.xl {
+    width: 500px;
+  }
+
+  a {
+    display: flex;
+    gap: spacing.$s3;
+    color: colors.$purple-100;
+    height: 100%;
+    padding: spacing.$s3;
+    text-decoration: none;
+    background-color: colors.$grey-950;
+    border-radius: 5px 5px 0 0;
+
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
+      );
+    }
+    &:hover {
+      // background-color: colors.$grey-800;
+      background-color: rgba(colors.$blue-600, 0.2);
+    }
+
+    svg {
+      width: fonts.$xl;
+    }
+  }
+
+  a.light {
+    background-color: rgba(colors.$grey-650, 0.5);
+    &:hover {
+      // background-color: rgba(colors.$orange-500, 0.75);
+
+      background-color: rgba(colors.$blue-600, 0.2);
+    }
+  }
+}
+
+// .short {
+// list-style: none;
+
+// // width: 100%;
+
+//   a {
+//     display: flex;
+//     justify-content: center;
+//     gap: spacing.$s3;
+//     color: colors.$white-100;
+//     border-radius: 15px;
+//     height: 100%;
+//     width: 100%;
+//     padding: spacing.$s3;
+//     text-decoration: none;
+//     background-color: rgba(colors.$blue-600, 0.2);
+//     border: 1px solid colors.$blue-500;
+//     span {
+//       @include mixins.drop-shadow-md-color(
+//         colors.$shadow-white-700,
+//         colors.$shadow-white-600
+//       );
+//     }
+//     &:hover {
+//       background-color: rgba(colors.$blue-500, 0.75);
+//     }
+//     svg {
+//       height: fonts.$xl;
+//     }
+//   }
+// }

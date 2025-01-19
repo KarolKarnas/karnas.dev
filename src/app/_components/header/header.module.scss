@@ -1,0 +1,106 @@
+@use "../../scss/colors";
+@use "../../scss/spacing";
+@use "../../scss/fonts";
+@use "../../scss/breakpoints";
+
+.header {
+  background-color: colors.$grey-950;
+  height: 40px;
+  width: 100%;
+  // padding-right: 200px;
+  // position: sticky;
+  display: flex;
+  top: 0px;
+  // right: 0px;
+  position: fixed;
+  overflow-x: scroll;
+  transform: rotateX(180deg);
+  z-index: 100;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include breakpoints.md {
+    &::-webkit-scrollbar {
+      display: inherit;
+      height: 5px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: colors.$grey-600;
+      border-radius: 5px;
+      &:hover {
+        background-color: colors.$grey-100;
+      }
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: colors.$grey-950;
+    }
+  }
+ 
+  ul {
+    display: flex;
+    flex-direction: row-reverse;
+    list-style: none;
+    align-items: center;
+    margin-left: 45px;
+    //make sure all tabs are visible
+    margin-right: 100px;
+    height: 100%;
+    @include breakpoints.md {
+      margin-left: 0px;
+      margin-right: 300px;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      background-color: colors.$grey-950;
+      border-right: solid 1px black;
+      font-size: fonts.$sm;
+      color: colors.$grey-100;
+      padding-left: spacing.$s5;
+      padding-right: spacing.$s6;
+      text-decoration: none;
+      li {
+        display: flex;
+        align-items: center;
+        gap: spacing.$s2;
+        svg {
+          height: spacing.$s5;
+        }
+      }
+    }
+    .active {
+      background-color: colors.$grey-900;
+      color: colors.$accent-500;
+      border-top: 1px solid #000;
+    }
+
+    .container {
+      //scroll bar on top transformation
+      transform: rotateX(180deg);
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.xMark {
+  display: flex;
+  position: absolute;
+  right: 5px;
+  top: 11px;
+  border-radius: 6px;
+  padding: 2px;
+  svg {
+    height: spacing.$s4;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: colors.$grey-625;
+  }
+}
