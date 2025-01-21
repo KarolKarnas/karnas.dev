@@ -11,13 +11,14 @@ import Logo from "../logo/logo"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 
 const SideNav = () => {
+  const [showSideNav, setShowSideNav] = useState(true)
   return (
     <div
       className={`${styles.sidenav}
      `}
     >
-      <Hamburger />
-      <div className={styles.show}>
+      <Hamburger showSideNav={showSideNav} setShowSideNav={setShowSideNav}/>
+      <div className={showSideNav? styles.show : styles.hide}>
         <Logo padding flex />
         <nav>
           <ul>

@@ -1,11 +1,12 @@
+import { Dispatch, SetStateAction } from "react"
 import styles from "./hamburger.module.scss"
 
-type Props = {}
-const Hamburger = (props: Props) => {
+type HamburgerProps = { setShowSideNav: Dispatch<SetStateAction<boolean>>, showSideNav: boolean }
+const Hamburger = ({ setShowSideNav, showSideNav }: HamburgerProps) => {
   return (
     <div className={styles.container}>
       <svg
-        onClick={() => console.log("click hamburger")}
+        onClick={() => setShowSideNav(!showSideNav)}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"

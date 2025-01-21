@@ -2,41 +2,11 @@
 @use "../../scss/colors";
 @use "../../scss/spacing";
 
-// @include breakpoints.xs {
-//   .title {
-//     color: colors.$blue-500;
-//   }
-// }
-
-// .title {
-//   color: colors.$orange-500;
-//   @include breakpoints.sm {
-//     color: colors.$pink-500;
-//   }
-//   @include breakpoints.md {
-//     color: colors.$blue-500;
-//   }
-//   @include breakpoints.lg {
-//     color: colors.$pink-100;
-//   }
-//   @include breakpoints.xl {
-//     color: colors.$green-500;
-//   }
-//   @include breakpoints.xl2 {
-//     color: colors.$yellow-500;
-//   }
-// }
-
 .sidenav {
   background-color: colors.$grey-950;
   color: colors.$grey-100;
-  
   z-index: 101;
   position: fixed;
-  
- 
-  // height: 100vh;
-  // width: 100vw;
   overflow-y: scroll;
   overflow-x: hidden;
 
@@ -61,22 +31,10 @@
   @include breakpoints.md {
     position: sticky;
     top: 0px;
-
     height: 100vh;
     width: auto;
-    // overflow: hidden;
   }
 
-  // .open {
-  //   width: 100vw!important;
-  //   height: 100vh;
-  //   @include breakpoints.md {
-  //     width: 30%;
-  //   }
-  // }
-  // .close {
-  //   width: auto;
-  // }
 }
 
 .show {
@@ -94,12 +52,6 @@
 .hide {
   display: none;
 }
-
-// ______________
-
-// .pathBtn {
-//   background-color: colors.$grey-600;
-// }
 
 .contentBtn {
   display: flex;
@@ -141,7 +93,6 @@
   }
   span {
     width: 100%;
-    //truncate
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -184,6 +135,5 @@
 }
 
 .spanLink {
-  // font-weight: 600;
   display: flex;
 }

@@ -4,7 +4,7 @@ import styles from "./layout.module.scss"
 import "./scss/_global.scss"
 import SideNav from "./_components/side-nav/side-nav"
 import { Analytics } from "@vercel/analytics/react"
-// import Header from "./_components/header/header"
+import Header from "./_components/header/header"
 
 const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] })
 
@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className={`${roboto.className} ${styles.layout}`}>
         <SideNav />
         <div className={styles.container}>
-          {/* <Header /> */}
+          <Header />
           <main className={styles.content}>{children}</main>
         </div>
         <Analytics />

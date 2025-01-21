@@ -18,13 +18,25 @@ const Header = () => {
   const [openTabs, setOpenTabs] = useState<SideNavItem[]>([SIDENAV_ITEMS[0]])
 
   const getActiveTab = (pathname: string) => {
-    return SIDENAV_ITEMS.find(
-      (item) =>
-        item.path === pathname ||
-        (item.subMenuItems &&
-          item.subMenuItems.some((subItem) => subItem.path === pathname))
-    )
+    let activeTab
+
+    for (let i = 0; i < SIDENAV_ITEMS.length; i++) {
+      const item = SIDENAV_ITEMS[i]
+      if (item.path === pathname) {
+        activeTab = item
+      }
+      if (item.subMenuItems) {
+        for (let j = 0; j < item.subMenuItems.length; j++) {
+          if (item.subMenuItems[j].path === pathname) {
+            activeTab = item.subMenuItems[j]
+          }
+        }
+      }
+    }
+
+    return activeTab
   }
+
 
   const updateOpenTabs = (tab: SideNavItem) => {
     setOpenTabs((prevTabs) => {
@@ -35,10 +47,10 @@ const Header = () => {
     })
   }
 
-const removeTab = (item: SideNavItem) => {
-  setOpenTabs((prevTabs) => prevTabs.filter((tab) => tab.path !== item.path))
-  // router.push("/")
-}
+  const removeTab = (item: SideNavItem) => {
+    setOpenTabs((prevTabs) => prevTabs.filter((tab) => tab.path !== item.path))
+    // router.push("/")
+  }
 
   const activeTab = getActiveTab(pathname)
 
@@ -74,13 +86,13 @@ const removeTab = (item: SideNavItem) => {
               </li>
             </Link>
 
-            {item.path === "/" ? null : (activeTab &&
+            {/* {item.path === "/" ? null : (activeTab &&
                 item.title === activeTab.title) ||
               showRemove === item.title ? (
               <div onClick={() => removeTab(item)} className={styles.xMark}>
                 {xMark.icon}
               </div>
-            ) : null}
+            ) : null} */}
           </div>
         ))}
       </ul>
