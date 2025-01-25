@@ -132,58 +132,47 @@ export const SOCIAL_ITEMS: SocialItem[] = [
   // }
 ]
 
-export const MY_SKILLS: IconName[] = [
-  "typeScript",
-  "javaScript",
-  "react",
-  "redux",
-  "nextJs",
-  // "html",
-  "nodeJs",
-  "express",
-  "postgres",
-  "sql",
-  "mongo",
-  "mongoose",
-  "sass",
-  "cssModules",
-  "tailwind",
-  "cypress",
-  "jest",
-  // "playWright",
-  "postman",
-  "rtl",
-  "linux",
-  "git",
-  "gitHub",
-  "jira",
-  "confluence",
-  "figma",
-]
+export const PROGRAMMING: IconName[] = ["python", "typeScript", "javaScript"]
 
-export const PROGRAMMING: IconName[] = ["typeScript", "javaScript"]
 export const FRONTEND: IconName[] = [
   "react",
   "redux",
   "nextJs",
   "sass",
-  "cssModules",
+  // "cssModules",
   "tailwind",
 ]
+
 export const BACKEND: IconName[] = [
+  "django",
   "nodeJs",
   "express",
+  "nestJs",
+  "prisma",
   "postgres",
   "sql",
-  "mongo",
-  "mongoose",
+  // "mongo",
+  // "mongoose",
 ]
-export const TEST: IconName[] = ["jest", "cypress", "rtl", "postman"]
+
+export const TEST: IconName[] = [
+  "pytest",
+  "jest",
+  "cypress",
+  "rtl",
+  "postman",
+  "insomnia",
+]
+
 export const WORKFLOW_TOOLS: IconName[] = [
   "linux",
+  "vsc",
   "git",
   "gitHub",
   "jira",
   "confluence",
-  "figma",
+  // "figma",
 ]
+
+
+export const MY_SKILLS: IconName[] = [...PROGRAMMING, ...FRONTEND, ...BACKEND, ...TEST, ...WORKFLOW_TOOLS]
