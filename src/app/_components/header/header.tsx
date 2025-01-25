@@ -10,33 +10,35 @@ import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
 
 const Header = () => {
-  const router = useRouter()
-  const pathname = usePathname()
-
-  const [showRemove, setShowRemove] = useState<string | null>(null)
-
-  const [openTabs, setOpenTabs] = useState<SideNavItem[]>([SIDENAV_ITEMS[0]])
+  const homeSideNavItem = SIDENAV_ITEMS[0]
 
   const getActiveTab = (pathname: string) => {
-    let activeTab
+    let currentActiveTab = homeSideNavItem
 
     for (let i = 0; i < SIDENAV_ITEMS.length; i++) {
       const item = SIDENAV_ITEMS[i]
       if (item.path === pathname) {
-        activeTab = item
+        currentActiveTab = item
       }
       if (item.subMenuItems) {
         for (let j = 0; j < item.subMenuItems.length; j++) {
           if (item.subMenuItems[j].path === pathname) {
-            activeTab = item.subMenuItems[j]
+            currentActiveTab = item.subMenuItems[j]
           }
         }
       }
     }
 
-    return activeTab
+    return currentActiveTab
   }
+  
+  const router = useRouter()
+  const pathname = usePathname()
 
+  const [showRemove, setShowRemove] = useState<string | null>(null)
+  const [openTabs, setOpenTabs] = useState<SideNavItem[]>([homeSideNavItem])
+  const [activeTab, setActiveTab] = useState(getActiveTab(pathname))
+  const [nextTab, setNextTab] = useState<SideNavItem | null>(null)
 
   const updateOpenTabs = (tab: SideNavItem) => {
     setOpenTabs((prevTabs) => {
@@ -48,16 +50,39 @@ const Header = () => {
   }
 
   const removeTab = (item: SideNavItem) => {
-    setOpenTabs((prevTabs) => prevTabs.filter((tab) => tab.path !== item.path))
-    // router.push("/")
+    setOpenTabs((prevTabs) => {
+      const filteredTabs = prevTabs.filter((tab) => tab.path !== item.path)
+
+      let newItem = homeSideNavItem
+      const currentTabIndex = prevTabs.indexOf(item)
+      const lastFilteredIndex = filteredTabs.length - 1
+      if (currentTabIndex <= lastFilteredIndex) {
+        newItem = filteredTabs[currentTabIndex]
+      } else if (currentTabIndex > lastFilteredIndex) {
+        newItem = filteredTabs[currentTabIndex - 1]
+      }
+
+      if (activeTab === item) {
+        setActiveTab(newItem)
+        setNextTab(newItem)
+      }
+
+      return filteredTabs
+    })
   }
 
-  const activeTab = getActiveTab(pathname)
+  useEffect(() => {
+    if (nextTab) {
+      router.push(nextTab.path)
+      setNextTab(null)
+    }
+  }, [nextTab, router])
 
   useEffect(() => {
     if (pathname) {
       const newTab = getActiveTab(pathname)
       if (newTab) {
+        setActiveTab(newTab)
         updateOpenTabs(newTab)
       }
     }
@@ -74,7 +99,6 @@ const Header = () => {
             className={styles.container}
           >
             <Link
-              // onClick={() => updateOpenTabs(item)}
               href={item.path}
               className={
                 activeTab && item.title === activeTab.title ? styles.active : ""
@@ -86,13 +110,13 @@ const Header = () => {
               </li>
             </Link>
 
-            {/* {item.path === "/" ? null : (activeTab &&
+            {item.path === "/" ? null : (activeTab &&
                 item.title === activeTab.title) ||
               showRemove === item.title ? (
               <div onClick={() => removeTab(item)} className={styles.xMark}>
                 {xMark.icon}
               </div>
-            ) : null} */}
+            ) : null}
           </div>
         ))}
       </ul>

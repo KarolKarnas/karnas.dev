@@ -4,7 +4,7 @@ import {
   BACKEND,
   FRONTEND,
   TEST,
-  DEV_OPS,
+  WORKFLOW_TOOLS,
 } from "../../utils/constants"
 import useIcon from "../../hooks/useIcon"
 import { Metadata } from "next"
@@ -22,11 +22,11 @@ export const metadata: Metadata = {
 
 export default async function About() {
   const skills = [
-    { title: "Programming", icons: useIcon(PROGRAMMING) },
+    { title: "Programming languages", icons: useIcon(PROGRAMMING) },
     { title: "Front-end", icons: useIcon(FRONTEND) },
     { title: "Back-end", icons: useIcon(BACKEND) },
     { title: "Test", icons: useIcon(TEST) },
-    { title: "DevOps", icons: useIcon(DEV_OPS) },
+    { title: "Workflow Tools", icons: useIcon(WORKFLOW_TOOLS) },
   ]
 
   return (

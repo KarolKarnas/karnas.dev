@@ -179,7 +179,7 @@ export const BACKEND: IconName[] = [
   "mongoose",
 ]
 export const TEST: IconName[] = ["jest", "cypress", "rtl", "postman"]
-export const DEV_OPS: IconName[] = [
+export const WORKFLOW_TOOLS: IconName[] = [
   "linux",
   "git",
   "gitHub",
