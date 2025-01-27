@@ -40,7 +40,7 @@ fields:
 
   - title: "Quick Summary"
     content: "The course doesn't particularly emphasize styling applications. The majority of time is dedicated to programming both the frontend and backend, as well as testing our code. It's not a drawback but an advantage. Contemporary CSS frameworks are introduced in a sufficient manner. However, if someone masters the main programming aspects of the course, they can refine styling on their own.  If I could change something in the Core Course, I would prefer to learn SQL + PostgreSQL, instead of MongoDB. I would place MongoDB in the supplementary course. However, from a teaching perspective, using MongoDB in the Core Course was probably justified due to its ease of use. In that case, maybe it should stay that way."
-    image: "https://res.cloudinary.com/djadfridw/image/upload/v1706801466/t0i49afg2uk0ztoe7tly.jpg"
+    image: "https://res.cloudinary.com/djadfridw/image/upload/v1738009614/zoma2s3ir9fmtiyxibkk.png"
     second_content: "As I mentioned at the beginning of this short review, the course is just great. It is probably the best online source for learning full-stack development. And if that wasn't enough, it is officially conducted by the University of Helsinki, it's free, and you receive ECTS points. Additionally, upon completion of each exercise, you will receive an accessible online certificate!"
     links:
       - link: "https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/26a9bc441296f05e655e5526eac6494c"
