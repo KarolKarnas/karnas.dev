@@ -68,4 +68,4 @@ fields:
 
 ---
 
-The Odin Project Foundation Course provides an excellent jumpstart into the world of web development, immersing you in hands-on experience right from the beginning.
+Creating comprehensive applications, complete with features such as an administration panel, users and products, requires us to operate as full-stack developers. I had always wanted to create such an application myself, and actively participating in this course allowed me to do just that. It wasn't easy, and it wasn't enough to build my first eCommerce platform, but it was a significant milestone in achieving that goal.
