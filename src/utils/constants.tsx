@@ -79,6 +79,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         path: "/blog/pentester-course",
         icon: typeScriptAlt.icon,
       },
+      {
+        title: "fullStackSupplementary.ts",
+        path: "/blog/full-stack-open-supplementary",
+        icon: typeScriptAlt.icon,
+      },
     ],
   },
   {
@@ -176,3 +181,5 @@ export const WORKFLOW_TOOLS: IconName[] = [
 
 
 export const MY_SKILLS: IconName[] = [...PROGRAMMING, ...FRONTEND, ...BACKEND, ...TEST, ...WORKFLOW_TOOLS]
+
+export const CORE_SKILLS: IconName[] = ["python", "typeScript", "react", "nextJs", "django", "nestJs"]
