@@ -23,7 +23,7 @@ export default async function About() {
       <div className={styles.info}>
         <MainHeading color="orange">About</MainHeading>
         <MainSubHeading color="purple">
-          Karol Karnas - Full Stack Developer
+          Karol Karnas - Full-stack developer
         </MainSubHeading>
         <Json code={ABOUT}></Json>
       </div>

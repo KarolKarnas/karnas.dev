@@ -1,7 +1,7 @@
 ---
 author_name: "Karol Karnas"
 title: "The University of Helsinki supplementary courses"
-sub_title: "Additional TypeScript, Relational Databases, GraphQL, ReactNative courses"
+sub_title: "Additional TypeScript, Relational Databases courses"
 content_title: "Dive even deeper Into Modern Web Development"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706793659/viaex6ouox8wy6lr3tlp.png"
 category: "WebDevelopment"

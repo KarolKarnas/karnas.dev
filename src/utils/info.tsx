@@ -4,38 +4,35 @@ export const ABOUT: FakeJson[] = [
   {
     title: "Specialization",
     value:
-      "I am specializing in creating pixel perfect Interfaces. Currently my favorite stack to do that is React + Typescript + TailwindCSS",
+      "I specialize in full-stack development and thrive in its fast-paced environment. I enjoy improving communication within this workflow and taking responsibility for designing API structures and database schemas. I love seeing a well-structured database seamlessly mirrored in a beautiful and functional UI. Currently, I spend most of my time working with Python and Django on the back-end, and React, Redux, and SCSS on the front-end.",
   },
   {
     title: "Stack",
     value: [
-      { title: "Frontend", value: "React, Next.js, Typescript, JavaScript ES6+, Redux" },
-      { title: "Backend", value: "Node.js, Express, PostgreSQL, SQL, MongoDB, Mongoose" },
-      { title: "CSS", value: "TailwindCSS, SASS, CSS Modules, Bootstrap" },
+      {
+        title: "Backend",
+        value: "Python, Django, Node.js, Express, NestJS PostgreSQL, SQL",
+      },
+      { title: "Frontend", value: "React, Redux, Next.js, Typescript, SASS" },
       {
         title: "Testing",
-        value: "JEST, React Testing Library, Cypress",
+        value: "Pytest, JEST, React Testing Library, Cypress",
       },
       {
         title: "Environment",
-        value: "Linux, Git, Github, Jira, Confluence, Figma",
+        value: "Linux, Git, Github, Jira, Confluence",
       },
-      { title: "Other", value: "Wordpress, WooCommerce" },
     ],
   },
   {
     title: "AI",
     value:
-      "I am using ChatGPT to prototyping (generating more realistic text placeholders), in my learning process (in limited way, i do not trust it :D)/ MidJourney/LeonardoAi to generate placeholders/inspiration",
+      "I integrate AI-powered API requests and vector databases into backend development. I use ChatGPT for prototyping and learning (with caution 😆) and MidJourney/Leonardo AI for design inspiration",
   },
   {
     title: "Background",
     value:
-      "I have always love to create. Programming is art in itself. But I am experienced in other related occupations. So in my toolbox are many semi related to programming skills, such as: Photography, Composition, Esthetics, 2D Animation, UI/UX",
-  },
-  {
-    title: "Experience",
-    value: "I am experienced with various Frontend and Backend technologies",
+      "I have always loved building and creating—programming feels like an art form. My skill set extends beyond coding, including problem-solving, system design, and data analysis with pandas. I also have experience in creative fields like photography, composition, aesthetics, 2D animation, and UI/UX, which shape my approach to development",
   },
 ]
 
@@ -45,16 +42,12 @@ export const CONTACT: FakeJson[] = [
     value: [
       {
         title: "E-mail",
-        value:
-          "karol.karnas@gmail.com",
+        value: "karol.karnas@gmail.com",
       },
       {
         title: "Phone",
-        value:
-          "+48 784 034 778",
+        value: "+48 784 034 778",
       },
     ],
   },
-
-
 ]

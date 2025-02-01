@@ -14,7 +14,7 @@ export default function Home() {
     <div className={styles.container}>
       <div className={styles.col1}>
         <h1>Karol Karnas</h1>
-        <h3>Full Stack Developer</h3>
+        <h3>Full-stack developer</h3>
         {/* <h5>Portfolio and Blog</h5> */}
         {/* <div className={styles.description}>
           <Logo />
