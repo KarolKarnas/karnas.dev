@@ -1,6 +1,5 @@
 import styles from "./logo.module.scss"
 import Link from "next/link"
-// import { karnas } from "@/app/utils/icons"
 
 type Props = { padding?: boolean; flex?: boolean }
 const Logo = ({ padding, flex }: Props) => {

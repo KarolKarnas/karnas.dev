@@ -38,7 +38,6 @@
       );
     }
     &:hover {
-      // background-color: colors.$grey-800;
       background-color: rgba(colors.$blue-600, 0.2);
     }
 
@@ -50,41 +49,7 @@
   a.light {
     background-color: rgba(colors.$grey-650, 0.5);
     &:hover {
-      // background-color: rgba(colors.$orange-500, 0.75);
-
       background-color: rgba(colors.$blue-600, 0.2);
     }
   }
 }
-
-// .short {
-// list-style: none;
-
-// // width: 100%;
-
-//   a {
-//     display: flex;
-//     justify-content: center;
-//     gap: spacing.$s3;
-//     color: colors.$white-100;
-//     border-radius: 15px;
-//     height: 100%;
-//     width: 100%;
-//     padding: spacing.$s3;
-//     text-decoration: none;
-//     background-color: rgba(colors.$blue-600, 0.2);
-//     border: 1px solid colors.$blue-500;
-//     span {
-//       @include mixins.drop-shadow-md-color(
-//         colors.$shadow-white-700,
-//         colors.$shadow-white-600
-//       );
-//     }
-//     &:hover {
-//       background-color: rgba(colors.$blue-500, 0.75);
-//     }
-//     svg {
-//       height: fonts.$xl;
-//     }
-//   }
-// }

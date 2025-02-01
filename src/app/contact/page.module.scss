@@ -3,21 +3,16 @@
 @use "../scss/fonts";
 @use "../scss/spacing";
 @use "../scss/breakpoints";
+
 .container {
   display: flex;
   flex-direction: column-reverse;
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  // height: 100vh;
-  // height: 85vh;
+
   @include breakpoints.lg {
     min-height: 70vh;
-    // flex-direction: row;
-    // align-items: flex-end;
-    // justify-content: center;
-    // align-items: center;
-    // gap: 4rem;
   }
 
   .info {
@@ -36,23 +31,4 @@
       }
     }
   }
-  // .image {
-  //   // height: 100%;
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   width: 100%;
-
-  //   @include breakpoints.lg {
-  //     width: 30%;
-  //   }
-  //   img {
-  //     width: 100%;
-  //     height: 100%;
-  //     margin-bottom: spacing.$s5;
-  //   }
-  // }
 }
-// .title {
-//   color: colors.$orange-500;
-// }

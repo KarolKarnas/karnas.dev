@@ -3,14 +3,13 @@
 @use "../scss/fonts";
 @use "../scss/spacing";
 @use "../scss/breakpoints";
+
 .container {
   display: flex;
   flex-direction: column;
-  // gap: spacing.$s3;
   align-items: center;
   justify-content: center;
   width: 100%;
-  // height: 85vh;
   @include breakpoints.lg {
     width: 66%;
   }

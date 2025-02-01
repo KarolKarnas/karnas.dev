@@ -15,6 +15,7 @@ import {
   typeScript,
   typeScriptAlt,
   nextJs,
+  nestJs,
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -25,11 +26,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: karnas.icon,
     iconAlt: karnasAlt.icon,
   },
-  // {
-  //   title: "experience.json",
-  //   path: "/experience",
-  //   icon: nodeJs,
-  // },
   {
     title: "skills.svg",
     path: "/skills",
@@ -55,6 +51,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         title: "karnas.dev",
         path: "/projects/karnas-dev",
         icon: nextJs.icon,
+      },
+      {
+        title: "CardPiper.com",
+        path: "/projects/card-piper-com",
+        icon: nestJs.icon,
       },
     ],
   },
@@ -91,21 +92,10 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/contact",
     icon: sass.icon,
   },
-
   // {
   //   title: ".gitignore",
   //   path: "/gitignore",
   //   icon: git,
-  // },
-  // {
-  //   title: "login",
-  //   path: "/login",
-  //   icon: gear,
-  // },
-  // {
-  //   title: "dashboard",
-  //   path: "/dashboard",
-  //   icon: gear.icon,
   // },
 ]
 
@@ -156,8 +146,6 @@ export const BACKEND: IconName[] = [
   "prisma",
   "postgres",
   "sql",
-  // "mongo",
-  // "mongoose",
 ]
 
 export const TEST: IconName[] = [

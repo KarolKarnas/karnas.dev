@@ -217,7 +217,6 @@ export const chevronDown: IconText = {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      // className={styles.iconMd}
     >
       <path
         fillRule="evenodd"
@@ -253,7 +252,6 @@ export const xMark: IconText = {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      // className={styles.iconMd}
     >
       <path
         fillRule="evenodd"
@@ -292,7 +290,6 @@ export const folderOpen: IconText = {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      // className="w-6 h-6"
     >
       <path
         strokeLinecap="round"
