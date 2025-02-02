@@ -1,4 +1,3 @@
-// import { fetchPostBySlug } from "@/app/lib/data"
 import Image from "next/image"
 import styles from "./page.module.scss"
 import { notFound } from "next/navigation"
@@ -31,8 +30,6 @@ export default async function Page(props: Params) {
       </div>
 
       <div className={styles["content-container"]}>
-        {/* <p>{post.tags}</p>
-        <p>{post.category}</p> */}
         <h3>{post.content_title}</h3>
         <p>{post.content}</p>
         {post.fields.map((field, index) => (
@@ -56,7 +53,6 @@ export default async function Page(props: Params) {
             ) : null}
             {field.second_content ? <p>{field.second_content}</p> : null}
             {field.links ? (
-              // component
               <ul className={styles.LinksContainer}>
                 {field.links.map((item, index) => (
                   <LinkCard
@@ -73,13 +69,6 @@ export default async function Page(props: Params) {
             {post.fields.length > index + 1 ? <hr /> : null}
           </section>
         ))}
-
-        {/* <Image
-          src={post.main_image}
-          width={800}
-          height={1000}
-          alt={`main image`}
-        /> */}
 
         <div className={styles["author-container"]}>
           <Link className={styles.authorName} href="/about">

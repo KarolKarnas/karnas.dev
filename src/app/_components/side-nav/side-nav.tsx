@@ -17,8 +17,8 @@ const SideNav = () => {
       className={`${styles.sidenav}
      `}
     >
-      <Hamburger showSideNav={showSideNav} setShowSideNav={setShowSideNav}/>
-      <div className={showSideNav? styles.show : styles.hide}>
+      <Hamburger showSideNav={showSideNav} setShowSideNav={setShowSideNav} />
+      <div className={showSideNav ? styles.show : styles.hide}>
         <Logo padding flex />
         <nav>
           <ul>
@@ -45,7 +45,7 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
       {item.submenu ? (
         <>
           <Link
-            className={styles.subMenuLink}
+            className={styles["sub-menu-link"]}
             onClick={() => {
               console.log("click")
             }}
@@ -53,11 +53,11 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
           >
             <div
               onClick={() => toggleSubMenu()}
-              className={`${styles.linkNew} ${
-                item.path === pathname ? styles.pathLink : ""
+              className={`${styles["link-new"]} ${
+                item.path === pathname ? styles["path-link"] : ""
               }`}
             >
-              <div className={styles.contentBtn}>
+              <div className={styles["content-btn"]}>
                 <div
                   className={`${
                     subMenuOpen ? styles.rotate180 : styles.transition
@@ -71,14 +71,14 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
             </div>
           </Link>
           {subMenuOpen && (
-            <div className={styles.subMenu}>
+            <div className={styles["sub-menu"]}>
               {item.subMenuItems?.map((subItem, idx) => {
                 return (
                   <Link
                     key={idx}
                     href={subItem.path}
-                    className={`${styles.subMenuItem} ${
-                      subItem.path === pathname ? styles.pathSubMenu : ""
+                    className={`${styles["sub-menu-item"]} ${
+                      subItem.path === pathname ? styles["path-sub-menu"] : ""
                     }`}
                   >
                     {subItem.icon}
@@ -92,12 +92,12 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
       ) : (
         <Link
           href={item.path}
-          className={`${styles.linkNew} ${
-            item.path === pathname ? styles.pathLink : ""
+          className={`${styles["link-new"]} ${
+            item.path === pathname ? styles["path-link"] : ""
           }`}
         >
           {item.icon}
-          <span className={styles.spanLink}>{item.title}</span>
+          <span className={styles["span-link"]}>{item.title}</span>
         </Link>
       )}
     </li>

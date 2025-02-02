@@ -16,25 +16,19 @@
   @include breakpoints.md {
     margin-top: 0;
   }
-  // padding: spacing.$s4;
-  // @include breakpoints.md {
-  //   padding: 0;
-  // }
 
   .image-container {
-    // position: relative;
     border-radius: 15px;
-
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 30%;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
     height: 100vh;
+
     @include breakpoints.md {
       background-attachment: scroll;
       background-size: cover;
@@ -42,13 +36,12 @@
       background-position: 50% 40%;
     }
   }
+
   .text-container {
     border-radius: 15px;
     width: 96%;
     position: absolute;
     top: 6px;
-    // margin-top: -100%;
-    // margin-top: -715px;
     margin-bottom: spacing.$s12;
     background-color: rgba(colors.$white-300, 0.75);
     padding: spacing.$s2;
@@ -63,8 +56,6 @@
       position: absolute;
       top: 4rem;
       padding: spacing.$s8;
-      // margin-top: -1150px;
-      // margin-bottom: spacing.$s14;
     }
     .date-container {
       display: flex;
@@ -105,13 +96,6 @@
         font-size: fonts.$xl;
       }
     }
-    // p {
-    //   text-align: center;
-    //   color: colors.$grey-600;
-    //   width: 75%;
-    //   filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
-    //     drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
-    // }
   }
   .content-container {
     width: 96%;
@@ -125,11 +109,7 @@
       padding: spacing.$s8 spacing.$s10;
       margin-top: -24rem;
     }
-    // img {
-    //   width: 100%;
-    //   height: 100%;
-    //   margin: spacing.$s6 0px;
-    // }
+
     h3 {
       text-align: center;
       margin-bottom: spacing.$s2;
@@ -212,7 +192,6 @@
         width: 80%;
         border: none;
         border-top: 3px double colors.$grey-600;
-        // color: #333;
         overflow: visible;
         text-align: center;
         height: 5px;
@@ -234,7 +213,6 @@
         gap: 0;
         margin-bottom: spacing.$s8;
         padding: spacing.$s8 ;
-        // padding-bottom: spacing.$s6;
       }
       .authorName {
         display: flex;

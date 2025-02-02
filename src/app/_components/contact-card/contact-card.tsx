@@ -9,11 +9,8 @@ type Props = {
 }
 const ContactCard = ({ icon, color, children, href }: Props) => {
   return (
-    <li className={`${styles.listItem}`}>
-      <a
-        className={`${color === "light" ? styles.light : ""}`}
-        href={href}
-      >
+    <li className={`${styles["list-item"]}`}>
+      <a className={`${color === "light" ? styles.light : ""}`} href={href}>
         {icon ? icon : null}
         <span>{children}</span>
       </a>

@@ -1,4 +1,3 @@
-// import { Post } from "@/interfaces/post";
 import { Post, Project } from "@/utils/types"
 import fs from "fs"
 import matter from "gray-matter"
@@ -24,7 +23,6 @@ export function getAllPosts(): Post[] {
   const slugs = getPostSlugs()
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
-    // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts
 }
@@ -46,7 +44,6 @@ export function getAllProjects(): Project[] {
   const slugs = getProjectSlugs()
   const projects = slugs
     .map((slug) => getProjectBySlug(slug))
-    // sort projects by date in descending order
     .sort((project1, project2) => (project1.date > project2.date ? -1 : 1))
   return projects
 }

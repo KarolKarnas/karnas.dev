@@ -53,9 +53,8 @@
   display: none;
 }
 
-.contentBtn {
+.content-btn {
   display: flex;
-
   align-items: center;
   gap: spacing.$s1;
 }
@@ -74,13 +73,13 @@
   display: flex;
 }
 
-.subMenu {
+.sub-menu {
   display: flex;
   flex-direction: column;
 
 }
 
-.subMenuItem {
+.sub-menu-item {
   padding: spacing.$s2;
   color: colors.$grey-100;
   display: flex;
@@ -102,15 +101,15 @@
   }
 }
 
-.pathSubMenu {
+.path-sub-menu {
   background-color: colors.$grey-600;
 }
 
-.subMenuLink {
+.sub-menu-link {
   text-decoration: none;
 }
 
-.linkNew {
+.link-new {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -130,10 +129,10 @@
   }
 }
 
-.pathLink {
+.path-link {
   background-color: colors.$grey-600;
 }
 
-.spanLink {
+.span-link {
   display: flex;
 }

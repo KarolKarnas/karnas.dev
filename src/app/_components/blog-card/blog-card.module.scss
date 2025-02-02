@@ -9,24 +9,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: spacing.$s3;
   border-radius: 15px;
   background-color: colors.$grey-600;
   transition-property: transform, background-color;
   transition-duration: 100ms;
+
   &:hover {
     cursor: pointer;
     transform: scale(1.015);
     transition-property: transform, background-color;
     transition-duration: 200ms;
     background-color: colors.$blue-500;
-  }
-
-  @include breakpoints.md {
-    // padding: spacing.$s3;
-    // gap: spacing.$s6;
-    // min-height: 55vh;
   }
 
   img {
@@ -54,11 +48,13 @@
       justify-content: space-between;
       color: colors.$grey-600;
       font-size: fonts.$xs;
+
       @include mixins.drop-shadow-md-color(
         colors.$shadow-black-700,
         colors.$shadow-black-600
       );
     }
+
     h2 {
       margin: spacing.$s2 0;
       font-size: fonts.$xl2;
@@ -69,6 +65,7 @@
         colors.$shadow-black-600
       );
     }
+
     h3 {
       font-size: fonts.$sm;
       text-align: center;
@@ -107,10 +104,12 @@
       text-align: justify;
       hyphens: auto;
       color: colors.$white-300;
+
       @include mixins.drop-shadow-md-color(
         colors.$shadow-white-700,
         colors.$shadow-white-600
       );
+      
       @include breakpoints.md {
         font-size: fonts.$base;
       }

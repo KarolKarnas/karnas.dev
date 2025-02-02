@@ -16,7 +16,7 @@ const LinkCard = ({ socialItem, color }: Props) => {
   }
 
   return (
-    <li className={`${styles.listItem}`}>
+    <li className={`${styles["list-item"]}`}>
       <a
         className={`${color === "light" ? styles.light : ""}`}
         target="_blank"

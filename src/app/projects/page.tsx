@@ -21,8 +21,8 @@ export default async function Portfolio() {
     content_title: project.content_title,
     content: project.content.slice(0, 200),
     main_image: project.main_image,
-    stack: project.stack, 
-    icons_stack: project.icons_stack, 
+    stack: project.stack,
+    icons_stack: project.icons_stack,
     live_demo: project.live_demo,
     repo: project.repo,
     path: `/projects/${project.slug}`,
@@ -32,7 +32,7 @@ export default async function Portfolio() {
     <div className={styles.container}>
       <MainHeading color="orange">Projects</MainHeading>
 
-      <div className={styles.gridContainer}>
+      <div className={styles["grid-container"]}>
         {projects.map((card, index) => (
           <ProjectCard key={index} card={card} />
         ))}
