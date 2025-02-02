@@ -53,7 +53,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         icon: nextJs.icon,
       },
       {
-        title: "CardPiper.com",
+        title: "cardpiper.com",
         path: "/projects/card-piper-com",
         icon: nestJs.icon,
       },

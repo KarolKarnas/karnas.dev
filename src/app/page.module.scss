@@ -48,7 +48,7 @@
     );
   }
 
-  ul.mainLinks {
+  ul.main-links {
     list-style: none;
     color: colors.$grey-500;
     li {
@@ -77,7 +77,7 @@
   }
 }
 
-.socialLinks {
+.social-links {
   @include breakpoints.lg {
     padding-top: 210px;
   }

@@ -6,8 +6,8 @@ const Logo = ({ padding, flex }: Props) => {
   return (
     <Link
       href={"/"}
-      className={`${styles.logo} ${padding ? styles.logoPadding : ''} ${
-        flex ? styles.logoFlex : ''
+      className={`${styles.logo} ${padding ? styles["logo-padding"] : ""} ${
+        flex ? styles["logo-flex"] : ""
       }`}
     >
       karnas.dev

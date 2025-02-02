@@ -22,10 +22,12 @@
     align-items: center;
     justify-content: center;
     gap: spacing.$s5;
+
     ul {
       display: flex;
       flex-direction: column;
       gap: spacing.$s4;
+      
       &:first-of-type {
         margin-bottom: spacing.$s7;
       }

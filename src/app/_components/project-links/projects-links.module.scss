@@ -4,11 +4,12 @@
 
 .container {
   list-style: none;
+
   li {
+
     a {
       color: colors.$navy-500;
       text-decoration: none;
-
       padding: spacing.$s1 0px;
       display: flex;
       align-items: center;
@@ -17,9 +18,11 @@
       svg {
         color: colors.$navy-500;
         height: fonts.$xl3;
+
         g {
           fill: colors.$navy-500;
         }
+        
         path {
           fill: colors.$navy-500;
         }

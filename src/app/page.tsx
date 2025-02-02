@@ -15,13 +15,8 @@ export default function Home() {
       <div className={styles.col1}>
         <h1>Karol Karnas</h1>
         <h3>Full-stack developer</h3>
-        {/* <h5>Portfolio and Blog</h5> */}
-        {/* <div className={styles.description}>
-          <Logo />
-          <span>is my personal portfolio and place where i share knowledge  </span>
-        </div> */}
         <h4>Start</h4>
-        <ul className={styles.mainLinks}>
+        <ul className={styles['main-links']}>
           {SIDENAV_ITEMS.map((item, index) => (
             <li key={index}>
               <Link href={item.path}>
@@ -36,7 +31,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className={styles.socialLinks}>
+      <div className={styles['social-links']}>
         <h4>Social Media</h4>
         <ul>
           {SOCIAL_ITEMS.map((item, index) => (

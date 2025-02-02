@@ -28,7 +28,7 @@ export default async function Portfolio() {
     <div className={styles.container}>
       <MainHeading color="blue">Blog</MainHeading>
 
-      <div className={styles.gridContainer}>
+      <div className={styles["grid-container"]}>
         {blogs.map((card, index) => (
           <BlogCard key={index} card={card} />
         ))}

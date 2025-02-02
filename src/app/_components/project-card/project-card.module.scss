@@ -12,9 +12,9 @@
   padding: spacing.$s3;
   border-radius: 15px;
   background-color: colors.$grey-600;
-
   transition-property: transform, background-color;
   transition-duration: 100ms;
+
   &:hover {
     cursor: pointer;
     transform: scale(1.015);
@@ -53,6 +53,7 @@
         colors.$shadow-white-600
       );
     }
+
     h2 {
       margin: spacing.$s2 0;
       font-size: fonts.$xl;
@@ -66,6 +67,7 @@
         font-size: fonts.$xl4;
       }
     }
+    
     h3 {
       font-size: fonts.$sm;
       text-align: center;

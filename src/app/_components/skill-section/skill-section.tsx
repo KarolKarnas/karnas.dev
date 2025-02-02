@@ -5,12 +5,6 @@ type Props = {
   children: ReactNode
 }
 const SkillSection = ({ children }: Props) => {
-
-
-  return (
-    <div className={styles.SkillSection}>
-{children}
-  </div>
-  )
+  return <div className={styles["skill-section"]}>{children}</div>
 }
 export default SkillSection

@@ -29,7 +29,6 @@ const BlogCard = ({ card }: Props) => {
         </div>
         <h2>{card.title}</h2>
         <h3>{card.sub_title}</h3>
-        {/* <p>{card.content}</p> */}
       </div>
       <Image src={card.main_image} width={600} height={600} alt={card.title} />
 

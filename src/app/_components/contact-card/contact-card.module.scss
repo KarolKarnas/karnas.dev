@@ -4,7 +4,7 @@
 @use "../../scss/spacing.scss";
 @use "../../scss/breakpoints.scss";
 
-.listItem {
+.list-item {
   display: flex;
   flex-direction: column;
   border-bottom: 3px solid colors.$navy-500;
