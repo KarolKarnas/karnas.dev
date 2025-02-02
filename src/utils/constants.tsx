@@ -52,11 +52,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         path: "/projects/karnas-dev",
         icon: nextJs.icon,
       },
-      {
-        title: "cardpiper.com",
-        path: "/projects/card-piper-com",
-        icon: nestJs.icon,
-      },
+      // {
+      //   title: "cardpiper.com",
+      //   path: "/projects/card-piper-com",
+      //   icon: nestJs.icon,
+      // },
     ],
   },
   {
