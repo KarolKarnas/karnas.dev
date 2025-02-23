@@ -1,55 +1,60 @@
 ---
 author_name: Karol Karnas
 title: "CardPiper.com"
-sub_title: "Social media platform with psychological user profiling and feed adjust"
-content_title: "What is it?"
-main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg"
+sub_title: "I set out to build something different - a platform that truly understands its users at a psychological level."
+content_title: "Core concept"
+main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1740336869/oyczalwjlk3qkcwvmvqx.png"
 main_icon: "nestJs"
 icons_stack:
+  - "typeScript"
+  - "javaScript"
   - "nestJs"
   - "react"
   - "redux"
-  - "typeScript"
   - "postgres"
   - "sass"
   - "prisma"
-live_demo: "https://www.karnas.dev/"
-repo: "https://github.com/KarolKarnas/karnas.dev"
+  - "puppeteer"
+live_demo: "https://www.cardpiper.com/"
+repo: "https://github.com/KarolKarnas/card-piper-be"
 fields:
   - title: "About"
-    content: "This dynamic platform is built with Next.js, Zustand, React, TypeScript, PostgreSQL, Sass, CSS modules, and more. The app key features:"
+    content: "I was looking for a new project to build. I wanted something engaging, something that would challenge both my backend and frontend skills. Eventually, I landed on an idea: a social platform centered around personalized recommendations, where user interactions would shape their experience in real time."
     list:
-      - "Utilize Next.js server-side components for enhanced SEO, performance and dynamic rendering"
-      - "Organize content with distinct grids for projects and blog posts, providing visual clarity"
-      - "Create a secure admin panel with Next Auth for seamless authentication and management"
-      - "Enable administrators to create, edit, and delete blog posts and portfolio items after logging in"
-      - "Implement Zustand for efficient global state management, ensuring a consistent user experience"
-      - "Craft a tab menu and sidebar that closely mimic Visual Studio Code (VSC) behavior, enhancing user navigation"
-      - "Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface"
-      - "Utilize Cloudinary for secure and scalable object storage, optimizing media file handling"
-      - "Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture"
-      - "Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application"
-    image: "https://res.cloudinary.com/djadfridw/image/upload/v1707131042/pm7f1szandr9c661l3pf.jpg"
+  - title: "Technologies"
+    content: "To bring this to life, I needed a solid backend and a reliable dataset. I chose NestJS + Prisma + Postgres for the backend, ensuring scalability and efficiency. For data, I leveraged Puppeteer to scrape and collect relevant content. The biggest challenge came when designing how user preferences would be processed."
+    links:
+      - link: "https://nestjs.com/"
 
-  - title: "The Responsiveness"
-    content: "The application is designed to be fully responsive, aiming to maintain a consistent user experience across different screen sizes. The goal is to provide a practical and user-friendly interface on par with Visual Studio Code (VSC) across all devices."
-    image: "https://res.cloudinary.com/djadfridw/image/upload/v1707116567/anvrceff2msqke1oanep.jpg"
+  - title: "Data Scraping"
+    content: "I started by gathering sample data through web scraping, utilizing vanilla JavaScript and Puppeteer for automation and BrightData for reliable proxy management. My goal was to collect a diverse dataset of books, authors, quotes, movie characters, films, and games to serve as the foundation for a dynamic recommendation system. By leveraging Puppeteer, I was able to automate interactions with various websites, extracting structured data efficiently. BrightData ensured that my scraping process remained uninterrupted and scalable, allowing me to bypass rate limits and access geo-restricted content. This initial data collection phase was crucial in shaping the platform’s ability to personalize user feeds based on their preferences and interactions."
+    links:
+      - link: "https://pptr.dev/"
+      - link: "https://brightdata.com/"
 
-  - title: "The Process"
-    content: "This time, I experimented with applying the Kanban methodology to my personal workflow. I utilized Jira for planning and tracked my progress using a Kanban Board. Additionally, I designed crucial elements in Figma. Subsequently, I initiated the development process, meticulously monitoring my progress, creating and managing tasks, and categorizing them as 'TO DO', 'IN PROGRESS' or 'DONE'. The application has been successfully published as an MVP. Currently, I am conducting thorough testing using Playwright, reviewing and addressing any errors, and continuously refining the design for optimal performance."
-    image: "https://res.cloudinary.com/djadfridw/image/upload/v1706875858/yvyahqv24mm0ta8s0uf1.jpg"
+  - title: "Building data schema"
+    content: "Designing data schemas in Prisma and defining relationships between different models was a critical step that shaped the entire development process. A well-structured database was essential for ensuring seamless data retrieval, efficient queries, and a scalable architecture. I carefully mapped out the relationships between core entities—Users, Books, Authors, Quotes, Characters, Films, and Games—establishing many-to-many connections where needed, such as users interacting with multiple entities and entities being linked through common themes. Prisma’s intuitive schema definition allowed me to enforce data integrity, streamline migrations, and optimize queries for performance. This foundational work not only improved the efficiency of backend operations but also made implementing personalized recommendations and real-time feed adjustments significantly more manageable."
+    links:
+      - link: "https://www.prisma.io/"
+    image: "https://res.cloudinary.com/djadfridw/image/upload/v1740337880/jozjtodjdhq3zuhzqtlx.png"
+
+  - title: "Euclidean distance and 16 Personalities"
+    content: "I decided to model user profiles based on psychological traits—ten opposing characteristics like introversion vs. extroversion. The system would then map users to one of the 16 Personalities and use Euclidean distance to determine content similarity. This approach allowed for a nuanced recommendation system, capable of suggesting not only books and films but even specific characters or other users with similar tastes."
+    links:
+      - link: "https://en.wikipedia.org/wiki/Euclidean_distance"
+      - link: "https://www.16personalities.com/"
+
+  - title: "Next steps"
+    content: "Through this project, I discovered NestJS, which, in my opinion, is the best TypeScript backend framework available today. It’s incredibly straightforward, efficient, and a joy to work with, making backend development both intuitive and scalable.
+    
+    More importantly, the project planted the seed for building a platform like this. Since then, in my professional work, I’ve been using Python, Django, and Pandas, diving deeper into AI embeddings and data analysis. Subconsciously, as I explored these technologies, I kept thinking about how Card Piper could benefit from greater precision—how machine learning, improved embeddings, and deeper analytical models could make recommendations even more accurate and insightful. That’s why I’m now actively working on integrating these advancements to take the platform to the next level."
 
 category: "FullStack"
 tags:
-  - "NextJs"
+  - "Puppeteer"
   - "TypeScript"
-  - "Figma"
-date: "2024-01-06"
+  - "JavaScript"
+date: "2025-01-15"
 ---
 
-App integrates user psychology profiling with cultural preferences in art,
-literature, and more. The platform analyzes user interactions with popular
-books, characters, quotes, and authors to create a dynamic, personalized
-feed. I am currently enhancing the UX and expanding the database with
-new entities. Utilized various data scraping techniques to gather and
-curate content.
+The core concept was simple but ambitious—a feed that dynamically adapts based on user preferences. Instead of generic content, users would see books, authors, quotes, movie characters, films, games, and more, all tailored to their tastes to create a dynamic, personalized feed. Every reaction—whether liking a quote or engaging with a book—would refine their profile, adjusting future recommendations
