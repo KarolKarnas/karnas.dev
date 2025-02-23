@@ -183,3 +183,6 @@ export const CORE_SKILLS: IconName[] = [
   "django",
   "nestJs",
 ]
+
+export const QUOTATION =
+  '"I love seeing a well-structured database seamlessly mirrored in a beautiful and functional UI"'

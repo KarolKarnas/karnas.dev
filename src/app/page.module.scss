@@ -9,7 +9,7 @@
   flex-direction: column;
   gap: 100px;
   padding-left: spacing.$s3;
-  
+
   @include breakpoints.lg {
     margin-top: -50px;
     padding-left: 0;
@@ -52,13 +52,13 @@
     color: colors.$white-100;
     font-style: italic;
     margin-bottom: spacing.$s4;
+    font-size: fonts.$xs;
     @include mixins.drop-shadow-md-color(
       colors.$shadow-white-700,
       colors.$shadow-white-600
-      );
-      @include breakpoints.lg {
+    );
+    @include breakpoints.lg {
       margin-bottom: spacing.$s6;
-
     }
   }
 

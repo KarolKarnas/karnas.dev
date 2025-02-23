@@ -34,11 +34,25 @@
     @include breakpoints.lg {
       width: 30%;
     }
-    
+
     img {
       width: 100%;
       height: 100%;
-      margin-bottom: spacing.$s5;
     }
+  }
+
+  .quote {
+    width: 500px;
+    display: block;
+    color: colors.$white-100;
+    font-style: italic;
+    text-align: center;
+    margin-top: spacing.$s2;
+    margin-bottom: spacing.$s3;
+    font-size: fonts.$sm;
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
   }
 }

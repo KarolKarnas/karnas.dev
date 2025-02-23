@@ -1,6 +1,6 @@
 import styles from "./page.module.scss"
 import Link from "next/link"
-import { SIDENAV_ITEMS } from "../utils/constants"
+import { QUOTATION, SIDENAV_ITEMS } from "../utils/constants"
 import { SOCIAL_ITEMS } from "../utils/constants"
 import LinkCard from "./_components/link-card/link-card"
 import BlogLinks from "./_components/blog-links/blog-links"
@@ -15,10 +15,7 @@ export default function Home() {
       <div className={styles.col1}>
         <h1>Karol Karnas</h1>
         <h3>Full-stack developer</h3>
-        <span className={styles.quote}>
-          "I love seeing a well-structured database seamlessly mirrored in a
-          beautiful and functional UI"
-        </span>
+        <span className={styles.quote}>{QUOTATION}</span>
         <h4>Start</h4>
         <ul className={styles["main-links"]}>
           {SIDENAV_ITEMS.map((item, index) => (
