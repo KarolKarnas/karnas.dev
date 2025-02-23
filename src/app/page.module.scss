@@ -11,6 +11,7 @@
   padding-left: spacing.$s3;
 
   @include breakpoints.lg {
+    margin-top: -50px;
     padding-left: 0;
     gap: 200px;
     min-height: 70vh;
@@ -30,12 +31,9 @@
   }
 
   h3 {
-    margin-bottom: spacing.$s5;
+    margin-bottom: spacing.$s2;
     color: colors.$grey-200;
     font-size: fonts.$xl2;
-    @include breakpoints.lg {
-      margin-bottom: spacing.$s7;
-    }
   }
 
   h4 {
@@ -46,6 +44,22 @@
       colors.$shadow-white-700,
       colors.$shadow-white-600
     );
+  }
+
+  .quote {
+    width: 500px;
+    display: block;
+    color: colors.$white-100;
+    font-style: italic;
+    margin-bottom: spacing.$s4;
+    font-size: fonts.$xs;
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+    @include breakpoints.lg {
+      margin-bottom: spacing.$s6;
+    }
   }
 
   ul.main-links {
@@ -79,7 +93,7 @@
 
 .social-links {
   @include breakpoints.lg {
-    padding-top: 210px;
+    padding-top: 310px;
   }
   ul {
     display: flex;

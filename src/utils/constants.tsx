@@ -52,11 +52,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         path: "/projects/karnas-dev",
         icon: nextJs.icon,
       },
-      // {
-      //   title: "cardpiper.com",
-      //   path: "/projects/card-piper-com",
-      //   icon: nestJs.icon,
-      // },
+      {
+        title: "cardpiper.com",
+        path: "/projects/card-piper-com",
+        icon: nestJs.icon,
+      },
     ],
   },
   {
@@ -167,7 +167,22 @@ export const WORKFLOW_TOOLS: IconName[] = [
   // "figma",
 ]
 
+export const MY_SKILLS: IconName[] = [
+  ...PROGRAMMING,
+  ...FRONTEND,
+  ...BACKEND,
+  ...TEST,
+  ...WORKFLOW_TOOLS,
+]
 
-export const MY_SKILLS: IconName[] = [...PROGRAMMING, ...FRONTEND, ...BACKEND, ...TEST, ...WORKFLOW_TOOLS]
+export const CORE_SKILLS: IconName[] = [
+  "python",
+  "typeScript",
+  "react",
+  "nextJs",
+  "django",
+  "nestJs",
+]
 
-export const CORE_SKILLS: IconName[] = ["python", "typeScript", "react", "nextJs", "django", "nestJs"]
+export const QUOTATION =
+  '"I love seeing a well-structured database seamlessly mirrored in a beautiful and functional UI"'

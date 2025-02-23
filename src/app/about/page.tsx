@@ -1,7 +1,7 @@
 import styles from "./page.module.scss"
 import { ABOUT } from "../../utils/info"
 import Image from "next/image"
-import { MY_SKILLS } from "../../utils/constants"
+import { MY_SKILLS, QUOTATION } from "../../utils/constants"
 import { Metadata } from "next"
 import useIcon from "@/hooks/useIcon"
 import MainHeading from "../_components/main-heading/main-heading"
@@ -35,6 +35,7 @@ export default async function About() {
           height={1024}
           alt={"Karol Karnas full stack developer"}
         ></Image>
+        <span className={styles.quote}>{QUOTATION}</span>
         <StackIcons icons={icons} />
       </div>
     </div>
