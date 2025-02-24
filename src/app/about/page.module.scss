@@ -42,7 +42,7 @@
   }
 
   .quote {
-    width: 500px;
+    max-width: 500px;
     display: block;
     color: colors.$white-100;
     font-style: italic;
