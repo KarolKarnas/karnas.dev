@@ -1,7 +1,7 @@
 ---
 author_name: Karol Karnas
 title: "karnas.dev"
-sub_title: "Full stack portfolio with a blog, inspired by VSC design, built using Next.js."
+sub_title: "A statically generated full-stack portfolio with a blog, inspired by VSC design, built using Next.js."
 content_title: "What is it?"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg"
 main_icon: "nextjs"
@@ -9,18 +9,13 @@ stack:
   - "React"
   - "TypeScript"
   - "Next.js"
-  - "PostgreSQL"
-  - "SQL"
 icons_stack:
   - "react"
   - "typeScript"
   - "nextJs"
-  - "postgres"
-  - "sql"
   - "sass"
   - "cssModules"
   - "cloudinary"
-  - "playWright"
   - "jira"
   - "confluence"
   - "figma"
@@ -28,13 +23,10 @@ live_demo: "https://www.karnas.dev/"
 repo: "https://github.com/KarolKarnas/karnas.dev"
 fields:
   - title: "About"
-    content: "This dynamic platform is built with Next.js, Zustand, React, TypeScript, PostgreSQL, Sass, CSS modules, and more. The app key features:"
+    content: "This dynamic platform is built with Next.js, Markdown, React, TypeScript, Sass, CSS modules, and more.. The app key features:"
     list:
       - "Utilize Next.js server-side components for enhanced SEO, performance and dynamic rendering"
       - "Organize content with distinct grids for projects and blog posts, providing visual clarity"
-      - "Create a secure admin panel with Next Auth for seamless authentication and management"
-      - "Enable administrators to create, edit, and delete blog posts and portfolio items after logging in"
-      - "Implement Zustand for efficient global state management, ensuring a consistent user experience"
       - "Craft a tab menu and sidebar that closely mimic Visual Studio Code (VSC) behavior, enhancing user navigation"
       - "Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface"
       - "Utilize Cloudinary for secure and scalable object storage, optimizing media file handling"
@@ -58,4 +50,4 @@ tags:
 date: "2024-01-06"
 ---
 
-This project is a full stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC) with the Monokai Theme.
+This project is a full-stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC) with the Monokai Theme.

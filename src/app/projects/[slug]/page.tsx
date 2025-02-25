@@ -13,7 +13,7 @@ import { getAllProjects, getProjectBySlug } from "@/lib/api"
 export default async function Page(props: Params) {
   const params = await props.params
   const project = getProjectBySlug(params.slug)
-  
+
   const icons = useIcon(project.icons_stack)
   const socialItemLive: SocialItem = {
     link: project.live_demo,
@@ -115,7 +115,7 @@ export default async function Page(props: Params) {
         <div className={styles["author-container"]}>
           <Link className={styles.authorName} href="/about">
             <span>Karol Karnas</span>
-            <span>Full Stack Developer</span>
+            <span>Full-stack Developer</span>
           </Link>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
@@ -146,7 +146,6 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     },
   }
 }
-
 
 export async function generateStaticParams() {
   const projects = getAllProjects()

@@ -8,7 +8,7 @@ import { ProjectCardType } from "@/utils/types"
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore a collection of full stack projects meticulously crafted using modern tools such as React, TypeScript, Node.js and Next.js.",
+    "Explore a collection of full-stack projects meticulously crafted using modern tools such as React, TypeScript, Node.js and Next.js.",
 }
 
 export default async function Portfolio() {

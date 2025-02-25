@@ -1,7 +1,7 @@
 ---
 author_name: "Karol Karnas"
-title: "Full Stack Open by The University of Helsinki"
-sub_title: "Parts 0-7 Full Stack Web Development"
+title: "Full-stack Open by The University of Helsinki"
+sub_title: "Parts 0-7 Full-stack Web Development"
 content_title: "Deep Dive Into Modern Web Development"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706793659/viaex6ouox8wy6lr3tlp.png"
 category: "WebDevelopment"
@@ -9,7 +9,7 @@ tags: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Testing"]
 date: "2023-10-27T05:35:07.322Z"
 fields:
   - title: "The Prerequisites"
-    content: "The Full Stack Open requires us to have good programming skills, a basic knowledge of web programming and databases, and familiarity with the basics of the Git version control system. Additionally, perseverance and the ability to solve problems and seek information independently are expected. That's why I highly recommend completing The Odin Project course before starting FSO, unless you already possess such skills, in which case you can begin with FSO directly."
+    content: "The Full-stack Open requires us to have good programming skills, a basic knowledge of web programming and databases, and familiarity with the basics of the Git version control system. Additionally, perseverance and the ability to solve problems and seek information independently are expected. That's why I highly recommend completing The Odin Project course before starting FSO, unless you already possess such skills, in which case you can begin with FSO directly."
     links:
       - link: "https://fullstackopen.com/en/part0/general_info"
 
@@ -54,7 +54,7 @@ fields:
       - link: "https://www.ilustrografia.com/"
 
   - title: "This is not the end"
-    content: "Completing the Core Course (Parts 0-7) is just the beginning of what Helsinki's Full Stack Open has to offer. Participants can also take part in many excellent supplementary courses, including:"
+    content: "Completing the Core Course (Parts 0-7) is just the beginning of what Helsinki's Full-stack Open has to offer. Participants can also take part in many excellent supplementary courses, including:"
     list:
       - "PART 8 - GraphQL (a. GraphQL-server, b. React and GraphQL, c. Database and user administration, d. Login and updating the cache, e. Fragments and subscriptions)"
       - "PART 9 - TypeScript (a. Background and introduction, b. First steps with TypeScript, c. Typing an Express app, d. React with types, e. Grande finale: Patientor)"
@@ -65,7 +65,6 @@ fields:
     second_content: "I've completed two of them so far: PART 9 - TypeScript and PART 13 - Using relational databases. I'll share my experiences with them next time :)"
     links:
       - link: "https://fullstackopen.com/en/#course-contents"
-
 ---
 
 Creating comprehensive applications, complete with features such as an administration panel, users and products, requires us to operate as full-stack developers. I had always wanted to create such an application myself, and actively participating in this course allowed me to do just that. It wasn't easy, and it wasn't enough to build my first eCommerce platform, but it was a significant milestone in achieving that goal.

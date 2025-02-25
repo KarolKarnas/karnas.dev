@@ -1,7 +1,7 @@
 ---
 author_name: Karol Karnas
 title: "ilustrografia.com"
-sub_title: "Full stack eCommerce platform built with the MERN stack & Redux & Typescript"
+sub_title: "Full-stack eCommerce platform built with the MERN stack & Redux & Typescript"
 content_title: "What is it?"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706625285/u2yg75ygsansmfpl6nir.jpg"
 main_icon: "react"
@@ -24,7 +24,7 @@ live_demo: "https://www.ilustrografia.com/"
 repo: "https://github.com/KarolKarnas/ilustrografia.com"
 fields:
   - title: "About"
-    content: "This project is the culmination of my several months of learning full stack development, it combines my passion for programming, modern technologies and good UX/UI. The platform key features:"
+    content: "This project is the culmination of my several months of learning full-stack development, it combines my passion for programming, modern technologies and good UX/UI. The platform key features:"
     list:
       - "Full-featured shopping cart"
       - "Product reviews and ratings"

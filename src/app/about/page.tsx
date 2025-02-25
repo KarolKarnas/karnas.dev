@@ -33,7 +33,7 @@ export default async function About() {
           src={"/karol_karnas_full_stack_developer.jpg"}
           width={683}
           height={1024}
-          alt={"Karol Karnas full stack developer"}
+          alt={"Karol Karnas full-stack developer"}
         ></Image>
         <span className={styles.quote}>{QUOTATION}</span>
         <StackIcons icons={icons} />

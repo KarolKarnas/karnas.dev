@@ -1,74 +1,61 @@
-# A statically generated blog example using Next.js, Markdown, and TypeScript
+# karnas.dev
 
-This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
+[**Live Demo - karnas.dev**](https://www.karnas.dev/) 👈
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/app/building-your-application/routing/layouts-and-templates) feature using Markdown files as the data source.
+#### A statically generated full-stack portfolio with a blog, inspired by VSC design, built using Next.js
 
-The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
+<img src="https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg" alt="screens of the karnas.dev portfolio with blog platform">
 
-To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
+## Description
 
-## Demo
+This project is a full-stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC) with the Monokai Theme.
 
-[https://next-blog-starter.vercel.app/](https://next-blog-starter.vercel.app/)
+This dynamic platform is built with Next.js, Markdown, React, TypeScript, Sass, CSS modules, and more.
 
-## Deploy your own
+## Key Features
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/blog-starter)
+- Utilize Next.js server-side components for enhanced SEO, performance,
+- Organize content with distinct grids for projects and blog posts, providing visual clarity,
+- Craft a tab menu and sidebar that closely mimic Visual Studio Code (VSC) behavior, enhancing user navigation,
+- Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface,
+- Utilize Cloudinary for secure and scalable object storage, optimizing media file handling,
+- Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture,
+- Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/blog-starter&project-name=blog-starter&repository-name=blog-starter)
+<img src="https://res.cloudinary.com/djadfridw/image/upload/v1707131042/pm7f1szandr9c661l3pf.jpg" alt="desktop and mobile screen of the karnas.dev portfolio with blog platform">
 
-### Related examples
+## Technologies Used
 
-- [AgilityCMS](/examples/cms-agilitycms)
-- [Builder.io](/examples/cms-builder-io)
-- [ButterCMS](/examples/cms-buttercms)
-- [Contentful](/examples/cms-contentful)
-- [Cosmic](/examples/cms-cosmic)
-- [DatoCMS](/examples/cms-datocms)
-- [DotCMS](/examples/cms-dotcms)
-- [Drupal](/examples/cms-drupal)
-- [Enterspeed](/examples/cms-enterspeed)
-- [Ghost](/examples/cms-ghost)
-- [GraphCMS](/examples/cms-graphcms)
-- [Kontent.ai](/examples/cms-kontent-ai)
-- [MakeSwift](/examples/cms-makeswift)
-- [Payload](/examples/cms-payload)
-- [Plasmic](/examples/cms-plasmic)
-- [Prepr](/examples/cms-prepr)
-- [Prismic](/examples/cms-prismic)
-- [Sanity](/examples/cms-sanity)
-- [Sitecore XM Cloud](/examples/cms-sitecore-xmcloud)
-- [Sitefinity](/examples/cms-sitefinity)
-- [Storyblok](/examples/cms-storyblok)
-- [TakeShape](/examples/cms-takeshape)
-- [Tina](/examples/cms-tina)
-- [Umbraco](/examples/cms-umbraco)
-- [Umbraco heartcore](/examples/cms-umbraco-heartcore)
-- [Webiny](/examples/cms-webiny)
-- [WordPress](/examples/cms-wordpress)
-- [Blog Starter](/examples/blog-starter)
+- Next.js
+- Markdown
+- React
+- TypeScript
+- SASS + CSS Modules
+- Postman for API testing
+- Continuously deployed on Vercel.com
 
-## How to use
+[**Live Demo - karnas.dev**](https://www.karnas.dev/) 👈
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+<img src="https://res.cloudinary.com/djadfridw/image/upload/v1707116567/anvrceff2msqke1oanep.jpg" alt="mobile screens of the karnas.dev portfolio with blog platform">
 
-```bash
-npx create-next-app --example blog-starter blog-starter-app
+The application is designed to be fully responsive, aiming to maintain a consistent user experience across different screen sizes. The goal is to provide a practical and user-friendly interface on par with Visual Studio Code (VSC) across all devices.
+
+### Install Dependencies
+
+```
+npm install
+
 ```
 
-```bash
-yarn create next-app --example blog-starter blog-starter-app
+### Run
+
 ```
 
-```bash
-pnpm create next-app --example blog-starter blog-starter-app
+# start the development server
+npm run dev
+
 ```
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-# Notes
-
-`blog-starter` uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
+---

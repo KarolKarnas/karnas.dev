@@ -10,11 +10,11 @@ const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Karol Karnas | Full Stack Developer | Portfolio",
-    default: "Karol Karnas | Full Stack Developer | Portfolio",
+    template: "%s | Karol Karnas | Full-stack Developer | Portfolio",
+    default: "Karol Karnas | Full-stack Developer | Portfolio",
   },
   description:
-    "Karol Karnas - Explore the diverse projects and insightful development posts. Karol Karnas, a dedicated Full Stack Developer. Dive into a web programming...",
+    "Karol Karnas - Explore the diverse projects and insightful development posts. Karol Karnas, a dedicated Full-stack Developer. Dive into a web programming...",
   metadataBase: new URL("https://www.karnas.dev"),
 }
 

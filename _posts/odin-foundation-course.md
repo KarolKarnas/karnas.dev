@@ -39,14 +39,13 @@ fields:
   - title: "Summary"
     content: "After completing all 8 chapters of The Odin Project Foundation, equipped with the right tools, we are poised to embark on a deep dive into the vast world of web development. Thankfully you are now prepared to avoid beginner's mistakes and navigate the tutorial hell confidently. Our journey continues within The Odin Project, where we can choose one of the remaining paths:"
     list:
-      - "Full Stack Ruby on Rails"
-      - "Full Stack JavaScript"
-    second_content: "I have chosen the Full Stack JavaScript..."
+      - "Full-stack Ruby on Rails"
+      - "Full-stack JavaScript"
+    second_content: "I have chosen the Full-stack JavaScript..."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1706787624/sqn863dldracoznxnpgj.jpg"
     links:
       - link: "https://www.theodinproject.com/"
         short_link: "theodinproject.com"
-
 ---
 
 The Odin Project Foundation Course provides an excellent jumpstart into the world of web development, immersing you in hands-on experience right from the beginning.

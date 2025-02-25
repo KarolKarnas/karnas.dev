@@ -73,7 +73,7 @@ export default async function Page(props: Params) {
         <div className={styles["author-container"]}>
           <Link className={styles.authorName} href="/about">
             <span>Karol Karnas</span>
-            <span>Full Stack Developer</span>
+            <span>Full-stack Developer</span>
           </Link>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
