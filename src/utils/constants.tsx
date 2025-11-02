@@ -16,6 +16,7 @@ import {
   typeScriptAlt,
   nextJs,
   nestJs,
+  django,
 } from "./icons"
 import { IconName } from "../hooks/useIcon"
 
@@ -43,6 +44,16 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       {
+        title: "brain.karnas.dev",
+        path: "/projects/brain-karnas-dev",
+        icon: django.icon,
+      },
+      {
+        title: "cardpiper.com",
+        path: "/projects/card-piper-com",
+        icon: nestJs.icon,
+      },
+      {
         title: "ilustrografia.com",
         path: "/projects/ilustrografia-com",
         icon: react.icon,
@@ -51,11 +62,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         title: "karnas.dev",
         path: "/projects/karnas-dev",
         icon: nextJs.icon,
-      },
-      {
-        title: "cardpiper.com",
-        path: "/projects/card-piper-com",
-        icon: nestJs.icon,
       },
     ],
   },
