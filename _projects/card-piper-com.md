@@ -15,7 +15,7 @@ icons_stack:
   - "sass"
   - "prisma"
   - "puppeteer"
-live_demo: "https://www.cardpiper.com/"
+live_demo: "https://www.cardpiper.karnas.dev/"
 repo: "https://github.com/KarolKarnas/card-piper-be"
 fields:
   - title: "About"
