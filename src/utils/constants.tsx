@@ -44,7 +44,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       {
-        title: "brain.karnas.dev",
+        title: "brain",
         path: "/projects/brain-karnas-dev",
         icon: django.icon,
       },
