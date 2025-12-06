@@ -13,7 +13,7 @@ icons_stack:
   - "htmx"
   - "tailwind"
   - "alpine"
-live_demo: "https://brain.karnas.dev/"
+live_demo: "https://brain.karolkarnas.com/"
 repo: "https://github.com/KarolKarnas/brain"
 fields:
   - title: "About"
