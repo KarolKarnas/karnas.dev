@@ -17,7 +17,7 @@ import {
   nextJs,
   nestJs,
   django,
-} from "./icons"
+} from "@/icons"
 import { IconName } from "../hooks/useIcon"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [

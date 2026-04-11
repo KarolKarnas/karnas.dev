@@ -1,4 +1,4 @@
-import * as icons from "../utils/icons"
+import * as icons from "@/icons"
 import { IconText } from "../utils/types"
 
 export type IconName = keyof typeof icons

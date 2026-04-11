@@ -5,7 +5,7 @@ import styles from "./header.module.scss"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import { xMark } from "../../../utils/icons"
+import { xMark } from "@/icons"
 import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
 

@@ -1,6 +1,6 @@
 import styles from "./page.module.scss"
 import { SOCIAL_ITEMS } from "../../utils/constants"
-import { phone, mail } from "../../utils/icons"
+import { phone, mail } from "@/icons"
 import { Metadata } from "next"
 import MainHeading from "../_components/main-heading/main-heading"
 import MainSubHeading from "../_components/main-sub-heading/main-sub-heading"

@@ -1,6 +1,6 @@
 import { SocialItem } from "../../../utils/types"
 import styles from "./link-card.module.scss"
-import { link } from "../../../utils/icons"
+import { link } from "@/icons"
 
 type Props = {
   socialItem: SocialItem

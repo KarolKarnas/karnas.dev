@@ -6,7 +6,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { SideNavItem } from "../../../utils/types"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import { chevronDown } from "../../../utils/icons"
+import { chevronDown } from "@/icons"
 import Logo from "../logo/logo"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 
