@@ -133,3 +133,44 @@
 .span-link {
   display: flex;
 }
+
+.terminalBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: spacing.$s2;
+  color: colors.$grey-100;
+  gap: spacing.$s1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-top: 1px solid colors.$grey-700;
+  margin-top: spacing.$s2;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s;
+
+  svg {
+    width: spacing.$s5;
+    transition: color 0.15s;
+  }
+
+  &:hover {
+    background-color: colors.$grey-600;
+    color: colors.$green-500;
+
+    svg {
+      color: colors.$green-500;
+
+      g {
+        fill: colors.$green-500;
+      }
+
+      path {
+        fill: colors.$green-500;
+      }
+    }
+  }
+}

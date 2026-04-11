@@ -48,6 +48,7 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .emptyState {
@@ -70,6 +71,52 @@
     &:hover {
       color: colors.$accent-500;
     }
+  }
+}
+
+.terminalLaunch {
+  display: flex;
+  align-items: center;
+  gap: spacing.$s3;
+  padding: spacing.$s3 spacing.$s5;
+  margin-top: spacing.$s2;
+  background: transparent;
+  border: 1px solid colors.$grey-600;
+  border-radius: 4px;
+  color: colors.$grey-200;
+  font-family: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    border-color: colors.$green-500;
+    color: colors.$green-500;
+
+    kbd {
+      border-color: colors.$green-500;
+      color: colors.$green-500;
+    }
+  }
+
+  kbd {
+    font-family: inherit;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border: 1px solid colors.$grey-600;
+    border-radius: 3px;
+    color: colors.$grey-500;
+    transition: all 0.15s;
+  }
+}
+
+.terminalIcon {
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 16px;
+    height: 16px;
   }
 }
 

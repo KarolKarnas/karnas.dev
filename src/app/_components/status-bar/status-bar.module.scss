@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   height: 22px;
-  background-color: colors.$blue-800;
+  background-color: colors.$grey-800;
   color: colors.$white-100;
   font-size: fonts.$xs;
   padding: 0 8px;
@@ -42,6 +42,22 @@
 
 button.item {
   cursor: pointer;
+
+  &:hover {
+    color: colors.$green-500;
+
+    svg {
+      color: colors.$green-500;
+
+      g {
+        fill: colors.$green-500;
+      }
+
+      path {
+        fill: colors.$green-500;
+      }
+    }
+  }
 }
 
 .icon {

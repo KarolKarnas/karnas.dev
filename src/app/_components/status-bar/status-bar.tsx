@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import { terminal, gitBranch, errorIcon, warningIcon } from "@/icons"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { SideNavItem } from "@/utils/types"
+import { useTerminal } from "../terminal/terminal-context"
 import styles from "./status-bar.module.scss"
 
 type PageMeta = {
@@ -69,6 +70,7 @@ function getPageMeta(pathname: string): PageMeta {
 const StatusBar = () => {
   const pathname = usePathname()
   const { languageMode } = getPageMeta(pathname)
+  const { toggle } = useTerminal()
 
   return (
     <div className={styles.statusBar}>
@@ -78,6 +80,7 @@ const StatusBar = () => {
           type="button"
           aria-label="Toggle Terminal"
           title="Toggle Terminal"
+          onClick={toggle}
         >
           <span className={styles.icon}>{terminal.icon}</span>
         </button>

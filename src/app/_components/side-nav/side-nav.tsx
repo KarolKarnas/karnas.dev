@@ -6,8 +6,9 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { SideNavItem } from "../../../utils/types"
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react"
-import { chevronDown } from "@/icons"
+import { chevronDown, terminal } from "@/icons"
 import Logo from "../logo/logo"
+import TerminalTrigger from "../terminal/terminal-trigger"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { LG_BREAKPOINT } from "@/utils/breakpoints"
 
@@ -64,6 +65,10 @@ const SideNav = ({ width }: SideNavProps) => {
             ))}
           </ul>
         </nav>
+        <TerminalTrigger className={styles.terminalBtn}>
+          {terminal.icon}
+          <span>terminal</span>
+        </TerminalTrigger>
       </div>
     </div>
   )

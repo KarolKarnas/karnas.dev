@@ -91,6 +91,51 @@
   }
 }
 
+.terminalLink {
+  display: flex;
+  align-items: center;
+  gap: spacing.$s3;
+  padding: spacing.$s1 0;
+  margin-bottom: spacing.$s7;
+  background: transparent;
+  border: none;
+  color: colors.$navy-500;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  transition: color 0.15s;
+
+  svg {
+    color: colors.$navy-500;
+    height: fonts.$xl3;
+    transition: color 0.15s;
+
+    g {
+      fill: colors.$navy-500;
+    }
+
+    path {
+      fill: colors.$navy-500;
+    }
+  }
+
+  &:hover {
+    color: colors.$green-500;
+
+    svg {
+      color: colors.$green-500;
+
+      g {
+        fill: colors.$green-500;
+      }
+
+      path {
+        fill: colors.$green-500;
+      }
+    }
+  }
+}
+
 .social-links {
   @include breakpoints.cq-lg {
     padding-top: 310px;

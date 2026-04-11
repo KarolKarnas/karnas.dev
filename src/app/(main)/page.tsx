@@ -3,6 +3,8 @@ import Link from "next/link"
 import { QUOTATION, SIDENAV_ITEMS, SOCIAL_ITEMS } from "@/utils/constants"
 import LinkCard from "@/app/_components/link-card/link-card"
 import NavLinks from "@/app/_components/nav-links/nav-links"
+import TerminalTrigger from "@/app/_components/terminal/terminal-trigger"
+import { terminal } from "@/icons"
 
 export default function Home() {
   const postLinks = SIDENAV_ITEMS.find((item) => item.title === "blog")
@@ -24,6 +26,11 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <h4>Terminal</h4>
+        <TerminalTrigger className={styles.terminalLink}>
+          {terminal.icon}
+          <span>Open interactive terminal</span>
+        </TerminalTrigger>
         <h4>Projects</h4>
         {projectLinks?.subMenuItems && (
           <NavLinks items={projectLinks.subMenuItems} />
