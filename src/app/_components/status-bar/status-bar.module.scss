@@ -55,3 +55,25 @@ button.item {
     height: 100%;
   }
 }
+
+.errorIcon,
+.warningIcon {
+  display: flex;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.errorIcon {
+  margin-right: 1px;
+}
+
+.warningIcon {
+  margin-left: 4px;
+  margin-right: 1px;
+}

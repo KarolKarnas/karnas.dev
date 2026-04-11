@@ -42,6 +42,7 @@ export {
 
 export {
   chevronDown,
+  errorIcon,
   folderOpen,
   gear,
   gitBranch,
@@ -50,6 +51,7 @@ export {
   plus,
   svg,
   terminal,
+  warningIcon,
   xMark,
 } from "./ui"
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { terminal, gitBranch } from "@/icons"
+import { terminal, gitBranch, errorIcon, warningIcon } from "@/icons"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { SideNavItem } from "@/utils/types"
 import styles from "./status-bar.module.scss"
@@ -85,9 +85,16 @@ const StatusBar = () => {
           <span className={styles.icon}>{gitBranch.icon}</span>
           <span>main</span>
         </span>
+        <span className={styles.item}>
+          <span className={styles.errorIcon}>{errorIcon.icon}</span>
+          <span>0</span>
+          <span className={styles.warningIcon}>{warningIcon.icon}</span>
+          <span>0</span>
+        </span>
       </div>
       <div className={styles.right}>
         <span className={styles.item}>Ln 1, Col 1</span>
+        <span className={styles.item}>Spaces: 2</span>
         <span className={styles.item}>UTF-8</span>
         <span className={styles.item}>{languageMode}</span>
       </div>
