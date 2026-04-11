@@ -46,3 +46,12 @@ codeHigh/
 /playwright/.cache/
 /tests-examples/
 post-ideas.md
+
+# clood
+
+.mcp.json
+CLAUDE.md
+.claude
+context
+.playwright-mcp
+screenshots

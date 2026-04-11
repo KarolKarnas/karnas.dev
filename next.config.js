@@ -7,7 +7,16 @@ const nextConfig = {
   },
   
   images: {
-    domains: ["raw.githubusercontent.com", "res.cloudinary.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
 }
 

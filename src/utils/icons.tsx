@@ -498,7 +498,6 @@ export const linkedIn: IconText = {
           fontFamily="none"
           fontWeight="none"
           fontSize="none"
-          textAnchor="none"
         >
           <path d="M0,192v-192h192v192z" fill="none"></path>
           <g fill="#0a66c2">
