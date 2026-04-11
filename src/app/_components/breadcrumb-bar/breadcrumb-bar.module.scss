@@ -1,0 +1,43 @@
+@use "../../scss/colors";
+@use "../../scss/fonts";
+
+.breadcrumbBar {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 12px;
+  background-color: colors.$grey-900;
+  font-size: fonts.$xs;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  color: colors.$grey-500;
+  font-size: fonts.$xs2;
+  margin: 0 6px;
+  user-select: none;
+}
+
+.segment {
+  color: colors.$grey-200;
+  text-decoration: none;
+
+  &:hover {
+    color: colors.$white-100;
+  }
+}
+
+.current {
+  color: colors.$grey-200;
+}

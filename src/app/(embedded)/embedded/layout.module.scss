@@ -3,41 +3,23 @@
 
 .content {
   padding: spacing.$s2;
-  padding-top: 42px; // pane header height (40px) + 2px top padding
+  padding-top: 24px; // breadcrumb overlay (22px) + 2px
   display: flex;
   justify-content: center;
   background-color: colors.$grey-900;
   color: colors.$grey-100;
   min-height: 100vh;
-  overflow-y: auto;
   container-type: inline-size;
 
   // Embedded content is always inside a narrow split pane,
   // so use tighter padding than the main layout
   @media (min-width: 480px) {
     padding: spacing.$s4;
-    padding-top: 42px;
+    padding-top: 24px;
   }
 
   @media (min-width: 768px) {
     padding: spacing.$s5;
-    padding-top: 42px;
-  }
-
-  // VSC-style scrollbar
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: colors.$grey-600;
-    border-radius: 5px;
-    &:hover {
-      background-color: colors.$grey-100;
-    }
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: colors.$grey-950;
+    padding-top: 24px;
   }
 }

@@ -56,33 +56,26 @@ const Header = ({ onTabsChange }: HeaderProps) => {
   }
 
   const removeTab = (item: SideNavItem) => {
-    setOpenTabs((prevTabs) => {
-      const filteredTabs = prevTabs.filter((tab) => tab.path !== item.path)
+    const filteredTabs = openTabs.filter((tab) => tab.path !== item.path)
+    setOpenTabs(filteredTabs)
 
-      if (filteredTabs.length === 0) {
-        setActiveTab(null)
-        setNextTab(null)
-        setTabsCleared(true)
-        router.push("/")
-        return filteredTabs
-      }
+    if (filteredTabs.length === 0) {
+      setActiveTab(null)
+      setNextTab(null)
+      setTabsCleared(true)
+      router.push("/")
+      return
+    }
 
-      const currentTabIndex = prevTabs.indexOf(item)
+    if (activeTab?.path === item.path) {
+      const currentTabIndex = openTabs.indexOf(item)
       const lastFilteredIndex = filteredTabs.length - 1
-      let newItem: SideNavItem
-      if (currentTabIndex <= lastFilteredIndex) {
-        newItem = filteredTabs[currentTabIndex]
-      } else {
-        newItem = filteredTabs[currentTabIndex - 1]
-      }
-
-      if (activeTab === item) {
-        setActiveTab(newItem)
-        setNextTab(newItem)
-      }
-
-      return filteredTabs
-    })
+      const newItem = currentTabIndex <= lastFilteredIndex
+        ? filteredTabs[currentTabIndex]
+        : filteredTabs[currentTabIndex - 1]
+      setActiveTab(newItem)
+      setNextTab(newItem)
+    }
   }
 
   useEffect(() => {
@@ -94,26 +87,12 @@ const Header = ({ onTabsChange }: HeaderProps) => {
     const handler = (e: Event) => {
       const path = (e as CustomEvent).detail?.path
       if (!path) return
-      setOpenTabs((prev) => {
-        const filtered = prev.filter((t) => t.path !== path)
-        if (filtered.length === 0) {
-          setActiveTab(null)
-          setTabsCleared(true)
-          return filtered
-        }
-        // If the removed tab was active, switch to the nearest tab
-        if (activeTab?.path === path) {
-          const idx = prev.findIndex((t) => t.path === path)
-          const newActive = filtered[Math.min(idx, filtered.length - 1)]
-          setActiveTab(newActive)
-          setNextTab(newActive)
-        }
-        return filtered
-      })
+      const item = openTabs.find((t) => t.path === path)
+      if (item) removeTab(item)
     }
     document.addEventListener("close-header-tab", handler)
     return () => document.removeEventListener("close-header-tab", handler)
-  }, [activeTab])
+  }, [openTabs, activeTab])
 
   useEffect(() => {
     if (nextTab) {

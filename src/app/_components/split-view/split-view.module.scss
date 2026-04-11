@@ -12,7 +12,7 @@
 
 .wrapperSplit {
   flex: 0 0 auto;
-  height: calc(100vh - #{spacing.$s6});
+  height: calc(100vh - 40px);
   overflow: hidden;
 }
 
@@ -195,6 +195,14 @@
   flex: 1;
   position: relative;
   min-height: 0;
+
+  > nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 5px); // don't cover scrollbar
+    z-index: 5;
+  }
 }
 
 .iframe {

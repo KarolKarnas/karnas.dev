@@ -6,6 +6,7 @@ import styles from "./split-view.module.scss"
 import { useSplitView } from "./split-view-context"
 import Divider from "./divider/divider"
 import { xMark } from "@/icons"
+import BreadcrumbBar from "../breadcrumb-bar/breadcrumb-bar"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { SideNavItem } from "@/utils/types"
 
@@ -244,6 +245,7 @@ export default function SplitView({ children }: SplitViewProps) {
         className={styles.leftPane}
         style={isActive ? { width: `${splitRatio * 100}%` } : undefined}
       >
+        <BreadcrumbBar />
         {children}
 
         {/* Left drop zone — only when split is active */}
@@ -327,6 +329,7 @@ export default function SplitView({ children }: SplitViewProps) {
               ))}
             </div>
             <div className={styles.iframeContainer}>
+              <BreadcrumbBar path={activeTab.url} />
               <iframe
                 className={styles.iframe}
                 src={embeddedUrl}
