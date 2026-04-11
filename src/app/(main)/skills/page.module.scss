@@ -1,0 +1,21 @@
+@use "../../scss/colors";
+@use "../../scss/mixins";
+@use "../../scss/fonts";
+@use "../../scss/spacing";
+@use "../../scss/breakpoints";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include breakpoints.cq-lg {
+    width: 66%;
+  }
+
+  h2 {
+    margin-bottom: spacing.$s6;
+  }
+
+}

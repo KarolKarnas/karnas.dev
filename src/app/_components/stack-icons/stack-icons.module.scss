@@ -15,13 +15,13 @@
   gap: spacing.$s3;
   padding: spacing.$s3;
   width: 100%;
-  @include breakpoints.md {
+  @include breakpoints.cq-md {
     padding: spacing.$s2;
   }
   li {
     svg {
       height: fonts.$xl3;
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         height: fonts.$xl4;
       }
     }
@@ -32,12 +32,12 @@
   padding: spacing.$s3 spacing.$s6;
   li {
     svg {
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         height: 2.5rem;
       }
     }
   }
-  @include breakpoints.md {
+  @include breakpoints.cq-md {
     gap: spacing.$s6;
   }
 }

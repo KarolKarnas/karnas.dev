@@ -1,0 +1,36 @@
+@use "../../scss/colors";
+@use "../../scss/mixins";
+@use "../../scss/fonts";
+@use "../../scss/spacing";
+@use "../../scss/breakpoints";
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoints.cq-lg {
+    min-height: 70vh;
+  }
+
+  .info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: spacing.$s5;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$s4;
+      
+      &:first-of-type {
+        margin-bottom: spacing.$s7;
+      }
+    }
+  }
+}

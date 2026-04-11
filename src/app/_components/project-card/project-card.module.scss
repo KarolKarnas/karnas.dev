@@ -23,7 +23,7 @@
     background-color: colors.$orange-500;
   }
 
-  @include breakpoints.md {
+  @include breakpoints.cq-md {
     padding: spacing.$s3;
   }
 
@@ -38,7 +38,7 @@
     background-color: rgba(colors.$grey-950, 0.9);
     padding: spacing.$s2;
     align-items: center;
-    @include breakpoints.md {
+    @include breakpoints.cq-md {
       padding: spacing.$s4;
     }
 
@@ -63,7 +63,7 @@
         colors.$shadow-orange-700,
         colors.$shadow-orange-600
       );
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         font-size: fonts.$xl4;
       }
     }
@@ -76,7 +76,7 @@
         colors.$shadow-white-700,
         colors.$shadow-white-600
       );
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         font-size: fonts.$base;
       }
     }
@@ -94,7 +94,7 @@
     justify-content: space-between;
     gap: spacing.$s4;
     
-    @include breakpoints.md {
+    @include breakpoints.cq-md {
       font-size: fonts.$lg;
       padding: spacing.$s6;
     }
@@ -107,7 +107,7 @@
         colors.$shadow-white-700,
         colors.$shadow-white-600
       );
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         font-size: fonts.$base;
       }
     }
@@ -121,7 +121,7 @@
         colors.$shadow-white-700,
         colors.$shadow-white-600
       );
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         font-size: fonts.$base;
       }
     }

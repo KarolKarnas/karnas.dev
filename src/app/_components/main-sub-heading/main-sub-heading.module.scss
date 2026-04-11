@@ -8,7 +8,7 @@
   font-size: fonts.$base;
   text-align: center;
 
-  @include breakpoints.md {
+  @include breakpoints.cq-md {
     font-size: fonts.$lg;
   }
 }

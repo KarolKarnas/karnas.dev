@@ -51,4 +51,37 @@ $breakpoints: (
   }
 }
 
+// Container query mixins — respond to container width, not viewport.
+// Use these inside elements whose ancestor has container-type: inline-size.
+// Interpolation #{} is required so SASS evaluates map.get() inside @container.
+@mixin cq-sm {
+  @container (min-width: #{map.get($breakpoints, "sm")}) {
+    @content;
+  }
+}
+
+@mixin cq-md {
+  @container (min-width: #{map.get($breakpoints, "md")}) {
+    @content;
+  }
+}
+
+@mixin cq-lg {
+  @container (min-width: #{map.get($breakpoints, "lg")}) {
+    @content;
+  }
+}
+
+@mixin cq-xl {
+  @container (min-width: #{map.get($breakpoints, "xl")}) {
+    @content;
+  }
+}
+
+@mixin cq-xl2 {
+  @container (min-width: #{map.get($breakpoints, "xl2")}) {
+    @content;
+  }
+}
+
 

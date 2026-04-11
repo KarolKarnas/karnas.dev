@@ -4,7 +4,7 @@ import styles from "./header.module.scss"
 
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { xMark } from "@/icons"
 import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
@@ -31,7 +31,7 @@ const Header = () => {
 
     return currentActiveTab
   }
-  
+
   const router = useRouter()
   const pathname = usePathname()
 
@@ -88,6 +88,18 @@ const Header = () => {
     }
   }, [pathname])
 
+  const handleDragStart = useCallback(
+    (e: React.DragEvent, item: SideNavItem) => {
+      e.dataTransfer.setData("text/x-split-view", "true")
+      e.dataTransfer.setData("text/x-split-view-url", item.path)
+      e.dataTransfer.setData("text/x-split-view-title", item.title)
+      // Mark as from header so split view can move (not copy) the tab
+      e.dataTransfer.setData("text/x-from-header", "true")
+      e.dataTransfer.effectAllowed = "copyMove"
+    },
+    [],
+  )
+
   return (
     <header className={styles.header}>
       <ul>
@@ -97,9 +109,12 @@ const Header = () => {
             onMouseOut={() => setShowRemove(null)}
             key={index}
             className={styles.container}
+            draggable
+            onDragStart={(e) => handleDragStart(e, item)}
           >
             <Link
               href={item.path}
+              draggable={false}
               className={
                 activeTab && item.title === activeTab.title ? styles.active : ""
               }

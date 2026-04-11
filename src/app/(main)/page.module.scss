@@ -1,0 +1,104 @@
+@use "../scss/colors";
+@use "../scss/mixins";
+@use "../scss/fonts";
+@use "../scss/spacing";
+@use "../scss/breakpoints";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding-left: spacing.$s3;
+
+  @include breakpoints.cq-lg {
+    margin-top: -50px;
+    padding-left: 0;
+    gap: 200px;
+    min-height: 70vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: fonts.$xl6;
+    color: colors.$grey-100;
+    font-weight: 400;
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+  }
+
+  h3 {
+    margin-bottom: spacing.$s2;
+    color: colors.$grey-200;
+    font-size: fonts.$xl2;
+  }
+
+  h4 {
+    font-size: fonts.$xl2;
+    color: colors.$white-100;
+    margin-bottom: spacing.$s2;
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+  }
+
+  .quote {
+    max-width: 500px;
+    display: block;
+    color: colors.$white-100;
+    font-style: italic;
+    margin-bottom: spacing.$s4;
+    font-size: fonts.$xs;
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+    @include breakpoints.cq-lg {
+      margin-bottom: spacing.$s6;
+    }
+  }
+
+  ul.main-links {
+    list-style: none;
+    color: colors.$grey-500;
+    li {
+      a {
+        padding: spacing.$s1 0px;
+        display: flex;
+        align-items: center;
+        gap: spacing.$s3;
+        color: colors.$navy-500;
+        text-decoration: none;
+        svg {
+          color: colors.$navy-500;
+          height: fonts.$xl3;
+          g {
+            fill: colors.$navy-500;
+          }
+          path {
+            fill: colors.$navy-500;
+          }
+        }
+      }
+    }
+    &:first-of-type {
+      margin-bottom: spacing.$s7;
+    }
+  }
+}
+
+.social-links {
+  @include breakpoints.cq-lg {
+    padding-top: 310px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.$s4;
+    margin-bottom: spacing.$s7;
+  }
+}

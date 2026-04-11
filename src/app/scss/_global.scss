@@ -1,7 +1,27 @@
+@use "colors";
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+// VSC-style scrollbar globally
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: colors.$grey-600;
+  border-radius: 5px;
+  &:hover {
+    background-color: colors.$grey-100;
+  }
+}
+
+*::-webkit-scrollbar-track {
+  background-color: colors.$grey-950;
 }

@@ -5,12 +5,16 @@ import Hamburger from "../hamburger/hamburger"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { SideNavItem } from "../../../utils/types"
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react"
 import { chevronDown } from "@/icons"
 import Logo from "../logo/logo"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 
-const SideNav = () => {
+type SideNavProps = {
+  width?: number
+}
+
+const SideNav = ({ width }: SideNavProps) => {
   const [showSideNav, setShowSideNav] = useState(true)
   const [mobile, setMobile] = useState(false)
 
@@ -21,6 +25,7 @@ const SideNav = () => {
         setMobile(true)
       } else {
         setShowSideNav(true)
+        setMobile(false)
       }
     }
 
@@ -32,13 +37,19 @@ const SideNav = () => {
     }
   }, [])
 
+  const showStyle =
+    !mobile && width ? { width: `${width}px` } : undefined
+
   return (
     <div
       className={`${styles.sidenav}
      `}
     >
       <Hamburger showSideNav={showSideNav} setShowSideNav={setShowSideNav} />
-      <div className={showSideNav ? styles.show : styles.hide}>
+      <div
+        className={showSideNav ? styles.show : styles.hide}
+        style={showStyle}
+      >
         <Logo padding flex />
         <nav>
           <ul>
@@ -71,77 +82,101 @@ export const MenuItem = ({ item, mobile, setShowSideNav }: MenuItemProps) => {
     setSubMenuOpen(!subMenuOpen)
   }
 
+  const handleDragStart = useCallback(
+    (e: React.DragEvent, navItem: SideNavItem) => {
+      e.dataTransfer.setData("text/x-split-view", "true")
+      e.dataTransfer.setData("text/x-split-view-url", navItem.path)
+      e.dataTransfer.setData("text/x-split-view-title", navItem.title)
+      e.dataTransfer.effectAllowed = "copyMove"
+    },
+    [],
+  )
+
   return (
     <li>
       {item.submenu ? (
         <>
-          <Link
-            className={styles["sub-menu-link"]}
-            onClick={() => {
-              if (mobile) {
-                setShowSideNav(false)
-              }
-            }}
-            href={item.path}
-          >
-            <div
-              onClick={() => toggleSubMenu()}
-              className={`${styles["link-new"]} ${
-                item.path === pathname ? styles["path-link"] : ""
-              }`}
+          <div draggable onDragStart={(e) => handleDragStart(e, item)}>
+            <Link
+              className={styles["sub-menu-link"]}
+              onClick={() => {
+                if (mobile) {
+                  setShowSideNav(false)
+                }
+              }}
+              href={item.path}
+              draggable={false}
             >
-              <div className={styles["content-btn"]}>
-                <div
-                  className={`${
-                    subMenuOpen ? styles.rotate180 : styles.transition
-                  } ${styles.flex}`}
-                >
-                  <div className={styles.chevron}>{chevronDown.icon}</div>
+              <div
+                onClick={() => toggleSubMenu()}
+                className={`${styles["link-new"]} ${
+                  item.path === pathname ? styles["path-link"] : ""
+                }`}
+              >
+                <div className={styles["content-btn"]}>
+                  <div
+                    className={`${
+                      subMenuOpen ? styles.rotate180 : styles.transition
+                    } ${styles.flex}`}
+                  >
+                    <div className={styles.chevron}>{chevronDown.icon}</div>
+                  </div>
+                  {item.icon}
+                  <span className="">{item.title}</span>
                 </div>
-                {item.icon}
-                <span className="">{item.title}</span>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
           {subMenuOpen && (
             <div className={styles["sub-menu"]}>
               {item.subMenuItems?.map((subItem, idx) => {
                 return (
-                  <Link
+                  <div
                     key={idx}
-                    onClick={() => {
-                      if (mobile) {
-                        setShowSideNav(false)
-                      }
-                    }}
-                    href={subItem.path}
-                    className={`${styles["sub-menu-item"]} ${
-                      subItem.path === pathname ? styles["path-sub-menu"] : ""
-                    }`}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, subItem)}
                   >
-                    {subItem.icon}
-                    <span>{subItem.title}</span>
-                  </Link>
+                    <Link
+                      onClick={() => {
+                        if (mobile) {
+                          setShowSideNav(false)
+                        }
+                      }}
+                      href={subItem.path}
+                      draggable={false}
+                      className={`${styles["sub-menu-item"]} ${
+                        subItem.path === pathname
+                          ? styles["path-sub-menu"]
+                          : ""
+                      }`}
+                    >
+                      {subItem.icon}
+                      <span>{subItem.title}</span>
+                    </Link>
+                  </div>
                 )
               })}
             </div>
           )}
         </>
       ) : (
-        <Link
-          href={item.path}
-          onClick={() => {
-            if (mobile) {
-              setShowSideNav(false)
-            }
-          }}
-          className={`${styles["link-new"]} ${
-            item.path === pathname ? styles["path-link"] : ""
-          }`}
-        >
-          {item.icon}
-          <span className={styles["span-link"]}>{item.title}</span>
-        </Link>
+        <div draggable onDragStart={(e) => handleDragStart(e, item)}>
+          <Link
+            href={item.path}
+            onClick={() => {
+              if (mobile) {
+                setShowSideNav(false)
+              }
+            }}
+            draggable={false}
+            className={`${styles["link-new"]} ${
+              item.path === pathname ? styles["path-link"] : ""
+            }`}
+          >
+            {item.icon}
+            <span className={styles["span-link"]}>{item.title}</span>
+          </Link>
+        </div>
       )}
     </li>
   )

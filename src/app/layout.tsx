@@ -1,10 +1,8 @@
 import { Roboto_Mono } from "next/font/google"
 import type { Metadata } from "next"
-import styles from "./layout.module.scss"
 import "./scss/_global.scss"
-import SideNav from "./_components/side-nav/side-nav"
 import { Analytics } from "@vercel/analytics/react"
-import Header from "./_components/header/header"
+import { SplitViewProvider } from "./_components/split-view/split-view-context"
 
 const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] })
 
@@ -25,12 +23,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} ${styles.layout}`}>
-        <SideNav />
-        <div className={styles.container}>
-          <Header />
-          <main className={styles.content}>{children}</main>
-        </div>
+      <body className={roboto.className}>
+        <SplitViewProvider>{children}</SplitViewProvider>
         <Analytics />
       </body>
     </html>

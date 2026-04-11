@@ -38,7 +38,7 @@
     color: colors.$grey-600;
     align-items: center;
     backdrop-filter: blur(3px);
-    @include breakpoints.md {
+    @include breakpoints.cq-md {
       padding: spacing.$s4;
     }
 
@@ -75,7 +75,7 @@
         colors.$shadow-black-700,
         colors.$shadow-black-600
       );
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         display: inherit;
         font-size: fonts.$base;
       }
@@ -94,7 +94,7 @@
     flex-direction: column;
     gap: spacing.$s4;
 
-    @include breakpoints.md {
+    @include breakpoints.cq-md {
       font-size: fonts.$lg;
       padding: spacing.$s4;
     }
@@ -110,7 +110,7 @@
         colors.$shadow-white-600
       );
       
-      @include breakpoints.md {
+      @include breakpoints.cq-md {
         font-size: fonts.$base;
       }
     }

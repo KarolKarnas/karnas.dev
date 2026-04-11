@@ -28,6 +28,7 @@ fields:
       - "Utilize Next.js server-side components for enhanced SEO, performance and dynamic rendering"
       - "Organize content with distinct grids for projects and blog posts, providing visual clarity"
       - "Craft a tab menu and sidebar that closely mimic Visual Studio Code (VSC) behavior, enhancing user navigation"
+      - "Drag and drop tabs from the header or sidebar to create a split editor view with multiple panes, resizable divider, and tab management — just like in VS Code"
       - "Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface"
       - "Utilize Cloudinary for secure and scalable object storage, optimizing media file handling"
       - "Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture"

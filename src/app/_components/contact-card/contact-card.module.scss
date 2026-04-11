@@ -11,10 +11,10 @@
   border-radius: 5px;
   border-radius: 5px;
   width: 300px;
-  @include breakpoints.lg {
+  @include breakpoints.cq-lg {
     width: 400px;
   }
-  @include breakpoints.xl {
+  @include breakpoints.cq-xl {
     width: 500px;
   }
 

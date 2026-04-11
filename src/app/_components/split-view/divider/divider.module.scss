@@ -1,0 +1,25 @@
+@use "../../../scss/colors";
+
+.divider {
+  width: 2px;
+  cursor: col-resize;
+  background-color: colors.$grey-700;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.15s;
+
+  // Wider invisible hit area for easier grabbing
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -4px;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+  }
+
+  &:hover {
+    background-color: colors.$blue-500;
+  }
+}

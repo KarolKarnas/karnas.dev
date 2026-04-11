@@ -1,0 +1,207 @@
+@use "../../scss/colors";
+@use "../../scss/spacing";
+@use "../../scss/fonts";
+@use "../../scss/breakpoints";
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.wrapperSplit {
+  flex: 0 0 auto;
+  height: calc(100vh - #{spacing.$s6});
+  overflow: hidden;
+}
+
+.leftPane {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  position: relative;
+}
+
+// Left drop zone — appears when dragging a pane tab back to the main view
+.leftDropZone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(colors.$green-500, 0.08);
+  border: 2px dashed rgba(colors.$green-500, 0.3);
+  z-index: 50;
+  pointer-events: auto;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.leftDropZoneActive {
+  background-color: rgba(colors.$green-500, 0.15);
+  border-color: colors.$green-500;
+}
+
+// Drop zone — covers right half of the content area
+.dropZone {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(colors.$blue-500, 0.08);
+  border: 2px dashed rgba(colors.$blue-500, 0.3);
+  z-index: 102; // above pane header (101)
+  pointer-events: auto;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.dropZoneActive {
+  background-color: rgba(colors.$blue-500, 0.15);
+  border-color: colors.$blue-500;
+}
+
+.dropZoneLabel {
+  font-size: fonts.$sm;
+  pointer-events: none;
+  user-select: none;
+}
+
+.leftDropZone .dropZoneLabel {
+  color: colors.$green-500;
+}
+
+.dropZone .dropZoneLabel {
+  color: colors.$blue-500;
+}
+
+// Right pane with pane header and iframe
+.rightPane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: colors.$grey-900;
+}
+
+// Pane header — fixed at the top, aligned with the main header bar
+.paneHeader {
+  display: flex;
+  align-items: stretch;
+  height: 40px;
+  background-color: colors.$grey-950;
+  border-left: 1px solid black;
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: colors.$grey-600;
+    border-radius: 5px;
+    &:hover {
+      background-color: colors.$grey-100;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: colors.$grey-950;
+  }
+}
+
+// Individual pane tab — mirrors main header tab styling
+.paneTab {
+  display: flex;
+  align-items: center;
+  gap: spacing.$s2;
+  padding: 0 spacing.$s3;
+  background-color: colors.$grey-950;
+  border-right: 1px solid black;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+
+  &:hover {
+    .paneTabClose {
+      opacity: 1;
+    }
+  }
+}
+
+.paneTabActive {
+  background-color: colors.$grey-900;
+  border-top: 1px solid black;
+
+  .paneTabTitle {
+    color: colors.$accent-500;
+  }
+}
+
+.paneTabTitle {
+  font-size: fonts.$sm;
+  color: colors.$grey-100;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.paneTabClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  padding: 2px;
+  cursor: pointer;
+  color: colors.$grey-100;
+  opacity: 0;
+  transition: opacity 0.1s;
+
+  svg {
+    height: spacing.$s4;
+  }
+
+  &:hover {
+    background-color: colors.$grey-625;
+  }
+}
+
+// Always show close on active tab
+.paneTabActive .paneTabClose {
+  opacity: 1;
+}
+
+.iframeContainer {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: colors.$grey-900;
+}
+
+// Transparent overlay on top of iframe during divider drag
+// Prevents iframe from swallowing mouse events
+.iframeOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  cursor: col-resize;
+}
