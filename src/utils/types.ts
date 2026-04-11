@@ -1,5 +1,12 @@
 import { JSX } from "react"
+import { z } from "zod"
+
 import { IconName } from "../hooks/useIcon"
+import {
+  FieldSchema,
+  PostFrontmatterSchema,
+  ProjectFrontmatterSchema,
+} from "./schemas"
 
 export type SideNavItem = {
   title: string
@@ -21,7 +28,6 @@ export type MenuItemWithSubMenuProps = {
   toggleOpen: () => void
 }
 
-
 export type FakeJson = {
   title: string
   value: string | FakeJson[]
@@ -34,27 +40,11 @@ export type User = {
   password: string
 }
 
-export type Field = {
-  title?: string
-  content?: string
-  list?: string[]
-  second_content?: string
-  image?: string
-  links?: SocialItem[]
-}
+export type Field = z.infer<typeof FieldSchema>
 
-export type Post = {
-  author_name: string
-  title: string
-  sub_title: string
+export type Post = z.infer<typeof PostFrontmatterSchema> & {
   slug: string
-  content_title: string
   content: string
-  main_image: string
-  fields: Field[]
-  category: string
-  tags: string[]
-  date: string
 }
 
 export type BlogCardType = {
@@ -68,26 +58,13 @@ export type BlogCardType = {
   date: string
 }
 
-export type Project = {
-  author_name: string
-  title: string
-  sub_title: string
+export type Project = Omit<
+  z.infer<typeof ProjectFrontmatterSchema>,
+  "icons_stack"
+> & {
   slug: string
-  content_title: string
   content: string
-  main_image: string
-  main_icon: string
-  //
-  stack: string[]
   icons_stack: IconName[]
-  // json_stack: FakeJson[]
-  live_demo: string
-  repo: string
-  //
-  fields: Field[]
-  category: string
-  tags: string[]
-  date: string
 }
 
 export type ProjectCardType = {
@@ -97,11 +74,10 @@ export type ProjectCardType = {
   content_title: string
   content: string
   main_image: string
-  stack: string[]
+  stack?: string[]
   icons_stack: IconName[]
   live_demo: string
   repo: string
-
   path: string
   date: string
 }

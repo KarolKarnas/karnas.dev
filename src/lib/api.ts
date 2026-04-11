@@ -1,3 +1,7 @@
+import {
+  PostFrontmatterSchema,
+  ProjectFrontmatterSchema,
+} from "@/utils/schemas"
 import { Post, Project } from "@/utils/types"
 import fs from "fs"
 import matter from "gray-matter"
@@ -10,13 +14,14 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
 }
 
-export function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string): Post {
   const realSlug = slug.replace(/\.md$/, "")
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, "utf8")
   const { data, content } = matter(fileContents)
+  const frontmatter = PostFrontmatterSchema.parse(data)
 
-  return { ...data, slug: realSlug, content } as Post
+  return { ...frontmatter, slug: realSlug, content }
 }
 
 export function getAllPosts(): Post[] {
@@ -31,13 +36,14 @@ export function getProjectSlugs() {
   return fs.readdirSync(projectsDirectory)
 }
 
-export function getProjectBySlug(slug: string) {
+export function getProjectBySlug(slug: string): Project {
   const realSlug = slug.replace(/\.md$/, "")
   const fullPath = join(projectsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, "utf8")
   const { data, content } = matter(fileContents)
+  const frontmatter = ProjectFrontmatterSchema.parse(data)
 
-  return { ...data, slug: realSlug, content } as Project
+  return { ...frontmatter, slug: realSlug, content } as Project
 }
 
 export function getAllProjects(): Project[] {
