@@ -37,6 +37,7 @@ const Terminal = () => {
   const router = useRouter()
   const pathname = usePathname()
   const bodyRef = useRef<HTMLDivElement>(null)
+  const bottomRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
 
   const [posts, setPosts] = useState<PostMeta[]>([])
@@ -55,12 +56,12 @@ const Terminal = () => {
       })
   }, [])
 
-  // Auto-scroll to bottom on new history
+  // Auto-scroll to bottom on new history or terminal open
   useEffect(() => {
-    if (bodyRef.current) {
-      bodyRef.current.scrollTop = bodyRef.current.scrollHeight
-    }
-  }, [history])
+    requestAnimationFrame(() => {
+      bottomRef.current?.scrollIntoView({ block: "end" })
+    })
+  }, [history, isOpen])
 
   // Global keyboard shortcut: Ctrl+`
   useEffect(() => {
@@ -169,6 +170,7 @@ const Terminal = () => {
           onSubmit={handleCommand}
           commandHistory={commandHistory}
         />
+        <div ref={bottomRef} />
       </div>
     </div>
   )
