@@ -96,6 +96,7 @@
   height: 40px;
   background-color: colors.$grey-950;
   border-left: 1px solid black;
+  padding-top: 3px;
   position: fixed;
   top: 0;
   z-index: 101;
@@ -130,11 +131,20 @@
   white-space: nowrap;
   position: relative;
 
+  svg {
+    height: spacing.$s5;
+    flex-shrink: 0;
+  }
+
   &:hover {
     .paneTabClose {
       opacity: 1;
     }
   }
+}
+
+.paneTabDropIndicator {
+  border-left: 2px solid colors.$blue-500;
 }
 
 .paneTabActive {

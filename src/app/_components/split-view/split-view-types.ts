@@ -16,6 +16,7 @@ export type SplitViewContextValue = SplitViewState & {
   setActivePaneTab: (index: number) => void
   setSplitRatio: (ratio: number) => void
   toggleSplitView: () => void
+  reorderPaneTabs: (fromIndex: number, toIndex: number) => void
 }
 
 export const SPLIT_VIEW_STORAGE_KEY = "split-view-state"

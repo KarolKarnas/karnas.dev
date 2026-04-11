@@ -105,6 +105,30 @@ export function SplitViewProvider({ children }: { children: React.ReactNode }) {
     })
   }, [])
 
+  const reorderPaneTabs = useCallback((fromIndex: number, toIndex: number) => {
+    setState((prev) => {
+      const newTabs = [...prev.paneTabs]
+      const [moved] = newTabs.splice(fromIndex, 1)
+      newTabs.splice(toIndex, 0, moved)
+      // Keep active tab following the moved tab if it was active
+      let newActiveIndex = prev.activeTabIndex
+      if (prev.activeTabIndex === fromIndex) {
+        newActiveIndex = toIndex
+      } else if (
+        fromIndex < prev.activeTabIndex &&
+        toIndex >= prev.activeTabIndex
+      ) {
+        newActiveIndex = prev.activeTabIndex - 1
+      } else if (
+        fromIndex > prev.activeTabIndex &&
+        toIndex <= prev.activeTabIndex
+      ) {
+        newActiveIndex = prev.activeTabIndex + 1
+      }
+      return { ...prev, paneTabs: newTabs, activeTabIndex: newActiveIndex }
+    })
+  }, [])
+
   const value: SplitViewContextValue = {
     ...state,
     openSplitPane,
@@ -112,6 +136,7 @@ export function SplitViewProvider({ children }: { children: React.ReactNode }) {
     setActivePaneTab,
     setSplitRatio,
     toggleSplitView,
+    reorderPaneTabs,
   }
 
   return (

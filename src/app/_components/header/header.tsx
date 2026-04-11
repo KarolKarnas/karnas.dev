@@ -9,7 +9,11 @@ import { xMark } from "@/icons"
 import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
 
-const Header = () => {
+type HeaderProps = {
+  onTabsChange?: (hasOpenTabs: boolean) => void
+}
+
+const Header = ({ onTabsChange }: HeaderProps) => {
   const homeSideNavItem = SIDENAV_ITEMS[0]
 
   const getActiveTab = (pathname: string) => {
@@ -37,8 +41,9 @@ const Header = () => {
 
   const [showRemove, setShowRemove] = useState<string | null>(null)
   const [openTabs, setOpenTabs] = useState<SideNavItem[]>([homeSideNavItem])
-  const [activeTab, setActiveTab] = useState(getActiveTab(pathname))
+  const [activeTab, setActiveTab] = useState<SideNavItem | null>(getActiveTab(pathname))
   const [nextTab, setNextTab] = useState<SideNavItem | null>(null)
+  const [tabsCleared, setTabsCleared] = useState(false)
 
   const updateOpenTabs = (tab: SideNavItem) => {
     setOpenTabs((prevTabs) => {
@@ -53,12 +58,20 @@ const Header = () => {
     setOpenTabs((prevTabs) => {
       const filteredTabs = prevTabs.filter((tab) => tab.path !== item.path)
 
-      let newItem = homeSideNavItem
+      if (filteredTabs.length === 0) {
+        setActiveTab(null)
+        setNextTab(null)
+        setTabsCleared(true)
+        router.push("/")
+        return filteredTabs
+      }
+
       const currentTabIndex = prevTabs.indexOf(item)
       const lastFilteredIndex = filteredTabs.length - 1
+      let newItem: SideNavItem
       if (currentTabIndex <= lastFilteredIndex) {
         newItem = filteredTabs[currentTabIndex]
-      } else if (currentTabIndex > lastFilteredIndex) {
+      } else {
         newItem = filteredTabs[currentTabIndex - 1]
       }
 
@@ -72,6 +85,36 @@ const Header = () => {
   }
 
   useEffect(() => {
+    onTabsChange?.(openTabs.length > 0)
+  }, [openTabs, onTabsChange])
+
+  // Listen for close-header-tab events from split view (drag header tab to right pane)
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const path = (e as CustomEvent).detail?.path
+      if (!path) return
+      setOpenTabs((prev) => {
+        const filtered = prev.filter((t) => t.path !== path)
+        if (filtered.length === 0) {
+          setActiveTab(null)
+          setTabsCleared(true)
+          return filtered
+        }
+        // If the removed tab was active, switch to the nearest tab
+        if (activeTab?.path === path) {
+          const idx = prev.findIndex((t) => t.path === path)
+          const newActive = filtered[Math.min(idx, filtered.length - 1)]
+          setActiveTab(newActive)
+          setNextTab(newActive)
+        }
+        return filtered
+      })
+    }
+    document.addEventListener("close-header-tab", handler)
+    return () => document.removeEventListener("close-header-tab", handler)
+  }, [activeTab])
+
+  useEffect(() => {
     if (nextTab) {
       router.push(nextTab.path)
       setNextTab(null)
@@ -79,26 +122,70 @@ const Header = () => {
   }, [nextTab, router])
 
   useEffect(() => {
-    if (pathname) {
+    if (pathname && !tabsCleared) {
       const newTab = getActiveTab(pathname)
       if (newTab) {
         setActiveTab(newTab)
         updateOpenTabs(newTab)
       }
     }
-  }, [pathname])
+    // Reset cleared flag on any new navigation (e.g. sidebar click)
+    if (tabsCleared && pathname !== "/") {
+      setTabsCleared(false)
+    }
+  }, [pathname, tabsCleared])
+
+  const [dropIndex, setDropIndex] = useState<number | null>(null)
 
   const handleDragStart = useCallback(
-    (e: React.DragEvent, item: SideNavItem) => {
+    (e: React.DragEvent, item: SideNavItem, index: number) => {
       e.dataTransfer.setData("text/x-split-view", "true")
       e.dataTransfer.setData("text/x-split-view-url", item.path)
       e.dataTransfer.setData("text/x-split-view-title", item.title)
       // Mark as from header so split view can move (not copy) the tab
       e.dataTransfer.setData("text/x-from-header", "true")
+      e.dataTransfer.setData("text/x-header-reorder", String(index))
       e.dataTransfer.effectAllowed = "copyMove"
     },
     [],
   )
+
+  const handleTabDragOver = useCallback(
+    (e: React.DragEvent, index: number) => {
+      if (!e.dataTransfer.types.includes("text/x-header-reorder")) return
+      e.preventDefault()
+      setDropIndex(index)
+    },
+    [],
+  )
+
+  const handleTabDrop = useCallback(
+    (e: React.DragEvent, targetIndex: number) => {
+      e.preventDefault()
+      e.stopPropagation()
+      const sourceStr = e.dataTransfer.getData("text/x-header-reorder")
+      if (sourceStr === "") return
+
+      const sourceIndex = parseInt(sourceStr, 10)
+      if (sourceIndex === targetIndex) {
+        setDropIndex(null)
+        return
+      }
+
+      setOpenTabs((prev) => {
+        const next = [...prev]
+        const [moved] = next.splice(sourceIndex, 1)
+        next.splice(targetIndex, 0, moved)
+        return next
+      })
+      setDropIndex(null)
+    },
+    [],
+  )
+
+  const handleDragEnd = useCallback(() => {
+    setDropIndex(null)
+  }, [])
 
   return (
     <header className={styles.header}>
@@ -107,10 +194,13 @@ const Header = () => {
           <div
             onMouseOver={() => setShowRemove(item.title)}
             onMouseOut={() => setShowRemove(null)}
-            key={index}
-            className={styles.container}
+            key={item.path}
+            className={`${styles.container} ${dropIndex === index ? styles.dropIndicator : ""}`}
             draggable
-            onDragStart={(e) => handleDragStart(e, item)}
+            onDragStart={(e) => handleDragStart(e, item, index)}
+            onDragOver={(e) => handleTabDragOver(e, index)}
+            onDrop={(e) => handleTabDrop(e, index)}
+            onDragEnd={handleDragEnd}
           >
             <Link
               href={item.path}
@@ -125,9 +215,8 @@ const Header = () => {
               </li>
             </Link>
 
-            {item.path === "/" ? null : (activeTab &&
-                item.title === activeTab.title) ||
-              showRemove === item.title ? (
+            {(activeTab && item.title === activeTab.title) ||
+            showRemove === item.title ? (
               <div onClick={() => removeTab(item)} className={styles.xMark}>
                 {xMark.icon}
               </div>

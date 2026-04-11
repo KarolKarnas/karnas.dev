@@ -3,6 +3,7 @@
 
 .content {
   padding: spacing.$s2;
+  padding-top: 42px; // pane header height (40px) + 2px top padding
   display: flex;
   justify-content: center;
   background-color: colors.$grey-900;
@@ -15,10 +16,12 @@
   // so use tighter padding than the main layout
   @media (min-width: 480px) {
     padding: spacing.$s4;
+    padding-top: 42px;
   }
 
   @media (min-width: 768px) {
     padding: spacing.$s5;
+    padding-top: 42px;
   }
 
   // VSC-style scrollbar

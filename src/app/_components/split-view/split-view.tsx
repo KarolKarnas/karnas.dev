@@ -1,11 +1,26 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import styles from "./split-view.module.scss"
 import { useSplitView } from "./split-view-context"
 import Divider from "./divider/divider"
 import { xMark } from "@/icons"
+import { SIDENAV_ITEMS } from "@/utils/constants"
+import { SideNavItem } from "@/utils/types"
+
+function buildIconMap(items: SideNavItem[]): Map<string, React.ReactNode> {
+  const map = new Map<string, React.ReactNode>()
+  for (const item of items) {
+    if (item.icon) map.set(item.path, item.icon)
+    if (item.subMenuItems) {
+      for (const sub of item.subMenuItems) {
+        if (sub.icon) map.set(sub.path, sub.icon)
+      }
+    }
+  }
+  return map
+}
 
 type SplitViewProps = {
   children: React.ReactNode
@@ -23,6 +38,7 @@ export default function SplitView({ children }: SplitViewProps) {
     setActivePaneTab,
     setSplitRatio,
     toggleSplitView,
+    reorderPaneTabs,
   } = useSplitView()
 
   const containerRef = useRef<HTMLDivElement>(null)
@@ -31,10 +47,12 @@ export default function SplitView({ children }: SplitViewProps) {
   const [isRightOver, setIsRightOver] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
   const [isDividerDragging, setIsDividerDragging] = useState(false)
+  const [paneDropIndex, setPaneDropIndex] = useState<number | null>(null)
   const [paneHeaderStyle, setPaneHeaderStyle] = useState<React.CSSProperties>(
     {},
   )
 
+  const iconMap = useMemo(() => buildIconMap(SIDENAV_ITEMS), [])
   const activeTab = paneTabs[activeTabIndex] ?? null
   const embeddedUrl = activeTab ? `/embedded${activeTab.url}` : null
 
@@ -91,6 +109,33 @@ export default function SplitView({ children }: SplitViewProps) {
     }
   }, [])
 
+  // Listen for navigation messages from embedded iframes
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      if (e.origin !== window.location.origin) return
+      if (e.data?.type !== "split-view-navigate") return
+      const url = e.data.url as string
+      // Look up title from nav items
+      let title = url
+      for (const item of SIDENAV_ITEMS) {
+        if (item.path === url) {
+          title = item.title
+          break
+        }
+        if (item.subMenuItems) {
+          const sub = item.subMenuItems.find((s) => s.path === url)
+          if (sub) {
+            title = sub.title
+            break
+          }
+        }
+      }
+      openSplitPane(url, title)
+    }
+    window.addEventListener("message", handleMessage)
+    return () => window.removeEventListener("message", handleMessage)
+  }, [openSplitPane])
+
   // Keyboard shortcut: Ctrl+\
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -132,13 +177,15 @@ export default function SplitView({ children }: SplitViewProps) {
 
       if (url && title) {
         openSplitPane(url, title)
-        // If dragged from header, move it — navigate main view to home
+        // If dragged from header, close that header tab
         if (fromHeader) {
-          router.push("/")
+          document.dispatchEvent(
+            new CustomEvent("close-header-tab", { detail: { path: url } }),
+          )
         }
       }
     },
-    [openSplitPane, router],
+    [openSplitPane],
   )
 
   // Pane tab drag start
@@ -149,10 +196,39 @@ export default function SplitView({ children }: SplitViewProps) {
       e.dataTransfer.setData("text/x-split-view-url", tab.url)
       e.dataTransfer.setData("text/x-split-view-title", tab.title)
       e.dataTransfer.setData("text/x-pane-tab-index", String(index))
-      e.dataTransfer.effectAllowed = "move"
+      e.dataTransfer.setData("text/x-pane-reorder", String(index))
+      e.dataTransfer.effectAllowed = "copyMove"
     },
     [paneTabs],
   )
+
+  const handlePaneTabDragOver = useCallback(
+    (e: React.DragEvent, index: number) => {
+      if (!e.dataTransfer.types.includes("text/x-pane-reorder")) return
+      e.preventDefault()
+      setPaneDropIndex(index)
+    },
+    [],
+  )
+
+  const handlePaneTabDrop = useCallback(
+    (e: React.DragEvent, targetIndex: number) => {
+      const sourceStr = e.dataTransfer.getData("text/x-pane-reorder")
+      if (sourceStr === "") return
+      e.preventDefault()
+      e.stopPropagation()
+      const sourceIndex = parseInt(sourceStr, 10)
+      if (sourceIndex !== targetIndex) {
+        reorderPaneTabs(sourceIndex, targetIndex)
+      }
+      setPaneDropIndex(null)
+    },
+    [reorderPaneTabs],
+  )
+
+  const handlePaneTabDragEnd = useCallback(() => {
+    setPaneDropIndex(null)
+  }, [])
 
   // When split is NOT active: show only right drop zone (to create split)
   // When split IS active: show both left and right drop zones
@@ -227,11 +303,15 @@ export default function SplitView({ children }: SplitViewProps) {
               {paneTabs.map((tab, index) => (
                 <div
                   key={tab.url}
-                  className={`${styles.paneTab} ${index === activeTabIndex ? styles.paneTabActive : ""}`}
+                  className={`${styles.paneTab} ${index === activeTabIndex ? styles.paneTabActive : ""} ${paneDropIndex === index ? styles.paneTabDropIndicator : ""}`}
                   onClick={() => setActivePaneTab(index)}
                   draggable
                   onDragStart={(e) => handlePaneTabDragStart(e, index)}
+                  onDragOver={(e) => handlePaneTabDragOver(e, index)}
+                  onDrop={(e) => handlePaneTabDrop(e, index)}
+                  onDragEnd={handlePaneTabDragEnd}
                 >
+                  {iconMap.get(tab.url)}
                   <span className={styles.paneTabTitle}>{tab.title}</span>
                   <button
                     className={styles.paneTabClose}

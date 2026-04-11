@@ -86,6 +86,10 @@
   }
 }
 
+.dropIndicator {
+  border-left: 2px solid colors.$blue-500 !important;
+}
+
 .xMark {
   display: flex;
   position: absolute;

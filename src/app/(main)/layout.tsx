@@ -5,6 +5,7 @@ import styles from "../layout.module.scss"
 import SideNav from "../_components/side-nav/side-nav"
 import Header from "../_components/header/header"
 import SplitView from "../_components/split-view/split-view"
+import Logo from "../_components/logo/logo"
 
 const SIDEBAR_MIN = 150
 const SIDEBAR_MAX = 500
@@ -76,6 +77,8 @@ export default function MainLayout({
     }
   }, [])
 
+  const [hasOpenTabs, setHasOpenTabs] = useState(true)
+
   return (
     <div className={styles.layout} ref={layoutRef}>
       <SideNav width={isMobile ? undefined : sidebarWidth} />
@@ -86,10 +89,17 @@ export default function MainLayout({
         />
       )}
       <div className={styles.container}>
-        <Header />
-        <SplitView>
-          <main className={styles.content}>{children}</main>
-        </SplitView>
+        <Header onTabsChange={setHasOpenTabs} />
+        {hasOpenTabs ? (
+          <SplitView>
+            <main className={styles.content}>{children}</main>
+          </SplitView>
+        ) : (
+          <div className={styles.emptyState}>
+            <Logo />
+            <p>Open a file from the sidebar</p>
+          </div>
+        )}
       </div>
     </div>
   )
