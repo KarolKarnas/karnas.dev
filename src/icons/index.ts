@@ -44,10 +44,12 @@ export {
   chevronDown,
   folderOpen,
   gear,
+  gitBranch,
   link,
   newFile,
   plus,
   svg,
+  terminal,
   xMark,
 } from "./ui"
 

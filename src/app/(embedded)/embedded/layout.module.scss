@@ -3,7 +3,7 @@
 
 .content {
   padding: spacing.$s2;
-  padding-top: 24px; // breadcrumb overlay (22px) + 2px
+  padding-top: 65px; // breadcrumb overlay (22px) + match left pane padding (43px) // breadcrumb overlay (22px) + 2px
   display: flex;
   justify-content: center;
   background-color: colors.$grey-900;
@@ -15,11 +15,11 @@
   // so use tighter padding than the main layout
   @media (min-width: 480px) {
     padding: spacing.$s4;
-    padding-top: 24px;
+    padding-top: 65px; // breadcrumb overlay (22px) + match left pane padding (43px)
   }
 
   @media (min-width: 768px) {
     padding: spacing.$s5;
-    padding-top: 24px;
+    padding-top: 65px; // breadcrumb overlay (22px) + match left pane padding (43px)
   }
 }

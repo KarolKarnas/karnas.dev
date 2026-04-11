@@ -2,8 +2,15 @@
 @use "./scss/spacing";
 @use "./scss/breakpoints";
 
-.layout {
+.layoutWrapper {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.layout {
+  flex: 1;
   display: flex;
   overflow: hidden;
 }

@@ -1,0 +1,57 @@
+@use "../../scss/colors";
+@use "../../scss/fonts";
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 22px;
+  background-color: colors.$blue-800;
+  color: colors.$white-100;
+  font-size: fonts.$xs;
+  padding: 0 8px;
+  flex-shrink: 0;
+  z-index: 50;
+  user-select: none;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  height: 100%;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: default;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+button.item {
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

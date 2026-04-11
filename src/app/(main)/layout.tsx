@@ -6,6 +6,7 @@ import styles from "../layout.module.scss"
 import SideNav from "../_components/side-nav/side-nav"
 import Header from "../_components/header/header"
 import SplitView from "../_components/split-view/split-view"
+import StatusBar from "../_components/status-bar/status-bar"
 import Logo from "../_components/logo/logo"
 
 const SIDEBAR_MIN = 150
@@ -78,27 +79,30 @@ export default function MainLayout({
   const [hasOpenTabs, setHasOpenTabs] = useState(true)
 
   return (
-    <div className={styles.layout} ref={layoutRef}>
-      <SideNav width={isMobile ? undefined : sidebarWidth} />
-      {!isMobile && (
-        <div
-          className={styles.sidebarDivider}
-          onMouseDown={handleDividerMouseDown}
-        />
-      )}
-      <div className={styles.container}>
-        <Header onTabsChange={setHasOpenTabs} />
-        {hasOpenTabs ? (
-          <SplitView>
-            <main className={styles.content}>{children}</main>
-          </SplitView>
-        ) : (
-          <div className={styles.emptyState}>
-            <Logo />
-            <p>Open a file from the sidebar</p>
-          </div>
+    <div className={styles.layoutWrapper}>
+      <div className={styles.layout} ref={layoutRef}>
+        <SideNav width={isMobile ? undefined : sidebarWidth} />
+        {!isMobile && (
+          <div
+            className={styles.sidebarDivider}
+            onMouseDown={handleDividerMouseDown}
+          />
         )}
+        <div className={styles.container}>
+          <Header onTabsChange={setHasOpenTabs} />
+          {hasOpenTabs ? (
+            <SplitView>
+              <main className={styles.content}>{children}</main>
+            </SplitView>
+          ) : (
+            <div className={styles.emptyState}>
+              <Logo />
+              <p>Open a file from the sidebar</p>
+            </div>
+          )}
+        </div>
       </div>
+      <StatusBar />
     </div>
   )
 }
