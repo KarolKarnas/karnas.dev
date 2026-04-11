@@ -3,6 +3,7 @@
 @use "../../../scss/fonts";
 @use "../../../scss/spacing";
 @use "../../../scss/breakpoints";
+@use "../../../scss/detail-page";
 
 .container {
   display: flex;
@@ -188,24 +189,14 @@
       }
 
       .ListContainer {
-        list-style: square;
-        padding-left: spacing.$s6;
+        @include detail-page.list-container;
       }
       .LinksContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: spacing.$s3;
+        @include detail-page.links-container;
       }
 
       hr {
-        width: 80%;
-        border: none;
-        border-top: 3px double colors.$grey-600;
-        overflow: visible;
-        text-align: center;
-        height: 5px;
-        margin: spacing.$s6 auto;
+        @include detail-page.section-hr;
       }
     }
 
@@ -232,9 +223,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        @include breakpoints.cq-md {
-        }
       }
       h3 {
         margin-bottom: spacing.$s2;
@@ -252,49 +240,12 @@
     }
 
     .author-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      gap: spacing.$s4;
-      color: colors.$white-100;
-      background-color: colors.$grey-900;
-      padding: spacing.$s6 spacing.$s2;
-      border-radius: 15px;
-
-      @include breakpoints.cq-xl {
-        flex-direction: row;
-        gap: 0;
-        margin-bottom: spacing.$s8;
-        padding: spacing.$s8;
-      }
-
+      @include detail-page.author-container;
       .authorName {
-        display: flex;
-        flex-direction: column;
-        color: colors.$white-100;
-        text-decoration: none;
-        span {
-          @include mixins.drop-shadow-md-color(
-            colors.$shadow-white-700,
-            colors.$shadow-white-600
-          );
-          &:first-of-type {
-            font-size: fonts.$xl2;
-          }
-          &:last-of-type {
-            margin-bottom: spacing.$s4;
-          }
-        }
-        &:hover {
-          color: colors.$blue-500;
-          text-decoration-line: underline;
-        }
+        @include detail-page.author-name;
       }
       ul {
-        display: flex;
-        flex-direction: column;
-        gap: spacing.$s3;
+        @include detail-page.author-links;
       }
     }
   }

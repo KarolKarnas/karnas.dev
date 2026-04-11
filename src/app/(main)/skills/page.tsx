@@ -6,7 +6,7 @@ import {
   TEST,
   WORKFLOW_TOOLS,
 } from "@/utils/constants"
-import useIcon from "@/hooks/useIcon"
+import getIcons from "@/utils/icon-utils"
 import { Metadata } from "next"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
 import MainHeading from "@/app/_components/main-heading/main-heading"
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     "All my hard earn knowledge and skills on the one page :). TypeScript, JavaScript, React, Node.js, Next.js, PostgreSQL, Linux, Testing Library, Playwright, Tailwind, SASS",
 }
 
-export default async function About() {
+export default async function Skills() {
   const skills = [
-    { title: "Programming languages", icons: useIcon(PROGRAMMING) },
-    { title: "Front-end", icons: useIcon(FRONTEND) },
-    { title: "Back-end", icons: useIcon(BACKEND) },
-    { title: "Test", icons: useIcon(TEST) },
-    { title: "Workflow Tools", icons: useIcon(WORKFLOW_TOOLS) },
+    { title: "Programming languages", icons: getIcons(PROGRAMMING) },
+    { title: "Front-end", icons: getIcons(FRONTEND) },
+    { title: "Back-end", icons: getIcons(BACKEND) },
+    { title: "Test", icons: getIcons(TEST) },
+    { title: "Workflow Tools", icons: getIcons(WORKFLOW_TOOLS) },
   ]
 
   return (

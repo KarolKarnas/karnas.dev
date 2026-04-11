@@ -9,6 +9,7 @@ import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "reac
 import { chevronDown } from "@/icons"
 import Logo from "../logo/logo"
 import { SIDENAV_ITEMS } from "@/utils/constants"
+import { LG_BREAKPOINT } from "@/utils/breakpoints"
 
 type SideNavProps = {
   width?: number
@@ -20,7 +21,7 @@ const SideNav = ({ width }: SideNavProps) => {
 
   useEffect(() => {
     const checkWindowWidth = () => {
-      if (window.innerWidth < 1024) {
+      if (window.innerWidth < LG_BREAKPOINT) {
         setShowSideNav(false)
         setMobile(true)
       } else {

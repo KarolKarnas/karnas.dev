@@ -1,11 +1,6 @@
-import Spinner from "@/app/_components/spinner/spinner"
-import styles from "./loading.module.scss"
+import LoadingPage from "@/app/_components/loading-page/loading-page"
 
 const Loading = () => {
-  return (
-    <div className={styles.loading}>
-      <Spinner />
-    </div>
-  )
+  return <LoadingPage />
 }
 export default Loading

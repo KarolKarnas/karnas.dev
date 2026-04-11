@@ -1,0 +1,82 @@
+@use "./colors";
+@use "./mixins";
+@use "./fonts";
+@use "./spacing";
+@use "./breakpoints";
+
+@mixin author-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing.$s4;
+  color: colors.$white-100;
+  background-color: colors.$grey-900;
+  padding: spacing.$s6 spacing.$s2;
+  border-radius: 15px;
+
+  @include breakpoints.cq-xl {
+    flex-direction: row;
+    gap: 0;
+    margin-bottom: spacing.$s8;
+    padding: spacing.$s8;
+  }
+}
+
+@mixin author-name {
+  display: flex;
+  flex-direction: column;
+  color: colors.$white-100;
+  text-decoration: none;
+  span {
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+    &:first-of-type {
+      font-size: fonts.$xl2;
+    }
+    &:last-of-type {
+      margin-bottom: spacing.$s4;
+    }
+  }
+  &:hover {
+    color: colors.$blue-500;
+    text-decoration-line: underline;
+  }
+}
+
+@mixin author-links {
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$s3;
+}
+
+@mixin section-content {
+  margin: spacing.$s6 0px;
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$s2;
+}
+
+@mixin list-container {
+  list-style: square;
+  padding-left: spacing.$s6;
+}
+
+@mixin links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing.$s3;
+}
+
+@mixin section-hr {
+  width: 80%;
+  border: none;
+  border-top: 3px double colors.$grey-600;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+  margin: spacing.$s6 auto;
+}

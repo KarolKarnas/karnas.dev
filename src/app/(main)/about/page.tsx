@@ -3,7 +3,7 @@ import { ABOUT } from "@/utils/info"
 import Image from "next/image"
 import { MY_SKILLS, QUOTATION } from "@/utils/constants"
 import { Metadata } from "next"
-import useIcon from "@/hooks/useIcon"
+import getIcons from "@/utils/icon-utils"
 import MainHeading from "@/app/_components/main-heading/main-heading"
 import MainSubHeading from "@/app/_components/main-sub-heading/main-sub-heading"
 import Json from "@/app/_components/json/json"
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default async function About() {
-  const icons = useIcon(MY_SKILLS)
+  const icons = getIcons(MY_SKILLS)
 
   return (
     <div className={styles.container}>

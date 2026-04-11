@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Get in touch with Karol Karnas via email at karol.karnas@gmail.com or by phone at +48 784 034 778.",
 }
 
-export default async function About() {
+export default async function Contact() {
   return (
     <div className={styles.container}>
       <div className={styles.info}>

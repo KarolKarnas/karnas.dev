@@ -1,15 +1,15 @@
 import Link from "next/link"
-import styles from "./projects-links.module.scss"
+import styles from "./nav-links.module.scss"
 import { SideNavItem } from "@/utils/types"
 
-export type ProjectLinksProps = {
-  projectLinks: SideNavItem[]
+type NavLinksProps = {
+  items: SideNavItem[]
 }
 
-const ProjectsLinks = ({ projectLinks }: ProjectLinksProps) => {
+const NavLinks = ({ items }: NavLinksProps) => {
   return (
     <ul className={styles.container}>
-      {projectLinks.map((item, index) => (
+      {items.map((item, index) => (
         <li key={index}>
           <Link href={item.path}>
             {item.icon} {item.title}
@@ -19,4 +19,5 @@ const ProjectsLinks = ({ projectLinks }: ProjectLinksProps) => {
     </ul>
   )
 }
-export default ProjectsLinks
+
+export default NavLinks

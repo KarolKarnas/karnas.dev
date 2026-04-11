@@ -1,7 +1,7 @@
 import { JSX } from "react"
 import { z } from "zod"
 
-import { IconName } from "../hooks/useIcon"
+import { IconName } from "./icon-utils"
 import {
   FieldSchema,
   PostFrontmatterSchema,

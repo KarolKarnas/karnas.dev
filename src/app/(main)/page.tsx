@@ -2,8 +2,7 @@ import styles from "./page.module.scss"
 import Link from "next/link"
 import { QUOTATION, SIDENAV_ITEMS, SOCIAL_ITEMS } from "@/utils/constants"
 import LinkCard from "@/app/_components/link-card/link-card"
-import BlogLinks from "@/app/_components/blog-links/blog-links"
-import ProjectsLinks from "@/app/_components/project-links/projects-links"
+import NavLinks from "@/app/_components/nav-links/nav-links"
 
 export default function Home() {
   const postLinks = SIDENAV_ITEMS.find((item) => item.title === "blog")
@@ -27,7 +26,7 @@ export default function Home() {
         </ul>
         <h4>Projects</h4>
         {projectLinks?.subMenuItems && (
-          <ProjectsLinks projectLinks={projectLinks.subMenuItems} />
+          <NavLinks items={projectLinks.subMenuItems} />
         )}
       </div>
 
@@ -40,7 +39,7 @@ export default function Home() {
         </ul>
         <h4>Blog</h4>
         {postLinks?.subMenuItems && (
-          <BlogLinks postLinks={postLinks.subMenuItems} />
+          <NavLinks items={postLinks.subMenuItems} />
         )}
       </div>
     </div>

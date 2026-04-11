@@ -1,8 +1,6 @@
-@use "../../scss/colors";
 @use "../../scss/fonts.scss";
-@use "../../scss/spacing.scss";
 @use "../../scss/breakpoints.scss";
-@use "../../scss/mixins.scss";
+@use "../../scss/heading-colors";
 
 .heading {
   font-size: fonts.$base;
@@ -14,26 +12,13 @@
 }
 
 .purple {
-  color: colors.$purple-100;
-  @include mixins.drop-shadow-md-color(
-    colors.$shadow-white-700,
-    colors.$shadow-white-600
-  );
+  @include heading-colors.purple;
 }
 
 .orange {
-  color: colors.$orange-500;
-
-  @include mixins.drop-shadow-md-color(
-    colors.$shadow-orange-700,
-    colors.$shadow-orange-600
-  );
+  @include heading-colors.orange;
 }
 
 .blue {
-  color: colors.$blue-500;
-  @include mixins.drop-shadow-md-color(
-    colors.$shadow-blue-700,
-    colors.$shadow-blue-600
-  );
+  @include heading-colors.blue;
 }

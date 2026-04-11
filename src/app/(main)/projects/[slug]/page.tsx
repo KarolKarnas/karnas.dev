@@ -1,8 +1,8 @@
 import Image from "next/image"
 import styles from "./page.module.scss"
 import Link from "next/link"
-import type { Metadata, ResolvingMetadata } from "next"
-import useIcon from "@/hooks/useIcon"
+import type { Metadata } from "next"
+import getIcons from "@/utils/icon-utils"
 import { SocialItem } from "@/utils/types"
 import { gitHub, link } from "@/icons"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
@@ -14,7 +14,7 @@ export default async function Page(props: Params) {
   const params = await props.params
   const project = getProjectBySlug(params.slug)
 
-  const icons = useIcon(project.icons_stack)
+  const icons = getIcons(project.icons_stack)
   const socialItemLive: SocialItem = {
     link: project.live_demo,
     short_link: "Live Demo",

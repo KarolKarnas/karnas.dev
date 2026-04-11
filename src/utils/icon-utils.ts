@@ -1,11 +1,10 @@
 import * as icons from "@/icons"
-import { IconText } from "../utils/types"
+import { IconText } from "./types"
 
 export type IconName = keyof typeof icons
 
-
-const useIcon = (iconNames: IconName[]): (IconText[]) => {
+const getIcons = (iconNames: IconName[]): IconText[] => {
   return iconNames.map((iconName) => icons[iconName])
 }
 
-export default useIcon
+export default getIcons

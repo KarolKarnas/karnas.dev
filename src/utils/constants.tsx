@@ -18,7 +18,7 @@ import {
   nestJs,
   django,
 } from "@/icons"
-import { IconName } from "../hooks/useIcon"
+import { IconName } from "./icon-utils"
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
@@ -98,11 +98,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/contact",
     icon: sass.icon,
   },
-  // {
-  //   title: ".gitignore",
-  //   path: "/gitignore",
-  //   icon: git,
-  // },
 ]
 
 export const SOCIAL_ITEMS: SocialItem[] = [
@@ -121,16 +116,6 @@ export const SOCIAL_ITEMS: SocialItem[] = [
     short_link: "twitter.com/Karol_Karnas",
     icon: twitter.icon,
   },
-  // {
-  //   title: "Instagram",
-  //   path: "https://isntagram.com/karol.karnas",
-  //   icon: react,
-  // },
-  // {
-  //   title: "Facebook",
-  //   path: "https://facebook.com/lensmanpl",
-  //   icon: react,
-  // }
 ]
 
 export const PROGRAMMING: IconName[] = ["python", "typeScript", "javaScript"]
@@ -140,7 +125,6 @@ export const FRONTEND: IconName[] = [
   "redux",
   "nextJs",
   "sass",
-  // "cssModules",
   "tailwind",
 ]
 
@@ -170,7 +154,6 @@ export const WORKFLOW_TOOLS: IconName[] = [
   "gitHub",
   "jira",
   "confluence",
-  // "figma",
 ]
 
 export const MY_SKILLS: IconName[] = [

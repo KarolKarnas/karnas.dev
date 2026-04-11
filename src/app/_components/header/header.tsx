@@ -9,32 +9,33 @@ import { xMark } from "@/icons"
 import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
 
+const homeSideNavItem = SIDENAV_ITEMS[0]
+
+function getActiveTab(pathname: string): SideNavItem {
+  let currentActiveTab = homeSideNavItem
+
+  for (let i = 0; i < SIDENAV_ITEMS.length; i++) {
+    const item = SIDENAV_ITEMS[i]
+    if (item.path === pathname) {
+      currentActiveTab = item
+    }
+    if (item.subMenuItems) {
+      for (let j = 0; j < item.subMenuItems.length; j++) {
+        if (item.subMenuItems[j].path === pathname) {
+          currentActiveTab = item.subMenuItems[j]
+        }
+      }
+    }
+  }
+
+  return currentActiveTab
+}
+
 type HeaderProps = {
   onTabsChange?: (hasOpenTabs: boolean) => void
 }
 
 const Header = ({ onTabsChange }: HeaderProps) => {
-  const homeSideNavItem = SIDENAV_ITEMS[0]
-
-  const getActiveTab = (pathname: string) => {
-    let currentActiveTab = homeSideNavItem
-
-    for (let i = 0; i < SIDENAV_ITEMS.length; i++) {
-      const item = SIDENAV_ITEMS[i]
-      if (item.path === pathname) {
-        currentActiveTab = item
-      }
-      if (item.subMenuItems) {
-        for (let j = 0; j < item.subMenuItems.length; j++) {
-          if (item.subMenuItems[j].path === pathname) {
-            currentActiveTab = item.subMenuItems[j]
-          }
-        }
-      }
-    }
-
-    return currentActiveTab
-  }
 
   const router = useRouter()
   const pathname = usePathname()

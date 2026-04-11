@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
+import { LG_BREAKPOINT } from "@/utils/breakpoints"
 import styles from "../layout.module.scss"
 import SideNav from "../_components/side-nav/side-nav"
 import Header from "../_components/header/header"
@@ -35,16 +36,11 @@ export default function MainLayout({
 
   // Track mobile state
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 1024)
+    const check = () => setIsMobile(window.innerWidth < LG_BREAKPOINT)
     check()
     window.addEventListener("resize", check)
     return () => window.removeEventListener("resize", check)
   }, [])
-
-  // Save to localStorage
-  useEffect(() => {
-    localStorage.setItem(SIDEBAR_WIDTH_KEY, String(sidebarWidth))
-  }, [sidebarWidth])
 
   const handleDividerMouseDown = useCallback((e: React.MouseEvent) => {
     e.preventDefault()
@@ -66,6 +62,8 @@ export default function MainLayout({
         isDragging.current = false
         document.body.style.cursor = ""
         document.body.style.userSelect = ""
+        // Save to localStorage only on drag end
+        localStorage.setItem(SIDEBAR_WIDTH_KEY, String(sidebarWidth))
       }
     }
 
@@ -75,7 +73,7 @@ export default function MainLayout({
       document.removeEventListener("mousemove", handleMouseMove)
       document.removeEventListener("mouseup", handleMouseUp)
     }
-  }, [])
+  }, [sidebarWidth])
 
   const [hasOpenTabs, setHasOpenTabs] = useState(true)
 

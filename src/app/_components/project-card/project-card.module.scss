@@ -4,6 +4,12 @@
 @use "../../scss/breakpoints.scss";
 @use "../../scss/mixins";
 
+.cardLink {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
 .card {
   display: flex;
   flex-direction: column;
