@@ -8,13 +8,18 @@ import { terminal } from "@/icons"
 
 export default function Home() {
   const postLinks = SIDENAV_ITEMS.find((item) => item.title === "blog")
-  const projectLinks = SIDENAV_ITEMS.find((item) => item.title === "projects")
+  const projectLinks = SIDENAV_ITEMS.find(
+    (item) => item.title === "side projects",
+  )
+  const professionalLinks = SIDENAV_ITEMS.find(
+    (item) => item.title === "professional projects",
+  )
 
   return (
     <div className={styles.container}>
       <div className={styles.col1}>
         <h1>Karol Karnas</h1>
-        <h3>Full-stack developer</h3>
+        <h3>Backend Engineer · AI Pipelines · Agentic Systems</h3>
         <span className={styles.quote}>{QUOTATION}</span>
         <h4>Start</h4>
         <ul className={styles["main-links"]}>
@@ -26,12 +31,11 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <h4>Terminal</h4>
-        <TerminalTrigger className={styles.terminalLink}>
-          {terminal.icon}
-          <span>Open interactive terminal</span>
-        </TerminalTrigger>
-        <h4>Projects</h4>
+        <h4>Professional projects</h4>
+        {professionalLinks?.subMenuItems && (
+          <NavLinks items={professionalLinks.subMenuItems} />
+        )}
+        <h4>Side projects</h4>
         {projectLinks?.subMenuItems && (
           <NavLinks items={projectLinks.subMenuItems} />
         )}
@@ -48,6 +52,11 @@ export default function Home() {
         {postLinks?.subMenuItems && (
           <NavLinks items={postLinks.subMenuItems} />
         )}
+        <h4>Terminal</h4>
+        <TerminalTrigger className={styles.terminalLink}>
+          {terminal.icon}
+          <span>Open interactive terminal</span>
+        </TerminalTrigger>
       </div>
     </div>
   )

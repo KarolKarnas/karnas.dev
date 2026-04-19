@@ -2,37 +2,45 @@ import { FakeJson } from "./types"
 
 export const ABOUT: FakeJson[] = [
   {
-    title: "Specialization",
+    title: "Role",
     value:
-      "I specialize in full-stack development and thrive in its fast-paced environment. I enjoy improving communication within this workflow and taking responsibility for designing API structures and database schemas. I love seeing a well-structured database seamlessly mirrored in a beautiful and functional UI. Currently, I spend most of my time working with Python and Django on the back-end, and React, Redux, and SCSS on the front-end.",
+      "Backend Engineer with a growing focus on AI-powered data pipelines, embedding-based search, and agentic workflows. I love the moment when a well-built backend quietly powers AI that actually works.",
   },
   {
     title: "Stack",
     value: [
       {
         title: "Backend",
-        value: "Python, Django, Node.js, Express, NestJS PostgreSQL, SQL",
-      },
-      { title: "Frontend", value: "React, Redux, Next.js, Typescript, SASS" },
-      {
-        title: "Testing",
-        value: "Pytest, JEST, React Testing Library, Cypress",
+        value: "Python, Django (incl. multi-tenant), FastAPI, Celery, Pandas, pytest",
       },
       {
-        title: "Environment",
-        value: "Linux, Git, Github, Jira, Confluence",
+        title: "Data & Infra",
+        value: "PostgreSQL, pgvector, Redis, Docker, AWS, Azure, Linux",
+      },
+      {
+        title: "AI / LLM",
+        value:
+          "sentence-transformers, RAG, LLM API Integration, Agentic Pipelines, Vision-Language Models",
+      },
+      {
+        title: "Observability",
+        value: "Sentry, Datadog, Grafana, Langfuse, Flower",
+      },
+      {
+        title: "Frontend",
+        value: "TypeScript, React, Next.js, Redux",
       },
     ],
   },
   {
-    title: "AI",
+    title: "Approach",
     value:
-      "I integrate AI-powered API requests and vector databases into backend development. I use ChatGPT for prototyping and learning (with caution 😆) and MidJourney/Leonardo AI for design inspiration",
+      "I care about clean data flow, predictable async workers, and AI integrations that hold up in production. I wire LLMs, embeddings, and vision models into backend systems - not as demos but as parts of production pipelines that real users and teams depend on.",
   },
   {
     title: "Background",
     value:
-      "I have always loved building and creating-programming feels like an art form. My skill set extends beyond coding, including problem-solving, system design, and data analysis with pandas. I also have experience in creative fields like photography, composition, aesthetics, 2D animation, and UI/UX, which shape my approach to development",
+      "I have always loved building and creating - programming feels like an art form. My skill set extends beyond coding: problem-solving, system design, and data analysis with Pandas. I also have experience in creative fields like photography, composition, aesthetics, 2D animation, and UI/UX, which shape how I think about developer experience.",
   },
 ]
 

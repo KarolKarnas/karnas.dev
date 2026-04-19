@@ -2,9 +2,12 @@ import styles from "./page.module.scss"
 import {
   PROGRAMMING,
   BACKEND,
+  CLOUD,
   FRONTEND,
   TEST,
   WORKFLOW_TOOLS,
+  AI_LLM_CONCEPTS,
+  OBSERVABILITY_CONCEPTS,
 } from "@/utils/constants"
 import getIcons from "@/utils/icon-utils"
 import { Metadata } from "next"
@@ -13,35 +16,63 @@ import MainHeading from "@/app/_components/main-heading/main-heading"
 import MainSubHeading from "@/app/_components/main-sub-heading/main-sub-heading"
 import SectionHeading from "@/app/_components/section-heading/section-heading"
 import SkillSection from "@/app/_components/skill-section/skill-section"
+import { ConceptChipList } from "@/app/_components/concept-chip/concept-chip"
 
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "All my hard earn knowledge and skills on the one page :). TypeScript, JavaScript, React, Node.js, Next.js, PostgreSQL, Linux, Testing Library, Playwright, Tailwind, SASS",
+    "Backend Engineering, AI pipelines, and agentic systems - Python, Django, FastAPI, Celery, pgvector, sentence-transformers, AWS, Azure, Docker, Postgres, Redis.",
 }
 
 export default async function Skills() {
-  const skills = [
-    { title: "Programming languages", icons: getIcons(PROGRAMMING) },
-    { title: "Front-end", icons: getIcons(FRONTEND) },
-    { title: "Back-end", icons: getIcons(BACKEND) },
-    { title: "Test", icons: getIcons(TEST) },
-    { title: "Workflow Tools", icons: getIcons(WORKFLOW_TOOLS) },
-  ]
-
   return (
     <div className={styles.container}>
       <MainHeading color="blue">Skills</MainHeading>
       <MainSubHeading color="purple">
-        All my hard earn knowledge and skills on the one page :)
+        Backend Engineering · AI Pipelines · Agentic Systems
       </MainSubHeading>
 
-      {skills.map((skill, index) => (
-        <SkillSection key={index}>
-          <SectionHeading color="purple">{skill.title}</SectionHeading>
-          <StackIcons size="large" icons={skill.icons} texts />
-        </SkillSection>
-      ))}
+      <SkillSection>
+        <SectionHeading color="purple">Programming languages</SectionHeading>
+        <StackIcons size="large" icons={getIcons(PROGRAMMING)} texts />
+      </SkillSection>
+
+      <SkillSection>
+        <SectionHeading color="purple">Backend</SectionHeading>
+        <StackIcons size="large" icons={getIcons(BACKEND)} texts />
+      </SkillSection>
+
+      <SkillSection>
+        <SectionHeading color="purple">Cloud &amp; Infrastructure</SectionHeading>
+        <StackIcons size="large" icons={getIcons(CLOUD)} texts />
+      </SkillSection>
+
+      <SkillSection>
+        <SectionHeading color="purple">AI / LLM</SectionHeading>
+        <ConceptChipList labels={AI_LLM_CONCEPTS} color="purple" />
+      </SkillSection>
+
+      <SkillSection>
+        <SectionHeading color="purple">Observability</SectionHeading>
+        <ConceptChipList labels={OBSERVABILITY_CONCEPTS} color="navy" />
+      </SkillSection>
+
+      <SkillSection>
+        <SectionHeading color="purple">Test</SectionHeading>
+        <StackIcons size="large" icons={getIcons(TEST)} texts />
+      </SkillSection>
+
+      <SkillSection>
+        <SectionHeading color="purple">Workflow Tools</SectionHeading>
+        <StackIcons size="large" icons={getIcons(WORKFLOW_TOOLS)} texts />
+      </SkillSection>
+
+      <SkillSection>
+        <SectionHeading color="purple">
+          Frontend
+        </SectionHeading>
+        <StackIcons icons={getIcons(FRONTEND)} texts />
+      </SkillSection>
     </div>
   )
 }

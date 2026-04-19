@@ -7,7 +7,7 @@ const whoami: Command = {
   execute: () => {
     return [
       "Karol Karnas",
-      "Full Stack Developer",
+      "Backend Engineer · AI Pipelines · Agentic Systems",
       "",
       "GitHub:   github.com/KarolKarnas",
       "LinkedIn: linkedin.com/in/KarolKarnas",
@@ -23,11 +23,13 @@ const skills: Command = {
   usage: "skills",
   execute: () => {
     return [
-      "Programming:  Python, TypeScript, JavaScript",
-      "Frontend:     React, Redux, Next.js, SASS, Tailwind",
-      "Backend:      Django, Node.js, Express, NestJS, Prisma, PostgreSQL",
-      "Testing:      Pytest, Jest, Cypress, RTL, Postman",
-      "Tools:        Linux, VS Code, Git, GitHub, Jira, Confluence",
+      "Backend:        Python, Django, FastAPI, Celery, Pandas, pytest, Jupyter",
+      "Cloud & Infra:  AWS, Azure, Docker, PostgreSQL, pgvector, Redis, Linux",
+      "AI / LLM:       sentence-transformers, RAG, LLM API Integration,",
+      "                Agentic Pipelines, Vision-Language Models",
+      "Observability:  Sentry, Datadog, Grafana, Langfuse, Flower",
+      "Frontend:       TypeScript, React, Next.js, Redux",
+      "Tools:          Git, GitHub, VS Code, Jira, Confluence",
     ].join("\n")
   },
 }

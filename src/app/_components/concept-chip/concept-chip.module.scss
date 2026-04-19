@@ -1,0 +1,67 @@
+@use "../../scss/colors";
+@use "../../scss/fonts";
+@use "../../scss/spacing";
+@use "../../scss/breakpoints";
+@use "../../scss/mixins";
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: spacing.$s2;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.chip {
+  display: inline-block;
+  padding: spacing.$s1 spacing.$s3;
+  border-radius: 999px;
+  font-size: fonts.$sm;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: colors.$white-100;
+  white-space: nowrap;
+  @include breakpoints.cq-md {
+    font-size: fonts.$base;
+    padding: spacing.$s1 spacing.$s4;
+  }
+}
+
+.purple {
+  background-color: rgba(colors.$purple-500, 0.2);
+  border: 1px solid colors.$purple-500;
+  color: colors.$purple-200;
+}
+
+.navy {
+  background-color: rgba(colors.$navy-500, 0.2);
+  border: 1px solid colors.$navy-500;
+  color: colors.$navy-200;
+}
+
+.pink {
+  background-color: rgba(colors.$pink-500, 0.2);
+  border: 1px solid colors.$pink-500;
+  color: colors.$pink-200;
+}
+
+.blue {
+  background-color: rgba(colors.$blue-500, 0.2);
+  border: 1px solid colors.$blue-500;
+  color: colors.$blue-200;
+}
+
+.green {
+  background-color: rgba(colors.$green-500, 0.2);
+  border: 1px solid colors.$green-500;
+  color: colors.$green-200;
+}
+
+.orange {
+  background-color: rgba(colors.$orange-500, 0.2);
+  border: 1px solid colors.$orange-500;
+  color: colors.$orange-200;
+}

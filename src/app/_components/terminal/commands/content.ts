@@ -11,12 +11,13 @@ const cat: Command = {
 
     if (slug === "about") {
       return [
-        "Karol Karnas - Full Stack Developer",
+        "Karol Karnas - Backend Engineer · AI Pipelines · Agentic Systems",
         "",
-        "I love seeing a well-structured database seamlessly",
-        "mirrored in a beautiful and functional UI.",
+        "I love the moment when a well-built backend quietly powers",
+        "AI that actually works.",
         "",
-        "Stack: TypeScript, React, Next.js, Python, Django, NestJS",
+        "Stack: Python, Django, FastAPI, Celery, PostgreSQL/pgvector,",
+        "       Redis, Docker - on AWS and Azure.",
         "Location: Poland",
         "Site: https://www.karnas.dev",
       ].join("\n")

@@ -12,7 +12,7 @@ import StackIcons from "@/app/_components/stack-icons/stack-icons"
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Karol Karnas is specializing in creating pixel perfect Interfaces. Currently his favorite stack to do that is React + Typescript + TailwindCSS",
+    "Karol Karnas - Backend Engineer building AI-powered data pipelines, embedding-based search, and agentic workflows in Python, Django, FastAPI, and Celery.",
 }
 
 export default async function About() {
@@ -23,7 +23,7 @@ export default async function About() {
       <div className={styles.info}>
         <MainHeading color="orange">About</MainHeading>
         <MainSubHeading color="purple">
-          Karol Karnas - Full-stack developer
+          Karol Karnas - Backend Engineer · AI Pipelines · Agentic Systems
         </MainSubHeading>
         <Json code={ABOUT}></Json>
       </div>
@@ -33,7 +33,7 @@ export default async function About() {
           src={"/karol_karnas_full_stack_developer.jpg"}
           width={683}
           height={1024}
-          alt={"Karol Karnas full-stack developer"}
+          alt={"Karol Karnas - Backend Engineer · AI Pipelines · Agentic Systems"}
         ></Image>
         <span className={styles.quote}>{QUOTATION}</span>
         <StackIcons icons={icons} />

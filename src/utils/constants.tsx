@@ -3,16 +3,13 @@ import {
   nodeJs,
   folderOpen,
   react,
-  vsc,
   karnas,
   twitter,
   gitHub,
   linkedIn,
-  gear,
   svg,
   karnasAlt,
   sass,
-  typeScript,
   typeScriptAlt,
   nextJs,
   nestJs,
@@ -39,7 +36,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: nodeJs.icon,
   },
   {
-    title: "professional",
+    title: "professional projects",
     path: "/professional",
     icon: folderOpen.icon,
     submenu: true,
@@ -57,7 +54,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ],
   },
   {
-    title: "projects",
+    title: "side projects",
     path: "/projects",
     icon: folderOpen.icon,
     submenu: true,
@@ -137,37 +134,34 @@ export const SOCIAL_ITEMS: SocialItem[] = [
   },
 ]
 
-export const PROGRAMMING: IconName[] = ["python", "typeScript", "javaScript"]
-
-export const FRONTEND: IconName[] = [
-  "react",
-  "redux",
-  "nextJs",
-  "sass",
-  "tailwind",
-]
+export const PROGRAMMING: IconName[] = ["python", "typeScript"]
 
 export const BACKEND: IconName[] = [
+  "python",
   "django",
-  "nodeJs",
-  "express",
-  "nestJs",
-  "prisma",
+  "fastapi",
+  "celery",
+  "pandas",
+  "pytest",
+  "jupyter",
+  "openai",
+]
+
+export const CLOUD: IconName[] = [
+  "aws",
+  "azure",
+  "docker",
   "postgres",
   "sql",
+  "redis",
+  "linux",
 ]
 
-export const TEST: IconName[] = [
-  "pytest",
-  "jest",
-  "cypress",
-  "rtl",
-  "postman",
-  "insomnia",
-]
+export const FRONTEND: IconName[] = ["typeScript", "react", "nextJs", "redux"]
+
+export const TEST: IconName[] = ["pytest", "playWright", "postman", "insomnia"]
 
 export const WORKFLOW_TOOLS: IconName[] = [
-  "linux",
   "vsc",
   "git",
   "gitHub",
@@ -175,22 +169,50 @@ export const WORKFLOW_TOOLS: IconName[] = [
   "confluence",
 ]
 
+export const AI_LLM_CONCEPTS: string[] = [
+  "pgvector",
+  "sentence-transformers",
+  "RAG",
+  "LLM API Integration",
+  "Agentic Pipelines",
+  "Vision-Language Models",
+]
+
+export const OBSERVABILITY_CONCEPTS: string[] = [
+  "Sentry",
+  "Datadog",
+  "Grafana",
+  "Langfuse",
+  "Flower",
+]
+
 export const MY_SKILLS: IconName[] = [
-  ...PROGRAMMING,
-  ...FRONTEND,
-  ...BACKEND,
-  ...TEST,
-  ...WORKFLOW_TOOLS,
+  "python",
+  "django",
+  "celery",
+  "pandas",
+  "pytest",
+  "openai",
+  "postgres",
+  "sql",
+  "redis",
+  "aws",
+  "azure",
+  "docker",
+  "linux",
+  "git",
+  "gitHub",
+  "vsc",
 ]
 
 export const CORE_SKILLS: IconName[] = [
   "python",
-  "typeScript",
-  "react",
-  "nextJs",
   "django",
-  "nestJs",
+  "celery",
+  "postgres",
+  "aws",
+  "azure",
 ]
 
 export const QUOTATION =
-  '"I love seeing a well-structured database seamlessly mirrored in a beautiful and functional UI"'
+  '"I love the moment when a well-built backend quietly powers AI that actually works"'

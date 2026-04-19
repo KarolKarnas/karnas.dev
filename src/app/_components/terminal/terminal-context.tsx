@@ -60,6 +60,16 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
     }
   }, [state.height, hydrated])
 
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      if (e.origin !== window.location.origin) return
+      if (e.data?.type !== "split-view-open-terminal") return
+      setState((prev) => ({ ...prev, isOpen: true }))
+    }
+    window.addEventListener("message", handleMessage)
+    return () => window.removeEventListener("message", handleMessage)
+  }, [])
+
   const toggle = useCallback(() => {
     setState((prev) => ({ ...prev, isOpen: !prev.isOpen }))
   }, [])

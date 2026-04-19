@@ -8,7 +8,7 @@ import { ProjectCardType } from "@/utils/types"
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Personal side projects - full-stack work in React, TypeScript, Node.js, Django, and Next.js.",
+    "Personal side projects - backend systems, semantic search with pgvector, and full-stack experiments in Django, Next.js, TypeScript, and React.",
 }
 
 export default async function Portfolio() {
