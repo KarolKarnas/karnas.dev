@@ -1,6 +1,15 @@
 import { Command } from "./index"
 
-const SECTIONS = ["blog", "projects", "about", "skills", "contact"]
+const SECTIONS = [
+  "blog",
+  "projects",
+  "professional",
+  "about",
+  "skills",
+  "contact",
+]
+
+const SLUG_SECTIONS = ["blog", "projects", "professional"]
 
 const ls: Command = {
   name: "ls",
@@ -23,6 +32,13 @@ const ls: Command = {
     if (section === "projects") {
       if (context.projects.length === 0) return "Loading content..."
       return context.projects
+        .map((p) => `  ${p.slug}  [${p.stack?.join(", ") ?? ""}]`)
+        .join("\n")
+    }
+
+    if (section === "professional") {
+      if (context.professional.length === 0) return "Loading content..."
+      return context.professional
         .map((p) => `  ${p.slug}  [${p.stack?.join(", ") ?? ""}]`)
         .join("\n")
     }
@@ -53,14 +69,14 @@ const cd: Command = {
       return ""
     }
 
-    // Check if it's a blog/project slug
+    // Check if we're already inside a slug-bearing section
     const currentSegments = context.currentPath.split("/").filter(Boolean)
-    if (currentSegments[0] === "blog" || currentSegments[0] === "projects") {
+    if (SLUG_SECTIONS.includes(currentSegments[0])) {
       context.navigate(`/${currentSegments[0]}/${target}`)
       return ""
     }
 
-    // Try as a direct slug under blog or projects
+    // Try as a direct slug under blog / projects / professional
     const post = context.posts.find((p) => p.slug === target)
     if (post) {
       context.navigate(`/blog/${target}`)
@@ -70,6 +86,12 @@ const cd: Command = {
     const project = context.projects.find((p) => p.slug === target)
     if (project) {
       context.navigate(`/projects/${target}`)
+      return ""
+    }
+
+    const pro = context.professional.find((p) => p.slug === target)
+    if (pro) {
+      context.navigate(`/professional/${target}`)
       return ""
     }
 

@@ -1,9 +1,10 @@
-import { getAllPosts, getAllProjects } from "@/lib/api"
+import { getAllPosts, getAllProjects, getAllProfessional } from "@/lib/api"
 import { MetadataRoute } from "next"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = getAllPosts()
   const projects = getAllProjects()
+  const professional = getAllProfessional()
 
   const postEntries: MetadataRoute.Sitemap = posts.map(({ slug }) => ({
     url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`,
@@ -17,6 +18,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
   }))
 
+  const professionalEntries: MetadataRoute.Sitemap = professional.map(
+    ({ slug }) => ({
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/professional/${slug}`,
+    })
+  )
+
   return [
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
@@ -26,6 +33,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects`,
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/professional`,
     },
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
@@ -38,5 +48,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...postEntries,
     ...projectEntries,
+    ...professionalEntries,
   ]
 }

@@ -9,6 +9,7 @@ export type CommandContext = {
   navigate: (path: string) => void
   posts: PostMeta[]
   projects: ProjectMeta[]
+  professional: ProjectMeta[]
   currentPath: string
   clearTerminal: () => void
   commandHistory: string[]

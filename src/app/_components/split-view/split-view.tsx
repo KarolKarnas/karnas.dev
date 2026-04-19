@@ -50,7 +50,7 @@ export default function SplitView({ children }: SplitViewProps) {
   const [isDividerDragging, setIsDividerDragging] = useState(false)
   const [paneDropIndex, setPaneDropIndex] = useState<number | null>(null)
   const [paneHeaderStyle, setPaneHeaderStyle] = useState<React.CSSProperties>(
-    {},
+    {}
   )
 
   const iconMap = useMemo(() => buildIconMap(SIDENAV_ITEMS), [])
@@ -85,7 +85,7 @@ export default function SplitView({ children }: SplitViewProps) {
     }
   }, [isActive, splitRatio])
 
-  // Global drag detection — any drag with our custom type shows drop zones
+  // Global drag detection - any drag with our custom type shows drop zones
   useEffect(() => {
     const handleDragOver = (e: DragEvent) => {
       if (e.dataTransfer?.types.includes("text/x-split-view")) {
@@ -150,7 +150,7 @@ export default function SplitView({ children }: SplitViewProps) {
     return () => document.removeEventListener("keydown", handleKeyDown)
   }, [toggleSplitView])
 
-  // Drop on LEFT pane — navigate main view to this page
+  // Drop on LEFT pane - navigate main view to this page
   const handleLeftDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault()
@@ -165,10 +165,10 @@ export default function SplitView({ children }: SplitViewProps) {
         }
       }
     },
-    [router, closePaneTab],
+    [router, closePaneTab]
   )
 
-  // Drop on RIGHT pane — open/add tab in split pane
+  // Drop on RIGHT pane - open/add tab in split pane
   const handleRightDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault()
@@ -181,12 +181,12 @@ export default function SplitView({ children }: SplitViewProps) {
         // If dragged from header, close that header tab
         if (fromHeader) {
           document.dispatchEvent(
-            new CustomEvent("close-header-tab", { detail: { path: url } }),
+            new CustomEvent("close-header-tab", { detail: { path: url } })
           )
         }
       }
     },
-    [openSplitPane],
+    [openSplitPane]
   )
 
   // Pane tab drag start
@@ -200,7 +200,7 @@ export default function SplitView({ children }: SplitViewProps) {
       e.dataTransfer.setData("text/x-pane-reorder", String(index))
       e.dataTransfer.effectAllowed = "copyMove"
     },
-    [paneTabs],
+    [paneTabs]
   )
 
   const handlePaneTabDragOver = useCallback(
@@ -209,7 +209,7 @@ export default function SplitView({ children }: SplitViewProps) {
       e.preventDefault()
       setPaneDropIndex(index)
     },
-    [],
+    []
   )
 
   const handlePaneTabDrop = useCallback(
@@ -224,7 +224,7 @@ export default function SplitView({ children }: SplitViewProps) {
       }
       setPaneDropIndex(null)
     },
-    [reorderPaneTabs],
+    [reorderPaneTabs]
   )
 
   const handlePaneTabDragEnd = useCallback(() => {
@@ -248,7 +248,7 @@ export default function SplitView({ children }: SplitViewProps) {
         <BreadcrumbBar />
         {children}
 
-        {/* Left drop zone — only when split is active */}
+        {/* Left drop zone - only when split is active */}
         {showDropZones && isActive && (
           <div
             className={`${styles.leftDropZone} ${isLeftOver ? styles.leftDropZoneActive : ""}`}

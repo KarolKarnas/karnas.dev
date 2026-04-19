@@ -8,11 +8,11 @@ import { gitHub, link } from "@/icons"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
 import LinkCard from "@/app/_components/link-card/link-card"
 import { SOCIAL_ITEMS } from "@/utils/constants"
-import { getAllProjects, getProjectBySlug } from "@/lib/api"
+import { getAllProfessional, getProfessionalBySlug } from "@/lib/api"
 
 export default async function Page(props: Params) {
   const params = await props.params
-  const project = getProjectBySlug(params.slug)
+  const project = getProfessionalBySlug(params.slug)
 
   const icons = getIcons(project.icons_stack)
   const socialItemLive: SocialItem | null = project.live_demo
@@ -150,7 +150,7 @@ type Params = {
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params
-  const project = getProjectBySlug(params.slug)
+  const project = getProfessionalBySlug(params.slug)
 
   return {
     title: project.title,
@@ -162,7 +162,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const projects = getAllProjects()
+  const projects = getAllProfessional()
 
   return projects.map((project) => ({
     slug: project.slug,

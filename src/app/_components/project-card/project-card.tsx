@@ -19,6 +19,9 @@ const ProjectCard = ({ card }: Props) => {
           <h3>{card.sub_title}</h3>
         </div>
         <Image
+          className={
+            card.main_image.endsWith(".svg") ? styles.placeholder : undefined
+          }
           src={card.main_image}
           width={1920}
           height={1080}

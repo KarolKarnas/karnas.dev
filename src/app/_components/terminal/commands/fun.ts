@@ -1,16 +1,16 @@
 import { Command, getAllCommands } from "./index"
 
 const FORTUNES = [
-  "\"Any fool can write code that a computer can understand. Good programmers write code that humans can understand.\" — Martin Fowler",
-  "\"First, solve the problem. Then, write the code.\" — John Johnson",
-  "\"Experience is the name everyone gives to their mistakes.\" — Oscar Wilde",
-  "\"Code is like humor. When you have to explain it, it's bad.\" — Cory House",
-  "\"Fix the cause, not the symptom.\" — Steve Maguire",
-  "\"Simplicity is the soul of efficiency.\" — Austin Freeman",
-  "\"Make it work, make it right, make it fast.\" — Kent Beck",
-  "\"Clean code always looks like it was written by someone who cares.\" — Robert C. Martin",
-  "\"Programs must be written for people to read, and only incidentally for machines to execute.\" — Harold Abelson",
-  "\"The best error message is the one that never shows up.\" — Thomas Fuchs",
+  '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." - Martin Fowler',
+  '"First, solve the problem. Then, write the code." - John Johnson',
+  '"Experience is the name everyone gives to their mistakes." - Oscar Wilde',
+  '"Code is like humor. When you have to explain it, it\'s bad." - Cory House',
+  '"Fix the cause, not the symptom." - Steve Maguire',
+  '"Simplicity is the soul of efficiency." - Austin Freeman',
+  '"Make it work, make it right, make it fast." - Kent Beck',
+  '"Clean code always looks like it was written by someone who cares." - Robert C. Martin',
+  '"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson',
+  '"The best error message is the one that never shows up." - Thomas Fuchs',
 ]
 
 const help: Command = {
@@ -23,7 +23,13 @@ const help: Command = {
     const lines = commands.map(
       (c) => `  ${c.name.padEnd(maxLen + 2)}${c.description}`
     )
-    return ["Available commands:", "", ...lines, "", "Type 'help' for this list."].join("\n")
+    return [
+      "Available commands:",
+      "",
+      ...lines,
+      "",
+      "Type 'help' for this list.",
+    ].join("\n")
   },
 }
 

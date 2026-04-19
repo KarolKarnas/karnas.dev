@@ -1,11 +1,16 @@
 import { notFound } from "next/navigation"
-import { getPostBySlug, getAllPosts, getProjectBySlug, getAllProjects } from "@/lib/api"
+import {
+  getAllPosts,
+  getAllProjects,
+  getAllProfessional,
+} from "@/lib/api"
 
-import HomePage from "@/app/(main)/page"
 import BlogPage from "@/app/(main)/blog/page"
 import BlogPostPage from "@/app/(main)/blog/[slug]/page"
 import ProjectsPage from "@/app/(main)/projects/page"
 import ProjectPostPage from "@/app/(main)/projects/[slug]/page"
+import ProfessionalPage from "@/app/(main)/professional/page"
+import ProfessionalPostPage from "@/app/(main)/professional/[slug]/page"
 import AboutPage from "@/app/(main)/about/page"
 import SkillsPage from "@/app/(main)/skills/page"
 import ContactPage from "@/app/(main)/contact/page"
@@ -32,6 +37,15 @@ export default async function EmbeddedPage(props: Params) {
         return <ProjectPostPage params={Promise.resolve({ slug: itemSlug })} />
       }
       return <ProjectsPage />
+    case "professional":
+      if (itemSlug) {
+        return (
+          <ProfessionalPostPage
+            params={Promise.resolve({ slug: itemSlug })}
+          />
+        )
+      }
+      return <ProfessionalPage />
     case "about":
       return <AboutPage />
     case "skills":
@@ -46,10 +60,12 @@ export default async function EmbeddedPage(props: Params) {
 export async function generateStaticParams() {
   const posts = getAllPosts()
   const projects = getAllProjects()
+  const professional = getAllProfessional()
 
   const params: { slug: string[] }[] = [
     { slug: ["blog"] },
     { slug: ["projects"] },
+    { slug: ["professional"] },
     { slug: ["about"] },
     { slug: ["skills"] },
     { slug: ["contact"] },
@@ -61,6 +77,10 @@ export async function generateStaticParams() {
 
   projects.forEach((project) => {
     params.push({ slug: ["projects", project.slug] })
+  })
+
+  professional.forEach((project) => {
+    params.push({ slug: ["professional", project.slug] })
   })
 
   return params

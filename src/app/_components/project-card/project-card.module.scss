@@ -38,6 +38,15 @@
     width: 100%;
   }
 
+  .placeholder {
+    height: auto;
+    width: auto;
+    max-height: spacing.$s12;
+    max-width: 40%;
+    margin: spacing.$s4 0;
+    object-fit: contain;
+  }
+
   .text-container {
     border-radius: 15px 15px 0px 0px;
     width: 100%;

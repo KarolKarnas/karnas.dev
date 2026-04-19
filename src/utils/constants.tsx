@@ -17,6 +17,7 @@ import {
   nextJs,
   nestJs,
   django,
+  python,
 } from "@/icons"
 import { IconName } from "./icon-utils"
 
@@ -36,6 +37,24 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     title: "about.json",
     path: "/about",
     icon: nodeJs.icon,
+  },
+  {
+    title: "professional",
+    path: "/professional",
+    icon: folderOpen.icon,
+    submenu: true,
+    subMenuItems: [
+      {
+        title: "dataBidMachine.py",
+        path: "/professional/data-bid-machine",
+        icon: python.icon,
+      },
+      {
+        title: "dms.py",
+        path: "/professional/dms-housing-authority",
+        icon: django.icon,
+      },
+    ],
   },
   {
     title: "projects",

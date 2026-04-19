@@ -30,8 +30,8 @@ const ProjectFrontmatterSchema = PostFrontmatterSchema.extend({
   main_icon: z.string(),
   stack: z.array(z.string()).optional(),
   icons_stack: z.array(z.string()),
-  live_demo: z.string(),
-  repo: z.string(),
+  live_demo: z.string().optional().default(""),
+  repo: z.string().optional().default(""),
 })
 
 export {

@@ -42,6 +42,7 @@ const Terminal = () => {
 
   const [posts, setPosts] = useState<PostMeta[]>([])
   const [projects, setProjects] = useState<ProjectMeta[]>([])
+  const [professional, setProfessional] = useState<ProjectMeta[]>([])
 
   // Fetch content metadata on mount
   useEffect(() => {
@@ -50,6 +51,7 @@ const Terminal = () => {
       .then((data: ContentResponse) => {
         setPosts(data.posts)
         setProjects(data.projects)
+        setProfessional(data.professional)
       })
       .catch(() => {
         // silently fail
@@ -115,6 +117,7 @@ const Terminal = () => {
         navigate: (path: string) => router.push(path),
         posts,
         projects,
+        professional,
         currentPath: pathname,
         clearTerminal: clearHistory,
         commandHistory,
@@ -127,7 +130,17 @@ const Terminal = () => {
 
       addEntry({ id: 0, input, output })
     },
-    [addCommandToHistory, addEntry, clearHistory, commandHistory, pathname, posts, projects, router]
+    [
+      addCommandToHistory,
+      addEntry,
+      clearHistory,
+      commandHistory,
+      pathname,
+      posts,
+      professional,
+      projects,
+      router,
+    ]
   )
 
   if (!isOpen) return null

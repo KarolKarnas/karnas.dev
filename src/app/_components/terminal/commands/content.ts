@@ -11,7 +11,7 @@ const cat: Command = {
 
     if (slug === "about") {
       return [
-        "Karol Karnas — Full Stack Developer",
+        "Karol Karnas - Full Stack Developer",
         "",
         "I love seeing a well-structured database seamlessly",
         "mirrored in a beautiful and functional UI.",
@@ -31,23 +31,27 @@ const cat: Command = {
         `Tags: ${post.tags.join(", ")}`,
         "",
         ...lines,
-        lines.length >= 20 ? "\n... (truncated — visit the full page)" : "",
+        lines.length >= 20 ? "\n... (truncated - visit the full page)" : "",
       ].join("\n")
     }
 
-    const project = context.projects.find((p) => p.slug === slug)
+    const project =
+      context.projects.find((p) => p.slug === slug) ??
+      context.professional.find((p) => p.slug === slug)
     if (project) {
       const lines = project.content.split("\n").slice(0, 20)
       return [
         `Title: ${project.title}`,
         `Date: ${project.date}`,
         `Stack: ${project.stack?.join(", ") ?? "N/A"}`,
-        `Live: ${project.live_demo}`,
-        `Repo: ${project.repo}`,
+        project.live_demo ? `Live: ${project.live_demo}` : null,
+        project.repo ? `Repo: ${project.repo}` : null,
         "",
         ...lines,
-        lines.length >= 20 ? "\n... (truncated — visit the full page)" : "",
-      ].join("\n")
+        lines.length >= 20 ? "\n... (truncated - visit the full page)" : "",
+      ]
+        .filter((line): line is string => line !== null)
+        .join("\n")
     }
 
     return `cat: ${slug}: No such file or directory`
@@ -74,15 +78,19 @@ const head: Command = {
       ].join("\n")
     }
 
-    const project = context.projects.find((p) => p.slug === slug)
+    const project =
+      context.projects.find((p) => p.slug === slug) ??
+      context.professional.find((p) => p.slug === slug)
     if (project) {
       return [
         `Title: ${project.title}`,
         `Date: ${project.date}`,
         `Stack: ${project.stack?.join(", ") ?? "N/A"}`,
-        `Live: ${project.live_demo}`,
-        `Repo: ${project.repo}`,
-      ].join("\n")
+        project.live_demo ? `Live: ${project.live_demo}` : null,
+        project.repo ? `Repo: ${project.repo}` : null,
+      ]
+        .filter((line): line is string => line !== null)
+        .join("\n")
     }
 
     return `head: ${slug}: No such file or directory`
@@ -104,7 +112,7 @@ const find: Command = {
         post.title.toLowerCase().includes(keyword) ||
         post.content.toLowerCase().includes(keyword)
       ) {
-        results.push(`  blog/${post.slug}  — ${post.title}`)
+        results.push(`  blog/${post.slug}  - ${post.title}`)
       }
     }
 
@@ -113,7 +121,16 @@ const find: Command = {
         project.title.toLowerCase().includes(keyword) ||
         project.content.toLowerCase().includes(keyword)
       ) {
-        results.push(`  projects/${project.slug}  — ${project.title}`)
+        results.push(`  projects/${project.slug}  - ${project.title}`)
+      }
+    }
+
+    for (const pro of context.professional) {
+      if (
+        pro.title.toLowerCase().includes(keyword) ||
+        pro.content.toLowerCase().includes(keyword)
+      ) {
+        results.push(`  professional/${pro.slug}  - ${pro.title}`)
       }
     }
 

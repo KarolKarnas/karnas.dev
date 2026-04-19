@@ -51,7 +51,7 @@ $breakpoints: (
   }
 }
 
-// Container query mixins — respond to container width, not viewport.
+// Container query mixins - respond to container width, not viewport.
 // Use these inside elements whose ancestor has container-type: inline-size.
 // Interpolation #{} is required so SASS evaluates map.get() inside @container.
 @mixin cq-sm {
@@ -83,5 +83,3 @@ $breakpoints: (
     @content;
   }
 }
-
-

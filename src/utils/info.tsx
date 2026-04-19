@@ -32,7 +32,7 @@ export const ABOUT: FakeJson[] = [
   {
     title: "Background",
     value:
-      "I have always loved building and creating—programming feels like an art form. My skill set extends beyond coding, including problem-solving, system design, and data analysis with pandas. I also have experience in creative fields like photography, composition, aesthetics, 2D animation, and UI/UX, which shape my approach to development",
+      "I have always loved building and creating-programming feels like an art form. My skill set extends beyond coding, including problem-solving, system design, and data analysis with pandas. I also have experience in creative fields like photography, composition, aesthetics, 2D animation, and UI/UX, which shape my approach to development",
   },
 ]
 

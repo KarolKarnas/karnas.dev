@@ -23,7 +23,7 @@
   position: relative;
 }
 
-// Left drop zone — appears when dragging a pane tab back to the main view
+// Left drop zone - appears when dragging a pane tab back to the main view
 .leftDropZone {
   position: absolute;
   top: 0;
@@ -37,7 +37,9 @@
   border: 2px dashed rgba(colors.$green-500, 0.3);
   z-index: 50;
   pointer-events: auto;
-  transition: background-color 0.15s, border-color 0.15s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
 }
 
 .leftDropZoneActive {
@@ -45,7 +47,7 @@
   border-color: colors.$green-500;
 }
 
-// Drop zone — covers right half of the content area
+// Drop zone - covers right half of the content area
 .dropZone {
   position: absolute;
   top: 0;
@@ -59,7 +61,9 @@
   border: 2px dashed rgba(colors.$blue-500, 0.3);
   z-index: 102; // above pane header (101)
   pointer-events: auto;
-  transition: background-color 0.15s, border-color 0.15s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
 }
 
 .dropZoneActive {
@@ -89,7 +93,7 @@
   background-color: colors.$grey-900;
 }
 
-// Pane header — fixed at the top, aligned with the main header bar
+// Pane header - fixed at the top, aligned with the main header bar
 .paneHeader {
   display: flex;
   align-items: stretch;
@@ -119,7 +123,7 @@
   }
 }
 
-// Individual pane tab — mirrors main header tab styling
+// Individual pane tab - mirrors main header tab styling
 .paneTab {
   display: flex;
   align-items: center;
