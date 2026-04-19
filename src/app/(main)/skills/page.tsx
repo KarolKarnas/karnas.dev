@@ -6,8 +6,8 @@ import {
   FRONTEND,
   TEST,
   WORKFLOW_TOOLS,
-  AI_LLM_CONCEPTS,
-  OBSERVABILITY_CONCEPTS,
+  // AI_LLM_CONCEPTS,
+  OBSERVABILITY,
 } from "@/utils/constants"
 import getIcons from "@/utils/icon-utils"
 import { Metadata } from "next"
@@ -16,7 +16,7 @@ import MainHeading from "@/app/_components/main-heading/main-heading"
 import MainSubHeading from "@/app/_components/main-sub-heading/main-sub-heading"
 import SectionHeading from "@/app/_components/section-heading/section-heading"
 import SkillSection from "@/app/_components/skill-section/skill-section"
-import { ConceptChipList } from "@/app/_components/concept-chip/concept-chip"
+// import { ConceptChipList } from "@/app/_components/concept-chip/concept-chip"
 
 export const metadata: Metadata = {
   title: "Skills",
@@ -47,14 +47,14 @@ export default async function Skills() {
         <StackIcons size="large" icons={getIcons(CLOUD)} texts />
       </SkillSection>
 
-      <SkillSection>
+      {/* <SkillSection>
         <SectionHeading color="purple">AI / LLM</SectionHeading>
         <ConceptChipList labels={AI_LLM_CONCEPTS} color="purple" />
-      </SkillSection>
+      </SkillSection> */}
 
       <SkillSection>
         <SectionHeading color="purple">Observability</SectionHeading>
-        <ConceptChipList labels={OBSERVABILITY_CONCEPTS} color="navy" />
+        <StackIcons size="large" icons={getIcons(OBSERVABILITY)} texts />
       </SkillSection>
 
       <SkillSection>

@@ -157,7 +157,7 @@ export const CLOUD: IconName[] = [
   "linux",
 ]
 
-export const FRONTEND: IconName[] = ["typeScript", "react", "nextJs", "redux"]
+export const FRONTEND: IconName[] = ["react", "nextJs", "redux"]
 
 export const TEST: IconName[] = ["pytest", "playWright", "postman", "insomnia"]
 
@@ -178,12 +178,12 @@ export const AI_LLM_CONCEPTS: string[] = [
   "Vision-Language Models",
 ]
 
-export const OBSERVABILITY_CONCEPTS: string[] = [
-  "Sentry",
-  "Datadog",
-  "Grafana",
-  "Langfuse",
-  "Flower",
+export const OBSERVABILITY: IconName[] = [
+  "sentry",
+  "datadog",
+  "grafana",
+  "langfuse",
+  "flower",
 ]
 
 export const MY_SKILLS: IconName[] = [
