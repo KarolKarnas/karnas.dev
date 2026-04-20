@@ -9,7 +9,7 @@ const openai: IconText = {
       />
     </svg>
   ),
-  text: "OpenAI",
+  text: "OpenAI API",
 }
 
 export default openai

@@ -102,9 +102,33 @@ export const MenuItem = ({ item, mobile, setShowSideNav }: MenuItemProps) => {
     <li>
       {item.submenu ? (
         <>
-          <div draggable onDragStart={(e) => handleDragStart(e, item)}>
+          <div
+            draggable
+            onDragStart={(e) => handleDragStart(e, item)}
+            className={`${styles["link-new"]} ${
+              item.path === pathname ? styles["path-link"] : ""
+            }`}
+          >
+            <button
+              type="button"
+              aria-label={subMenuOpen ? "Collapse" : "Expand"}
+              aria-expanded={subMenuOpen}
+              onClick={(e) => {
+                e.stopPropagation()
+                toggleSubMenu()
+              }}
+              className={styles["chevron-btn"]}
+            >
+              <div
+                className={`${
+                  subMenuOpen ? styles.rotate180 : styles.transition
+                } ${styles.flex}`}
+              >
+                <div className={styles.chevron}>{chevronDown.icon}</div>
+              </div>
+            </button>
             <Link
-              className={styles["sub-menu-link"]}
+              className={styles["folder-link"]}
               onClick={() => {
                 if (mobile) {
                   setShowSideNav(false)
@@ -113,24 +137,8 @@ export const MenuItem = ({ item, mobile, setShowSideNav }: MenuItemProps) => {
               href={item.path}
               draggable={false}
             >
-              <div
-                onClick={() => toggleSubMenu()}
-                className={`${styles["link-new"]} ${
-                  item.path === pathname ? styles["path-link"] : ""
-                }`}
-              >
-                <div className={styles["content-btn"]}>
-                  <div
-                    className={`${
-                      subMenuOpen ? styles.rotate180 : styles.transition
-                    } ${styles.flex}`}
-                  >
-                    <div className={styles.chevron}>{chevronDown.icon}</div>
-                  </div>
-                  {item.icon}
-                  <span className="">{item.title}</span>
-                </div>
-              </div>
+              {item.icon}
+              <span>{item.title}</span>
             </Link>
           </div>
           {subMenuOpen && (

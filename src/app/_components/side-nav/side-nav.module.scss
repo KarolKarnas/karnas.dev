@@ -131,6 +131,30 @@
   }
 }
 
+.chevron-btn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover .chevron svg {
+    color: colors.$white-100;
+  }
+}
+
+.folder-link {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: spacing.$s1;
+  color: inherit;
+  text-decoration: none;
+}
+
 .path-link {
   background-color: colors.$grey-600;
 }

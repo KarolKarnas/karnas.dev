@@ -3,6 +3,7 @@ export {
   aws,
   azure,
   celery,
+  claude,
   cloudinary,
   confluence,
   cssModules,
