@@ -26,23 +26,56 @@
 @mixin author-name {
   display: flex;
   flex-direction: column;
+  gap: spacing.$s1;
   color: colors.$white-100;
   text-decoration: none;
+  transition: color 0.15s;
+
   span {
     @include mixins.drop-shadow-md-color(
       colors.$shadow-white-700,
       colors.$shadow-white-600
     );
-    &:first-of-type {
-      font-size: fonts.$xl2;
+
+    &:first-child {
+      font-size: fonts.$xl3;
+      color: colors.$grey-100;
+      margin-bottom: spacing.$s3;
+      letter-spacing: 0.02em;
+
+      @include breakpoints.cq-md {
+        font-size: fonts.$xl4;
+      }
     }
-    &:last-of-type {
-      margin-bottom: spacing.$s4;
+
+    &:not(:first-child) {
+      position: relative;
+      padding-left: spacing.$s4;
+      font-size: fonts.$xs;
+      color: colors.$grey-200;
+      font-style: italic;
+      line-height: 1.6;
+
+      &::before {
+        content: ">";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: colors.$green-500;
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      @include breakpoints.cq-md {
+        font-size: fonts.$sm;
+      }
     }
   }
+
   &:hover {
-    color: colors.$blue-500;
-    text-decoration-line: underline;
+    span:first-child {
+      color: colors.$blue-500;
+    }
   }
 }
 

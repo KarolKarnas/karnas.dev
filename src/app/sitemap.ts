@@ -15,12 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const projectEntries: MetadataRoute.Sitemap = projects.map(({ slug }) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/side-projects/${slug}`,
   }))
 
   const professionalEntries: MetadataRoute.Sitemap = professional.map(
     ({ slug }) => ({
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/professional/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/professional-projects/${slug}`,
     })
   )
 
@@ -32,10 +32,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog`,
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/side-projects`,
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/professional`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/professional-projects`,
     },
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,

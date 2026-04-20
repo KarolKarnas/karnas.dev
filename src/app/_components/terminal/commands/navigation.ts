@@ -2,14 +2,14 @@ import { Command } from "./index"
 
 const SECTIONS = [
   "blog",
-  "projects",
-  "professional",
+  "side-projects",
+  "professional-projects",
   "about",
   "skills",
   "contact",
 ]
 
-const SLUG_SECTIONS = ["blog", "projects", "professional"]
+const SLUG_SECTIONS = ["blog", "side-projects", "professional-projects"]
 
 const ls: Command = {
   name: "ls",
@@ -29,14 +29,14 @@ const ls: Command = {
         .join("\n")
     }
 
-    if (section === "projects") {
+    if (section === "side-projects") {
       if (context.projects.length === 0) return "Loading content..."
       return context.projects
         .map((p) => `  ${p.slug}  [${p.stack?.join(", ") ?? ""}]`)
         .join("\n")
     }
 
-    if (section === "professional") {
+    if (section === "professional-projects") {
       if (context.professional.length === 0) return "Loading content..."
       return context.professional
         .map((p) => `  ${p.slug}  [${p.stack?.join(", ") ?? ""}]`)
@@ -76,7 +76,7 @@ const cd: Command = {
       return ""
     }
 
-    // Try as a direct slug under blog / projects / professional
+    // Try as a direct slug under blog / side-projects / professional-projects
     const post = context.posts.find((p) => p.slug === target)
     if (post) {
       context.navigate(`/blog/${target}`)
@@ -85,13 +85,13 @@ const cd: Command = {
 
     const project = context.projects.find((p) => p.slug === target)
     if (project) {
-      context.navigate(`/projects/${target}`)
+      context.navigate(`/side-projects/${target}`)
       return ""
     }
 
     const pro = context.professional.find((p) => p.slug === target)
     if (pro) {
-      context.navigate(`/professional/${target}`)
+      context.navigate(`/professional-projects/${target}`)
       return ""
     }
 

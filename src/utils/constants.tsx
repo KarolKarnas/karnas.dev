@@ -37,46 +37,46 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   },
   {
     title: "professional projects",
-    path: "/professional",
+    path: "/professional-projects",
     icon: folderOpen.icon,
     submenu: true,
     subMenuItems: [
       {
         title: "dataBidMachine.py",
-        path: "/professional/data-bid-machine",
+        path: "/professional-projects/data-bid-machine",
         icon: python.icon,
       },
       {
         title: "dms.py",
-        path: "/professional/dms-housing-authority",
+        path: "/professional-projects/dms-housing-authority",
         icon: django.icon,
       },
     ],
   },
   {
     title: "side projects",
-    path: "/projects",
+    path: "/side-projects",
     icon: folderOpen.icon,
     submenu: true,
     subMenuItems: [
       {
         title: "brain",
-        path: "/projects/brain-karnas-dev",
+        path: "/side-projects/brain-karnas-dev",
         icon: django.icon,
       },
       {
         title: "cardpiper.com",
-        path: "/projects/card-piper-com",
+        path: "/side-projects/card-piper-com",
         icon: nestJs.icon,
       },
       {
         title: "ilustrografia.com",
-        path: "/projects/ilustrografia-com",
+        path: "/side-projects/ilustrografia-com",
         icon: react.icon,
       },
       {
         title: "karnas.dev",
-        path: "/projects/karnas-dev",
+        path: "/side-projects/karnas-dev",
         icon: nextJs.icon,
       },
     ],

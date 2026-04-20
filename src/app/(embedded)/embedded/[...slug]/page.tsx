@@ -7,10 +7,10 @@ import {
 
 import BlogPage from "@/app/(main)/blog/page"
 import BlogPostPage from "@/app/(main)/blog/[slug]/page"
-import ProjectsPage from "@/app/(main)/projects/page"
-import ProjectPostPage from "@/app/(main)/projects/[slug]/page"
-import ProfessionalPage from "@/app/(main)/professional/page"
-import ProfessionalPostPage from "@/app/(main)/professional/[slug]/page"
+import ProjectsPage from "@/app/(main)/side-projects/page"
+import ProjectPostPage from "@/app/(main)/side-projects/[slug]/page"
+import ProfessionalPage from "@/app/(main)/professional-projects/page"
+import ProfessionalPostPage from "@/app/(main)/professional-projects/[slug]/page"
 import AboutPage from "@/app/(main)/about/page"
 import SkillsPage from "@/app/(main)/skills/page"
 import ContactPage from "@/app/(main)/contact/page"
@@ -32,12 +32,12 @@ export default async function EmbeddedPage(props: Params) {
         return <BlogPostPage params={Promise.resolve({ slug: itemSlug })} />
       }
       return <BlogPage />
-    case "projects":
+    case "side-projects":
       if (itemSlug) {
         return <ProjectPostPage params={Promise.resolve({ slug: itemSlug })} />
       }
       return <ProjectsPage />
-    case "professional":
+    case "professional-projects":
       if (itemSlug) {
         return (
           <ProfessionalPostPage
@@ -64,8 +64,8 @@ export async function generateStaticParams() {
 
   const params: { slug: string[] }[] = [
     { slug: ["blog"] },
-    { slug: ["projects"] },
-    { slug: ["professional"] },
+    { slug: ["side-projects"] },
+    { slug: ["professional-projects"] },
     { slug: ["about"] },
     { slug: ["skills"] },
     { slug: ["contact"] },
@@ -76,11 +76,11 @@ export async function generateStaticParams() {
   })
 
   projects.forEach((project) => {
-    params.push({ slug: ["projects", project.slug] })
+    params.push({ slug: ["side-projects", project.slug] })
   })
 
   professional.forEach((project) => {
-    params.push({ slug: ["professional", project.slug] })
+    params.push({ slug: ["professional-projects", project.slug] })
   })
 
   return params

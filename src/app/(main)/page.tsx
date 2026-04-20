@@ -20,11 +20,7 @@ export default function Home() {
       <header className={styles.hero}>
         <h1>Karol Karnas</h1>
         <h3 className={styles.tagline}>
-          <span>Backend Engineer</span>
-          <span className={styles.sep} aria-hidden="true"> · </span>
-          <span>AI Pipelines</span>
-          <span className={styles.sep} aria-hidden="true"> · </span>
-          <span>Agentic Systems</span>
+          Backend&nbsp;Engineer · AI&nbsp;Pipelines · Agentic&nbsp;Systems
         </h3>
         <span className={styles.quote}>{QUOTATION}</span>
       </header>

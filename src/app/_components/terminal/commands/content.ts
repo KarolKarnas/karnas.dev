@@ -122,7 +122,7 @@ const find: Command = {
         project.title.toLowerCase().includes(keyword) ||
         project.content.toLowerCase().includes(keyword)
       ) {
-        results.push(`  projects/${project.slug}  - ${project.title}`)
+        results.push(`  side-projects/${project.slug}  - ${project.title}`)
       }
     }
 
@@ -131,7 +131,7 @@ const find: Command = {
         pro.title.toLowerCase().includes(keyword) ||
         pro.content.toLowerCase().includes(keyword)
       ) {
-        results.push(`  professional/${pro.slug}  - ${pro.title}`)
+        results.push(`  professional-projects/${pro.slug}  - ${pro.title}`)
       }
     }
 

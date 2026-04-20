@@ -39,36 +39,20 @@
     }
   }
 
-  h3 {
+  .tagline {
     margin-bottom: spacing.$s2;
     color: colors.$grey-200;
-    font-size: fonts.$base;
+    font-size: fonts.$sm;
+    font-style: italic;
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1.5;
 
     @container (min-width: 520px) {
-      font-size: fonts.$xl;
+      font-size: fonts.$base;
     }
 
     @container (min-width: 900px) {
-      font-size: fonts.$xl2;
-    }
-  }
-
-  .tagline {
-    display: flex;
-    flex-direction: column;
-
-    .sep {
-      display: none;
-    }
-
-    @container (min-width: 520px) {
-      display: block;
-
-      .sep {
-        display: inline;
-      }
+      font-size: fonts.$lg;
     }
   }
 

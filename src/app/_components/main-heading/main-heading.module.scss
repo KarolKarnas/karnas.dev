@@ -1,9 +1,18 @@
 @use "../../scss/fonts.scss";
+@use "../../scss/breakpoints";
 @use "../../scss/heading-colors";
 
 .heading {
-  font-size: fonts.$xl6;
+  font-size: fonts.$xl4;
   text-align: center;
+
+  @include breakpoints.cq-sm {
+    font-size: fonts.$xl5;
+  }
+
+  @include breakpoints.cq-md {
+    font-size: fonts.$xl6;
+  }
 }
 
 .orange {

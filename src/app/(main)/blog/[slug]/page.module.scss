@@ -86,15 +86,19 @@
       }
     }
     h2 {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
       color: colors.$grey-600;
       font-size: fonts.$sm;
+      font-weight: 400;
       @include mixins.drop-shadow-md-color(
         colors.$shadow-black-700,
         colors.$shadow-black-600
       );
       @include breakpoints.cq-md {
-        font-size: fonts.$xl;
+        font-size: fonts.$base;
       }
     }
   }
@@ -104,33 +108,22 @@
     margin-top: -320px;
     background-color: rgba(colors.$grey-950, 0.9);
     backdrop-filter: blur(10px);
-    padding: spacing.$s2 spacing.$s4;
+    padding: spacing.$s5 spacing.$s5;
     @include breakpoints.cq-md {
       width: 90%;
       padding: spacing.$s8 spacing.$s10;
       margin-top: -24rem;
     }
+    @include breakpoints.cq-xl {
+      padding: spacing.$s9 spacing.$s11;
+    }
 
     h3 {
       text-align: center;
-      margin-bottom: spacing.$s2;
+      margin-bottom: spacing.$s3;
       color: colors.$white-100;
       font-style: italic;
-      font-size: fonts.$xl2;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
-      @include breakpoints.cq-md {
-        font-size: fonts.$xl3;
-      }
-    }
-    p {
-      color: colors.$white-300;
-      font-size: fonts.$base;
-      font-style: italic;
-      text-align: justify;
-      hyphens: auto;
+      font-size: fonts.$xl;
       @include mixins.drop-shadow-md-color(
         colors.$shadow-white-700,
         colors.$shadow-white-600
@@ -139,37 +132,57 @@
         font-size: fonts.$xl2;
       }
     }
+    p {
+      color: colors.$white-300;
+      font-size: fonts.$sm;
+      font-style: italic;
+      text-align: justify;
+      hyphens: auto;
+      line-height: 1.6;
+      @include mixins.drop-shadow-md-color(
+        colors.$shadow-white-700,
+        colors.$shadow-white-600
+      );
+      @include breakpoints.cq-md {
+        font-size: fonts.$base;
+      }
+    }
     section {
-      margin: spacing.$s6 0px;
+      margin: spacing.$s7 0px;
       display: flex;
       flex-direction: column;
-      gap: spacing.$s2;
+      gap: spacing.$s3;
+      @include breakpoints.cq-md {
+        margin: spacing.$s8 0px;
+        gap: spacing.$s4;
+      }
 
       h3 {
         margin-bottom: spacing.$s2;
         color: colors.$white-100;
-        font-size: fonts.$xl;
+        font-size: fonts.$lg;
         text-align: center;
         @include mixins.drop-shadow-md-color(
           colors.$shadow-white-700,
           colors.$shadow-white-600
         );
         @include breakpoints.cq-md {
-          font-size: fonts.$xl2;
+          font-size: fonts.$xl;
         }
       }
       p {
         color: colors.$white-100;
-        font-size: fonts.$base;
+        font-size: fonts.$sm;
         font-style: normal;
         text-align: justify;
         hyphens: auto;
+        line-height: 1.7;
         @include mixins.drop-shadow-md-color(
           colors.$shadow-white-700,
           colors.$shadow-white-600
         );
         @include breakpoints.cq-md {
-          font-size: fonts.$lg;
+          font-size: fonts.$base;
         }
       }
       img {

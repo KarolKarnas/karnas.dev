@@ -1,33 +1,22 @@
 import Image from "next/image"
-import styles from "./page.module.scss"
 import Link from "next/link"
-import type { Metadata } from "next"
+import styles from "./project-detail.module.scss"
 import getIcons from "@/utils/icon-utils"
-import { SocialItem } from "@/utils/types"
 import { gitHub, link } from "@/icons"
-import StackIcons from "@/app/_components/stack-icons/stack-icons"
-import LinkCard from "@/app/_components/link-card/link-card"
+import { Project, SocialItem } from "@/utils/types"
 import { SOCIAL_ITEMS } from "@/utils/constants"
-import { getAllProfessional, getProfessionalBySlug } from "@/lib/api"
+import StackIcons from "../stack-icons/stack-icons"
+import LinkCard from "../link-card/link-card"
 
-export default async function Page(props: Params) {
-  const params = await props.params
-  const project = getProfessionalBySlug(params.slug)
+type Props = { project: Project }
 
+const ProjectDetail = ({ project }: Props) => {
   const icons = getIcons(project.icons_stack)
   const socialItemLive: SocialItem | null = project.live_demo
-    ? {
-        link: project.live_demo,
-        short_link: "Live Demo",
-        icon: link.icon,
-      }
+    ? { link: project.live_demo, short_link: "Live Demo", icon: link.icon }
     : null
   const socialItemGithub: SocialItem | null = project.repo
-    ? {
-        link: project.repo,
-        short_link: "Github Repo",
-        icon: gitHub.icon,
-      }
+    ? { link: project.repo, short_link: "Github Repo", icon: gitHub.icon }
     : null
 
   return (
@@ -54,7 +43,7 @@ export default async function Page(props: Params) {
           src={project.main_image}
           width={1920}
           height={1080}
-          alt={`${project.title}`}
+          alt={project.title}
         />
       </Link>
       <div className={styles["content-container"]}>
@@ -87,20 +76,16 @@ export default async function Page(props: Params) {
                   src={field.image}
                   width={1200}
                   height={673}
-                  alt={`${field.title}`}
+                  alt={field.title ?? project.title}
                 />
               </Link>
             ) : null}
-
             {field.links ? (
               <ul className={styles.LinksContainer}>
-                {field.links.map((item, index) => (
+                {field.links.map((item, i) => (
                   <LinkCard
-                    key={index}
-                    socialItem={{
-                      link: item.link,
-                      short_link: item.short_link,
-                    }}
+                    key={i}
+                    socialItem={{ link: item.link, short_link: item.short_link }}
                     color="light"
                   />
                 ))}
@@ -110,6 +95,7 @@ export default async function Page(props: Params) {
             {project.fields.length > index + 1 ? <hr /> : null}
           </section>
         ))}
+
         <div className={styles.details}>
           <h3>Technologies Used</h3>
           <StackIcons icons={icons} texts />
@@ -129,7 +115,9 @@ export default async function Page(props: Params) {
         <div className={styles["author-container"]}>
           <Link className={styles.authorName} href="/about">
             <span>Karol Karnas</span>
-            <span>Backend Engineer · AI Pipelines · Agentic Systems</span>
+            <span>Backend Engineer</span>
+            <span>AI Pipelines</span>
+            <span>Agentic Systems</span>
           </Link>
           <ul>
             {SOCIAL_ITEMS.map((item, index) => (
@@ -142,29 +130,4 @@ export default async function Page(props: Params) {
   )
 }
 
-type Params = {
-  params: Promise<{
-    slug: string
-  }>
-}
-
-export async function generateMetadata(props: Params): Promise<Metadata> {
-  const params = await props.params
-  const project = getProfessionalBySlug(params.slug)
-
-  return {
-    title: project.title,
-    description: project.content.slice(0, 200),
-    openGraph: {
-      images: [project.main_image],
-    },
-  }
-}
-
-export async function generateStaticParams() {
-  const projects = getAllProfessional()
-
-  return projects.map((project) => ({
-    slug: project.slug,
-  }))
-}
+export default ProjectDetail

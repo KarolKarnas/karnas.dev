@@ -50,7 +50,7 @@ fields:
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1706625285/u2yg75ygsansmfpl6nir.jpg"
     second_content: "It took me about three months, and this was another milestone in my journey to becoming a full-stack developer. You can read about the project or check it live with the links below."
     links:
-      - link: "https://www.karnas.dev/projects/ilustrografia"
+      - link: "https://www.karnas.dev/side-projects/ilustrografia-com"
       - link: "https://www.ilustrografia.com/"
 
   - title: "This is not the end"
