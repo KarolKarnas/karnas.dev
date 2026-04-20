@@ -17,46 +17,57 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.col1}>
+      <header className={styles.hero}>
         <h1>Karol Karnas</h1>
-        <h3>Backend Engineer · AI Pipelines · Agentic Systems</h3>
+        <h3 className={styles.tagline}>
+          <span>Backend Engineer</span>
+          <span className={styles.sep} aria-hidden="true"> · </span>
+          <span>AI Pipelines</span>
+          <span className={styles.sep} aria-hidden="true"> · </span>
+          <span>Agentic Systems</span>
+        </h3>
         <span className={styles.quote}>{QUOTATION}</span>
-        <h4>Start</h4>
-        <ul className={styles["main-links"]}>
-          {SIDENAV_ITEMS.map((item, index) => (
-            <li key={index}>
-              <Link href={item.path}>
-                {item.iconAlt ? item.iconAlt : item.icon} {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <h4>Professional projects</h4>
-        {professionalLinks?.subMenuItems && (
-          <NavLinks items={professionalLinks.subMenuItems} />
-        )}
-        <h4>Side projects</h4>
-        {projectLinks?.subMenuItems && (
-          <NavLinks items={projectLinks.subMenuItems} />
-        )}
-      </div>
+      </header>
 
-      <div className={styles["social-links"]}>
-        <h4>Social Media</h4>
-        <ul>
-          {SOCIAL_ITEMS.map((item, index) => (
-            <LinkCard key={index} socialItem={item} />
-          ))}
-        </ul>
-        <h4>Blog</h4>
-        {postLinks?.subMenuItems && (
-          <NavLinks items={postLinks.subMenuItems} />
-        )}
-        <h4>Terminal</h4>
-        <TerminalTrigger className={styles.terminalLink}>
-          {terminal.icon}
-          <span>Open interactive terminal</span>
-        </TerminalTrigger>
+      <div className={styles.columns}>
+        <div className={styles.col1}>
+          <h4>Start</h4>
+          <ul className={styles["main-links"]}>
+            {SIDENAV_ITEMS.map((item, index) => (
+              <li key={index}>
+                <Link href={item.path}>
+                  {item.iconAlt ? item.iconAlt : item.icon} {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h4>Professional projects</h4>
+          {professionalLinks?.subMenuItems && (
+            <NavLinks items={professionalLinks.subMenuItems} />
+          )}
+          <h4>Side projects</h4>
+          {projectLinks?.subMenuItems && (
+            <NavLinks items={projectLinks.subMenuItems} />
+          )}
+        </div>
+
+        <div className={styles["social-links"]}>
+          <h4>Social Media</h4>
+          <ul>
+            {SOCIAL_ITEMS.map((item, index) => (
+              <LinkCard key={index} socialItem={item} />
+            ))}
+          </ul>
+          <h4>Blog</h4>
+          {postLinks?.subMenuItems && (
+            <NavLinks items={postLinks.subMenuItems} />
+          )}
+          <h4>Terminal</h4>
+          <TerminalTrigger className={styles.terminalLink}>
+            {terminal.icon}
+            <span>Open interactive terminal</span>
+          </TerminalTrigger>
+        </div>
       </div>
     </div>
   )

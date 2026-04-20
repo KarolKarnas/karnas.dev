@@ -1,10 +1,12 @@
 @use "../../scss/breakpoints";
 @use "../../scss/colors";
+@use "../../scss/fonts";
 @use "../../scss/spacing";
 
 .sidenav {
   background-color: colors.$grey-950;
   color: colors.$grey-100;
+  font-size: fonts.$xs;
   z-index: 101;
   position: fixed;
   overflow-y: scroll;
@@ -27,22 +29,25 @@
   &::-webkit-scrollbar-track {
     background-color: colors.$grey-950;
   }
-  
+
   @include breakpoints.md {
     position: sticky;
     top: 0px;
-    height: 100vh;
+    height: 100%;
     width: auto;
   }
 
 }
 
 .show {
-  display: inherit;
+  display: flex;
+  flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   @include breakpoints.md {
     width: 100%;
+    min-height: 0;
+    height: 100%;
   }
 }
 
