@@ -20,7 +20,6 @@ icons_stack:
   - "openai"
   - "azure"
   - "docker"
-  - "htmx"
   - "tailwind"
   - "pytest"
   - "playWright"

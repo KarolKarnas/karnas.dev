@@ -20,9 +20,9 @@
   }
   li {
     svg {
-      height: fonts.$xl3;
+      height: fonts.$xl2;
       @include breakpoints.cq-md {
-        height: fonts.$xl4;
+        height: fonts.$xl3;
       }
     }
   }
