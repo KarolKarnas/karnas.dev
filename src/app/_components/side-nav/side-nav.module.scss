@@ -4,53 +4,57 @@
 @use "../../scss/spacing";
 
 .sidenav {
-  background-color: colors.$grey-950;
   color: colors.$grey-100;
   font-size: fonts.$xs;
   z-index: 101;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100dvh;
-  overscroll-behavior: contain;
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-  &::-webkit-scrollbar {
-    display: inherit;
-    height: 5px;
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: colors.$grey-600;
-    border-radius: 5px;
-    &:hover {
-      background-color: colors.$grey-100;
-    }
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: colors.$grey-950;
-  }
 
   @include breakpoints.md {
     position: sticky;
     top: 0px;
     height: 100%;
     width: auto;
-  }
+    background-color: colors.$grey-950;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
+    &::-webkit-scrollbar {
+      display: inherit;
+      height: 5px;
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: colors.$grey-600;
+      border-radius: 5px;
+      &:hover {
+        background-color: colors.$grey-100;
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: colors.$grey-950;
+    }
+  }
 }
 
 .show {
   display: flex;
   flex-direction: column;
   width: 100vw;
+  height: 100dvh;
+  background-color: colors.$grey-950;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
   @include breakpoints.md {
     width: 100%;
     min-height: 0;
     height: 100%;
+    overflow: visible;
+    overscroll-behavior: auto;
   }
 }
 
