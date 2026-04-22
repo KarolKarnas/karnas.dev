@@ -15,6 +15,7 @@ import {
   nestJs,
   django,
   python,
+  claude,
 } from "@/icons"
 import { IconName } from "./icon-utils"
 
@@ -106,6 +107,16 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         title: "fullStackSupplementary.ts",
         path: "/blog/full-stack-open-supplementary",
         icon: typeScriptAlt.icon,
+      },
+      {
+        title: "claudeCodeInAction.ai",
+        path: "/blog/claude-code-in-action",
+        icon: claude.icon,
+      },
+      {
+        title: "codingWithAiTraversy.ai",
+        path: "/blog/coding-with-ai-traversy",
+        icon: claude.icon,
       },
     ],
   },
