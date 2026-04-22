@@ -9,6 +9,10 @@
   font-size: fonts.$xs;
   z-index: 101;
   position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  overscroll-behavior: contain;
   overflow-y: scroll;
   overflow-x: hidden;
 
@@ -43,7 +47,6 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  min-height: 100dvh;
   @include breakpoints.md {
     width: 100%;
     min-height: 0;
