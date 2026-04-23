@@ -51,6 +51,8 @@ export default function SplitView({ children }: SplitViewProps) {
   const [isDividerDragging, setIsDividerDragging] = useState(false)
   const terminal = useTerminalOptional()
   const isTerminalResizing = terminal?.isResizing ?? false
+  const dropZoneBottom =
+    terminal?.isOpen && terminal.height ? terminal.height : 0
   const [paneDropIndex, setPaneDropIndex] = useState<number | null>(null)
   const [paneHeaderStyle, setPaneHeaderStyle] = useState<React.CSSProperties>(
     {}
@@ -267,7 +269,10 @@ export default function SplitView({ children }: SplitViewProps) {
       {showDropZones && (
         <div
           className={`${styles.leftDropZone} ${isLeftOver ? styles.leftDropZoneActive : ""}`}
-          style={{ width: isActive ? `${splitRatio * 100}%` : "50%" }}
+          style={{
+            width: isActive ? `${splitRatio * 100}%` : "50%",
+            bottom: dropZoneBottom,
+          }}
           onDragOver={(e) => {
             e.preventDefault()
             e.dataTransfer.dropEffect = "move"
@@ -284,11 +289,10 @@ export default function SplitView({ children }: SplitViewProps) {
       {showDropZones && (
         <div
           className={`${styles.dropZone} ${isRightOver ? styles.dropZoneActive : ""}`}
-          style={
-            isActive
-              ? { width: `${(1 - splitRatio) * 100}%` }
-              : { width: "50%" }
-          }
+          style={{
+            width: isActive ? `${(1 - splitRatio) * 100}%` : "50%",
+            bottom: dropZoneBottom,
+          }}
           onDragOver={(e) => {
             e.preventDefault()
             e.dataTransfer.dropEffect = "copy"

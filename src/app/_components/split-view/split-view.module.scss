@@ -11,6 +11,8 @@
 }
 
 .wrapperSplit {
+  flex: 0 0 auto;
+  height: calc(100dvh - 40px);
   overflow: hidden;
 }
 
@@ -26,7 +28,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,8 +51,8 @@
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
   width: 50%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

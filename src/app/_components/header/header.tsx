@@ -4,7 +4,7 @@ import styles from "./header.module.scss"
 
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { xMark } from "@/icons"
 import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
@@ -40,7 +40,8 @@ const Header = ({ onTabsChange }: HeaderProps) => {
 
   const router = useRouter()
   const pathname = usePathname()
-  const { openSplitPane } = useSplitView()
+  const { openSplitPane, paneTabs, activeTabIndex, toggleSplitView } =
+    useSplitView()
 
   const [showRemove, setShowRemove] = useState<string | null>(null)
   const [openTabs, setOpenTabs] = useState<SideNavItem[]>([homeSideNavItem])
@@ -57,17 +58,36 @@ const Header = ({ onTabsChange }: HeaderProps) => {
     })
   }
 
-  const removeTab = (item: SideNavItem) => {
+  const removeTab = (item: SideNavItem, skipPromotion = false) => {
     const filteredTabs = openTabs.filter((tab) => tab.path !== item.path)
-    setOpenTabs(filteredTabs)
 
     if (filteredTabs.length === 0) {
+      // If the split pane has tabs, promote them to the header so the user
+      // isn't left staring at an empty editor while their pane tabs vanish
+      // into thin air. Skipped when this close came from dragging a header
+      // tab into the pane (would just bounce the tab back).
+      if (!skipPromotion && paneTabs.length > 0) {
+        const promoted: SideNavItem[] = paneTabs.map((t) => {
+          const match = getActiveTab(t.url)
+          return match.path === t.url ? match : { title: t.title, path: t.url }
+        })
+        const newActive = promoted[activeTabIndex] ?? promoted[0]
+        setOpenTabs(promoted)
+        setActiveTab(newActive)
+        setNextTab(newActive)
+        toggleSplitView()
+        return
+      }
+
+      setOpenTabs(filteredTabs)
       setActiveTab(null)
       setNextTab(null)
       setTabsCleared(true)
       router.push("/")
       return
     }
+
+    setOpenTabs(filteredTabs)
 
     if (activeTab?.path === item.path) {
       const currentTabIndex = openTabs.indexOf(item)
@@ -90,7 +110,7 @@ const Header = ({ onTabsChange }: HeaderProps) => {
       const path = (e as CustomEvent).detail?.path
       if (!path) return
       const item = openTabs.find((t) => t.path === path)
-      if (item) removeTab(item)
+      if (item) removeTab(item, true)
     }
     document.addEventListener("close-header-tab", handler)
     return () => document.removeEventListener("close-header-tab", handler)
@@ -127,17 +147,35 @@ const Header = ({ onTabsChange }: HeaderProps) => {
     }
   }, [nextTab, router])
 
+  // Track the pathname we last reacted to. Without this guard, flipping
+  // `tabsCleared` re-runs the effect while `usePathname()` is still stale
+  // (Next.js hasn't flushed our router.push("/") yet) — which would reset
+  // tabsCleared against the old path and re-add the just-closed tab.
+  const prevPathnameRef = useRef<string | null>(null)
+
   useEffect(() => {
-    if (pathname && !tabsCleared) {
+    if (prevPathnameRef.current === pathname) return
+    prevPathnameRef.current = pathname
+
+    if (tabsCleared) {
+      // User navigated somewhere else (sidebar, etc.) after clearing tabs.
+      if (pathname !== "/") {
+        setTabsCleared(false)
+        const newTab = getActiveTab(pathname)
+        if (newTab) {
+          setActiveTab(newTab)
+          updateOpenTabs(newTab)
+        }
+      }
+      return
+    }
+
+    if (pathname) {
       const newTab = getActiveTab(pathname)
       if (newTab) {
         setActiveTab(newTab)
         updateOpenTabs(newTab)
       }
-    }
-    // Reset cleared flag on any new navigation (e.g. sidebar click)
-    if (tabsCleared && pathname !== "/") {
-      setTabsCleared(false)
     }
   }, [pathname, tabsCleared])
 

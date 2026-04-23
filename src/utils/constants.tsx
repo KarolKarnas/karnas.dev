@@ -145,7 +145,7 @@ export const SOCIAL_ITEMS: SocialItem[] = [
   },
 ]
 
-export const PROGRAMMING: IconName[] = ["python", "typeScript"]
+export const PROGRAMMING: IconName[] = ["python", "typeScript", "javaScript"]
 
 export const BACKEND: IconName[] = [
   "django",

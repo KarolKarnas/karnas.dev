@@ -1,10 +1,14 @@
 @use "../../scss/colors";
 
 .terminal {
-  flex-shrink: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: colors.$grey-950;
   display: flex;
   flex-direction: column;
+  z-index: 100;
   border-top: 1px solid colors.$grey-700;
 }
 
@@ -136,6 +140,7 @@
 
 .command {
   color: colors.$white-100;
+  margin-left: 6px;
 }
 
 .commandOutput {

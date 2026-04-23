@@ -37,7 +37,6 @@ const Terminal = () => {
 
   const router = useRouter()
   const pathname = usePathname()
-  const terminalRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
@@ -93,10 +92,9 @@ const Terminal = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging.current || !terminalRef.current) return
+      if (!isDragging.current) return
       const maxHeight = window.innerHeight * TERMINAL_MAX_HEIGHT_VH
-      const bottom = terminalRef.current.getBoundingClientRect().bottom
-      const newHeight = bottom - e.clientY
+      const newHeight = window.innerHeight - e.clientY
       setHeight(Math.min(Math.max(newHeight, TERMINAL_MIN_HEIGHT), maxHeight))
     }
 
@@ -154,7 +152,7 @@ const Terminal = () => {
   if (!isOpen) return null
 
   return (
-    <div className={styles.terminal} style={{ height }} ref={terminalRef}>
+    <div className={styles.terminal} style={{ height }}>
       <div className={styles.dragHandle} onMouseDown={handleDragStart} />
       <div className={styles.topBar}>
         <span className={styles.title}>TERMINAL</span>
