@@ -22,6 +22,7 @@ const PostFrontmatterSchema = z.object({
   main_image: z.string(),
   category: z.string(),
   tags: z.array(z.string()),
+  icons_stack: z.array(z.string()).optional(),
   date: z.string(),
   fields: z.array(FieldSchema),
 })

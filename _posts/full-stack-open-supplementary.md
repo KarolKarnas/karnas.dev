@@ -6,6 +6,13 @@ content_title: "Dive even deeper Into Modern Web Development"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706793659/viaex6ouox8wy6lr3tlp.png"
 category: "WebDevelopment"
 tags: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Testing"]
+icons_stack:
+  - "typeScript"
+  - "react"
+  - "nodeJs"
+  - "postgres"
+  - "sql"
+  - "jest"
 date: "2024-02-11T05:35:07.322Z"
 fields:
   - title: "The Typescript (Part 9)"

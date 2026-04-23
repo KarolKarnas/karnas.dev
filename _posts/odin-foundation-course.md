@@ -6,6 +6,10 @@ content_title: "A great place to start learning web development"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706868930/efrrljo7l7kvrx2o1vym.png"
 category: "WebDevelopment"
 tags: ["HTML", "CSS", "JavaScript"]
+icons_stack:
+  - "html"
+  - "sass"
+  - "javaScript"
 date: "2023-07-20T05:35:07.322Z"
 fields:
   - title: "Tutorial hell medicine"

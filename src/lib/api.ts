@@ -22,7 +22,7 @@ export function getPostBySlug(slug: string): Post {
   const { data, content } = matter(fileContents)
   const frontmatter = PostFrontmatterSchema.parse(data)
 
-  return { ...frontmatter, slug: realSlug, content }
+  return { ...frontmatter, slug: realSlug, content } as Post
 }
 
 export function getAllPosts(): Post[] {

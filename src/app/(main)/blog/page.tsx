@@ -20,6 +20,7 @@ export default async function Portfolio() {
     content_title: blog.content_title,
     content: blog.content.slice(0, 200),
     main_image: blog.main_image,
+    icons_stack: blog.icons_stack,
     path: `/blog/${blog.slug}`,
     date: blog.date,
   }))

@@ -42,9 +42,13 @@ export type User = {
 
 export type Field = z.infer<typeof FieldSchema>
 
-export type Post = z.infer<typeof PostFrontmatterSchema> & {
+export type Post = Omit<
+  z.infer<typeof PostFrontmatterSchema>,
+  "icons_stack"
+> & {
   slug: string
   content: string
+  icons_stack?: IconName[]
 }
 
 export type BlogCardType = {
@@ -54,6 +58,7 @@ export type BlogCardType = {
   content_title: string
   content: string
   main_image: string
+  icons_stack?: IconName[]
   path: string
   date: string
 }

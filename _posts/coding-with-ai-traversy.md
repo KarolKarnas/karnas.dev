@@ -6,7 +6,13 @@ content_title: "Turning AI-assisted coding into an actual workflow"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1776892160/Traversy_Coding_With_AI_hero_vh8piv.png"
 category: "AI"
 tags: ["Claude Code", "Next.js", "Prisma", "MCP", "AI", "Stripe"]
-date: "2026-04-22T12:00:00.322Z"
+icons_stack:
+  - "claude"
+  - "nextJs"
+  - "prisma"
+  - "postgres"
+  - "openai"
+date: "2026-03-13T12:00:00.322Z"
 fields:
   - title: "The overview"
     content: "Coding With AI: Planning To Production is a long-form course by Brad Traversy on building a real SaaS app end-to-end with Claude Code as the main coding partner. It is split into fifteen sections - from 'what is AI' and vibe coding for prototyping, through planning and context files, all the way to a deployed Next.js app with auth, a Postgres database, file storage, Stripe billing, and OpenAI-powered features. The main project is DevStash, a developer knowledge dashboard with collections, items, search, favorites, a Monaco code editor, a markdown editor, Cloudflare R2 uploads, and a paid tier. It is not a toy app. By the end you have something you could ship."

@@ -6,7 +6,9 @@ content_title: "From ad-hoc prompting to an actual workflow"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1776889684/Karol_Karnas_Claude_in_Action_Course_lg6k1y.jpg"
 category: "AI"
 tags: ["Claude Code", "Anthropic", "AI", "MCP", "Hooks"]
-date: "2026-04-22T10:00:00.322Z"
+icons_stack:
+  - "claude"
+date: "2026-02-22T10:00:00.322Z"
 fields:
   - title: "The overview"
     content: "Claude Code in Action is a free, official course from Anthropic Academy. It is short - 21 lessons, roughly an hour of video, one quiz, and a certificate at the end - but dense. It walks through Claude Code end-to-end across four sections: what a coding assistant is, getting hands-on, hooks and the SDK, and a wrap-up. I had already been using Claude Code daily for months, so the value for me was less about learning something brand new and more about putting my scattered, self-taught habits into a clear mental model."
