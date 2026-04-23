@@ -9,6 +9,7 @@ import { xMark } from "@/icons"
 import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
 import { useSplitView } from "../split-view/split-view-context"
+import { PaneTab } from "../split-view/split-view-types"
 
 const homeSideNavItem = SIDENAV_ITEMS[0]
 
@@ -58,16 +59,21 @@ const Header = ({ onTabsChange }: HeaderProps) => {
     })
   }
 
-  const removeTab = (item: SideNavItem, skipPromotion = false) => {
+  const removeTab = (item: SideNavItem, paneTabsOverride?: PaneTab[]) => {
     const filteredTabs = openTabs.filter((tab) => tab.path !== item.path)
+    // When called from the split-view drop handler, paneTabs in our closure
+    // is stale (openSplitPane just ran, React hasn't re-rendered yet). The
+    // dispatcher passes the post-drop snapshot so we can promote correctly.
+    const effectivePaneTabs = paneTabsOverride ?? paneTabs
 
     if (filteredTabs.length === 0) {
       // If the split pane has tabs, promote them to the header so the user
       // isn't left staring at an empty editor while their pane tabs vanish
-      // into thin air. Skipped when this close came from dragging a header
-      // tab into the pane (would just bounce the tab back).
-      if (!skipPromotion && paneTabs.length > 0) {
-        const promoted: SideNavItem[] = paneTabs.map((t) => {
+      // into thin air. This also handles dragging the last header tab into
+      // the pane: paneTabs already contains the dropped tab, so it lands
+      // back in the header alongside whatever was in the pane.
+      if (effectivePaneTabs.length > 0) {
+        const promoted: SideNavItem[] = effectivePaneTabs.map((t) => {
           const match = getActiveTab(t.url)
           return match.path === t.url ? match : { title: t.title, path: t.url }
         })
@@ -107,14 +113,16 @@ const Header = ({ onTabsChange }: HeaderProps) => {
   // Listen for close-header-tab events from split view (drag header tab to right pane)
   useEffect(() => {
     const handler = (e: Event) => {
-      const path = (e as CustomEvent).detail?.path
+      const detail = (e as CustomEvent).detail
+      const path = detail?.path as string | undefined
+      const paneTabsAfter = detail?.paneTabsAfter as PaneTab[] | undefined
       if (!path) return
       const item = openTabs.find((t) => t.path === path)
-      if (item) removeTab(item, true)
+      if (item) removeTab(item, paneTabsAfter)
     }
     document.addEventListener("close-header-tab", handler)
     return () => document.removeEventListener("close-header-tab", handler)
-  }, [openTabs, activeTab])
+  }, [openTabs, activeTab, paneTabs, activeTabIndex])
 
   // Listen for move-header-tabs-to-right (drop on left drop zone while split
   // is not yet active): move all other header tabs into the right pane,

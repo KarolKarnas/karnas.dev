@@ -192,16 +192,26 @@ export default function SplitView({ children }: SplitViewProps) {
       const fromHeader = e.dataTransfer.getData("text/x-from-header")
 
       if (url && title) {
+        // Compute what paneTabs will look like after this drop so the
+        // header listener doesn't have to rely on its own (stale) closure
+        // — the event dispatch is synchronous, React hasn't committed the
+        // openSplitPane setState yet.
+        const alreadyOpen = paneTabs.some((t) => t.url === url)
+        const paneTabsAfter = alreadyOpen
+          ? paneTabs
+          : [...paneTabs, { url, title }]
+
         openSplitPane(url, title)
-        // If dragged from header, close that header tab
         if (fromHeader) {
           document.dispatchEvent(
-            new CustomEvent("close-header-tab", { detail: { path: url } })
+            new CustomEvent("close-header-tab", {
+              detail: { path: url, paneTabsAfter },
+            })
           )
         }
       }
     },
-    [openSplitPane]
+    [openSplitPane, paneTabs]
   )
 
   // Pane tab drag start
