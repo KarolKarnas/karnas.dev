@@ -8,6 +8,7 @@ import { useCallback, useEffect, useState } from "react"
 import { xMark } from "@/icons"
 import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
+import { useSplitView } from "../split-view/split-view-context"
 
 const homeSideNavItem = SIDENAV_ITEMS[0]
 
@@ -39,6 +40,7 @@ const Header = ({ onTabsChange }: HeaderProps) => {
 
   const router = useRouter()
   const pathname = usePathname()
+  const { openSplitPane } = useSplitView()
 
   const [showRemove, setShowRemove] = useState<string | null>(null)
   const [openTabs, setOpenTabs] = useState<SideNavItem[]>([homeSideNavItem])
@@ -93,6 +95,30 @@ const Header = ({ onTabsChange }: HeaderProps) => {
     document.addEventListener("close-header-tab", handler)
     return () => document.removeEventListener("close-header-tab", handler)
   }, [openTabs, activeTab])
+
+  // Listen for move-header-tabs-to-right (drop on left drop zone while split
+  // is not yet active): move all other header tabs into the right pane,
+  // leaving only the kept tab in the header.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const keepUrl = (e as CustomEvent).detail?.keepUrl as string | undefined
+      if (!keepUrl) return
+
+      for (const tab of openTabs) {
+        if (tab.path !== keepUrl) {
+          openSplitPane(tab.path, tab.title)
+        }
+      }
+
+      const keepTab =
+        openTabs.find((t) => t.path === keepUrl) ?? getActiveTab(keepUrl)
+      setOpenTabs([keepTab])
+      setActiveTab(keepTab)
+    }
+    document.addEventListener("move-header-tabs-to-right", handler)
+    return () =>
+      document.removeEventListener("move-header-tabs-to-right", handler)
+  }, [openTabs, openSplitPane])
 
   useEffect(() => {
     if (nextTab) {

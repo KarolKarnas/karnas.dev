@@ -47,6 +47,7 @@ let nextEntryId = 0
 
 export function TerminalProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<TerminalState>(DEFAULT_TERMINAL_STATE)
+  const [isResizing, setIsResizing] = useState(false)
   const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
@@ -106,6 +107,7 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
 
   const value: TerminalContextValue = {
     ...state,
+    isResizing,
     toggle,
     open,
     close,
@@ -113,6 +115,7 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
     addCommandToHistory,
     clearHistory,
     setHeight,
+    setIsResizing,
   }
 
   return (

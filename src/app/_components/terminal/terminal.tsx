@@ -32,10 +32,12 @@ const Terminal = () => {
     addCommandToHistory,
     clearHistory,
     setHeight,
+    setIsResizing,
   } = useTerminal()
 
   const router = useRouter()
   const pathname = usePathname()
+  const terminalRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
@@ -78,24 +80,30 @@ const Terminal = () => {
   }, [toggle])
 
   // Resize drag handling
-  const handleDragStart = useCallback((e: React.MouseEvent) => {
-    e.preventDefault()
-    isDragging.current = true
-    document.body.style.cursor = "row-resize"
-    document.body.style.userSelect = "none"
-  }, [])
+  const handleDragStart = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault()
+      isDragging.current = true
+      setIsResizing(true)
+      document.body.style.cursor = "row-resize"
+      document.body.style.userSelect = "none"
+    },
+    [setIsResizing]
+  )
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging.current) return
+      if (!isDragging.current || !terminalRef.current) return
       const maxHeight = window.innerHeight * TERMINAL_MAX_HEIGHT_VH
-      const newHeight = window.innerHeight - e.clientY
+      const bottom = terminalRef.current.getBoundingClientRect().bottom
+      const newHeight = bottom - e.clientY
       setHeight(Math.min(Math.max(newHeight, TERMINAL_MIN_HEIGHT), maxHeight))
     }
 
     const handleMouseUp = () => {
       if (isDragging.current) {
         isDragging.current = false
+        setIsResizing(false)
         document.body.style.cursor = ""
         document.body.style.userSelect = ""
       }
@@ -107,7 +115,7 @@ const Terminal = () => {
       document.removeEventListener("mousemove", handleMouseMove)
       document.removeEventListener("mouseup", handleMouseUp)
     }
-  }, [setHeight])
+  }, [setHeight, setIsResizing])
 
   const handleCommand = useCallback(
     async (input: string) => {
@@ -146,7 +154,7 @@ const Terminal = () => {
   if (!isOpen) return null
 
   return (
-    <div className={styles.terminal} style={{ height }}>
+    <div className={styles.terminal} style={{ height }} ref={terminalRef}>
       <div className={styles.dragHandle} onMouseDown={handleDragStart} />
       <div className={styles.topBar}>
         <span className={styles.title}>TERMINAL</span>

@@ -1,14 +1,10 @@
 @use "../../scss/colors";
 
 .terminal {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  flex-shrink: 0;
   background-color: colors.$grey-950;
   display: flex;
   flex-direction: column;
-  z-index: 100;
   border-top: 1px solid colors.$grey-700;
 }
 
@@ -109,7 +105,7 @@
 
 .welcome {
   color: colors.$grey-100;
-  margin: 0 0 8px;
+  margin: 0;
 }
 
 .entry {

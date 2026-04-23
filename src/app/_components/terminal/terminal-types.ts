@@ -14,6 +14,7 @@ export type TerminalState = {
 }
 
 export type TerminalContextValue = TerminalState & {
+  isResizing: boolean
   toggle: () => void
   open: () => void
   close: () => void
@@ -21,6 +22,7 @@ export type TerminalContextValue = TerminalState & {
   addCommandToHistory: (command: string) => void
   clearHistory: () => void
   setHeight: (height: number) => void
+  setIsResizing: (resizing: boolean) => void
 }
 
 export const TERMINAL_STORAGE_KEY = "terminal-state"

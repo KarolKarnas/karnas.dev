@@ -7,6 +7,7 @@ import { useSplitView } from "./split-view-context"
 import Divider from "./divider/divider"
 import { xMark } from "@/icons"
 import BreadcrumbBar from "../breadcrumb-bar/breadcrumb-bar"
+import { useTerminalOptional } from "../terminal/terminal-context"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { SideNavItem } from "@/utils/types"
 
@@ -48,6 +49,8 @@ export default function SplitView({ children }: SplitViewProps) {
   const [isRightOver, setIsRightOver] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
   const [isDividerDragging, setIsDividerDragging] = useState(false)
+  const terminal = useTerminalOptional()
+  const isTerminalResizing = terminal?.isResizing ?? false
   const [paneDropIndex, setPaneDropIndex] = useState<number | null>(null)
   const [paneHeaderStyle, setPaneHeaderStyle] = useState<React.CSSProperties>(
     {}
@@ -150,22 +153,32 @@ export default function SplitView({ children }: SplitViewProps) {
     return () => document.removeEventListener("keydown", handleKeyDown)
   }, [toggleSplitView])
 
-  // Drop on LEFT pane - navigate main view to this page
+  // Drop on LEFT pane - navigate main view to this page. When split is not
+  // yet active, ask the header to move all its current tabs into the right
+  // pane, leaving only the dropped tab on the left.
   const handleLeftDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault()
       const url = e.dataTransfer.getData("text/x-split-view-url")
       const paneIndex = e.dataTransfer.getData("text/x-pane-tab-index")
 
-      if (url) {
-        router.push(url)
-        // If it came from a pane tab, close that tab
-        if (paneIndex !== "") {
-          closePaneTab(parseInt(paneIndex, 10))
-        }
+      if (!url) return
+
+      if (!isActive) {
+        document.dispatchEvent(
+          new CustomEvent("move-header-tabs-to-right", {
+            detail: { keepUrl: url },
+          })
+        )
+      }
+
+      router.push(url)
+      // If it came from a pane tab, close that tab
+      if (paneIndex !== "") {
+        closePaneTab(parseInt(paneIndex, 10))
       }
     },
-    [router, closePaneTab]
+    [router, closePaneTab, isActive]
   )
 
   // Drop on RIGHT pane - open/add tab in split pane
@@ -247,23 +260,25 @@ export default function SplitView({ children }: SplitViewProps) {
       >
         <BreadcrumbBar />
         {children}
-
-        {/* Left drop zone - only when split is active */}
-        {showDropZones && isActive && (
-          <div
-            className={`${styles.leftDropZone} ${isLeftOver ? styles.leftDropZoneActive : ""}`}
-            onDragOver={(e) => {
-              e.preventDefault()
-              e.dataTransfer.dropEffect = "move"
-              setIsLeftOver(true)
-            }}
-            onDragLeave={() => setIsLeftOver(false)}
-            onDrop={handleLeftDrop}
-          >
-            <div className={styles.dropZoneLabel}>Open here</div>
-          </div>
-        )}
       </div>
+
+      {/* Left drop zone. Rendered outside leftPane so it is not affected by
+          the pane's scroll offset. */}
+      {showDropZones && (
+        <div
+          className={`${styles.leftDropZone} ${isLeftOver ? styles.leftDropZoneActive : ""}`}
+          style={{ width: isActive ? `${splitRatio * 100}%` : "50%" }}
+          onDragOver={(e) => {
+            e.preventDefault()
+            e.dataTransfer.dropEffect = "move"
+            setIsLeftOver(true)
+          }}
+          onDragLeave={() => setIsLeftOver(false)}
+          onDrop={handleLeftDrop}
+        >
+          <div className={styles.dropZoneLabel}>Open here</div>
+        </div>
+      )}
 
       {/* Right drop zone */}
       {showDropZones && (
@@ -335,7 +350,9 @@ export default function SplitView({ children }: SplitViewProps) {
                 src={embeddedUrl}
                 title={activeTab.title}
               />
-              {isDividerDragging && <div className={styles.iframeOverlay} />}
+              {(isDividerDragging || isTerminalResizing) && (
+                <div className={styles.iframeOverlay} />
+              )}
             </div>
           </div>
         </>
