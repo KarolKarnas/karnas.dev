@@ -4,9 +4,10 @@ import styles from "./project-detail.module.scss"
 import getIcons from "@/utils/icon-utils"
 import { gitHub, link } from "@/icons"
 import { Project, SocialItem } from "@/utils/types"
-import { SOCIAL_ITEMS } from "@/utils/constants"
-import StackIcons from "../stack-icons/stack-icons"
+import AuthorFooter from "../author-footer/author-footer"
+import DetailFields from "../detail-fields/detail-fields"
 import LinkCard from "../link-card/link-card"
+import StackIcons from "../stack-icons/stack-icons"
 
 type Props = { project: Project }
 
@@ -55,46 +56,7 @@ const ProjectDetail = ({ project }: Props) => {
           <StackIcons icons={icons} texts />
         </div>
 
-        {project.fields.map((field, index) => (
-          <section key={index}>
-            {field.title ? <h3>{field.title}</h3> : null}
-            {field.content ? <p>{field.content}</p> : null}
-            {field.list ? (
-              <ul className={styles.ListContainer}>
-                {field.list.map((item, liIndex) => (
-                  <li key={liIndex}>{item}</li>
-                ))}
-              </ul>
-            ) : null}
-            {field.image ? (
-              <Link
-                className={styles.imgWrapper}
-                href={field.image}
-                target="blank"
-              >
-                <Image
-                  src={field.image}
-                  width={1200}
-                  height={673}
-                  alt={field.title ?? project.title}
-                />
-              </Link>
-            ) : null}
-            {field.links ? (
-              <ul className={styles.LinksContainer}>
-                {field.links.map((item, i) => (
-                  <LinkCard
-                    key={i}
-                    socialItem={{ link: item.link, short_link: item.short_link }}
-                    color="light"
-                  />
-                ))}
-              </ul>
-            ) : null}
-            {field.second_content ? <p>{field.second_content}</p> : null}
-            {project.fields.length > index + 1 ? <hr /> : null}
-          </section>
-        ))}
+        <DetailFields fields={project.fields} fallbackTitle={project.title} />
 
         <div className={styles.details}>
           <h3>Technologies Used</h3>
@@ -112,19 +74,7 @@ const ProjectDetail = ({ project }: Props) => {
           </ul>
         </div>
 
-        <div className={styles["author-container"]}>
-          <Link className={styles.authorName} href="/about">
-            <span>Karol Karnas</span>
-            <span>Backend Engineer</span>
-            <span>AI Pipelines</span>
-            <span>Agentic Systems</span>
-          </Link>
-          <ul>
-            {SOCIAL_ITEMS.map((item, index) => (
-              <LinkCard key={index} socialItem={item} color="light" />
-            ))}
-          </ul>
-        </div>
+        <AuthorFooter />
       </div>
     </div>
   )

@@ -1,0 +1,13 @@
+@use "../../scss/detail-page";
+
+.container {
+  @include detail-page.author-container;
+}
+
+.authorName {
+  @include detail-page.author-name;
+}
+
+.links {
+  @include detail-page.author-links;
+}

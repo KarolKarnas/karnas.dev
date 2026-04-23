@@ -1,0 +1,77 @@
+@use "../../scss/colors";
+@use "../../scss/mixins";
+@use "../../scss/fonts";
+@use "../../scss/spacing";
+@use "../../scss/breakpoints";
+@use "../../scss/detail-page";
+
+.section {
+  margin: spacing.$s7 0px;
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$s3;
+
+  @include breakpoints.cq-md {
+    margin: spacing.$s8 0px;
+    gap: spacing.$s4;
+  }
+
+  h3 {
+    margin-bottom: spacing.$s2;
+    color: colors.$white-100;
+    font-size: fonts.$lg;
+    text-align: center;
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+
+    @include breakpoints.cq-md {
+      font-size: fonts.$xl;
+    }
+  }
+
+  p {
+    color: colors.$white-100;
+    font-size: fonts.$sm;
+    font-style: normal;
+    text-align: justify;
+    hyphens: auto;
+    line-height: 1.7;
+    @include mixins.drop-shadow-md-color(
+      colors.$shadow-white-700,
+      colors.$shadow-white-600
+    );
+
+    @include breakpoints.cq-md {
+      font-size: fonts.$base;
+    }
+  }
+}
+
+.imgWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    margin: spacing.$s4 0px;
+  }
+}
+
+.listContainer {
+  @include detail-page.list-container;
+}
+
+.linksContainer {
+  @include detail-page.links-container;
+}
+
+.hr {
+  @include detail-page.section-hr;
+}

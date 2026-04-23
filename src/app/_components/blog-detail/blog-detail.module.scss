@@ -1,9 +1,8 @@
-@use "../../../scss/colors";
-@use "../../../scss/mixins";
-@use "../../../scss/fonts";
-@use "../../../scss/spacing";
-@use "../../../scss/breakpoints";
-@use "../../../scss/detail-page";
+@use "../../scss/colors";
+@use "../../scss/mixins";
+@use "../../scss/fonts";
+@use "../../scss/spacing";
+@use "../../scss/breakpoints";
 
 .container {
   display: flex;
@@ -51,6 +50,7 @@
     gap: spacing.$s2;
     align-items: center;
     backdrop-filter: blur(3px);
+
     @include breakpoints.cq-md {
       gap: spacing.$s4;
       width: 90%;
@@ -58,6 +58,17 @@
       top: 4rem;
       padding: spacing.$s8;
     }
+
+    ul {
+      width: auto;
+      padding: spacing.$s2;
+
+      @include breakpoints.cq-md {
+        padding-left: spacing.$s7;
+        padding-right: spacing.$s7;
+      }
+    }
+
     .date-container {
       display: flex;
       width: 100%;
@@ -68,6 +79,7 @@
         colors.$shadow-black-700,
         colors.$shadow-black-600
       );
+
       @include breakpoints.cq-md {
         font-size: fonts.$sm;
       }
@@ -81,10 +93,12 @@
         colors.$shadow-black-700,
         colors.$shadow-black-600
       );
+
       @include breakpoints.cq-md {
         font-size: fonts.$xl6;
       }
     }
+
     h2 {
       max-width: 800px;
       margin-left: auto;
@@ -97,11 +111,13 @@
         colors.$shadow-black-700,
         colors.$shadow-black-600
       );
+
       @include breakpoints.cq-md {
         font-size: fonts.$base;
       }
     }
   }
+
   .content-container {
     width: 96%;
     border-radius: 15px;
@@ -109,11 +125,13 @@
     background-color: rgba(colors.$grey-950, 0.9);
     backdrop-filter: blur(10px);
     padding: spacing.$s5 spacing.$s5;
+
     @include breakpoints.cq-md {
       width: 90%;
       padding: spacing.$s8 spacing.$s10;
       margin-top: -24rem;
     }
+
     @include breakpoints.cq-xl {
       padding: spacing.$s9 spacing.$s11;
     }
@@ -128,10 +146,12 @@
         colors.$shadow-white-700,
         colors.$shadow-white-600
       );
+
       @include breakpoints.cq-md {
         font-size: fonts.$xl2;
       }
     }
+
     p {
       color: colors.$white-300;
       font-size: fonts.$sm;
@@ -143,72 +163,9 @@
         colors.$shadow-white-700,
         colors.$shadow-white-600
       );
+
       @include breakpoints.cq-md {
         font-size: fonts.$base;
-      }
-    }
-    section {
-      margin: spacing.$s7 0px;
-      display: flex;
-      flex-direction: column;
-      gap: spacing.$s3;
-      @include breakpoints.cq-md {
-        margin: spacing.$s8 0px;
-        gap: spacing.$s4;
-      }
-
-      h3 {
-        margin-bottom: spacing.$s2;
-        color: colors.$white-100;
-        font-size: fonts.$lg;
-        text-align: center;
-        @include mixins.drop-shadow-md-color(
-          colors.$shadow-white-700,
-          colors.$shadow-white-600
-        );
-        @include breakpoints.cq-md {
-          font-size: fonts.$xl;
-        }
-      }
-      p {
-        color: colors.$white-100;
-        font-size: fonts.$sm;
-        font-style: normal;
-        text-align: justify;
-        hyphens: auto;
-        line-height: 1.7;
-        @include mixins.drop-shadow-md-color(
-          colors.$shadow-white-700,
-          colors.$shadow-white-600
-        );
-        @include breakpoints.cq-md {
-          font-size: fonts.$base;
-        }
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        margin: spacing.$s4 0px;
-      }
-
-      .ListContainer {
-        @include detail-page.list-container;
-      }
-      .LinksContainer {
-        @include detail-page.links-container;
-      }
-
-      hr {
-        @include detail-page.section-hr;
-      }
-    }
-    .author-container {
-      @include detail-page.author-container;
-      .authorName {
-        @include detail-page.author-name;
-      }
-      ul {
-        @include detail-page.author-links;
       }
     }
   }
