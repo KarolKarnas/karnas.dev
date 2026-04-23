@@ -18,6 +18,8 @@
   padding: spacing.$s3;
   border-radius: 15px;
   background-color: colors.$grey-600;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
   transition-property: transform, background-color;
   transition-duration: 100ms;
 
@@ -32,6 +34,8 @@
   img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .text-container {

@@ -50,7 +50,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
       {
         title: "dms.py",
         path: "/professional-projects/dms-housing-authority",
-        icon: django.icon,
+        icon: python.icon,
       },
     ],
   },
@@ -63,7 +63,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
       {
         title: "brain",
         path: "/side-projects/brain-karnas-dev",
-        icon: django.icon,
+        icon: python.icon,
       },
       {
         title: "cardpiper.com",
