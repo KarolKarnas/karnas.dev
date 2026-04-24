@@ -118,6 +118,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         path: "/blog/coding-with-ai-traversy",
         icon: claude.icon,
       },
+      {
+        title: "exercism.py",
+        path: "/blog/exercism",
+        icon: python.icon,
+      },
     ],
   },
   {
