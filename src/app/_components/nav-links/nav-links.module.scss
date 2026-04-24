@@ -1,10 +1,12 @@
 @use "../../scss/colors.scss";
 @use "../../scss/fonts.scss";
 @use "../../scss/spacing.scss";
+@use "../../scss/breakpoints.scss";
 
 .container {
   list-style: none;
   li {
+    min-width: 0;
     a {
       color: colors.$navy-500;
       text-decoration: none;
@@ -12,16 +14,36 @@
       padding: spacing.$s1 0px;
       display: flex;
       align-items: center;
-      gap: spacing.$s3;
+      gap: spacing.$s2;
+      font-size: fonts.$xs;
+      min-width: 0;
+      overflow: hidden;
+
+      @include breakpoints.md {
+        gap: spacing.$s3;
+        font-size: inherit;
+      }
+
+      span {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
 
       svg {
         color: colors.$navy-500;
-        height: fonts.$xl3;
+        height: fonts.$xl2;
+        flex-shrink: 0;
         g {
           fill: colors.$navy-500;
         }
         path {
           fill: colors.$navy-500;
+        }
+
+        @include breakpoints.md {
+          height: fonts.$xl3;
         }
       }
     }

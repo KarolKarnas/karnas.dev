@@ -32,7 +32,8 @@ export default function Home() {
             {SIDENAV_ITEMS.map((item, index) => (
               <li key={index}>
                 <Link href={item.path}>
-                  {item.iconAlt ? item.iconAlt : item.icon} {item.title}
+                  {item.iconAlt ? item.iconAlt : item.icon}
+                  <span>{item.title}</span>
                 </Link>
               </li>
             ))}

@@ -93,21 +93,43 @@
     list-style: none;
     color: colors.$grey-500;
     li {
+      min-width: 0;
       a {
         padding: spacing.$s1 0px;
         display: flex;
         align-items: center;
-        gap: spacing.$s3;
+        gap: spacing.$s2;
         color: colors.$navy-500;
         text-decoration: none;
+        font-size: fonts.$xs;
+        min-width: 0;
+        overflow: hidden;
+
+        @container (min-width: 520px) {
+          gap: spacing.$s3;
+          font-size: inherit;
+        }
+
+        span {
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
         svg {
           color: colors.$navy-500;
-          height: fonts.$xl3;
+          height: fonts.$xl2;
+          flex-shrink: 0;
           g {
             fill: colors.$navy-500;
           }
           path {
             fill: colors.$navy-500;
+          }
+
+          @container (min-width: 520px) {
+            height: fonts.$xl3;
           }
         }
       }
@@ -146,19 +168,34 @@
 .terminalLink {
   display: flex;
   align-items: center;
-  gap: spacing.$s3;
+  gap: spacing.$s2;
   padding: spacing.$s1 0;
   background: transparent;
   border: none;
   color: colors.$navy-500;
   font-family: inherit;
-  font-size: inherit;
+  font-size: fonts.$xs;
   cursor: pointer;
   transition: color 0.15s;
+  min-width: 0;
+  overflow: hidden;
+
+  @container (min-width: 520px) {
+    gap: spacing.$s3;
+    font-size: inherit;
+  }
+
+  span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   svg {
     color: colors.$navy-500;
-    height: fonts.$xl3;
+    height: fonts.$xl2;
+    flex-shrink: 0;
     transition: color 0.15s;
 
     g {
@@ -167,6 +204,10 @@
 
     path {
       fill: colors.$navy-500;
+    }
+
+    @container (min-width: 520px) {
+      height: fonts.$xl3;
     }
   }
 

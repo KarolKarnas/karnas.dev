@@ -12,7 +12,8 @@ const NavLinks = ({ items }: NavLinksProps) => {
       {items.map((item, index) => (
         <li key={index}>
           <Link href={item.path}>
-            {item.icon} {item.title}
+            {item.icon}
+            <span>{item.title}</span>
           </Link>
         </li>
       ))}
