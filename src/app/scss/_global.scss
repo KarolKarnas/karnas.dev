@@ -8,6 +8,13 @@
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 // VSC-style scrollbar globally
 *::-webkit-scrollbar {
   width: 5px;

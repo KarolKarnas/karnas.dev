@@ -14,6 +14,10 @@ const TerminalInput = ({ onSubmit, commandHistory }: TerminalInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
+    const isTouch =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: none)").matches
+    if (isTouch) return
     inputRef.current?.focus()
   }, [commandHistory.length])
 
