@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "gen:nav": "node scripts/gen-nav.mjs",
+    "predev": "npm run gen:nav",
+    "prebuild": "npm run gen:nav"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

@@ -55,6 +55,8 @@ tags:
   - "TypeScript"
   - "JavaScript"
 date: "2025-01-15"
+nav_title: "cardpiper.com"
+nav_icon: "nestJs"
 ---
 
 The core concept was simple but ambitious-a feed that dynamically adapts based on user preferences. Instead of generic content, users would see books, authors, quotes, movie characters, films, games, and more, all tailored to their tastes to create a dynamic, personalized feed. Every reaction-whether liking a quote or engaging with a book-would refine their profile, adjusting future recommendations

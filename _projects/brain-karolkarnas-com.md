@@ -74,6 +74,8 @@ tags:
   - "Celery"
   - "i18n"
 date: "2025-01-23"
+nav_title: "brain.karolkarnas.com"
+nav_icon: "python"
 ---
 
 Brain represents everything I learned from Card Piper-and everything I wished it could have been. Where Card Piper used Euclidean distance in psychological space, Brain uses 768-dimensional semantic embeddings to understand genuine conceptual relationships. Where Card Piper relied on React for interactivity, Brain uses HTMX and Alpine.js to deliver a faster, lighter, more accessible experience. The core intention remains the same-helping users discover meaningful content-but the technical execution is dramatically improved.

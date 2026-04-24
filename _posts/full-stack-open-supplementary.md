@@ -14,6 +14,8 @@ icons_stack:
   - "sql"
   - "jest"
 date: "2024-02-11T05:35:07.322Z"
+nav_title: "full_stack_supplementary.ts"
+nav_icon: "typeScriptAlt"
 fields:
   - title: "The Typescript (Part 9)"
     content: "The TypeScript section of the University of Helsinki's supplementary courses provides a deep dive into one of the most widely used typed languages in modern web development. TypeScript, an open-source superset of JavaScript developed by Microsoft, enhances JavaScript by introducing static types, improving code maintainability, and reducing runtime errors."

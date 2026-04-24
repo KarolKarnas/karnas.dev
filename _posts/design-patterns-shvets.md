@@ -9,6 +9,8 @@ tags: ["Design Patterns", "Architecture", "OOP", "SOLID", "Refactoring", "AI"]
 icons_stack:
   - "python"
 date: "2025-02-14T10:00:00.322Z"
+nav_title: "design_patterns_shvets.epub"
+nav_icon: "epub"
 fields:
   - title: "The overview"
     content: "Dive Into Design Patterns is Alexander Shvets's book version of the Refactoring.Guru catalog. It walks through the 22 classic Gang of Four patterns plus 8 design principles (the three object-oriented ones - encapsulate what varies, program to an interface, favor composition over inheritance - and the five SOLID principles). It is 409 pages, 225 illustrations, code samples in ten languages, and it is sold as an e-book - I read it as a PDF. The whole thing is the polished book version of the free website I have been linking people to for years."

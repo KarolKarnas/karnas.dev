@@ -104,6 +104,8 @@ tags:
   - "TypeScript"
   - "Figma"
 date: "2023-11-11"
+nav_title: "ilustrografia.com"
+nav_icon: "react"
 ---
 
 This is a beautifully styled and responsive e-commerce platform designed for an artist who sells prints of her digital paintings. The website offers a variety of print sizes, materials, and prices.

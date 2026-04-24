@@ -78,6 +78,8 @@ tags:
   - "Azure"
   - "Multi-tenant"
 date: "2025-02-01"
+nav_title: "dms.py"
+nav_icon: "python"
 ---
 
 A multi-tenant SaaS platform that runs the annual and interim recertification workflow for a US public housing authority - from document intake and OCR, through an agentic LLM extraction and validation pipeline, to caseworker review, sign-off, and property-management sync. Django, Celery, Azure OpenAI, Document Intelligence, and a schema-per-tenant Postgres layer, with observability through Langfuse and Datadog.

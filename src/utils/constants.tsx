@@ -2,7 +2,6 @@ import { SideNavItem, SocialItem } from "./types"
 import {
   nodeJs,
   folderOpen,
-  react,
   karnas,
   twitter,
   gitHub,
@@ -10,15 +9,22 @@ import {
   svg,
   karnasAlt,
   sass,
-  typeScriptAlt,
-  nextJs,
-  nestJs,
-  django,
-  python,
-  claude,
-  epub,
 } from "@/icons"
+import * as allIcons from "@/icons"
 import { IconName } from "./icon-utils"
+import {
+  BLOG_NAV,
+  PROFESSIONAL_PROJECTS_NAV,
+  SIDE_PROJECTS_NAV,
+  NavEntry,
+} from "./generated-nav"
+
+const toSubMenu = (entries: NavEntry[], routePrefix: string) =>
+  entries.map((entry) => ({
+    title: entry.title,
+    path: `${routePrefix}/${entry.slug}`,
+    icon: allIcons[entry.iconName].icon,
+  }))
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
@@ -42,99 +48,24 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/professional-projects",
     icon: folderOpen.icon,
     submenu: true,
-    subMenuItems: [
-      {
-        title: "dataBidMachine.py",
-        path: "/professional-projects/data-bid-machine",
-        icon: python.icon,
-      },
-      {
-        title: "dms.py",
-        path: "/professional-projects/dms-housing-authority",
-        icon: python.icon,
-      },
-    ],
+    subMenuItems: toSubMenu(
+      PROFESSIONAL_PROJECTS_NAV,
+      "/professional-projects"
+    ),
   },
   {
     title: "side projects",
     path: "/side-projects",
     icon: folderOpen.icon,
     submenu: true,
-    subMenuItems: [
-      {
-        title: "brain",
-        path: "/side-projects/brain-karnas-dev",
-        icon: python.icon,
-      },
-      {
-        title: "cardpiper.com",
-        path: "/side-projects/card-piper-com",
-        icon: nestJs.icon,
-      },
-      {
-        title: "ilustrografia.com",
-        path: "/side-projects/ilustrografia-com",
-        icon: react.icon,
-      },
-      {
-        title: "karnas.dev",
-        path: "/side-projects/karnas-dev",
-        icon: nextJs.icon,
-      },
-    ],
+    subMenuItems: toSubMenu(SIDE_PROJECTS_NAV, "/side-projects"),
   },
   {
     title: "blog",
     path: "/blog",
     icon: folderOpen.icon,
     submenu: true,
-    subMenuItems: [
-      {
-        title: "odinFoundationCourse.ts",
-        path: "/blog/odin-foundation-course",
-        icon: typeScriptAlt.icon,
-      },
-      {
-        title: "fullStackOpenCore.ts",
-        path: "/blog/full-stack-open-core",
-        icon: typeScriptAlt.icon,
-      },
-      {
-        title: "pentesterCourse.ts",
-        path: "/blog/pentester-course",
-        icon: typeScriptAlt.icon,
-      },
-      {
-        title: "fullStackSupplementary.ts",
-        path: "/blog/full-stack-open-supplementary",
-        icon: typeScriptAlt.icon,
-      },
-      {
-        title: "claudeCodeInAction.ai",
-        path: "/blog/claude-code-in-action",
-        icon: claude.icon,
-      },
-      {
-        title: "codingWithAiTraversy.ai",
-        path: "/blog/coding-with-ai-traversy",
-        icon: claude.icon,
-      },
-      {
-        title: "exercism.py",
-        path: "/blog/exercism",
-        icon: python.icon,
-      },
-      {
-        title: "designPatternsShvets.epub",
-        path: "/blog/design-patterns-shvets",
-        icon: epub.icon,
-      },
-      {
-        title: "designingDataIntensiveApps.epub",
-        path: "/blog/designing-data-intensive-applications-kleppmann",
-        icon: epub.icon,
-      },
-    ],
+    subMenuItems: toSubMenu(BLOG_NAV, "/blog"),
   },
   {
     title: "contact.sass",

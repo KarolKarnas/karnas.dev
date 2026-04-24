@@ -25,6 +25,8 @@ const PostFrontmatterSchema = z.object({
   icons_stack: z.array(z.string()).optional(),
   date: z.string(),
   fields: z.array(FieldSchema),
+  nav_title: z.string().optional(),
+  nav_icon: z.string().optional(),
 })
 
 const ProjectFrontmatterSchema = PostFrontmatterSchema.extend({

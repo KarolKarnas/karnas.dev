@@ -11,6 +11,8 @@ icons_stack:
   - "javaScript"
   - "typeScript"
 date: "2025-06-18T10:00:00.322Z"
+nav_title: "exercism.py"
+nav_icon: "python"
 fields:
   - title: "The overview"
     content: "Exercism is a free, open-source, non-commercial coding practice platform. You pick a language track, solve small problems against a test suite, and - if you want - ask a volunteer mentor for a code review. It is run as a UK not-for-profit by Katrina Owen, Jeremy Walker and Erik Schierboom, and it is genuinely free forever - no paid tier, no upsell. The catalog is huge - 82 language tracks at the time of writing, thousands of exercises, and roughly two million users. What keeps me coming back though is not the scale. It is that solving a problem on Exercism feels like *thinking*, not like *prompting*."

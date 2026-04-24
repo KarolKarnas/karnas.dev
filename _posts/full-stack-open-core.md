@@ -14,6 +14,8 @@ icons_stack:
   - "nodeJs"
   - "jest"
 date: "2023-10-27T05:35:07.322Z"
+nav_title: "full_stack_open_core.ts"
+nav_icon: "typeScriptAlt"
 fields:
   - title: "The Prerequisites"
     content: "The Full-stack Open requires us to have good programming skills, a basic knowledge of web programming and databases, and familiarity with the basics of the Git version control system. Additionally, perseverance and the ability to solve problems and seek information independently are expected. That's why I highly recommend completing The Odin Project course before starting FSO, unless you already possess such skills, in which case you can begin with FSO directly."

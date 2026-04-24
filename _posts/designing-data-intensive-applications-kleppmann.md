@@ -11,6 +11,8 @@ icons_stack:
   - "redis"
   - "sql"
 date: "2025-10-21T12:00:00.322Z"
+nav_title: "designing_data_intensive_apps.epub"
+nav_icon: "epub"
 fields:
   - title: "The overview"
     content: "Designing Data-Intensive Applications - DDIA, or 'the wild boar book' after its O'Reilly cover animal - is Martin Kleppmann's now-classic tour of how modern data systems actually work underneath the marketing. It covers reliability, scalability, maintainability, storage engines, encoding and evolution, replication, partitioning, transactions, consistency and consensus, batch and stream processing, and closes with a chapter on the future of data systems. The first edition shipped in 2017; the heavily updated second edition - co-authored with Chris Riccomini - landed in 2026 and folds in a decade of hard-won lessons from the cloud, streaming, and now AI era. It is roughly 600 pages, dense but unusually readable, and it is probably the single most recommended book in backend engineering."

@@ -11,6 +11,8 @@ icons_stack:
   - "sass"
   - "javaScript"
 date: "2023-07-20T05:35:07.322Z"
+nav_title: "odin_foundation_course.ts"
+nav_icon: "typeScriptAlt"
 fields:
   - title: "Tutorial hell medicine"
     content: "The Odin Project is effective medicine for the tutorial hell problem. I have been there many times, watching another YT video, thinking that I can replicate the process easily. The Odin Project is not about procrastinating by watching videos or reading extensively about web development; it's about actively engaging in the process. The course encourages practical learning using essential tools like IDE (Visual Studio Code), Linux, Terminal, Git, and Github. Throughout the program, you'll delve into extensive documentation, draw your own conclusions, and apply your knowledge by building simple projects."

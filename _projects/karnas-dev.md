@@ -49,6 +49,8 @@ tags:
   - "TypeScript"
   - "Figma"
 date: "2024-01-06"
+nav_title: "karnas.dev"
+nav_icon: "nextJs"
 ---
 
 This project is a full-stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC) with the Monokai Theme.

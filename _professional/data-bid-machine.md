@@ -71,6 +71,8 @@ tags:
   - "AWS"
   - "AI Pipelines"
 date: "2024-09-01"
+nav_title: "data_bid_machine.py"
+nav_icon: "python"
 ---
 
 Data Bid Machine is a production SaaS platform that turns Google Ads accounts into a continuously-monitored, AI-advised system. It combines rules-based detection, LLM-generated insight, and semantic filtering - running on Django, Celery, and AWS - to surface the campaigns and keywords that need attention without asking a human to look at them first.

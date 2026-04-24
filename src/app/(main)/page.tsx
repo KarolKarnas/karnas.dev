@@ -49,7 +49,7 @@ export default function Home() {
 
         <div className={styles["social-links"]}>
           <h4>Social Media</h4>
-          <ul>
+          <ul className={styles["social-list"]}>
             {SOCIAL_ITEMS.map((item, index) => (
               <LinkCard key={index} socialItem={item} />
             ))}
