@@ -11,6 +11,7 @@ export {
   datadog,
   django,
   docker,
+  epub,
   express,
   fastapi,
   figma,

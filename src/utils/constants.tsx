@@ -16,6 +16,7 @@ import {
   django,
   python,
   claude,
+  epub,
 } from "@/icons"
 import { IconName } from "./icon-utils"
 
@@ -122,6 +123,16 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
         title: "exercism.py",
         path: "/blog/exercism",
         icon: python.icon,
+      },
+      {
+        title: "designPatternsShvets.epub",
+        path: "/blog/design-patterns-shvets",
+        icon: epub.icon,
+      },
+      {
+        title: "designingDataIntensiveApps.epub",
+        path: "/blog/designing-data-intensive-applications-kleppmann",
+        icon: epub.icon,
       },
     ],
   },
