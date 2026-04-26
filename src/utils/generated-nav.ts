@@ -8,9 +8,12 @@ export type NavEntry = {
 }
 
 export const BLOG_NAV: NavEntry[] = [
+  { title: "hands_on_llms.epub", slug: "hands-on-large-language-models-alammar", iconName: "epub" },
   { title: "coding_with_ai_traversy.ai", slug: "coding-with-ai-traversy", iconName: "claude" },
   { title: "claude_code_in_action.ai", slug: "claude-code-in-action", iconName: "claude" },
   { title: "designing_data_intensive_apps.epub", slug: "designing-data-intensive-applications-kleppmann", iconName: "epub" },
+  { title: "soft_skills.epub", slug: "soft-skills-sonmez", iconName: "epub" },
+  { title: "fluent_python.epub", slug: "fluent-python-ramalho", iconName: "epub" },
   { title: "exercism.py", slug: "exercism", iconName: "python" },
   { title: "design_patterns_shvets.epub", slug: "design-patterns-shvets", iconName: "epub" },
   { title: "full_stack_supplementary.ts", slug: "full-stack-open-supplementary", iconName: "typeScriptAlt" },
