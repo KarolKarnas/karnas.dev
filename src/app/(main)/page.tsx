@@ -20,7 +20,7 @@ export default function Home() {
       <header className={styles.hero}>
         <h1>Karol Karnas</h1>
         <h3 className={styles.tagline}>
-          Backend&nbsp;Engineer · AI&nbsp;Pipelines · Agentic&nbsp;Systems
+          Backend&nbsp;Engineer · Data&nbsp;Analysis · Agentic&nbsp;AI
         </h3>
         <span className={styles.quote}>{QUOTATION}</span>
       </header>
