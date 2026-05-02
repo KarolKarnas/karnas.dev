@@ -9,8 +9,8 @@ const AuthorFooter = () => {
       <Link className={styles.authorName} href="/about">
         <span>Karol Karnas</span>
         <span>Backend Engineer</span>
-        <span>AI Pipelines</span>
-        <span>Agentic Systems</span>
+        <span>Data Analysis</span>
+        <span>Agentic AI</span>
       </Link>
       <ul className={styles.links}>
         {SOCIAL_ITEMS.map((item, index) => (

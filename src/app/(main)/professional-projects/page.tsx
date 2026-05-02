@@ -5,7 +5,7 @@ import { getAllProfessional } from "@/lib/api"
 export const metadata: Metadata = {
   title: "Professional projects",
   description:
-    "Professional client work - backend systems, AI pipelines, and agentic workflows in Python, Django, Celery, and beyond.",
+    "Professional client work - backend systems, data analysis, and agentic AI in Python, Django, Celery, Pandas, and beyond.",
 }
 
 export default async function ProfessionalProjects() {

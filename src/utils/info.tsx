@@ -4,7 +4,7 @@ export const ABOUT: FakeJson[] = [
   {
     title: "Role",
     value:
-      "Backend Engineer with a growing focus on AI-powered data pipelines, embedding-based search, and agentic workflows. I love the moment when a well-built backend quietly powers AI that actually works.",
+      "Backend Engineer with a growing focus on data analysis and agentic AI - data pipelines, embedding-based search, and agent loops that hold up in production. I love the moment when a well-built backend quietly powers AI that actually works.",
   },
   {
     title: "Stack",

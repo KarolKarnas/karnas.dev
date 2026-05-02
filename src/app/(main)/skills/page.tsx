@@ -21,7 +21,7 @@ import SkillSection from "@/app/_components/skill-section/skill-section"
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Backend Engineering, AI pipelines, and agentic systems - Python, Django, FastAPI, Celery, pgvector, sentence-transformers, AWS, Azure, Docker, Postgres, Redis.",
+    "Backend Engineering, Data Analysis, and Agentic AI - Python, Django, FastAPI, Celery, Pandas, pgvector, sentence-transformers, AWS, Azure, Docker, Postgres, Redis.",
 }
 
 export default async function Skills() {
@@ -29,7 +29,7 @@ export default async function Skills() {
     <div className={styles.container}>
       <MainHeading color="blue">Skills</MainHeading>
       <MainSubHeading color="purple">
-        Backend Engineering · AI Pipelines · Agentic Systems
+        Backend Engineering · Data Analysis · Agentic AI
       </MainSubHeading>
 
       <SkillSection>

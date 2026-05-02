@@ -7,7 +7,7 @@ const whoami: Command = {
   execute: () => {
     return [
       "Karol Karnas",
-      "Backend Engineer · AI Pipelines · Agentic Systems",
+      "Backend Engineer · Data Analysis · Agentic AI",
       "",
       "GitHub:   github.com/KarolKarnas",
       "LinkedIn: linkedin.com/in/KarolKarnas",

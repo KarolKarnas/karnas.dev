@@ -8,11 +8,11 @@ const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Karol Karnas | Backend Engineer · AI Pipelines · Agentic Systems",
-    default: "Karol Karnas | Backend Engineer · AI Pipelines · Agentic Systems",
+    template: "%s | Karol Karnas | Backend Engineer · Data Analysis · Agentic AI",
+    default: "Karol Karnas | Backend Engineer · Data Analysis · Agentic AI",
   },
   description:
-    "Karol Karnas - Backend Engineer focused on AI pipelines and agentic systems. Python, Django, FastAPI, Celery, PostgreSQL/pgvector, Redis, Docker - on AWS and Azure.",
+    "Karol Karnas - Backend Engineer focused on data analysis and agentic AI. Python, Django, FastAPI, Celery, Pandas, PostgreSQL/pgvector, Redis, Docker - on AWS and Azure.",
   metadataBase: new URL("https://www.karnas.dev"),
 }
 

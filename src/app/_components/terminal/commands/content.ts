@@ -11,7 +11,7 @@ const cat: Command = {
 
     if (slug === "about") {
       return [
-        "Karol Karnas - Backend Engineer · AI Pipelines · Agentic Systems",
+        "Karol Karnas - Backend Engineer · Data Analysis · Agentic AI",
         "",
         "I love the moment when a well-built backend quietly powers",
         "AI that actually works.",
