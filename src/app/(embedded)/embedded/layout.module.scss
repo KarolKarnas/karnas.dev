@@ -1,6 +1,18 @@
 @use "../../scss/colors";
 @use "../../scss/spacing";
 
+// Embedded routes render inside a split-view iframe. The root global
+// stylesheet locks `html, body` to `overflow: hidden; height: 100%` to keep
+// the VS Code chrome fixed in the main document, but that same rule applies
+// inside the iframe and clips the post body. Restore UA defaults so the
+// iframe document scrolls naturally with the mouse wheel.
+:global(html),
+:global(body) {
+  overflow: visible;
+  height: auto;
+  overscroll-behavior: auto;
+}
+
 .content {
   padding: spacing.$s2;
   padding-top: 65px; // breadcrumb overlay (22px) + match left pane padding (43px) // breadcrumb overlay (22px) + 2px
