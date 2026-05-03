@@ -21,9 +21,9 @@ fields:
     list:
 
   - title: "From Euclidean Distance to Vector Embeddings"
-    content: "CardPiper used Euclidean distance in a 10-dimensional psychological space (based on 16 Personalities) to calculate similarity. While conceptually elegant, this approach had fundamental limitations. It assumed that personality traits map linearly to content preferences, which is reductive. Brain takes a radically different approach: 768-dimensional semantic embeddings via nomic-embed-text-v1.5. Instead of mapping users to predefined personality types, the system understands the actual semantic meaning of entities-books, films, philosophical concepts, celestial objects-and finds genuine conceptual connections across all domains. A book about Buddhist philosophy can connect to a film noir aesthetic, which connects to a specific type of jazz, which connects to existentialist thought. These aren't arbitrary associations-they're real semantic relationships discovered in high-dimensional vector space."
+    content: "CardPiper used Euclidean distance in a 10-dimensional psychological space (based on 16 Personalities) to calculate similarity. While conceptually elegant, this approach had fundamental limitations. It assumed that personality traits map linearly to content preferences, which is reductive. Brain takes a radically different approach: 384-dimensional semantic embeddings via all-MiniLM-L6-v2. Instead of mapping users to predefined personality types, the system understands the actual semantic meaning of entities-books, films, philosophical concepts, celestial objects-and finds genuine conceptual connections across all domains. A book about Buddhist philosophy can connect to a film noir aesthetic, which connects to a specific type of jazz, which connects to existentialist thought. These aren't arbitrary associations-they're real semantic relationships discovered in high-dimensional vector space."
     links:
-      - link: "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5"
+      - link: "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2"
 
   - title: "PostgreSQL + pgvector: The Right Tool for the Job"
     content: "One of Brain's most crucial architectural decisions was using PostgreSQL with the pgvector extension instead of a dedicated vector database. This gives us ACID compliance, mature tooling, and the ability to combine vector similarity search with traditional relational queries in a single atomic operation. We can find semantically similar entities while respecting user reactions, filtering by categories, and maintaining referential integrity-all without the complexity of synchronizing multiple databases. The vector similarity search performs beautifully even with thousands of entities, and we have room to scale to millions."
@@ -50,7 +50,7 @@ fields:
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1762113006/brain_3_a0dbui.jpg"
 
   - title: "Redis + Celery: Async Operations at Scale"
-    content: "Brain uses Redis as both a cache and a message broker for Celery. Computing 768-dimensional embeddings for new entities happens asynchronously. Batch recommendation pre-computation runs in background tasks. Real-time feed generation benefits from intelligent caching of similarity searches. This architecture keeps the user experience snappy while handling computationally expensive ML operations in the background. As the dataset grows, we can scale horizontally by adding more Celery workers without touching the core application."
+    content: "Brain uses Redis as both a cache and a message broker for Celery. Computing 384-dimensional embeddings for new entities happens asynchronously. Batch recommendation pre-computation runs in background tasks. Real-time feed generation benefits from intelligent caching of similarity searches. This architecture keeps the user experience snappy while handling computationally expensive ML operations in the background. As the dataset grows, we can scale horizontally by adding more Celery workers without touching the core application."
     links:
       - link: "https://redis.io/"
       - link: "https://docs.celeryq.dev/"
@@ -78,4 +78,4 @@ nav_title: "brain.karolkarnas.com"
 nav_icon: "python"
 ---
 
-Brain represents everything I learned from Card Piper-and everything I wished it could have been. Where Card Piper used Euclidean distance in psychological space, Brain uses 768-dimensional semantic embeddings to understand genuine conceptual relationships. Where Card Piper relied on React for interactivity, Brain uses HTMX and Alpine.js to deliver a faster, lighter, more accessible experience. The core intention remains the same-helping users discover meaningful content-but the technical execution is dramatically improved.
+Brain represents everything I learned from Card Piper-and everything I wished it could have been. Where Card Piper used Euclidean distance in psychological space, Brain uses 384-dimensional semantic embeddings (all-MiniLM-L6-v2) to understand genuine conceptual relationships. Where Card Piper relied on React for interactivity, Brain uses HTMX and Alpine.js to deliver a faster, lighter, more accessible experience. The core intention remains the same-helping users discover meaningful content-but the technical execution is dramatically improved.
