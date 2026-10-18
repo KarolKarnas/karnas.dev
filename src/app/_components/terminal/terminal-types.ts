@@ -1,9 +1,13 @@
 import { JSX } from "react"
+import type { DirectoryListing } from "./terminal-filesystem"
+
+export type CommandOutput = string | JSX.Element | DirectoryListing
 
 export type TerminalEntry = {
   id: number
   input: string
-  output: string | JSX.Element
+  path: string
+  output: CommandOutput
 }
 
 export type TerminalState = {
@@ -11,6 +15,7 @@ export type TerminalState = {
   history: TerminalEntry[]
   commandHistory: string[]
   height: number
+  effect: "matrix" | null
 }
 
 export type TerminalContextValue = TerminalState & {
@@ -23,6 +28,8 @@ export type TerminalContextValue = TerminalState & {
   clearHistory: () => void
   setHeight: (height: number) => void
   setIsResizing: (resizing: boolean) => void
+  startMatrix: () => void
+  stopEffect: () => void
 }
 
 export const TERMINAL_STORAGE_KEY = "terminal-state"
@@ -35,4 +42,5 @@ export const DEFAULT_TERMINAL_STATE: TerminalState = {
   history: [],
   commandHistory: [],
   height: TERMINAL_DEFAULT_HEIGHT,
+  effect: null,
 }

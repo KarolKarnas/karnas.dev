@@ -1,17 +1,25 @@
-import { JSX } from "react"
-import { PostMeta, ProjectMeta } from "@/app/api/content/route"
+import type { PostMeta, ProjectMeta } from "@/app/api/content/route"
+import type { CommandOutput } from "../terminal-types"
 import { navigationCommands } from "./navigation"
 import { contentCommands } from "./content"
 import { infoCommands } from "./info"
 import { funCommands } from "./fun"
+import { workspaceCommands } from "./workspace"
+import type { Theme } from "../../appearance/appearance-config"
 
 export type CommandContext = {
   navigate: (path: string) => void
+  changeDirectory: (path: string) => void
   posts: PostMeta[]
   projects: ProjectMeta[]
   professional: ProjectMeta[]
   currentPath: string
+  previousPath: string | null
+  theme: Theme
+  setTheme: (theme: Theme) => void
+  startMatrix: () => void
   clearTerminal: () => void
+  closeTerminal: () => void
   commandHistory: string[]
 }
 
@@ -22,7 +30,7 @@ export type Command = {
   execute: (
     args: string[],
     context: CommandContext
-  ) => string | JSX.Element | Promise<string | JSX.Element>
+  ) => CommandOutput | Promise<CommandOutput>
 }
 
 const commandRegistry = new Map<string, Command>()
@@ -37,6 +45,7 @@ registerCommands(navigationCommands)
 registerCommands(contentCommands)
 registerCommands(infoCommands)
 registerCommands(funCommands)
+registerCommands(workspaceCommands)
 
 export function getCommand(name: string): Command | undefined {
   return commandRegistry.get(name)
@@ -49,7 +58,7 @@ export function getAllCommands(): Command[] {
 export async function executeCommand(
   input: string,
   context: CommandContext
-): Promise<string | JSX.Element> {
+): Promise<CommandOutput> {
   const trimmed = input.trim()
   if (!trimmed) return ""
 

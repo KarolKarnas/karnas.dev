@@ -16,6 +16,7 @@ import {
   TERMINAL_MIN_HEIGHT,
   DEFAULT_TERMINAL_STATE,
 } from "./terminal-types"
+import { listenForTerminalControls } from "./terminal-controls"
 
 const TerminalContext = createContext<TerminalContextValue | null>(null)
 
@@ -25,7 +26,10 @@ function loadHeight(): number {
     const stored = localStorage.getItem(TERMINAL_STORAGE_KEY)
     if (stored) {
       const parsed = JSON.parse(stored)
-      if (typeof parsed.height === "number" && parsed.height >= TERMINAL_MIN_HEIGHT) {
+      if (
+        typeof parsed.height === "number" &&
+        parsed.height >= TERMINAL_MIN_HEIGHT
+      ) {
         return parsed.height
       }
     }
@@ -61,18 +65,8 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
     }
   }, [state.height, hydrated])
 
-  useEffect(() => {
-    const handleMessage = (e: MessageEvent) => {
-      if (e.origin !== window.location.origin) return
-      if (e.data?.type !== "split-view-open-terminal") return
-      setState((prev) => ({ ...prev, isOpen: true }))
-    }
-    window.addEventListener("message", handleMessage)
-    return () => window.removeEventListener("message", handleMessage)
-  }, [])
-
   const toggle = useCallback(() => {
-    setState((prev) => ({ ...prev, isOpen: !prev.isOpen }))
+    setState((prev) => ({ ...prev, isOpen: !prev.isOpen, effect: null }))
   }, [])
 
   const open = useCallback(() => {
@@ -80,7 +74,7 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const close = useCallback(() => {
-    setState((prev) => ({ ...prev, isOpen: false }))
+    setState((prev) => ({ ...prev, isOpen: false, effect: null }))
   }, [])
 
   const addEntry = useCallback((entry: TerminalEntry) => {
@@ -98,12 +92,24 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const clearHistory = useCallback(() => {
-    setState((prev) => ({ ...prev, history: [] }))
+    setState((prev) => ({ ...prev, history: [], effect: null }))
   }, [])
 
   const setHeight = useCallback((height: number) => {
     setState((prev) => ({ ...prev, height }))
   }, [])
+
+  const startMatrix = useCallback(() => {
+    setState((prev) => ({ ...prev, isOpen: true, effect: "matrix" }))
+  }, [])
+  const stopEffect = useCallback(() => {
+    setState((prev) => ({ ...prev, effect: null }))
+  }, [])
+
+  useEffect(
+    () => listenForTerminalControls(window, { toggle, open }),
+    [toggle, open]
+  )
 
   const value: TerminalContextValue = {
     ...state,
@@ -116,6 +122,8 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
     clearHistory,
     setHeight,
     setIsResizing,
+    startMatrix,
+    stopEffect,
   }
 
   return (

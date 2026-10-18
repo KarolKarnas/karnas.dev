@@ -1,5 +1,6 @@
 import { Command } from "./index"
 import { PROFILE } from "@/utils/profile"
+import { THEMES } from "../../appearance/appearance-config"
 
 const whoami: Command = {
   name: "whoami",
@@ -43,7 +44,7 @@ const stack: Command = {
   name: "stack",
   description: "Show the tech stack of this site",
   usage: "stack",
-  execute: () => {
+  execute: (_args, context) => {
     return [
       "karnas.dev tech stack:",
       "",
@@ -51,11 +52,11 @@ const stack: Command = {
       "  Language:    TypeScript",
       "  React:       React 19",
       "  Styling:     SASS + CSS Modules",
-      "  Content:     Markdown + gray-matter + remark",
+      "  Content:     Local files + gray-matter + Zod",
       "  Font:        Roboto Mono",
       "  Images:      Cloudinary CDN",
       "  Deployment:  Vercel",
-      "  Theme:       Monokai",
+      `  Theme:       ${THEMES.find((theme) => theme.id === context.theme)?.name ?? context.theme}`,
     ].join("\n")
   },
 }
@@ -64,7 +65,7 @@ const neofetch: Command = {
   name: "neofetch",
   description: "System-info style display for the portfolio",
   usage: "neofetch",
-  execute: () => {
+  execute: (_args, context) => {
     return [
       "        ██╗  ██╗██╗  ██╗       visitor@karnas.dev",
       "        ██║ ██╔╝██║ ██╔╝       ──────────────────",
@@ -73,7 +74,7 @@ const neofetch: Command = {
       "        ██║  ██║██║  ██║       Language: TypeScript",
       "        ╚═╝  ╚═╝╚═╝  ╚═╝       Styling: SASS + CSS Modules",
       "                                Font: Roboto Mono",
-      "                                Theme: Monokai",
+      `                                Theme: ${THEMES.find((theme) => theme.id === context.theme)?.name ?? context.theme}`,
       "                                Deployment: Vercel",
       "                                Uptime: since 2024",
     ].join("\n")

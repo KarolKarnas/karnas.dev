@@ -2,12 +2,14 @@
 
 import { useEffect } from "react"
 import styles from "./layout.module.scss"
+import { forwardTerminalShortcut } from "@/app/_components/terminal/terminal-controls"
 
 export default function EmbeddedLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  useEffect(() => forwardTerminalShortcut(window), [])
   useEffect(() => {
     // Capture phase to intercept before Next.js Link handler
     const handleClick = (e: MouseEvent) => {

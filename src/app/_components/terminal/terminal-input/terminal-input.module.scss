@@ -1,42 +1,68 @@
-@use "../../../scss/colors";
-
+.inputArea {
+  padding: 5px 0 10px;
+}
 .inputLine {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 8px;
   cursor: text;
 }
-
-.prompt {
-  color: colors.$green-500;
-  flex-shrink: 0;
-}
-
-.separator {
-  color: colors.$grey-100;
-  flex-shrink: 0;
-}
-
-.path {
-  color: colors.$blue-500;
-  flex-shrink: 0;
-}
-
-.dollar {
-  color: colors.$grey-100;
-  flex-shrink: 0;
-}
-
 .input {
-  flex: 1;
+  flex: 1 1 140px;
+  min-width: 90px;
   background: transparent;
   border: none;
   outline: none;
-  color: colors.$white-100;
-  font-family: inherit;
-  font-size: 13px;
-  line-height: 1.4;
+  color: var(--text-strong);
+  font: inherit;
+  line-height: 1.75;
   padding: 0;
-  margin-left: 6px;
-  caret-color: colors.$green-500;
-  min-width: 0;
+  caret-color: var(--accent);
+}
+.completions {
+  margin-top: 8px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  > span {
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin-top: 8px;
+  }
+  li {
+    min-width: 0;
+    max-width: 100%;
+  }
+  button {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    text-align: left;
+    font: inherit;
+    font-size: 0.7rem;
+    color: var(--cyan);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 9px;
+    cursor: pointer;
+    &:hover {
+      border-color: var(--cyan);
+    }
+  }
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

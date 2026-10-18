@@ -4,22 +4,22 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import { useTerminal } from "./terminal-context"
 import { TERMINAL_MIN_HEIGHT, TERMINAL_MAX_HEIGHT_VH } from "./terminal-types"
-import { executeCommand, CommandContext } from "./commands"
-import { ContentResponse, PostMeta, ProjectMeta } from "@/app/api/content/route"
+import { executeCommand, getAllCommands, CommandContext } from "./commands"
+import type { ContentResponse } from "@/app/api/content/route"
+import {
+  completeCommand,
+  formatPromptPath,
+  getDirectoryForRoute,
+  resolveFile,
+} from "./terminal-filesystem"
+import { revealFolderForPathname } from "../side-nav/folder-state"
 import TerminalInput from "./terminal-input/terminal-input"
+import TerminalPrompt from "./terminal-prompt"
+import TerminalListing from "./terminal-listing"
 import { xMark } from "@/icons"
 import styles from "./terminal.module.scss"
-
-const ASCII_BANNER = ` _                                       _
-| | ____ _ _ __ _ __   __ _ ___       __| | _____   __
-| |/ / _\` | '__| '_ \\ / _\` / __|    / _\` |/ _ \\ \\ / /
-|   < (_| | |  | | | | (_| \\__ \\ _ | (_| |  __/\\ V /
-|_|\\_\\__,_|_|  |_| |_|\\__,_|___/(_) \\__,_|\\___| \\_/
-`
-
-const WELCOME_MESSAGE = `Welcome to karnas.dev terminal v1.0.0
-Type 'help' for available commands.
-`
+import { useAppearance } from "../appearance/appearance-context"
+import MatrixRain from "./matrix-rain"
 
 const Terminal = () => {
   const {
@@ -28,36 +28,79 @@ const Terminal = () => {
     commandHistory,
     height,
     toggle,
+    close,
     addEntry,
     addCommandToHistory,
     clearHistory,
     setHeight,
     setIsResizing,
+    effect,
+    startMatrix,
+    stopEffect,
   } = useTerminal()
 
   const router = useRouter()
+  const { appearance, update: updateAppearance } = useAppearance()
   const pathname = usePathname()
   const bodyRef = useRef<HTMLDivElement>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
+  const terminalRef = useRef<HTMLDivElement>(null)
+  const restoreInputFocus = useRef(false)
+  const [workingDirectory, setWorkingDirectory] = useState(() =>
+    getDirectoryForRoute(pathname)
+  )
+  const directoryRef = useRef(workingDirectory)
+  const previousDirectoryRef = useRef<string | null>(null)
+  const [content, setContent] = useState<ContentResponse>({
+    posts: [],
+    projects: [],
+    professional: [],
+  })
+  const contentRequest = useRef<Promise<ContentResponse> | null>(null)
 
-  const [posts, setPosts] = useState<PostMeta[]>([])
-  const [projects, setProjects] = useState<ProjectMeta[]>([])
-  const [professional, setProfessional] = useState<ProjectMeta[]>([])
+  const stopAnimation = useCallback(() => {
+    restoreInputFocus.current =
+      terminalRef.current?.contains(document.activeElement) ?? false
+    stopEffect()
+  }, [stopEffect])
+
+  useEffect(() => {
+    if (effect === null && restoreInputFocus.current) {
+      restoreInputFocus.current = false
+      terminalRef.current?.querySelector("input")?.focus()
+    }
+  }, [effect])
+
+  const loadContent = useCallback(() => {
+    if (!contentRequest.current) {
+      contentRequest.current = fetch("/api/content")
+        .then((response) => {
+          if (!response.ok) throw new Error("Content request failed")
+          return response.json() as Promise<ContentResponse>
+        })
+        .catch((error) => {
+          contentRequest.current = null
+          throw error
+        })
+    }
+    return contentRequest.current
+  }, [])
 
   // Fetch content metadata on mount
   useEffect(() => {
-    fetch("/api/content")
-      .then((res) => res.json())
-      .then((data: ContentResponse) => {
-        setPosts(data.posts)
-        setProjects(data.projects)
-        setProfessional(data.professional)
+    let active = true
+    loadContent()
+      .then((data) => {
+        if (active) setContent(data)
       })
       .catch(() => {
-        // silently fail
+        // Reading commands retry the request and report a failure if it persists.
       })
-  }, [])
+    return () => {
+      active = false
+    }
+  }, [loadContent])
 
   // Auto-scroll to bottom on new history or terminal open
   useEffect(() => {
@@ -65,18 +108,6 @@ const Terminal = () => {
       bottomRef.current?.scrollIntoView({ block: "end" })
     })
   }, [history, isOpen])
-
-  // Global keyboard shortcut: Ctrl+`
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "`" && e.ctrlKey) {
-        e.preventDefault()
-        toggle()
-      }
-    }
-    document.addEventListener("keydown", handleKeyDown)
-    return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [toggle])
 
   // Resize drag handling
   const handleDragStart = useCallback(
@@ -118,34 +149,71 @@ const Terminal = () => {
   const handleCommand = useCallback(
     async (input: string) => {
       addCommandToHistory(input)
-
+      const path = directoryRef.current
+      const name = input.trim().split(/\s+/)[0].toLowerCase()
+      let metadata = content
+      const target = input.trim().split(/\s+/).at(-1) ?? ""
+      if (
+        name === "find" ||
+        (["cat", "head"].includes(name) && resolveFile(target, path)?.slug)
+      ) {
+        try {
+          metadata = await loadContent()
+          setContent(metadata)
+        } catch {
+          addEntry({
+            id: 0,
+            input,
+            path,
+            output:
+              "Could not load the articles. Try this command again to retry.",
+          })
+          return
+        }
+      }
       const context: CommandContext = {
-        navigate: (path: string) => router.push(path),
-        posts,
-        projects,
-        professional,
-        currentPath: pathname,
+        navigate: (target: string) => {
+          revealFolderForPathname(target)
+          router.push(target)
+        },
+        changeDirectory: (target: string) => {
+          if (target !== directoryRef.current)
+            previousDirectoryRef.current = directoryRef.current
+          directoryRef.current = target
+          setWorkingDirectory(target)
+          revealFolderForPathname(target)
+          router.push(target)
+        },
+        ...metadata,
+        currentPath: path,
+        previousPath: previousDirectoryRef.current,
+        theme: appearance.theme,
+        setTheme: (theme) => updateAppearance({ theme }),
+        startMatrix,
         clearTerminal: clearHistory,
+        closeTerminal: close,
         commandHistory,
       }
 
       const output = await executeCommand(input, context)
 
       // Don't add entry for clear command (already handled)
-      if (input.trim().toLowerCase() === "clear") return
+      if (name === "clear" || name === "exit") return
 
-      addEntry({ id: 0, input, output })
+      addEntry({ id: 0, input, path, output })
     },
     [
       addCommandToHistory,
       addEntry,
       clearHistory,
+      close,
       commandHistory,
-      pathname,
-      posts,
-      professional,
-      projects,
+      content,
+      loadContent,
       router,
+      appearance.theme,
+      updateAppearance,
+      startMatrix,
     ]
   )
 
@@ -154,7 +222,10 @@ const Terminal = () => {
   return (
     <div
       className={styles.terminal}
+      ref={terminalRef}
       style={{ height: `min(${height}px, 70dvh)` }}
+      role="region"
+      aria-label="Portfolio terminal"
     >
       <div
         className={styles.dragHandle}
@@ -180,41 +251,96 @@ const Terminal = () => {
         }}
       />
       <div className={styles.topBar}>
-        <span className={styles.title}>TERMINAL</span>
-        <button
-          className={styles.closeButton}
-          onClick={toggle}
-          type="button"
-          aria-label="Close Terminal"
-          title="Close Terminal"
-        >
-          {xMark.icon}
-        </button>
+        <div className={styles.terminalLabel}>
+          <span className={styles.title}>TERMINAL</span>
+          <span className={styles.workingDirectory}>
+            {formatPromptPath(workingDirectory)}
+          </span>
+        </div>
+        <div className={styles.controls}>
+          <button
+            type="button"
+            className={styles.clearButton}
+            onClick={clearHistory}
+            title="Clear terminal (Ctrl+L)"
+          >
+            Clear
+          </button>
+          <button
+            className={styles.closeButton}
+            onClick={toggle}
+            type="button"
+            aria-label="Close Terminal"
+            title="Close Terminal"
+          >
+            {xMark.icon}
+          </button>
+        </div>
       </div>
-      <div className={styles.body} ref={bodyRef}>
-        <pre className={styles.banner}>{ASCII_BANNER}</pre>
-        <pre className={styles.welcome}>{WELCOME_MESSAGE}</pre>
-        {history.map((entry) => (
-          <div key={entry.id} className={styles.entry}>
-            {entry.input && (
-              <div className={styles.historyLine}>
-                <span className={styles.prompt}>visitor@karnas.dev</span>
-                <span className={styles.separator}>:</span>
-                <span className={styles.path}>~</span>
-                <span className={styles.dollar}>$ </span>
-                <span className={styles.command}>{entry.input}</span>
+      <div className={styles.contentArea}>
+        <div className={styles.body} ref={bodyRef} inert={effect === "matrix"}>
+          {history.length === 0 && (
+            <div className={styles.welcome}>
+              <div>
+                <strong>karnas.dev</strong>
+                <span>Explore the work from the command line.</span>
               </div>
-            )}
-            {entry.output && (
-              <pre className={styles.commandOutput}>{entry.output}</pre>
-            )}
-          </div>
-        ))}
-        <TerminalInput
-          onSubmit={handleCommand}
-          commandHistory={commandHistory}
-        />
-        <div ref={bottomRef} />
+              <p>
+                Browse with <code>ls</code>, read with <code>cat</code>, open in
+                the editor with <code>open</code>. Press <kbd>Tab</kbd> to
+                complete.
+              </p>
+              <div className={styles.quickCommands}>
+                {["ls", "cd blog", "help"].map((command) => (
+                  <button
+                    key={command}
+                    type="button"
+                    onClick={() => handleCommand(command)}
+                  >
+                    {command}
+                    <span aria-hidden="true">↵</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          {history.map((entry) => (
+            <div key={entry.id} className={styles.entry}>
+              {entry.input && (
+                <div className={styles.historyLine}>
+                  <TerminalPrompt path={entry.path} />
+                  <span className={styles.command}>{entry.input}</span>
+                </div>
+              )}
+              {typeof entry.output === "string" ? (
+                entry.output && (
+                  <pre className={styles.commandOutput}>{entry.output}</pre>
+                )
+              ) : "entries" in entry.output ? (
+                <TerminalListing
+                  listing={entry.output}
+                  onSelect={handleCommand}
+                />
+              ) : (
+                entry.output
+              )}
+            </div>
+          ))}
+          <TerminalInput
+            onSubmit={handleCommand}
+            commandHistory={commandHistory}
+            currentPath={workingDirectory}
+            onComplete={(input) =>
+              completeCommand(
+                input,
+                directoryRef.current,
+                getAllCommands().map((command) => command.name)
+              )
+            }
+          />
+          <div ref={bottomRef} />
+        </div>
+        {effect === "matrix" && <MatrixRain onExit={stopAnimation} />}
       </div>
     </div>
   )

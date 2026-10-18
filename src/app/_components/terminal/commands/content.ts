@@ -1,144 +1,113 @@
-import { Command } from "./index"
+import type { Command, CommandContext } from "./index"
 import { PROFILE } from "@/utils/profile"
+import {
+  getDirectoryEntries,
+  getFileMetadata,
+  resolveFile,
+} from "../terminal-filesystem"
+import { infoCommands } from "./info"
+
+function readFile(target: string, context: CommandContext): string | undefined {
+  const file = resolveFile(target, context.currentPath)
+  if (!file) return undefined
+  if (file.kind === "directory")
+    return `${target}: Is a directory. Use 'ls ${target}'.`
+  if (file.href === "/about") {
+    return JSON.stringify(
+      { ...PROFILE, location: "Poland", web: "https://www.karnas.dev" },
+      null,
+      2
+    )
+  }
+  if (file.href === "/skills") {
+    const output = infoCommands
+      .find((command) => command.name === "skills")
+      ?.execute([], context)
+    return typeof output === "string" ? output : undefined
+  }
+  if (file.href === "/contact") {
+    return "Karol Karnas\nkarol.karnas@gmail.com\n+48 784 034 778\nhttps://www.linkedin.com/in/KarolKarnas/"
+  }
+  if (file.href === "/")
+    return `${PROFILE.name}\n${PROFILE.role}\n${PROFILE.tagline}`
+  const content = getFileMetadata(file, context)
+  if (!content) return undefined
+  return [
+    content.title,
+    content.date.slice(0, 10),
+    "tags" in content ? content.tags.join(" · ") : content.stack?.join(" · "),
+    "",
+    content.content.trim(),
+    "",
+    `Read in the editor: open ${file.path}`,
+  ]
+    .filter((line) => line !== undefined)
+    .join("\n")
+}
 
 const cat: Command = {
   name: "cat",
-  description: "Display a blog post or project summary",
-  usage: "cat <slug>",
+  description: "Read a file or article summary",
+  usage: "cat <file>",
   execute: (args, context) => {
-    if (args.length === 0) return "Usage: cat <slug>"
-
-    const slug = args[0].toLowerCase()
-
-    if (slug === "about") {
-      return [
-        `${PROFILE.name} - ${PROFILE.role}`,
-        "",
-        PROFILE.tagline,
-        "I work across client requirements, interfaces, backend systems,",
-        "AI integrations, testing, and deployment.",
-        "",
-        "Stack: TypeScript, React, Next.js, Python, Django, Celery,",
-        "       PostgreSQL, Redis, Docker, AWS, Azure.",
-        "Location: Poland",
-        "Site: https://www.karnas.dev",
-      ].join("\n")
-    }
-
-    const post = context.posts.find((p) => p.slug === slug)
-    if (post) {
-      const lines = post.content.split("\n").slice(0, 20)
-      return [
-        `Title: ${post.title}`,
-        `Date: ${post.date}`,
-        `Tags: ${post.tags.join(", ")}`,
-        "",
-        ...lines,
-        lines.length >= 20 ? "\n... (truncated - visit the full page)" : "",
-      ].join("\n")
-    }
-
-    const project =
-      context.projects.find((p) => p.slug === slug) ??
-      context.professional.find((p) => p.slug === slug)
-    if (project) {
-      const lines = project.content.split("\n").slice(0, 20)
-      return [
-        `Title: ${project.title}`,
-        `Date: ${project.date}`,
-        `Stack: ${project.stack?.join(", ") ?? "N/A"}`,
-        project.live_demo ? `Live: ${project.live_demo}` : null,
-        project.repo ? `Repo: ${project.repo}` : null,
-        "",
-        ...lines,
-        lines.length >= 20 ? "\n... (truncated - visit the full page)" : "",
-      ]
-        .filter((line): line is string => line !== null)
-        .join("\n")
-    }
-
-    return `cat: ${slug}: No such file or directory`
+    if (args.length !== 1) return "Usage: cat <file>"
+    return readFile(args[0], context) ?? `cat: ${args[0]}: No such file`
   },
 }
 
 const head: Command = {
   name: "head",
-  description: "Show first 5 lines of a post",
-  usage: "head <slug>",
+  description: "Preview the first lines of a file",
+  usage: "head [-n lines] <file>",
   execute: (args, context) => {
-    if (args.length === 0) return "Usage: head <slug>"
-
-    const slug = args[0].toLowerCase()
-
-    const post = context.posts.find((p) => p.slug === slug)
-    if (post) {
-      return [
-        `Title: ${post.title}`,
-        `Date: ${post.date}`,
-        `Tags: ${post.tags.join(", ")}`,
-        `Subtitle: ${post.sub_title}`,
-        "",
-      ].join("\n")
-    }
-
-    const project =
-      context.projects.find((p) => p.slug === slug) ??
-      context.professional.find((p) => p.slug === slug)
-    if (project) {
-      return [
-        `Title: ${project.title}`,
-        `Date: ${project.date}`,
-        `Stack: ${project.stack?.join(", ") ?? "N/A"}`,
-        project.live_demo ? `Live: ${project.live_demo}` : null,
-        project.repo ? `Repo: ${project.repo}` : null,
-      ]
-        .filter((line): line is string => line !== null)
-        .join("\n")
-    }
-
-    return `head: ${slug}: No such file or directory`
+    let lines = 5
+    let target = args[0]
+    if (args[0] === "-n" && args.length === 3) {
+      lines = Number(args[1])
+      target = args[2]
+    } else if (args.length !== 1) return "Usage: head [-n lines] <file>"
+    if (!Number.isInteger(lines) || lines < 1 || lines > 100)
+      return "head: line count must be between 1 and 100"
+    const content = readFile(target, context)
+    return (
+      content?.split("\n").slice(0, lines).join("\n") ??
+      `head: ${target}: No such file`
+    )
   },
 }
 
 const find: Command = {
   name: "find",
-  description: "Search across post/project titles and content",
+  description: "Search article and project names, tags, and summaries",
   usage: "find <keyword>",
   execute: (args, context) => {
     if (args.length === 0) return "Usage: find <keyword>"
-
     const keyword = args.join(" ").toLowerCase()
     const results: string[] = []
-
-    for (const post of context.posts) {
-      if (
-        post.title.toLowerCase().includes(keyword) ||
-        post.content.toLowerCase().includes(keyword)
-      ) {
-        results.push(`  blog/${post.slug}  - ${post.title}`)
+    for (const directory of [
+      "/blog",
+      "/side-projects",
+      "/professional-projects",
+    ]) {
+      for (const file of getDirectoryEntries(directory) ?? []) {
+        const content = getFileMetadata(file, context)
+        if (!content) continue
+        const text = [
+          file.name,
+          content.title,
+          content.sub_title,
+          content.content,
+          "tags" in content ? content.tags.join(" ") : content.stack?.join(" "),
+        ]
+          .join(" ")
+          .toLowerCase()
+        if (text.includes(keyword))
+          results.push(`  ${file.path}\n    ${content.title}`)
       }
     }
-
-    for (const project of context.projects) {
-      if (
-        project.title.toLowerCase().includes(keyword) ||
-        project.content.toLowerCase().includes(keyword)
-      ) {
-        results.push(`  side-projects/${project.slug}  - ${project.title}`)
-      }
-    }
-
-    for (const pro of context.professional) {
-      if (
-        pro.title.toLowerCase().includes(keyword) ||
-        pro.content.toLowerCase().includes(keyword)
-      ) {
-        results.push(`  professional-projects/${pro.slug}  - ${pro.title}`)
-      }
-    }
-
-    if (results.length === 0) return `No results found for '${keyword}'`
-    return `Found ${results.length} result(s):\n${results.join("\n")}`
+    return results.length
+      ? `${results.length} match${results.length === 1 ? "" : "es"}\n\n${results.join("\n\n")}`
+      : `No results found for '${args.join(" ")}'`
   },
 }
 

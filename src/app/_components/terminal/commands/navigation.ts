@@ -1,111 +1,84 @@
-import { Command } from "./index"
-
-const SECTIONS = [
-  "blog",
-  "side-projects",
-  "professional-projects",
-  "about",
-  "skills",
-  "contact",
-]
-
-const SLUG_SECTIONS = ["blog", "side-projects", "professional-projects"]
+import type { Command } from "./index"
+import {
+  getDirectoryEntries,
+  getDirectoryForRoute,
+  getFileMetadata,
+  resolveFile,
+  TERMINAL_HOME,
+  formatPromptPath,
+} from "../terminal-filesystem"
 
 const ls: Command = {
   name: "ls",
-  description: "List available sections or content",
-  usage: "ls [section]",
+  description: "Browse files in the current directory",
+  usage: "ls [-l] [path]",
   execute: (args, context) => {
-    if (args.length === 0) {
-      return SECTIONS.map((s) => `  ${s}/`).join("\n")
+    if (args.some((arg) => arg.startsWith("-") && arg !== "-l"))
+      return "Usage: ls [-l] [path]"
+    const paths = args.filter((arg) => arg !== "-l")
+    if (paths.length > 1) return "Usage: ls [-l] [path]"
+    const target = paths[0] ?? "."
+    const entry = resolveFile(target, context.currentPath)
+    if (!entry)
+      return `ls: cannot access '${target}': No such file or directory`
+    const files =
+      entry.kind === "directory"
+        ? (getDirectoryEntries(entry.path) ?? [])
+        : [entry]
+    return {
+      type: "directory",
+      path:
+        entry.kind === "directory"
+          ? entry.path
+          : getDirectoryForRoute(entry.path),
+      entries: files.map((file) => {
+        const content = getFileMetadata(file, context)
+        return content
+          ? { ...file, title: content.title, date: content.date }
+          : file
+      }),
+      detailed: args.includes("-l"),
     }
-
-    const section = args[0].toLowerCase().replace(/\/$/, "")
-
-    if (section === "blog") {
-      if (context.posts.length === 0) return "Loading content..."
-      return context.posts
-        .map((p) => `  ${p.date}  ${p.slug}`)
-        .join("\n")
-    }
-
-    if (section === "side-projects") {
-      if (context.projects.length === 0) return "Loading content..."
-      return context.projects
-        .map((p) => `  ${p.slug}  [${p.stack?.join(", ") ?? ""}]`)
-        .join("\n")
-    }
-
-    if (section === "professional-projects") {
-      if (context.professional.length === 0) return "Loading content..."
-      return context.professional
-        .map((p) => `  ${p.slug}  [${p.stack?.join(", ") ?? ""}]`)
-        .join("\n")
-    }
-
-    return `ls: cannot access '${args[0]}': No such directory`
   },
 }
 
 const cd: Command = {
   name: "cd",
-  description: "Navigate to a page",
-  usage: "cd <section>",
+  description: "Change directory and show its page",
+  usage: "cd [directory | -]",
   execute: (args, context) => {
-    if (args.length === 0 || args[0] === "~") {
-      context.navigate("/")
-      return ""
-    }
+    if (args.length > 1) return "Usage: cd [directory | -]"
+    if (args[0] === "-" && !context.previousPath)
+      return "cd: no previous directory"
+    const target = args[0] === "-" ? context.previousPath! : (args[0] ?? "~")
+    const entry = resolveFile(target, context.currentPath)
+    if (!entry) return `cd: no such directory: ${target}`
+    if (entry.kind !== "directory")
+      return `cd: ${target}: Not a directory. Use 'open ${target}'.`
+    context.changeDirectory(entry.path)
+    return args[0] === "-" ? formatPromptPath(entry.path) : ""
+  },
+}
 
-    const target = args[0].toLowerCase().replace(/\/$/, "")
-
-    if (target === ".." || target === "/") {
-      context.navigate("/")
-      return ""
-    }
-
-    if (SECTIONS.includes(target)) {
-      context.navigate(`/${target}`)
-      return ""
-    }
-
-    // Check if we're already inside a slug-bearing section
-    const currentSegments = context.currentPath.split("/").filter(Boolean)
-    if (SLUG_SECTIONS.includes(currentSegments[0])) {
-      context.navigate(`/${currentSegments[0]}/${target}`)
-      return ""
-    }
-
-    // Try as a direct slug under blog / side-projects / professional-projects
-    const post = context.posts.find((p) => p.slug === target)
-    if (post) {
-      context.navigate(`/blog/${target}`)
-      return ""
-    }
-
-    const project = context.projects.find((p) => p.slug === target)
-    if (project) {
-      context.navigate(`/side-projects/${target}`)
-      return ""
-    }
-
-    const pro = context.professional.find((p) => p.slug === target)
-    if (pro) {
-      context.navigate(`/professional-projects/${target}`)
-      return ""
-    }
-
-    return `cd: no such directory: ${args[0]}`
+const open: Command = {
+  name: "open",
+  description: "Open a file or section in the editor",
+  usage: "open <file-or-directory>",
+  execute: (args, context) => {
+    if (args.length !== 1) return "Usage: open <file-or-directory>"
+    const entry = resolveFile(args[0], context.currentPath)
+    if (!entry) return `open: no such file or directory: ${args[0]}`
+    context.navigate(entry.href)
+    return `Opened ${entry.name === "~" ? "home" : entry.name}`
   },
 }
 
 const pwd: Command = {
   name: "pwd",
-  description: "Show current page path",
+  description: "Show the current working directory",
   usage: "pwd",
-  execute: (_args, context) => {
-    return `/home/visitor/karnas.dev${context.currentPath === "/" ? "" : context.currentPath}`
-  },
+  execute: (_args, context) =>
+    `${TERMINAL_HOME}${context.currentPath === "/" ? "" : context.currentPath}`,
 }
 
-export const navigationCommands: Command[] = [ls, cd, pwd]
+export const navigationCommands: Command[] = [ls, cd, open, pwd]

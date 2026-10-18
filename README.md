@@ -20,6 +20,7 @@ The site uses Next.js, React, TypeScript, and Sass modules, with local content f
 - Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface,
 - Personalize the workspace with Monokai, Dark Modern, and Light themes, adjustable text size, and reduced motion. Appearance preferences are saved locally and synchronized with split-view panes,
 - Browse redesigned project case studies, a grouped skills toolbox, and a reading-focused journal,
+- Explore the same content from the terminal: working directories, clickable file listings, file previews, and Tab completion,
 - Utilize Cloudinary for secure and scalable object storage, optimizing media file handling,
 - Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture,
 - Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application
@@ -77,6 +78,32 @@ NEXT_PUBLIC_BASE_URL=https://www.karnas.dev npm run build
 
 The base URL is required for correct sitemap and robots URLs. Appearance settings
 are available from the gear button at the bottom of the explorer.
+
+### Explore from the terminal
+
+Open the terminal with `Ctrl` + backtick or the explorer's Terminal button.
+
+```text
+cd blog
+ls
+cat fluent_python.epub
+open fluent_python.epub
+cd ../professional-projects
+ls -l
+tree ~
+cd -
+theme dark-modern
+matrix
+```
+
+Filenames match the explorer. Click a listing to open a file, use Tab to complete
+commands and paths, and run `help <command>` for usage. `open` shows a page while
+keeping the terminal's working directory; `cd` changes both. `exit` closes the
+terminal. The terminal session stays in memory; only its height is saved locally.
+`tree` shows the directory structure, `cd -` returns to the previous directory,
+and `theme` changes the same persisted appearance setting as the gear menu.
+`matrix` runs digital rain for up to 18 seconds; stop it with Escape, Ctrl+C, or
+the Back to terminal button. Reduced-motion settings show a still frame.
 
 See [the visual audit and implementation notes](docs/visual-audit.md) for the
 redesign decisions and browser verification.

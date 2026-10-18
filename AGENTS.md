@@ -189,10 +189,32 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
   wspólny kontrakt i rejestr w `terminal/commands/index.ts`; treść pobierają
   z `/api/content`. `TerminalProvider` należy do main layoutu, dlatego
   `TerminalTrigger` w iframe korzysta z komunikatu `split-view-open-terminal`.
+- **Katalog terminala:** `terminal-filesystem.ts` mapuje wygenerowaną nawigację
+  na katalogi i pliki o nazwach zgodnych z explorerem. Bieżący katalog żyje w
+  sesji terminala niezależnie od strony: `cd` zmienia katalog i otwiera sekcję,
+  `open` otwiera plik bez zmiany katalogu, `ls` bez argumentów listuje bieżący
+  katalog. Obsługuj `..`, `.`, `/`, `~` i ścieżki względne; nie wysyłaj błędnych
+  ścieżek do routera. Każdy wpis historii zapisuje ścieżkę z momentu wykonania.
+  Wynik `ls` jest typowanym listingiem renderowanym przez `TerminalListing`,
+  a nie HTML-em w stringu. Tab uzupełnia nazwy i ścieżki; Shift+Tab pozostaje
+  dostępny do opuszczenia inputu. Odczyt treści czeka na dane i pozwala ponowić
+  nieudaną prośbę; listowanie plików działa także przed załadowaniem API.
 - **Skróty:** Ctrl + backtick przełącza terminal, strzałki przeglądają historię,
   Ctrl+C czyści input, Ctrl+L czyści terminal. Ctrl + backslash wywołuje
   `toggleSplitView`, które obecnie zamyka aktywny podział; otwieranie panelu
   odbywa się przez drag and drop. Nie opisuj skrótu jako otwierania pustego splitu.
+- Obsługa Ctrl + backtick należy do `TerminalProvider` i `terminal-controls.ts`.
+  Rozpoznawaj fizyczny `code: Backquote` oraz znak backtick, ignoruj repeat, IME
+  i AltGr; nasłuchuj w fazie capture. Embedded layout przekazuje skrót do rodzica.
+  Wiadomości otwarcia i przełączenia terminala muszą pochodzić z istniejącego
+  iframe tego samego originu. Nie dodawaj drugiego listenera w samym panelu.
+- **Komendy i efekty:** `tree` korzysta z tej samej struktury co `ls`, `cd -`
+  zamienia ostatnie dwa różne katalogi, a `theme` używa `AppearanceProvider`.
+  Matrix działa jako czasowy efekt canvas w panelu, z wyjściem przez Escape,
+  Ctrl+C lub przycisk. Po wyjściu przywracaj fokus, jeśli znajdował się w terminalu.
+  Preferencje reduced motion (aplikacji i systemu) oznaczają statyczną klatkę.
+  Zamykanie i czyszczenie terminala kończy efekt; odpinaj timery, ResizeObserver
+  oraz requestAnimationFrame przy odmontowaniu.
 - Przy zmianach profilu sprawdzaj spójność home, metadanych, about, skills,
   stopki autora, kontaktu i odpowiedzi terminala. Część danych jest powielona.
 
@@ -202,7 +224,8 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
   `npx tsc --noEmit` i build produkcyjny. Samo przejście generatora nie waliduje
   całego frontmatter. Dla samej dokumentacji wystarcza sprawdzenie zgodności
   ze źródłami i `git diff --check`.
-- Testy preferencji wyglądu uruchamiaj przez `node --test tests/appearance.test.mjs`.
+- Testy uruchamiaj przez `node --test tests/*.test.mjs` (wygląd, explorer,
+  lightbox i komendy terminala).
   Repo nie ma obecnie skryptów `test`/`lint`, konfiguracji ESLinta ani pełnej suity E2E. Obecność ikon Jest/pytest/Playwright i wpisów
   na liście umiejętności nie oznacza, że te narzędzia testują to portfolio.
   Next.js build nie uruchamia ESLinta. Nie zgłaszaj lint/testów jako zaliczonych

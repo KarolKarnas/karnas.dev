@@ -16,9 +16,15 @@ const FORTUNES = [
 const help: Command = {
   name: "help",
   description: "List all available commands",
-  usage: "help",
-  execute: () => {
+  usage: "help [command]",
+  execute: (args) => {
     const commands = getAllCommands()
+    if (args.length) {
+      const command = commands.find((command) => command.name === args[0])
+      return command
+        ? `${command.description}\nUsage: ${command.usage}`
+        : `help: unknown command: ${args[0]}`
+    }
     const maxLen = Math.max(...commands.map((c) => c.name.length))
     const lines = commands.map(
       (c) => `  ${c.name.padEnd(maxLen + 2)}${c.description}`
@@ -28,7 +34,8 @@ const help: Command = {
       "",
       ...lines,
       "",
-      "Type 'help' for this list.",
+      "Try: cd blog → ls → open <file>",
+      "Tab completes commands and paths. Use 'help <command>' for usage.",
     ].join("\n")
   },
 }
@@ -81,19 +88,12 @@ const fortune: Command = {
 
 const matrix: Command = {
   name: "matrix",
-  description: "Brief Matrix-style rain effect",
+  description: "Animated digital rain (Esc or Ctrl+C to stop)",
   usage: "matrix",
-  execute: () => {
-    const chars = "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ01234567890"
-    const lines: string[] = []
-    for (let i = 0; i < 8; i++) {
-      let line = ""
-      for (let j = 0; j < 50; j++) {
-        line += chars[Math.floor(Math.random() * chars.length)]
-      }
-      lines.push(line)
-    }
-    return lines.join("\n")
+  execute: (args, context) => {
+    if (args.length) return "Usage: matrix"
+    context.startMatrix()
+    return "Wake up, visitor."
   },
 }
 
@@ -110,7 +110,7 @@ const sudoHireMe: Command = {
         "Karol Karnas has been successfully hired!",
         "",
         "Reach out:",
-        "  📧 karol@karnas.dev",
+        "  📧 karol.karnas@gmail.com",
         "  🔗 linkedin.com/in/KarolKarnas",
         "  🐙 github.com/KarolKarnas",
       ].join("\n")
@@ -135,8 +135,9 @@ const exit: Command = {
   name: "exit",
   description: "Exit the terminal",
   usage: "exit",
-  execute: () => {
-    return "You can check out any time you like, but you can never leave... 🎸"
+  execute: (_args, context) => {
+    context.closeTerminal()
+    return ""
   },
 }
 

@@ -67,11 +67,15 @@
   }
 }
 .cover {
+  display: grid;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
   margin: 32px 0 40px;
   min-height: 230px;
+  > div {
+    height: auto;
+  }
   img {
     display: block;
     width: 100%;
