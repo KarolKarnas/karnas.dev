@@ -5,7 +5,7 @@ import { getAllProjects } from "@/lib/api"
 export const metadata: Metadata = {
   title: "Side projects",
   description:
-    "Personal side projects - backend systems, semantic search with pgvector, and full-stack experiments in Django, Next.js, TypeScript, and React.",
+    "Independent projects from concept to deployment: e-commerce, recommendation systems, and a VS Code-inspired portfolio built with React, Next.js, TypeScript, and Django.",
 }
 
 export default async function SideProjects() {

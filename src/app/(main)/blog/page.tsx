@@ -7,7 +7,7 @@ import { BlogCardType } from "@/utils/types"
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Posts about programming courses, front-end, back-end, best practices, TypeScript, React, Next.js, SASS, TailwindCSS",
+    "Notes on full-stack engineering, software design, testing, AI integrations, and working with clients. Books and courses connected to real project work.",
 }
 
 export default async function Portfolio() {
@@ -37,7 +37,7 @@ export default async function Portfolio() {
         </p>
         <div className={styles.meta}>
           <span>{blogs.length.toString().padStart(2, "0")} entries</span>
-          <span>Engineering · Data · AI</span>
+          <span>Building · Learning · Delivering</span>
         </div>
       </header>
 

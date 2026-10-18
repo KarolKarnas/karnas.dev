@@ -23,13 +23,15 @@ export default function ProjectList({ heading, projects, pathPrefix }: Props) {
         </h1>
         <p>
           {professional
-            ? "Real systems. Real constraints. Backend engineering, data and AI working together in production."
+            ? "Client work across interfaces, backend systems, and AI integrations. Features built around real workflows and production constraints."
             : "A place to explore, experiment and build. From semantic search to full-stack products."}
         </p>
         <div className={styles.meta}>
           <span>{projects.length.toString().padStart(2, "0")} projects</span>
           <span>
-            {professional ? "Python · Data · AI" : "Built out of curiosity"}
+            {professional
+              ? "Interfaces · Systems · Delivery"
+              : "Built out of curiosity"}
           </span>
         </div>
       </header>

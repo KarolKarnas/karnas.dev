@@ -1,8 +1,8 @@
 ---
-author_name: Karol Karnas
+author_name: "Karol Karnas"
 title: "Brain"
-sub_title: "A conscious recommendation system optimizing for learning and growth, not engagement"
-content_title: "Evolution from Card Piper"
+sub_title: "An independent recommendation product combining semantic search, a server-rendered interface, and feedback across different kinds of content."
+content_title: "From concept to working product"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1762113535/brain_1_mfdhm0.jpg"
 main_icon: "django"
 icons_stack:
@@ -16,51 +16,40 @@ icons_stack:
 live_demo: "https://brain.karolkarnas.com/"
 repo: "https://github.com/KarolKarnas/brain"
 fields:
-  - title: "About"
-    content: "Brain is a technical evolution of Card Piper. Both projects share the same core intention-helping users discover content that genuinely matters to them. However, Brain refines this vision with more sophisticated technology: moving from psychological profiling to semantic embeddings, from Node.js to Python's ML ecosystem, and from a traditional SPA to a hypermedia-driven architecture. The goal remains the same, but the execution is dramatically improved."
-    list:
-
-  - title: "From Euclidean Distance to Vector Embeddings"
-    content: "CardPiper used Euclidean distance in a 10-dimensional psychological space (based on 16 Personalities) to calculate similarity. While conceptually elegant, this approach had fundamental limitations. It assumed that personality traits map linearly to content preferences, which is reductive. Brain takes a radically different approach: 384-dimensional semantic embeddings via all-MiniLM-L6-v2. Instead of mapping users to predefined personality types, the system understands the actual semantic meaning of entities-books, films, philosophical concepts, celestial objects-and finds genuine conceptual connections across all domains. A book about Buddhist philosophy can connect to a film noir aesthetic, which connects to a specific type of jazz, which connects to existentialist thought. These aren't arbitrary associations-they're real semantic relationships discovered in high-dimensional vector space."
+  - title: "What I built"
+    content: "Brain continues the idea behind Card Piper: help people discover content worth exploring. I worked across the product concept, data model, recommendation logic, interface, and deployment. This version uses Python and semantic embeddings with a server-rendered interface, letting me explore a different way to build the same kind of experience."
+  - title: "Changing the recommendation model"
+    content: "Card Piper modeled preferences with personality-inspired scores and Euclidean distance. Brain uses 384-dimensional embeddings from all-MiniLM-L6-v2 to compare content descriptions. This removes the need to hand-map every item into personality dimensions and makes cross-category discovery possible. Similarity is still a signal to evaluate, rather than proof that the system understands a person or an item."
     links:
       - link: "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2"
-
-  - title: "PostgreSQL + pgvector: The Right Tool for the Job"
-    content: "One of Brain's most crucial architectural decisions was using PostgreSQL with the pgvector extension instead of a dedicated vector database. This gives us ACID compliance, mature tooling, and the ability to combine vector similarity search with traditional relational queries in a single atomic operation. We can find semantically similar entities while respecting user reactions, filtering by categories, and maintaining referential integrity-all without the complexity of synchronizing multiple databases. The vector similarity search performs beautifully even with thousands of entities, and we have room to scale to millions."
+  - title: "One data store for content and similarity"
+    content: "PostgreSQL with pgvector keeps content, user reactions, and similarity queries in one place. I can combine a vector search with category filters and relational constraints without maintaining a separate search database. It is a practical choice for the project’s current needs and keeps the system easier to inspect and change."
+    image: "https://res.cloudinary.com/djadfridw/image/upload/v1762113004/brain_2_navrw4.jpg"
     links:
       - link: "https://github.com/pgvector/pgvector"
-    image: "https://res.cloudinary.com/djadfridw/image/upload/v1762113004/brain_2_navrw4.jpg"
-
-  - title: "Django 5.0: Python's Mature Powerhouse"
-    content: "While NestJS served Card Piper well, Brain demanded something different. Django 5.0 provides an incredibly mature ecosystem for data-heavy applications. The ORM is sophisticated enough to handle complex queries involving vector operations, content types, and polymorphic relationships. Django REST Framework made building the API trivial. The admin interface accelerated development. But most importantly, Python's rich ecosystem for data science and ML integration (Pandas, NumPy, scikit-learn) means we can experiment with recommendation algorithms without context switching. The decision to use Python wasn't about popularity-it was about having the right tool for a system where data analysis and machine learning are first-class citizens."
+  - title: "The backend and data workflow"
+    content: "Django provides the models, migrations, administration, and request handling; Django REST Framework supports the API. Using Python also keeps embedding experiments close to the application code. The backend decision came from the data and iteration needs of this product, rather than an assumption that one framework is right for every application."
     links:
       - link: "https://www.djangoproject.com/"
-
-  - title: "HTMX + Alpine.js: The Anti-Framework Stack"
-    content: "This might be the most interesting architectural choice. Instead of React/Redux (which Card Piper used), Brain uses Django templates + HTMX + Alpine.js. HTMX allows server-rendered HTML to behave like a SPA without shipping megabytes of JavaScript. Need infinite scroll? An HTMX attribute. Live reactions? Server-rendered partial swaps. The entire frontend is < 50KB of JS. Alpine.js handles the minimal client-side interactivity (dropdowns, toggles, transitions) with a Vue-like syntax that stays in the HTML. No build step. No hydration. No client-side state management hell. Just hypermedia as the engine of application state-the way the web was supposed to work. Fast, accessible, and progressively enhanced."
+  - title: "Designing the interface around server-rendered HTML"
+    content: "Django templates, HTMX, Alpine.js, and Tailwind form the interface. HTMX handles interactions such as loading more content and updating reactions; Alpine handles local controls such as dropdowns and toggles. I chose this approach to keep rendering and application state close together. Card Piper used React and Redux; Brain gave me a useful comparison of how different frontend architectures fit a product."
     links:
       - link: "https://htmx.org/"
       - link: "https://alpinejs.dev/"
-
-  - title: "Five-Dimensional Reactions"
-    content: "Card Piper had binary likes. Brain has five reaction dimensions: 🧠 Mind (intellectually stimulating), ❤️ Heart (emotionally resonant), 🔥 Fire (inspiring), 🧩 Puzzle (raises questions), 🕳️ Void (misses the mark). This provides much richer data for the recommendation algorithm. Each reaction type is weighted differently in the similarity calculations, and a 'Void' reaction is as valuable as 'Mind'-it teaches the system what doesn't resonate with you. The recommendation algorithm uses these five dimensions to build a nuanced understanding of your preferences across multiple axes, not just a single like/dislike binary."
-
-  - title: "Cross-Domain Discovery"
-    content: "Card Piper was limited to a few content types. Brain has 24 entity types spanning the full spectrum of human knowledge: People, Books, Films, Music, Games, Quotes, Philosophical Concepts, Mathematical Theorems, Physical Laws, Celestial Objects, Minerals, Plants, Animals, Places, Foods, Materials, Scents, Visual Arts, Poems, Software, Programming Languages, and more. All exist in the same semantic space. This enables genuinely unexpected connections. If you resonate with Dune, Brain might suggest desert ecology, Arabic calligraphy, prescience in philosophy, and certain musical modes-not because they're tagged similarly, but because they share deep structural patterns in embedding space."
+  - title: "Feedback as part of the experience"
+    content: "The interface offers five reactions: Mind, Heart, Fire, Puzzle, and Void. They distinguish intellectual interest, emotional response, inspiration, questions, and lack of interest. The recommendation logic uses that feedback to refine suggestions. Designing the controls and deciding how the data affects the next feed are parts of the same feature."
+  - title: "Connecting different kinds of content"
+    content: "Books, films, music, people, places, and other entity types share a searchable representation. The product explores whether similarities between their descriptions can lead to useful discoveries across categories. That makes the quality of the source data, the recommendation model, and the way suggestions are presented equally important."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1762113006/brain_3_a0dbui.jpg"
-
-  - title: "Redis + Celery: Async Operations at Scale"
-    content: "Brain uses Redis as both a cache and a message broker for Celery. Computing 384-dimensional embeddings for new entities happens asynchronously. Batch recommendation pre-computation runs in background tasks. Real-time feed generation benefits from intelligent caching of similarity searches. This architecture keeps the user experience snappy while handling computationally expensive ML operations in the background. As the dataset grows, we can scale horizontally by adding more Celery workers without touching the core application."
+  - title: "Keeping expensive work off the request path"
+    content: "Celery handles embedding generation and recommendation preparation in the background, with Redis providing the broker and cache. That separates computational work from the requests used to browse the feed. The design also makes it possible to adjust background processing without rebuilding the interface."
     links:
       - link: "https://redis.io/"
       - link: "https://docs.celeryq.dev/"
-
-  - title: "Internationalization: English + Polish"
-    content: "Unlike Card Piper, Brain was built from day one with i18n. Every template, every UI string, every piece of content supports both English and Polish. Django's i18n framework made this straightforward-template tags for translation strings, middleware for language detection, and locale-specific formatting. The decision to prioritize it from the start meant avoiding the technical debt of retrofitting localization later."
-
-  - title: "What I Learned"
-    content: "Building Card Piper taught me backend architecture, data modeling, and the basics of recommendation systems. Building Brain taught me how to scale those concepts with production-grade tools. The move from Euclidean distance to vector embeddings showed me how much precision matters in ML applications. The Django ecosystem proved invaluable for rapid iteration-migrations, admin interface, ORM abstractions all accelerated development. HTMX + Alpine demonstrated that you don't always need a heavy frontend framework to build responsive interfaces. Most importantly, I learned that the right technology stack isn't just about performance-it's about maintainability, debuggability, and how well the tools align with the problem you're solving."
-
+  - title: "English and Polish"
+    content: "The application supports English and Polish through Django’s internationalization tools. I included translation strings, language selection, and locale-aware formatting in the interface work. Treating localization as part of the product early made it easier to keep behavior consistent across both languages."
+  - title: "What the project taught me"
+    content: "Brain brought the data model, recommendation approach, interface, and background processing into one set of decisions. A better similarity model is only useful if people can browse and respond to the results; a clean interface still depends on usable source data. Building both sides made those trade-offs visible and gave me a more practical basis for choosing between React-based and server-rendered applications."
 category: "FullStack"
 tags:
   - "Django"
@@ -76,6 +65,13 @@ tags:
 date: "2025-01-23"
 nav_title: "brain.karolkarnas.com"
 nav_icon: "python"
+stack:
+  - "Python"
+  - "Django"
+  - "HTMX"
+  - "Alpine.js"
+  - "PostgreSQL"
+  - "pgvector"
 ---
 
-Brain represents everything I learned from Card Piper-and everything I wished it could have been. Where Card Piper used Euclidean distance in psychological space, Brain uses 384-dimensional semantic embeddings (all-MiniLM-L6-v2) to understand genuine conceptual relationships. Where Card Piper relied on React for interactivity, Brain uses HTMX and Alpine.js to deliver a faster, lighter, more accessible experience. The core intention remains the same-helping users discover meaningful content-but the technical execution is dramatically improved.
+Brain is my full-stack exploration of content discovery through semantic recommendations. I built the Django data layer and background processing alongside an HTMX and Alpine.js interface, connecting vector search, user reactions, and multilingual browsing in one product.

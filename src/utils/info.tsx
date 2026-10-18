@@ -1,20 +1,25 @@
 import { FakeJson } from "./types"
+import { PROFILE } from "./profile"
 
 export const ABOUT: FakeJson[] = [
   {
     title: "Role",
-    value:
-      "Backend Engineer with a growing focus on data analysis and agentic AI - data pipelines, embedding-based search, and agent loops that hold up in production. I love the moment when a well-built backend quietly powers AI that actually works.",
+    value: `${PROFILE.role}. I work with clients to turn requirements into working software, across the interface, backend, integrations, testing, and deployment.`,
   },
   {
     title: "Stack",
     value: [
       {
-        title: "Backend",
-        value: "Python, Django (incl. multi-tenant), FastAPI, Celery, Pandas, pytest",
+        title: "Frontend",
+        value: "TypeScript, React, Next.js, Redux, HTMX, Tailwind, Sass",
       },
       {
-        title: "Data & Infra",
+        title: "Backend",
+        value:
+          "Python, Django (incl. multi-tenant), FastAPI, Celery, Pandas, pytest",
+      },
+      {
+        title: "Data & Infrastructure",
         value: "PostgreSQL, pgvector, Redis, Docker, AWS, Azure, Linux",
       },
       {
@@ -27,20 +32,25 @@ export const ABOUT: FakeJson[] = [
         value: "Sentry, Datadog, Grafana, Langfuse, Flower",
       },
       {
-        title: "Frontend",
-        value: "TypeScript, React, Next.js, Redux",
+        title: "Testing",
+        value: "pytest, Playwright, Jest, React Testing Library",
       },
     ],
   },
   {
     title: "Approach",
     value:
-      "I care about clean data flow, predictable async workers, and AI integrations that hold up in production. I wire LLMs, embeddings, and vision models into backend systems - not as demos but as parts of production pipelines that real users and teams depend on.",
+      "I stay involved from the client conversation through implementation and release. I clarify how a feature should work, connect the interface to the data and business rules, and check the result through tests and real user flows. I bring a strong backend foundation and stay accountable for how the finished feature works.",
+  },
+  {
+    title: "AI-assisted development",
+    value:
+      "I use coding assistants for implementation, exploration, and review. I define the scope, make the technical decisions, review changes, and verify behavior. Responsibility for the delivered software stays with me.",
   },
   {
     title: "Background",
     value:
-      "I have always loved building and creating - programming feels like an art form. My skill set extends beyond coding: problem-solving, system design, and data analysis with Pandas. I also have experience in creative fields like photography, composition, aesthetics, 2D animation, and UI/UX, which shape how I think about developer experience.",
+      "I enjoy the practical and visual sides of building software. Experience with photography, composition, 2D animation, and UI/UX shapes how I approach interfaces. System design and data analysis help me connect those interfaces to the workflows behind them.",
   },
 ]
 

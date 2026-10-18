@@ -1,8 +1,8 @@
 ---
-author_name: Karol Karnas
+author_name: "Karol Karnas"
 title: "CardPiper.com"
-sub_title: "I set out to build something different - a platform that truly understands its users at a psychological level."
-content_title: "Core concept"
+sub_title: "A full-stack discovery platform connecting a React interface to a NestJS API and an experimental recommendation model."
+content_title: "Building a personalized discovery experience"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1740336869/oyczalwjlk3qkcwvmvqx.png"
 main_icon: "nestJs"
 icons_stack:
@@ -18,45 +18,47 @@ icons_stack:
 live_demo: "https://www.cardpiper.karnas.dev/"
 repo: "https://github.com/KarolKarnas/card-piper-be"
 fields:
-  - title: "About"
-    content: "I was looking for a new project to build. I wanted something engaging, something that would challenge both my backend and frontend skills. Eventually, I landed on an idea: a social platform centered around personalized recommendations, where user interactions would shape their experience in real time."
-    list:
-  - title: "Technologies"
-    content: "To bring this to life, I needed a solid backend and a reliable dataset. I chose NestJS + Prisma + Postgres for the backend, ensuring scalability and efficiency. For data, I leveraged Puppeteer to scrape and collect relevant content. The biggest challenge came when designing how user preferences would be processed."
+  - title: "What I built"
+    content: "Card Piper was an independent project spanning frontend, backend, data collection, and recommendation logic. The idea was a feed of books, authors, quotes, films, games, and characters that changes as a user reacts to it. It gave me a concrete product to design and build across the whole stack."
+  - title: "The application stack"
+    content: "React and Redux handle the interface and client state. A NestJS API connects it to PostgreSQL through Prisma, with TypeScript across both sides. I worked on the flow from a user interaction in the feed to the stored preference and the recommendations returned by the backend."
     links:
       - link: "https://nestjs.com/"
-
-  - title: "Data Scraping"
-    content: "I started by gathering sample data through web scraping, utilizing vanilla JavaScript and Puppeteer for automation and BrightData for reliable proxy management. My goal was to collect a diverse dataset of books, authors, quotes, movie characters, films, and games to serve as the foundation for a dynamic recommendation system. By leveraging Puppeteer, I was able to automate interactions with various websites, extracting structured data efficiently. BrightData ensured that my scraping process remained uninterrupted and scalable, allowing me to bypass rate limits and access geo-restricted content. This initial data collection phase was crucial in shaping the platform’s ability to personalize user feeds based on their preferences and interactions."
+  - title: "Preparing the content"
+    content: "I used JavaScript and Puppeteer to collect and structure sample content, with BrightData supporting the collection workflow. The task involved more than gathering pages: the resulting books, people, quotes, and other entities needed relationships and consistent fields before the application could use them."
     links:
       - link: "https://pptr.dev/"
       - link: "https://brightdata.com/"
-
-  - title: "Building data schema"
-    content: "Designing data schemas in Prisma and defining relationships between different models was a critical step that shaped the entire development process. A well-structured database was essential for ensuring seamless data retrieval, efficient queries, and a scalable architecture. I carefully mapped out the relationships between core entities-Users, Books, Authors, Quotes, Characters, Films, and Games-establishing many-to-many connections where needed, such as users interacting with multiple entities and entities being linked through common themes. Prisma’s intuitive schema definition allowed me to enforce data integrity, streamline migrations, and optimize queries for performance. This foundational work not only improved the efficiency of backend operations but also made implementing personalized recommendations and real-time feed adjustments significantly more manageable."
+  - title: "Modeling the domain"
+    content: "I designed Prisma models for users, books, authors, quotes, characters, films, and games, including the relationships between them and user interactions. That schema shaped the API and the feed. Thinking through the interface and persistence together helped expose where a relationship or response needed to be clearer."
+    image: "https://res.cloudinary.com/djadfridw/image/upload/v1740337880/jozjtodjdhq3zuhzqtlx.png"
     links:
       - link: "https://www.prisma.io/"
-    image: "https://res.cloudinary.com/djadfridw/image/upload/v1740337880/jozjtodjdhq3zuhzqtlx.png"
-
-  - title: "Euclidean distance and 16 Personalities"
-    content: "I decided to model user profiles based on psychological traits-ten opposing characteristics like introversion vs. extroversion. The system would then map users to one of the 16 Personalities and use Euclidean distance to determine content similarity. This approach allowed for a nuanced recommendation system, capable of suggesting not only books and films but even specific characters or other users with similar tastes."
+  - title: "The recommendation experiment"
+    content: "The first approach represented preferences with ten personality-inspired dimensions and used Euclidean distance to compare them. I used it as an experimental similarity model and explored how its assumptions affected the recommendations. Those limitations became part of the motivation for Brain, where I moved to semantic embeddings."
     links:
       - link: "https://en.wikipedia.org/wiki/Euclidean_distance"
       - link: "https://www.16personalities.com/"
-
-  - title: "Next steps"
-    content: "Through this project, I discovered NestJS, which, in my opinion, is the best TypeScript backend framework available today. It’s incredibly straightforward, efficient, and a joy to work with, making backend development both intuitive and scalable.
-    
-    More importantly, the project planted the seed for building a platform like this. Since then, in my professional work, I’ve been using Python, Django, and Pandas, diving deeper into AI embeddings and data analysis. Subconsciously, as I explored these technologies, I kept thinking about how Card Piper could benefit from greater precision-how machine learning, improved embeddings, and deeper analytical models could make recommendations even more accurate and insightful. That’s why I’m now actively working on integrating these advancements to take the platform to the next level."
-
+  - title: "What carried into the next project"
+    content: "Card Piper gave me practice connecting a stateful React interface to a structured API and relational database. It also showed how much a recommendation product depends on its modeling assumptions. Brain is the follow-up exploration of that problem, using Django, embeddings, and a different frontend architecture. The lesson was to evaluate the whole experience rather than treating the recommendation formula as the product."
 category: "FullStack"
 tags:
-  - "Puppeteer"
   - "TypeScript"
-  - "JavaScript"
+  - "React"
+  - "NestJS"
+  - "Prisma"
+  - "PostgreSQL"
+  - "Recommendations"
 date: "2025-01-15"
 nav_title: "cardpiper.com"
 nav_icon: "nestJs"
+stack:
+  - "TypeScript"
+  - "React"
+  - "Redux"
+  - "NestJS"
+  - "Prisma"
+  - "PostgreSQL"
 ---
 
-The core concept was simple but ambitious-a feed that dynamically adapts based on user preferences. Instead of generic content, users would see books, authors, quotes, movie characters, films, games, and more, all tailored to their tastes to create a dynamic, personalized feed. Every reaction-whether liking a quote or engaging with a book-would refine their profile, adjusting future recommendations
+A personalized discovery feed built with TypeScript, React, Redux, NestJS, Prisma, and PostgreSQL. I developed the interface, API, data model, and recommendation experiment together, following each interaction from the browser to the stored preferences and back to the next suggestion.

@@ -12,12 +12,12 @@ const compiled = ts.transpileModule(
   { compilerOptions: { module: ts.ModuleKind.CommonJS } }
 ).outputText
 
-function loadStore(storage, denied = false) {
+function loadStore(storage, denied = false, react = {}) {
   const exports = {}
   const events = []
   vm.runInNewContext(compiled, {
     exports,
-    require: () => ({}),
+    require: () => react,
     Event: class {
       constructor(type) {
         this.type = type
@@ -88,4 +88,97 @@ test("unknown paths are never persisted", () => {
   const storage = new Map()
   loadStore(storage).setFolderExpanded("/unknown", true)
   assert.equal(storage.size, 0)
+})
+
+test("section and article navigation reveals only the corresponding folder", () => {
+  const store = loadStore(new Map())
+  store.revealFolderForPathname("/professional-projects")
+  assert.equal(store.isFolderExpanded("/professional-projects"), true)
+  assert.equal(store.isFolderExpanded("/blog"), false)
+  assert.equal(store.isFolderExpanded("/side-projects"), false)
+
+  store.revealFolderForPathname("/blog/soft-skills-sonmez")
+  store.revealFolderForPathname("/side-projects/brain?view=detail#about")
+  assert.equal(store.isFolderExpanded("/professional-projects"), true)
+  assert.equal(store.isFolderExpanded("/blog"), true)
+  assert.equal(store.isFolderExpanded("/side-projects"), true)
+  assert.equal(store.events.length, 3)
+
+  store.revealFolderForPathname("/blog/another-post")
+  store.revealFolderForPathname("/about")
+  assert.equal(store.events.length, 3)
+})
+
+test("navigation can reveal a manually collapsed folder without losing saved choices", () => {
+  const storage = new Map()
+  const store = loadStore(storage)
+  store.setFolderExpanded("/blog", false)
+  store.setFolderExpanded("/side-projects", true)
+  store.revealFolderForPathname("/blog?sort=recent")
+  const reloaded = loadStore(storage)
+  assert.equal(reloaded.isFolderExpanded("/blog"), true)
+  assert.equal(reloaded.isFolderExpanded("/side-projects"), true)
+  assert.equal(reloaded.isFolderExpanded("/professional-projects"), false)
+})
+
+test("unrelated paths and similarly named routes never expand a folder", () => {
+  const storage = new Map()
+  const store = loadStore(storage)
+  for (const path of [
+    "/",
+    "/contact",
+    "/blogger",
+    "/side-projects-old",
+    "https://example.com/blog",
+  ]) {
+    store.revealFolderForPathname(path)
+  }
+  assert.equal(storage.size, 0)
+  assert.equal(store.events.length, 0)
+})
+
+test("automatic reveal works when persistent storage is blocked", () => {
+  const store = loadStore(new Map(), true)
+  store.revealFolderForPathname("/blog/a-post")
+  assert.equal(store.isFolderExpanded("/blog"), true)
+  store.setFolderExpanded("/blog", false)
+  store.revealFolderForPathname("/professional-projects")
+  assert.equal(store.isFolderExpanded("/blog"), false)
+  assert.equal(store.isFolderExpanded("/professional-projects"), true)
+})
+
+test("route observer preserves collapse on refresh and rerender, then reveals on navigation", () => {
+  let ref
+  let previousDependency
+  let effect
+  const react = {
+    useRef(initial) {
+      return (ref ??= { current: initial })
+    },
+    useEffect(callback, dependencies) {
+      if (previousDependency !== dependencies[0]) {
+        effect = callback
+        previousDependency = dependencies[0]
+      }
+    },
+  }
+  const storage = new Map([["explorer-folders", '{"/blog":false}']])
+  const store = loadStore(storage, false, react)
+  const navigate = (path) => {
+    store.useRevealFolderOnNavigation(path)
+    effect?.()
+    effect = undefined
+  }
+
+  navigate("/blog/a-post")
+  assert.equal(store.isFolderExpanded("/blog"), false)
+  navigate("/blog/another-post")
+  assert.equal(store.isFolderExpanded("/blog"), true)
+  store.setFolderExpanded("/blog", false)
+  navigate("/blog/another-post")
+  assert.equal(store.isFolderExpanded("/blog"), false)
+  navigate("/contact")
+  assert.equal(store.isFolderExpanded("/blog"), false)
+  navigate("/blog")
+  assert.equal(store.isFolderExpanded("/blog"), true)
 })

@@ -7,6 +7,7 @@ import { SplitViewProvider } from "./_components/split-view/split-view-context"
 import { AppearanceProvider } from "./_components/appearance/appearance-context"
 import Lightbox from "./_components/lightbox/lightbox"
 import { APPEARANCE_SCRIPT } from "./_components/appearance/appearance-config"
+import { PROFILE } from "@/utils/profile"
 
 const roboto = Roboto_Mono({
   weight: ["400", "500", "600", "700"],
@@ -16,12 +17,10 @@ const roboto = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template:
-      "%s | Karol Karnas | Backend Engineer · Data Analysis · Agentic AI",
-    default: "Karol Karnas | Backend Engineer · Data Analysis · Agentic AI",
+    template: `%s | ${PROFILE.name} | ${PROFILE.role}`,
+    default: `${PROFILE.name} | ${PROFILE.role}`,
   },
-  description:
-    "Karol Karnas - Backend Engineer focused on data analysis and agentic AI. Python, Django, FastAPI, Celery, Pandas, PostgreSQL/pgvector, Redis, Docker - on AWS and Azure.",
+  description: PROFILE.description,
   metadataBase: new URL("https://www.karnas.dev"),
 }
 

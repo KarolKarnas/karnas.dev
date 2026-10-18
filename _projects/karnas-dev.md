@@ -1,10 +1,10 @@
 ---
-author_name: Karol Karnas
+author_name: "Karol Karnas"
 title: "karnas.dev"
-sub_title: "A statically generated full-stack portfolio with a blog, inspired by VSC design, built using Next.js."
-content_title: "What is it?"
+sub_title: "A VS Code-inspired portfolio with persistent workspace settings, split panes, an interactive terminal, and a locally managed journal."
+content_title: "Designing and shipping my own workspace"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg"
-main_icon: "nextjs"
+main_icon: "nextJs"
 stack:
   - "React"
   - "TypeScript"
@@ -22,27 +22,26 @@ icons_stack:
 live_demo: "https://www.karnas.dev/"
 repo: "https://github.com/KarolKarnas/karnas.dev"
 fields:
-  - title: "About"
-    content: "This dynamic platform is built with Next.js, Markdown, React, TypeScript, Sass, CSS modules, and more.. The app key features:"
+  - title: "What I built"
+    content: "This portfolio brings together interaction design, React components, server-side content loading, accessibility, and deployment. The editor metaphor is part of the experience: the explorer, file tabs, split panes, and terminal all need to behave consistently while keeping the work itself easy to find."
     list:
-      - "Utilize Next.js server-side components for enhanced SEO, performance and dynamic rendering"
-      - "Organize content with distinct grids for projects and blog posts, providing visual clarity"
-      - "Craft a tab menu and sidebar that closely mimic Visual Studio Code (VSC) behavior, enhancing user navigation"
-      - "Drag and drop tabs from the header or sidebar to create a split editor view with multiple panes, resizable divider, and tab management - just like in VS Code"
-      - "Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface"
-      - "Utilize Cloudinary for secure and scalable object storage, optimizing media file handling"
-      - "Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture"
-      - "Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application"
+      - "Next.js App Router, server components, and static content pages"
+      - "A generated explorer and file tabs linked to blog posts and projects"
+      - "Drag-and-drop tab management and a resizable split view"
+      - "Persistent explorer state and synchronized appearance settings"
+      - "Monokai, Dark Modern, and Light themes with text-size and motion preferences"
+      - "A browser-based terminal for exploring the portfolio through commands"
+      - "Image galleries with keyboard navigation and an accessible lightbox"
+      - "Markdown files with validated frontmatter for local content management"
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1707131042/pm7f1szandr9c661l3pf.jpg"
-
-  - title: "The Responsiveness"
-    content: "The application is designed to be fully responsive, aiming to maintain a consistent user experience across different screen sizes. The goal is to provide a practical and user-friendly interface on par with Visual Studio Code (VSC) across all devices."
+  - title: "Working at different widths"
+    content: "The application needs to work on a phone and inside a narrow split pane on a large screen. Container-based layouts adapt the content to its actual available space. Navigation, scrolling, image sizing, and controls need to stay usable as the workspace changes."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1707116567/anvrceff2msqke1oanep.jpg"
-
-  - title: "The Process"
-    content: "This time, I experimented with applying the Kanban methodology to my personal workflow. I utilized Jira for planning and tracked my progress using a Kanban Board. Additionally, I designed crucial elements in Figma. Subsequently, I initiated the development process, meticulously monitoring my progress, creating and managing tasks, and categorizing them as 'TO DO', 'IN PROGRESS' or 'DONE'. The application has been successfully published as an MVP. Currently, I am conducting thorough testing using Playwright, reviewing and addressing any errors, and continuously refining the design for optimal performance."
+  - title: "From design to maintenance"
+    content: "I used Figma to explore key elements and Jira to organize the initial work. The implementation uses TypeScript, React, Sass modules, and a small server-side content layer. It is deployed on Vercel and continues to evolve through visual review, browser checks, and targeted tests for preferences, folder state, and gallery behavior. Historical screenshots here show earlier iterations of the design."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1706875858/yvyahqv24mm0ta8s0uf1.jpg"
-
+  - title: "What the project demonstrates"
+    content: "The site is an opportunity to take responsibility for both the details people see and the code that keeps them consistent. A theme selector affects every component; a split pane affects navigation, scrolling, and dialogs; a content change needs to reach menus, cards, metadata, and the terminal. The work is in connecting those parts into one coherent product."
 category: "FullStack"
 tags:
   - "NextJs"
@@ -53,4 +52,4 @@ nav_title: "karnas.dev"
 nav_icon: "nextJs"
 ---
 
-This project is a full-stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC) with the Monokai Theme.
+My personal portfolio and journal, built with Next.js, React, TypeScript, and Sass. I designed and implemented the editor-inspired interface, content pipeline, workspace interactions, and deployment, then refined the application through visual review and behavior checks.

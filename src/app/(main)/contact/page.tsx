@@ -8,7 +8,7 @@ import styles from "./page.module.scss"
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Karol Karnas via email at karol.karnas@gmail.com or by phone at +48 784 034 778.",
+    "Work with Karol Karnas on a web product, an existing application, or an AI integration. Full-stack engineering from requirements to production.",
 }
 export default function Contact() {
   return (
@@ -21,8 +21,9 @@ export default function Contact() {
           <span>Let’s make it work.</span>
         </h1>
         <p>
-          Have a backend challenge, a data workflow to untangle, or an AI
-          integration in mind? I’d like to hear what you’re building.
+          Building a product, improving an existing application, or connecting
+          AI to a real workflow? Tell me what your users need and where you want
+          to take it.
         </p>
       </header>
       <div className={styles.grid}>
@@ -39,7 +40,7 @@ export default function Contact() {
           </a>
           <div className={styles.note}>
             <span>Based in Poland</span>
-            <span>Backend · Data · AI</span>
+            <span>Full-stack engineering</span>
           </div>
         </section>
         <section className={styles.social}>

@@ -18,13 +18,20 @@ import AppearanceSettings from "../appearance/appearance-settings"
 import TerminalTrigger from "../terminal/terminal-trigger"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { LG_BREAKPOINT } from "@/utils/breakpoints"
-import { setFolderExpanded, useFolderExpanded } from "./folder-state"
+import {
+  revealFolderForPathname,
+  setFolderExpanded,
+  useFolderExpanded,
+  useRevealFolderOnNavigation,
+} from "./folder-state"
+import { PROFILE } from "@/utils/profile"
 
 type SideNavProps = {
   width?: number
 }
 
 const SideNav = ({ width }: SideNavProps) => {
+  useRevealFolderOnNavigation(usePathname())
   const [showSideNav, setShowSideNav] = useState(true)
   const [mobile, setMobile] = useState(false)
 
@@ -100,7 +107,8 @@ const SideNav = ({ width }: SideNavProps) => {
           <div className={styles.identity}>
             <span>KK</span>
             <div>
-              Karol Karnas<small>Backend engineer</small>
+              {PROFILE.name}
+              <small>{PROFILE.role}</small>
             </div>
             <i aria-hidden="true" />
           </div>
@@ -165,6 +173,7 @@ export const MenuItem = ({ item, mobile, setShowSideNav }: MenuItemProps) => {
             </button>
             <Link
               className={styles["folder-link"]}
+              onNavigate={() => revealFolderForPathname(item.path)}
               onClick={() => {
                 if (mobile) {
                   setShowSideNav(false)
@@ -189,6 +198,7 @@ export const MenuItem = ({ item, mobile, setShowSideNav }: MenuItemProps) => {
                     onDragStart={(e) => handleDragStart(e, subItem)}
                   >
                     <Link
+                      onNavigate={() => revealFolderForPathname(subItem.path)}
                       onClick={() => {
                         if (mobile) {
                           setShowSideNav(false)

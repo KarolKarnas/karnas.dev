@@ -14,6 +14,7 @@ import {
   DEFAULT_STATE,
   DEFAULT_SPLIT_RATIO,
 } from "./split-view-types"
+import { revealFolderForPathname } from "../side-nav/folder-state"
 
 const SplitViewContext = createContext<SplitViewContextValue | null>(null)
 
@@ -60,6 +61,7 @@ export function SplitViewProvider({ children }: { children: React.ReactNode }) {
   }, [state, hydrated])
 
   const openSplitPane = useCallback((url: string, title: string) => {
+    revealFolderForPathname(url)
     setState((prev) => {
       // If already open, switch to it
       const existingIndex = prev.paneTabs.findIndex((t) => t.url === url)
@@ -88,9 +90,14 @@ export function SplitViewProvider({ children }: { children: React.ReactNode }) {
     })
   }, [])
 
-  const setActivePaneTab = useCallback((index: number) => {
-    setState((prev) => ({ ...prev, activeTabIndex: index }))
-  }, [])
+  const setActivePaneTab = useCallback(
+    (index: number) => {
+      const tab = state.paneTabs[index]
+      if (tab) revealFolderForPathname(tab.url)
+      setState((prev) => ({ ...prev, activeTabIndex: index }))
+    },
+    [state.paneTabs]
+  )
 
   const setSplitRatio = useCallback((ratio: number) => {
     setState((prev) => ({ ...prev, splitRatio: ratio }))

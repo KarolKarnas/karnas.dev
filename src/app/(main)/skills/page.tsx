@@ -17,49 +17,51 @@ import styles from "./page.module.scss"
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Backend Engineering, Data Analysis, and Agentic AI — Python, Django, FastAPI, Celery, Pandas, pgvector, AWS and Azure.",
+    "Full-stack engineering with TypeScript, React, Next.js, Python, and Django. Interfaces, APIs, AI integrations, testing, and cloud deployment.",
 }
 const groups = [
   {
     number: "01",
+    title: "Frontend engineering",
+    description: "Interfaces, application state and complete user journeys.",
+    icons: FRONTEND,
+    accent: "purple",
+  },
+  {
+    number: "02",
     title: "Backend engineering",
-    description: "APIs, async workers and the systems behind the product.",
+    description: "APIs, business rules, async workers and data workflows.",
     icons: BACKEND,
     accent: "green",
   },
   {
-    number: "02",
+    number: "03",
     title: "Data & infrastructure",
-    description: "From the database to the cloud. Built to run reliably.",
+    description:
+      "Databases, containers and the cloud services behind a release.",
     icons: CLOUD,
     accent: "blue",
   },
   {
-    number: "03",
-    title: "Languages",
-    description: "Python at the core. TypeScript across the stack.",
-    icons: PROGRAMMING,
-    accent: "purple",
-  },
-  {
     number: "04",
-    title: "Observability",
-    description: "Make production behavior visible and understandable.",
-    icons: OBSERVABILITY,
-    accent: "orange",
-  },
-  {
-    number: "05",
     title: "Testing & quality",
-    description: "Confidence in the API, the worker and the user journey.",
+    description: "Check the API, the worker and the user journey together.",
     icons: TEST,
     accent: "blue",
   },
   {
+    number: "05",
+    title: "Observability",
+    description: "Trace failures across the interface, worker and integration.",
+    icons: OBSERVABILITY,
+    accent: "orange",
+  },
+  {
     number: "06",
-    title: "Frontend & workflow",
-    description: "The interfaces and tools that connect the whole system.",
-    icons: [...FRONTEND, ...WORKFLOW_TOOLS],
+    title: "Languages & workflow",
+    description:
+      "Python, TypeScript and the tools for planning and shipping work.",
+    icons: [...PROGRAMMING, ...WORKFLOW_TOOLS],
     accent: "purple",
   },
 ]
@@ -74,9 +76,9 @@ export default function Skills() {
           <span>The right tools.</span>
         </h1>
         <p>
-          Backend engineering, data analysis and agentic AI.
-          <br />A practical stack for turning complex problems into working
-          software.
+          Full-stack engineering, from interface to infrastructure.
+          <br />A practical stack for building, testing and delivering the whole
+          feature.
         </p>
         <Link href="/professional-projects">
           See these tools at work <span aria-hidden="true">↗</span>
@@ -104,8 +106,10 @@ export default function Skills() {
       <section className={styles.ai}>
         <div>
           <span className={styles.eyebrow}>CONNECTING THE DOTS</span>
-          <h2>AI, wired into the backend.</h2>
-          <p>Retrieval, embeddings and agent loops as parts of real systems.</p>
+          <h2>AI, connected to the product.</h2>
+          <p>
+            Retrieval, embeddings and model APIs built into usable workflows.
+          </p>
         </div>
         <ul>
           {AI_LLM_CONCEPTS.map((concept) => (

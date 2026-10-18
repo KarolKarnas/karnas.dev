@@ -1,11 +1,17 @@
 ---
 author_name: "Karol Karnas"
 title: "Full-stack Open by The University of Helsinki"
-sub_title: "Parts 0-7 Full-stack Web Development"
-content_title: "Deep Dive Into Modern Web Development"
+sub_title: "The React, Node.js, and testing foundation behind my first complete applications"
+content_title: "Learning to connect the browser, server, and database"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1706793659/viaex6ouox8wy6lr3tlp.png"
 category: "WebDevelopment"
-tags: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Testing"]
+tags:
+  - "HTML"
+  - "CSS"
+  - "JavaScript"
+  - "React"
+  - "Node.js"
+  - "Testing"
 icons_stack:
   - "html"
   - "sass"
@@ -21,7 +27,6 @@ fields:
     content: "The Full-stack Open requires us to have good programming skills, a basic knowledge of web programming and databases, and familiarity with the basics of the Git version control system. Additionally, perseverance and the ability to solve problems and seek information independently are expected. That's why I highly recommend completing The Odin Project course before starting FSO, unless you already possess such skills, in which case you can begin with FSO directly."
     links:
       - link: "https://fullstackopen.com/en/part0/general_info"
-
   - title: "The course content"
     content: "The course content is exceptionally comprehensive and well-structured. It provides a robust foundation for web development. Though the journey is not a walk in the woods, the knowledge gained is undoubtedly worth the effort."
     list:
@@ -33,35 +38,30 @@ fields:
       - "PART 5 - Testing React apps (a. Login in frontend, b. props.children and PropTypes, c. Testing React apps, d. End-to-end testing)"
       - "PART 6 - Advanced state management (a. Flux architecture and Redux, b. Many reducers, c. Communicating with the server in a Redux application, d. React Query, useReducer, and the context)"
       - "PART 7 - React router, custom hooks, styling app with CSS and webpack (a. React Router, b. Custom hooks, c. More about styles, d. Webpack, e. Class components, Miscellaneous, f. Exercises: extending the bloglist)"
-
   - title: "The exercises"
     content: "Each part of the course includes approximately 20 exercises (except for Part 0, which has only 6), which we solve in real-time. It's not a scenario where we read the theory and do exercises only at the end. Here, we solve exercises literally every few paragraphs. This approach allows us to reinforce the knowledge we acquire while reading by immediately applying it through exercises. The difficulty of the exercises is remarkably well-balanced; they are neither too easy nor too challenging. This balance is beneficial as it keeps us motivated without causing discouragement. The exercises differ sufficiently from the examples provided in the source material, requiring effort and allowing for better retention of knowledge. Some exercises are marked with an asterisk, indicating that they are optional. However, I recommend completing all of them."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1706802339/bd5qyrx6clsnig1pyl9i.jpg"
     links:
       - link: "https://studies.cs.helsinki.fi/stats/courses/fullstackopen"
-
   - title: "The submission system"
     content: "To submit exercise solutions, follow the specified process and submit them to a GitHub repository. After completing a specific number of exercises, mark your progress in the submission system, and remember, you can do this only once for each part. Be sure to use an appropriate naming system for directories when submitting exercises from different parts to the same repository. Plagiarism is monitored, and the University of Helsinki's policy on plagiarism is enforced if violations are detected"
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1706800611/drrpqlkra1dltkanizc5.jpg"
     links:
       - link: "https://fullstackopen.com/en/part0/general_info#submitting-exercises"
       - link: "https://studies.cs.helsinki.fi/stats/courses/fullstackopen"
-
   - title: "Quick Summary"
     content: "The course doesn't particularly emphasize styling applications. The majority of time is dedicated to programming both the frontend and backend, as well as testing our code. It's not a drawback but an advantage. Contemporary CSS frameworks are introduced in a sufficient manner. However, if someone masters the main programming aspects of the course, they can refine styling on their own.  If I could change something in the Core Course, I would prefer to learn SQL + PostgreSQL, instead of MongoDB. I would place MongoDB in the supplementary course. However, from a teaching perspective, using MongoDB in the Core Course was probably justified due to its ease of use. In that case, maybe it should stay that way."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1738009614/zoma2s3ir9fmtiyxibkk.png"
     second_content: "As I mentioned at the beginning of this short review, the course is just great. It is probably the best online source for learning full-stack development. And if that wasn't enough, it is officially conducted by the University of Helsinki, it's free, and you receive ECTS points. Additionally, upon completion of each exercise, you will receive an accessible online certificate!"
     links:
       - link: "https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/26a9bc441296f05e655e5526eac6494c"
-
   - title: "The Practice"
-    content: "The crucial step after completing the course is to apply the newly acquired knowledge by building a real-world project. No course can fully prepare us for solving real-world problems independently, navigating through package documentations, exploring MDN docs, or seeking solutions on Stack Overflow. I took that step and built a full-stack eCommerce platform using the MERN stack + TypeScript (I took a supplementary TypeScript course)"
+    content: "I put the course into practice by building Ilustrografia, a MERN and TypeScript e-commerce application. That meant connecting the storefront, backend, user accounts, checkout, and administration rather than solving one exercise at a time. The work exposed the decisions that a course can introduce but cannot make for you: how the feature should behave, how its data should be modeled, and how to check the complete journey."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1706625285/u2yg75ygsansmfpl6nir.jpg"
-    second_content: "It took me about three months, and this was another milestone in my journey to becoming a full-stack developer. You can read about the project or check it live with the links below."
+    second_content: "The project took about three months and became an important step from course exercises to independent full-stack work. The course gave me the foundations; building the application made me responsible for joining them together."
     links:
       - link: "https://www.karnas.dev/side-projects/ilustrografia-com"
       - link: "https://www.ilustrografia.com/"
-
   - title: "This is not the end"
     content: "Completing the Core Course (Parts 0-7) is just the beginning of what Helsinki's Full-stack Open has to offer. Participants can also take part in many excellent supplementary courses, including:"
     list:
@@ -76,4 +76,4 @@ fields:
       - link: "https://fullstackopen.com/en/#course-contents"
 ---
 
-Creating comprehensive applications, complete with features such as an administration panel, users and products, requires us to operate as full-stack developers. I had always wanted to create such an application myself, and actively participating in this course allowed me to do just that. It wasn't easy, and it wasn't enough to build my first eCommerce platform, but it was a significant milestone in achieving that goal.
+Full-stack Open was an important part of my foundation in React, Node.js, APIs, databases, and testing. I later used those ideas to build an e-commerce application from storefront to administration. This review records that learning stage and the connection between the course exercises and a complete project.

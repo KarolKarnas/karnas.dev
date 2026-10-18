@@ -1,4 +1,5 @@
 import { Command } from "./index"
+import { PROFILE } from "@/utils/profile"
 
 const cat: Command = {
   name: "cat",
@@ -11,13 +12,14 @@ const cat: Command = {
 
     if (slug === "about") {
       return [
-        "Karol Karnas - Backend Engineer · Data Analysis · Agentic AI",
+        `${PROFILE.name} - ${PROFILE.role}`,
         "",
-        "I love the moment when a well-built backend quietly powers",
-        "AI that actually works.",
+        PROFILE.tagline,
+        "I work across client requirements, interfaces, backend systems,",
+        "AI integrations, testing, and deployment.",
         "",
-        "Stack: Python, Django, FastAPI, Celery, PostgreSQL/pgvector,",
-        "       Redis, Docker - on AWS and Azure.",
+        "Stack: TypeScript, React, Next.js, Python, Django, Celery,",
+        "       PostgreSQL, Redis, Docker, AWS, Azure.",
         "Location: Poland",
         "Site: https://www.karnas.dev",
       ].join("\n")

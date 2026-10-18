@@ -114,7 +114,14 @@ export const CLOUD: IconName[] = [
   "linux",
 ]
 
-export const FRONTEND: IconName[] = ["react", "nextJs", "redux"]
+export const FRONTEND: IconName[] = [
+  "react",
+  "nextJs",
+  "redux",
+  "htmx",
+  "tailwind",
+  "sass",
+]
 
 export const TEST: IconName[] = ["pytest", "playWright", "postman", "insomnia"]
 
@@ -145,6 +152,9 @@ export const OBSERVABILITY: IconName[] = [
 ]
 
 export const MY_SKILLS: IconName[] = [
+  "typeScript",
+  "react",
+  "nextJs",
   "python",
   "django",
   "celery",
@@ -167,11 +177,11 @@ export const MY_SKILLS: IconName[] = [
 export const CORE_SKILLS: IconName[] = [
   "python",
   "django",
-  "celery",
+  "typeScript",
+  "react",
+  "nextJs",
   "postgres",
-  "aws",
-  "azure",
 ]
 
 export const QUOTATION =
-  '"I love the moment when a well-built backend quietly powers AI that actually works"'
+  '"I care about the whole path: understanding the problem, building the product, and making it work in production."'

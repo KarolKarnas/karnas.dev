@@ -2,15 +2,15 @@
 
 [**Live Demo - karnas.dev**](https://www.karnas.dev/) 👈
 
-#### A statically generated full-stack portfolio with a blog, inspired by VSC design, built using Next.js
+#### Karol Karnas — Full-stack Engineer. From client requirements to production.
 
 <img src="https://res.cloudinary.com/djadfridw/image/upload/v1706878975/spp0rjysnfk30vb3rpqc.jpg" alt="screens of the karnas.dev portfolio with blog platform">
 
 ## Description
 
-This project is a full-stack portfolio crafted with a blog feature, drawing inspiration from the sleek design aesthetics of Visual Studio Code (VSC) with the Monokai Theme.
+My personal portfolio and journal, inspired by Visual Studio Code. It presents work across user interfaces, backend systems, AI integrations, testing, and deployment.
 
-This dynamic platform is built with Next.js, Markdown, React, TypeScript, Sass, CSS modules, and more.
+The site uses Next.js, React, TypeScript, and Sass modules, with local content files and validated frontmatter. The workspace includes an explorer, file tabs, split panes, theme settings, and an interactive browser terminal.
 
 ## Key Features
 
@@ -70,7 +70,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Verify
 
 ```bash
-node --test tests/appearance.test.mjs
+node --test tests/*.test.mjs
 npx tsc --noEmit
 NEXT_PUBLIC_BASE_URL=https://www.karnas.dev npm run build
 ```
@@ -80,5 +80,9 @@ are available from the gear button at the bottom of the explorer.
 
 See [the visual audit and implementation notes](docs/visual-audit.md) for the
 redesign decisions and browser verification.
+
+Shared profile copy lives in `src/utils/profile.ts`. See the
+[content review](docs/content-review.md) for the full-stack positioning and the
+scope of the review across all posts and project descriptions.
 
 ---

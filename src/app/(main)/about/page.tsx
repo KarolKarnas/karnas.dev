@@ -7,11 +7,12 @@ import getIcons from "@/utils/icon-utils"
 import Json from "@/app/_components/json/json"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
 import styles from "./page.module.scss"
+import { PROFILE } from "@/utils/profile"
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Karol Karnas — Backend Engineer building data pipelines, agentic AI workflows, and analytics in Python, Django, FastAPI, and Celery.",
+    "Meet Karol Karnas, Full-stack Engineer working across client requirements, React and Next.js, Python and Django, AI integrations, and production delivery.",
 }
 export default function About() {
   return (
@@ -23,7 +24,7 @@ export default function About() {
           <br />
           <em>Builder by nature.</em>
         </h1>
-        <p>Backend engineering · Data analysis · Agentic AI</p>
+        <p>{PROFILE.specialties}</p>
       </header>
       <div className={styles.columns}>
         <div className={styles.info}>

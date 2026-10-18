@@ -6,6 +6,7 @@ import ProjectCard from "@/app/_components/project-card/project-card"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
 import TerminalTrigger from "@/app/_components/terminal/terminal-trigger"
 import { terminal, gitHub, linkedIn } from "@/icons"
+import { PROFILE } from "@/utils/profile"
 import styles from "./page.module.scss"
 
 export default function Home() {
@@ -16,20 +17,20 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.introduction}>
           <span className={styles.eyebrow}>
-            <i /> A DEVELOPER’S WORKSPACE
+            <i /> FULL-STACK ENGINEER
           </span>
           <h1>
             Karol Karnas<span>.</span>
           </h1>
           <h2>
-            Solid backends.
+            From requirements.
             <br />
-            <span>Smarter systems.</span>
+            <span>To production.</span>
           </h2>
           <p>
-            Backend engineer at the intersection of data and AI. I build the
-            systems that turn complex workflows into software people can rely
-            on.
+            I work with clients to turn complex workflows into working products.
+            Interfaces, backend systems, AI integrations, and the testing and
+            deployment that bring them together.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primary} href="/professional-projects">
@@ -68,7 +69,7 @@ export default function Home() {
           </div>
           <div
             className={styles.code}
-            aria-label="Developer profile: backend engineering, data analysis, agentic AI. Thoughtful systems, from idea to production."
+            aria-label={`${PROFILE.role}: ${PROFILE.specialties}. ${PROFILE.tagline}`}
           >
             <div>
               <span>01</span>
@@ -91,21 +92,21 @@ export default function Home() {
               <span>04</span>
               <code>
                 {"        "}
-                <strong>&quot;Backend engineering&quot;</strong>,
+                <strong>&quot;Frontend &amp; backend&quot;</strong>,
               </code>
             </div>
             <div>
               <span>05</span>
               <code>
                 {"        "}
-                <strong>&quot;Data analysis&quot;</strong>,
+                <strong>&quot;AI integrations&quot;</strong>,
               </code>
             </div>
             <div>
               <span>06</span>
               <code>
                 {"        "}
-                <strong>&quot;Agentic AI&quot;</strong>,
+                <strong>&quot;Production delivery&quot;</strong>,
               </code>
             </div>
             <div>

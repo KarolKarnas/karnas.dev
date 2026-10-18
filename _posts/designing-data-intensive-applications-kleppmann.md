@@ -1,11 +1,17 @@
 ---
 author_name: "Karol Karnas"
 title: "Designing Data-Intensive Applications by Martin Kleppmann"
-sub_title: "Why the Wild Boar book is the system-design primer I keep open beside my AI assistant"
-content_title: "Kleppmann's DDIA as the vocabulary for deciding architecture, not just generating code"
+sub_title: "A reference for the data and reliability decisions behind a complete product"
+content_title: "Connecting system behavior to the experience users see"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1777054010/Designing_Data-Intensive_Applications_Kleppmann_Karnas_Dev_nqs5wh.png"
 category: "Books"
-tags: ["Distributed Systems", "Databases", "Architecture", "Scalability", "Reliability", "AI"]
+tags:
+  - "Distributed Systems"
+  - "Databases"
+  - "Architecture"
+  - "Scalability"
+  - "Reliability"
+  - "AI"
 icons_stack:
   - "postgres"
   - "redis"
@@ -21,10 +27,8 @@ fields:
         short_link: "dataintensive.net"
       - link: "https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321"
         short_link: "amazon.com/Designing-Data-Intensive-Applications"
-
   - title: "Why I picked it up now"
-    content: "I have had DDIA in my ebook library for years and dipped into it the way most people do - a chapter before a migration, a section the night before a system design interview. What changed recently is how much of the *code* in my life is written by an assistant. I spend far less time writing SQL and Python and far more time deciding what data flows where, which store owns what invariant, how much staleness a read can tolerate, whether an outbox is worth the complexity. Those are the exact questions DDIA is about. I have been working through the chapters that map to what I am actually building, not front-to-back - the bottleneck in my work has moved from implementation to architectural judgement, and DDIA is the closest thing we have to a canonical textbook for that kind of judgement."
-
+    content: "Working across the interface and backend makes data decisions visible in a different way. A delayed update becomes a confusing screen; a retry becomes a duplicate action; a migration can change what an existing workflow means. I return to DDIA when I need to reason about those boundaries. I read the chapters that match the problem in front of me rather than treating the book as something to finish once."
   - title: "The author and why he is worth reading"
     content: "Martin Kleppmann is a researcher at the University of Cambridge and previously an engineer at LinkedIn (where he worked on Samza and Kafka-adjacent infrastructure) and before that at Rapportive and Go Test It. He does not write from the position of a vendor evangelist - he writes from the position of someone who has read the papers, built the systems, and then spent years translating between those two worlds. The second-edition Early Release adds Chris Riccomini, formerly of WePay and LinkedIn, who brings a modern take on data platforms, lakehouses, and the cloud-native reality most of us now ship into. The combined voice is exactly what you want - academic rigor plus production scar tissue."
     list:
@@ -32,7 +36,6 @@ fields:
       - "Chris Riccomini - ex-LinkedIn, ex-WePay, data platforms author and co-author of the 2nd edition"
       - "The book credits an enormous cast of reviewers - this is one of the most peer-reviewed tech books in the last decade"
       - "Website: dataintensive.net - with the famous map of distributed-systems terrain on the cover"
-
   - title: "Structure - three parts, each worth the price"
     content: "The book is split into three big parts and a conclusion. Part I - Foundations of Data Systems - sets the conceptual baseline: what reliability, scalability and maintainability actually mean, how storage engines work, how encoding formats evolve, and how data models map to queries. Part II - Distributed Data - is the hard middle: replication, partitioning/sharding, transactions, the limits of distributed systems, consistency and consensus. Part III - Derived Data - unifies batch and stream processing into a single mental model (every database is a kind of cache of a stream of events) and closes on a genuinely philosophical chapter on the future of data. The Early Release of the second edition threads cloud-native architectures, lakehouses, and AI-assisted systems through all three parts, but the bones are the same."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1777054010/Designing_Data-Intensive_Applications_Kleppmann_Karnas_Dev_nqs5wh.png"
@@ -41,15 +44,13 @@ fields:
       - "Part II - Distributed Data - replication, partitioning, transactions, consistency, consensus"
       - "Part III - Derived Data - batch processing, stream processing, the unifying view"
       - "Conclusion - 'the future of data systems' - the most opinionated chapter and the one I reread most"
-
-  - title: "Why this is *the* architecture book for backend engineers"
-    content: "There are plenty of system design books. Most of them teach you how to draw boxes on a whiteboard that will pass an interview. DDIA teaches you why the boxes are shaped the way they are. It is the only book I know that takes you all the way from 'how does a B-tree page split' up to 'why is exactly-once delivery a lie without idempotent consumers' without losing the thread. Reviewers on Goodreads, the Pragmatic Engineer newsletter, and basically every 'books every backend engineer should read' list land on the same praise: Kleppmann makes consistency models, replication strategies and stream processing paradigms feel obvious in retrospect, and he is honest about the trade-offs. That honesty is the thing. DDIA is not a sales pitch for any technology - it is a tour of the trade-off space with the prices written clearly on each option."
+  - title: "Why it belongs in a full-stack engineer’s reference shelf"
+    content: "The interface depends on guarantees the rest of the system provides. Can a user see a change immediately after saving it? What happens if a request times out after a write succeeds? Can a background task run twice? DDIA gives me a vocabulary for asking those questions and comparing the costs of different answers. Its backend focus is valuable precisely because those choices reach all the way to the user experience."
     list:
-      - "Problem → model → trade-offs framing on every chapter - no silver bullets"
-      - "Dense with references to the original papers - treats you like an adult who might want to read further"
-      - "'Literature review' sections end each chapter - the curated reading list alone is gold"
-      - "Opinionated but not preachy - Kleppmann takes positions and tells you where reasonable people disagree"
-
+      - "Connect data consistency to what the interface promises"
+      - "Discuss failure and retry behavior before adding a background workflow"
+      - "Compare complexity with the actual needs of the application"
+      - "Use the references to investigate a decision more deeply"
   - title: "The reliability/scalability/maintainability chapter is worth the price on its own"
     content: "Before any databases or distributed systems, the book spends the first chapter defining three words that get thrown around constantly: reliable, scalable, maintainable. Reliable means 'continues to work correctly, even when things go wrong' - and Kleppmann is careful to distinguish faults from failures, and hardware faults from software faults from human error. Scalable is not a property a system has - it is a conversation about load parameters, throughput, and tail latency percentiles (you will never write p95 casually again after this chapter). Maintainable is split into operability, simplicity and evolvability. If someone read only Chapter 1 of DDIA and never went further, they would already argue about systems more precisely than most engineers do. It is the vocabulary chapter, and the whole rest of the book depends on it."
     list:
@@ -57,9 +58,8 @@ fields:
       - "Scalability - 'load parameters' and tail latency, not a hand-wavy adjective"
       - "Maintainability - operability, simplicity (managing complexity), evolvability"
       - "These three words become the axes you compare every architecture on for the rest of your career"
-
   - title: "Concepts I now see in the systems I build"
-    content: "Like the best textbooks, DDIA works as a giant 'oh, that is what that is called' experience. I had built things that were implicitly log-structured storage, accidentally event-sourced, haphazardly idempotent - and the chapters I worked through gave me the names and the boundaries. My day-to-day is Django with Postgres, Celery with Redis, some Kafka-shaped event flow for the AI pipelines. With the vocabulary in hand, I can finally name the shapes we have assembled: an outbox pattern stitched on top of a transactional DB, read replicas producing eventual-consistency anomalies we had been handling by hope, a retry pipeline that is only safe because every consumer happens to be idempotent. Naming these did not change the systems - but it changed the conversations about them, which is the first step to changing them well."
+    content: "Django, PostgreSQL, Celery, and Redis bring these questions into ordinary application work. A form submission may write data and start a task; an export may combine records that changed at different times; a retried upload may need to return an existing result. The book helps me separate the intended behavior from an accidental assumption about timing or delivery. I do not need to run a large distributed platform to benefit from that distinction."
     list:
       - "Log-structured storage - the mental model behind every append-only pipeline I have written"
       - "Outbox pattern - the only sane way to keep a DB write and a published event in sync"
@@ -67,19 +67,16 @@ fields:
       - "Read-your-writes and monotonic reads - the anomaly classes your users will report as 'it is broken'"
       - "CDC / change data capture - how to treat a database as a stream without bolting on a second system"
       - "Lambda / Kappa (now just 'unified batch+stream') - the shape most modern data pipelines converge on"
-
-  - title: "Why this matters more, not less, in the AI era"
-    content: "Wittgenstein wrote 'the limits of my language mean the limits of my world,' and nothing I have read about AI-assisted development has made that feel more concrete. The naive take is that architecture books matter less now because an AI can scaffold a service in minutes. The exact opposite is true. When the cost of generating code collapses, the residual cost is entirely in *deciding what to generate*: where the boundaries are, which invariants the database owns, which ones the application owns, what staleness is acceptable, what happens on partial failure. Those are DDIA questions. When I prompt Claude with 'put the outbox in the same transaction as the order write and use CDC to publish to the bus' instead of 'make sure the event gets sent,' I get a dramatically better result - because the model has the same vocabulary Kleppmann is teaching me. Architectural vocabulary is prompt leverage. It also makes review tractable: once you see 'this is a read-your-writes problem on a replica,' you stop re-reading the whole diff and you go check the one thing that matters. Kleppmann has been public about another AI-era angle too - giving agents a database as common ground, with well-defined APIs as the surface the AI is allowed to touch, so humans and agents can cooperate safely. That framing is going to shape a lot of systems in the next few years."
+  - title: "Architecture decisions remain part of the job"
+    content: "AI-assisted implementation makes it especially useful to state the guarantees before generating the code. I need to explain which data must change together, how duplicate requests should behave, and what a user should see after a partial failure. Those requirements give both implementation and review something concrete to work against. The patterns in this book help me express the decisions, but I still need to check whether the application actually provides the intended behavior."
     image: "https://res.cloudinary.com/djadfridw/image/upload/v1777054446/DDIA_Karnas_dev_wpqivi.png"
     list:
-      - "Shared vocabulary for you, your team, and your assistant - one prompt instead of three"
-      - "Better prompts - 'idempotent consumer with an outbox' beats 'make it reliable' every time"
-      - "Faster review of AI output - you check the consistency and failure modes, not the line noise"
-      - "A database as a safe surface for AI agents - defined APIs, clear invariants, auditable changes"
-
+      - "State the data invariants before implementing the workflow"
+      - "Make retry and failure behavior explicit"
+      - "Review the database write and its external effects together"
+      - "Check what the interface shows while background work is incomplete"
   - title: "The diagrams and the map on the cover"
     content: "DDIA is not as visually lush as Shvets's patterns book, but it has its own style. Every chapter opens with a fragment of a hand-drawn map of the 'distributed systems landscape' - the wild boar book cover extended inward - and every tricky concept gets a clean, minimal diagram. Replication topologies, partitioning strategies, serializable isolation levels, the happens-before relation - these are the kinds of things that live or die on a good diagram, and Kleppmann's are excellent. The map metaphor matters too: the book is explicit that the point is to give you a *map* of the terrain, not a set of directions, so that when a new database or stream processor shows up in five years you can place it somewhere you already understand."
-
   - title: "How I am using it day to day"
     content: "Honest truth - I am not reading DDIA cover to cover, and I do not think it wants to be read that way. It lives as an EPUB in my BookFusion library - usually on my trusty Boox Palma via the BookFusion Android app, sometimes on my phone, and straight in the browser when I am at the desk on Linux - and I treat it as a reference I pull from when the question matches a chapter. Before a non-trivial backend feature I read the relevant chapter - the transactions chapter before anything touching money or inventory, the replication chapter before a read-replica rollout, the stream processing chapter before I design a new pipeline. After a PR that touches data semantics I re-read the consistency sections to double-check which anomaly class I am paying for. The 'Summary' and 'Further Reading' sections at the end of each chapter are the densest parts - I often open those first to remember which trade-offs I should be thinking about before I even open the code."
     list:
@@ -87,15 +84,12 @@ fields:
       - "Use the consistency chapter as a checklist during PR review on replicated systems"
       - "Treat Chapter 1 (reliability/scalability/maintainability) as the vocabulary for all system-design conversations"
       - "Open the 'Further Reading' list whenever a new datastore shows up - it places it on the map"
-
   - title: "What I would watch out for"
     content: "Two caveats. First, DDIA is genuinely dense - this is a textbook, not a beach read, and certain sections (consensus, serializable isolation) reward a second and third pass with a notebook open. If you expect the ergonomics of a blog post, you will bounce. Second, the book is paradigm-broad but still biased toward the data world Kleppmann came out of - LinkedIn-era Kafka, log-structured everything, event-centric architectures. That bias is mostly a feature in 2025 (the industry bent his way) but if you work in a domain where request/response and a single Postgres are genuinely enough, some of the middle of the book will read as 'problems you do not have yet.' Read it anyway - the foundations chapters and the final 'future of data systems' chapter travel perfectly across contexts."
-
   - title: "Who it is for"
-    content: "Any backend, platform, or data engineer who has not yet read it. Mid-level engineers get the biggest single jump - you will recognize half of what your production systems are doing and finally have vocabulary for it. Senior engineers get a calibration check and a shared language with the rest of their team. Junior engineers can start it, but I would pair it with at least one production outage under the belt - the trade-offs hit harder when you have watched one bite you. It is also the book I hand to anyone starting to make architecture calls on AI-adjacent systems: pipelines, agent memory stores, retrieval layers, evaluation stores. Those are all data-intensive applications, and they all live or die on the trade-offs DDIA teaches."
-
+    content: "The book is useful to engineers responsible for the behavior of an application, including full-stack developers whose work crosses user interfaces, APIs, and background jobs. It rewards some experience with real data and failure cases. I use it to deepen the backend foundation of my work and to explain trade-offs more clearly when a feature spans several parts of the system."
   - title: "Summary"
-    content: "Designing Data-Intensive Applications is the architecture textbook I keep going back to. Kleppmann (and now Riccomini) built something genuinely rare - a book that survives a decade of industry churn because it teaches the trade-off space, not the tools. I am not pretending to have finished every page - I have worked through the chapters that fit what I was building and come back for the next one when the next question showed up, and that is exactly how DDIA pays off. In an era where AI writes more of my code than I do, the real value is not teaching me databases - it is giving me the vocabulary to decide architecture, prompt assistants precisely, and review generated systems where it counts. It is the most load-bearing backend book I own, and the single most useful reference in my 'how should this be shaped' decisions."
+    content: "DDIA is a reference I return to when a feature raises questions about data, consistency, or failure. I have worked through the parts that match my projects rather than reading every page in order. Its value in my full-stack work is the connection between a technical guarantee and the experience the product can honestly promise to its users."
     links:
       - link: "https://dataintensive.net/"
         short_link: "dataintensive.net"
@@ -105,4 +99,4 @@ fields:
         short_link: "amazon.com/Designing-Data-Intensive-Applications"
 ---
 
-I have had DDIA in my ebook library for years, but I only really *started using* it this year - working through the chapters that fit what I was actually building, once the bottleneck in my work stopped being 'write the code' and started being 'decide the shape.' Below is the honest review of what has landed for me so far, plus why I think Kleppmann's book matters more in an AI-assisted workflow, not less.
+The choices behind a database write or a background task often become visible in the interface. DDIA helps me reason about those choices and explain their trade-offs. These are my notes on the chapters I keep returning to while building features across APIs, data, and user-facing workflows.

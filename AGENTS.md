@@ -11,9 +11,22 @@ działać jako spójna całość.
   zamiast wprowadzać niezależny motyw lub przebudowywać stronę w landing page.
 - Treści strony są po angielsku (`lang="en"`). Komunikuj się z użytkownikiem
   w języku jego wiadomości.
-- Aktualne pozycjonowanie autora to **Backend Engineer · Data Analysis · Agentic AI**.
-  Opisy starszych projektów mogą dotyczyć frontendu. Nie zmieniaj faktów o autorze,
+- Aktualne pozycjonowanie autora to **Full-stack Engineer** z hasłem
+  **From client requirements to production.** Specjalizacje: **Backend systems ·
+  Modern interfaces · AI integrations**. `src/utils/profile.ts` jest wspólnym
+  źródłem roli, hasła i ogólnego opisu dla metadanych, stopki, sidebara i terminala.
+  Nie zmieniaj faktów o autorze,
   doświadczeniu, klientach, kursach ani wynikach projektów bez podstawy w zadaniu.
+- Pokazuj zakres od rozmowy z klientem przez interfejs i backend po testy oraz
+  wdrożenie. Zachowuj faktyczny zakres konkretnego projektu: DMS obejmuje React,
+  Next.js i Django; Data Bid Machine opisuje wkład backendowy. Oddzielaj wkład
+  autora od architektury i pracy całego zespołu. Nie dopisuj C# ani .NET jako
+  umiejętności autora: zmiany w tym ekosystemie były wspomagane przez AI i nie
+  stanowią deklaracji znajomości języka.
+- O asystentach kodowania pisz krótko w About, z naciskiem na decyzje, przegląd
+  zmian i weryfikację autora. Herdr i szczegóły własnego orkiestratora pozostaw
+  na osobny, konkretny wpis, gdy autor zdecyduje się go przygotować. Istniejące
+  recenzje kursów AI mogą omawiać narzędzia z ich programu.
 - Przed edycją sprawdź `git status` i zachowaj zastane zmiany. Ogranicz zakres
   do zadania; nie łącz go z masowym formatowaniem ani niepowiązanymi poprawkami.
 
@@ -66,6 +79,7 @@ npm start
 | `src/utils/generated-nav.ts` | Wersjonowany wynik generatora; nie edytuj ręcznie |
 | `src/utils/constants.tsx` | `SIDENAV_ITEMS`, sociale, grupy umiejętności i cytat |
 | `src/utils/info.tsx` | Dane widoku „about.json” i deklaracja danych kontaktowych |
+| `src/utils/profile.ts` | Wspólna rola, hasło, specjalizacje i opis autora |
 | `src/icons/` | Ikony technologii, brandu, sociali i UI oraz eksporty zbiorcze |
 | `src/app/api/content/route.ts` | Publiczne dane wpisów i projektów dla terminala |
 | `src/app/_components/appearance/` | Motywy, ustawienia, inicjalizacja przed pierwszym renderem i synchronizacja iframe |
@@ -146,8 +160,11 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
 
 - **Foldery explorera:** na home domyślnie zwijaj professional projects, side projects
   i blog przy pierwszej wizycie. Ręczny stan każdego folderu zapisuj pod kluczem
-  `explorer-folders`; nawigacja nie powinna go zmieniać. Odtwarzaj go po odświeżeniu
-  i zachowuj wybory w pamięci sesji, gdy storage jest zablokowany.
+  `explorer-folders`. Wejście do sekcji lub jej wpisu rozwija odpowiadający folder,
+  bez zamykania pozostałych. Dotyczy to także zakładek, terminala i prawego panelu.
+  Ręczne zwinięcie utrzymuj do kolejnej nawigacji do tej sekcji; sam rerender i
+  odświeżenie nie powinny ponownie rozwijać folderu. Przy odtwarzaniu strony
+  przywracaj zapisany stan, a przy zablokowanym storage zachowuj go w pamięci sesji.
 - **Zakładki:** `header.tsx` synchronizuje trasę i otwarte pliki. Zamknięcie
   ostatniej zakładki pokazuje pusty edytor; gdy prawy panel ma pliki, są one
   przenoszone do nagłówka. Zachowuj osłonę przed ponownym otwarciem zamkniętej

@@ -1,8 +1,8 @@
 ---
-author_name: Karol Karnas
+author_name: "Karol Karnas"
 title: "Data Bid Machine"
-sub_title: "AI-driven bid management and campaign intelligence for Google Ads - Django, Celery, OpenAI, sentence-transformers on AWS."
-content_title: "What it is"
+sub_title: "Backend and AI integration work for a Google Ads platform: campaign reporting, budget monitoring, and recommendations that fit the strategist’s workflow."
+content_title: "The product and my contribution"
 main_image: "/aws.svg"
 main_icon: "python"
 stack:
@@ -24,43 +24,33 @@ icons_stack:
   - "aws"
 live_demo: "https://databidmachine.com/"
 fields:
-  - title: "Role"
-    content: "Python Backend Engineer on a long-running client engagement. I contribute across the whole backend - data pipelines, Celery orchestration, LLM-powered recommendations, and performance analytics - with a focus on keyword reporting, budget pacing, and the AI recommendation layer."
+  - title: "My role"
+    content: "Python backend engineer on a long-running client engagement. My contribution centers on the services behind campaign reporting, budget pacing, performance analytics, and AI recommendations. I work through the data and business rules that make those features useful in the dashboard."
     list:
-      - "Designed and shipped the budget-pacing monitoring pipeline that flags campaigns trending over or under spend thresholds"
-      - "Modernised the keyword reporting stack - performance tiers, dominator logic, action columns, confidence levels, funnel-aware attribution"
-      - "Integrated funnel-waste and expensive-converter detection, wiring keyword → lead → MQL → SQL attribution into the recommendation engine"
-      - "Owned performance-critical query optimisations on time-series campaign/keyword trend services"
-      - "Built LLM recommendation pipelines - Gemini 2.5-flash / GPT-4o with Pydantic-validated JSON outputs and deterministic temperature settings"
-      - "Hardened the AI recommendation scoping, null-guards, and campaign-status synchronisation across multi-tenant accounts"
-
-  - title: "The problem"
-    content: "Paid-search teams managing dozens to hundreds of Google Ads accounts cannot manually monitor every campaign, spot anomalies, and prune underperforming keywords at scale. Budget pacing slips unnoticed, bad keywords burn spend for weeks, and strategic insight gets lost in dashboards. Data Bid Machine is the engine that watches every account continuously - detecting anomalies, proposing bid and keyword changes, and pushing approved mutations back to Google - so human strategists stay focused on strategy rather than triage."
-
-  - title: "Architecture"
-    content: "A Django 4.1 + DRF backend running in AWS ECS, with Celery workers processing the scheduled engine on a Redis broker and a PostgreSQL 17 data layer. The service talks to the Google Ads API v14 in both directions - pulling daily metrics and pushing bid, pause, and keyword mutations back. The system is sharded per-customer with encrypted OAuth tokens, and the engine runs as a set of cron-scheduled Celery beat jobs that rollup, analyse, and alert nightly. The frontend (a separate React + TypeScript dashboard) consumes a REST API exposing 40+ endpoints for analytics, recommendations, keywords, bidding, audit, and a conversational LLM chat."
-
-  - title: "Data and AI pipeline"
-    content: "The recommendation pipeline is the heart of the product. Each weekly run extracts 30-day and 14-day performance windows per campaign, aggregates daily metrics, keyword performance, and conversion funnel data into a Pandas frame, and sends a structured prompt to Gemini 2.5-flash (with GPT-4o fallback). The LLM returns a typed JSON payload - anomaly list, root causes, keyword pause/monitor/add actions, and new keyword ideas with estimated first-month value - validated with Pydantic, persisted as AiCampaignRecommendation rows, and fed into the dashboard. A parallel keyword-planner path uses sentence-transformers (all-MiniLM-L6-v2) to compute semantic similarity between proposed keywords and the customer's top performers, filtering noise before it reaches the user. Alongside the LLM layer, a conventional rules engine handles runaway keywords, duplicate and negative conflicts, single-broad-match pruning, and bidding recommendations."
-
-  - title: "Scale and orchestration"
-    content: "Celery beat publishes ten-plus scheduled jobs per day - engine runs, rollup alerts, pacing monitors, hourly keyword resync to Google, weekly AI recommendations, weekly asset recommendations. Each task runs per-customer and fans out across thousands of campaigns and keywords. The keyword planner embeds similarity in-memory on CPU; heavy analytical queries are cached in Redis. Deployments are tag-driven: push a git tag to trigger the staging ECS rollout, and a manual GitHub Actions workflow dispatch for production."
-
-  - title: "What I own day-to-day"
-    content: "Keyword report services, campaign trend analytics, funnel-aware recommendation logic, budget-pacing monitoring, and the AI recommendation scoping and safety layer. Most of my work sits at the intersection of Django ORM optimisation, Celery task design, multi-dimensional data aggregation, and careful LLM integration - schema validation, null-safety, retry policy, and keeping the recommendations grounded in the customer's actual data rather than the model's priors."
-
-  - title: "Tech stack"
+      - "Designed and shipped monitoring for campaigns trending above or below budget thresholds"
+      - "Developed keyword reporting: performance tiers, action columns, confidence levels, and funnel-aware attribution"
+      - "Connected keyword, lead, MQL, and SQL data to recommendation logic"
+      - "Optimized queries used by campaign and keyword trend services"
+      - "Built structured LLM recommendation workflows with validated responses"
+      - "Improved recommendation scoping, missing-data handling, and campaign-status synchronization"
+  - title: "The workflow"
+    content: "Paid-search teams need to find overspending campaigns, weak keywords, and changes in conversion quality across many accounts. Raw metrics alone leave a lot of interpretation to the strategist. Data Bid Machine combines reporting, rules-based checks, and AI-generated recommendations so users can identify what needs attention and review the proposed action."
+  - title: "Where my work fits"
+    content: "A Django and Django REST Framework backend serves a separate React and TypeScript dashboard. PostgreSQL stores campaign data, while Celery and Redis support scheduled processing. The Google Ads integration imports metrics and sends supported campaign changes back. My work is primarily on the backend, with attention to the API contract and the information a dashboard user needs to make a decision."
+  - title: "From campaign data to recommendations"
+    content: "The recommendation workflow aggregates performance windows, keyword metrics, and conversion-funnel data with Pandas. Structured prompts give the model campaign-specific evidence; Pydantic validates the returned recommendations before they are stored and shown in the dashboard. Semantic similarity with sentence-transformers helps filter proposed keywords. Conventional rules remain part of the system alongside model-generated analysis."
+  - title: "Background processing and delivery"
+    content: "Celery beat schedules monitoring, metric rollups, synchronization, and recommendation jobs per customer. Redis supports task processing and caching for analytical queries. The application runs on AWS ECS with Docker and GitHub Actions. Changes to reporting or scheduling need to account for repeated runs, account boundaries, and the cost of the queries they trigger."
+  - title: "Engineering decisions that matter"
+    content: "Much of the work is about preserving meaning through the pipeline: which campaigns a recommendation covers, how missing data affects a result, whether a budget alert reflects the right period, and how an action connects to conversion quality. I combine query optimization, task design, validation, and regression checks so the output remains grounded in the customer’s data."
+  - title: "Technologies"
     list:
-      - "Python 3.10, Django 4.1, Django REST Framework"
-      - "Celery 5 with Redis broker, celery-beat scheduler"
-      - "PostgreSQL 17"
-      - "OpenAI SDK (Gemini, GPT-4o) with Pydantic response parsing"
-      - "sentence-transformers (all-MiniLM-L6-v2) for semantic similarity"
-      - "Pandas / NumPy for time-series aggregation"
-      - "Google Ads API v14"
-      - "Docker, AWS ECS, GitHub Actions CI/CD"
-      - "pytest, Ruff, pre-commit hooks"
-
+      - "Python, Django, Django REST Framework"
+      - "Celery, Redis, PostgreSQL"
+      - "LLM APIs through the OpenAI SDK, Pydantic response validation"
+      - "sentence-transformers, Pandas, NumPy"
+      - "Google Ads API"
+      - "Docker, AWS ECS, GitHub Actions, pytest, Ruff"
 category: "Backend"
 tags:
   - "Python"
@@ -75,4 +65,4 @@ nav_title: "data_bid_machine.py"
 nav_icon: "python"
 ---
 
-Data Bid Machine is a production SaaS platform that turns Google Ads accounts into a continuously-monitored, AI-advised system. It combines rules-based detection, LLM-generated insight, and semantic filtering - running on Django, Celery, and AWS - to surface the campaigns and keywords that need attention without asking a human to look at them first.
+A Google Ads platform that combines performance reporting, campaign monitoring, and AI-assisted recommendations. My backend work connects campaign data to the reports and suggested actions used by paid-search teams, with a focus on budget pacing, keyword analysis, and reliable processing.

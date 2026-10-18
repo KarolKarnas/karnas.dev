@@ -10,6 +10,7 @@ import { SIDENAV_ITEMS } from "../../../utils/constants"
 import { SideNavItem } from "@/utils/types"
 import { useSplitView } from "../split-view/split-view-context"
 import { PaneTab } from "../split-view/split-view-types"
+import { revealFolderForPathname } from "../side-nav/folder-state"
 
 const homeSideNavItem = SIDENAV_ITEMS[0]
 
@@ -268,6 +269,7 @@ const Header = ({ onTabsChange }: HeaderProps) => {
           >
             <Link
               href={item.path}
+              onNavigate={() => revealFolderForPathname(item.path)}
               draggable={false}
               aria-current={activeTab?.path === item.path ? "page" : undefined}
               title={item.title}

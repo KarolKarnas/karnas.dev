@@ -1,6 +1,6 @@
 "use client"
 
-import { useSyncExternalStore } from "react"
+import { useEffect, useRef, useSyncExternalStore } from "react"
 
 const STORAGE_KEY = "explorer-folders"
 const CHANGE_EVENT = "explorer-folders-change"
@@ -42,6 +42,24 @@ export function setFolderExpanded(path: string, expanded: boolean) {
     sessionOnly = true
   }
   window.dispatchEvent(new Event(CHANGE_EVENT))
+}
+
+export function revealFolderForPathname(pathname: string) {
+  const path = pathname.split(/[?#]/, 1)[0]
+  const folder = FOLDERS.find(
+    (folder) => path === folder || path.startsWith(`${folder}/`)
+  )
+  if (folder && !isFolderExpanded(folder)) setFolderExpanded(folder, true)
+}
+
+export function useRevealFolderOnNavigation(pathname: string) {
+  const previousPathname = useRef(pathname)
+  useEffect(() => {
+    // Restore saved choices on mount; reveal only when the visitor navigates.
+    if (previousPathname.current === pathname) return
+    previousPathname.current = pathname
+    revealFolderForPathname(pathname)
+  }, [pathname])
 }
 
 function subscribe(callback: () => void) {

@@ -1,4 +1,5 @@
 import { Command } from "./index"
+import { PROFILE } from "@/utils/profile"
 
 const whoami: Command = {
   name: "whoami",
@@ -6,8 +7,10 @@ const whoami: Command = {
   usage: "whoami",
   execute: () => {
     return [
-      "Karol Karnas",
-      "Backend Engineer · Data Analysis · Agentic AI",
+      PROFILE.name,
+      PROFILE.role,
+      PROFILE.tagline,
+      PROFILE.specialties,
       "",
       "GitHub:   github.com/KarolKarnas",
       "LinkedIn: linkedin.com/in/KarolKarnas",
@@ -23,12 +26,14 @@ const skills: Command = {
   usage: "skills",
   execute: () => {
     return [
-      "Backend:        Python, Django, FastAPI, Celery, Pandas, pytest, Jupyter",
+      "Frontend:       TypeScript, React, Next.js, Redux, HTMX, Tailwind, Sass",
+      "Backend:        Python, Django, FastAPI, Celery",
+      "Data:           Pandas, Jupyter, SQL",
       "Cloud & Infra:  AWS, Azure, Docker, PostgreSQL, pgvector, Redis, Linux",
       "AI / LLM:       sentence-transformers, RAG, LLM API Integration,",
       "                Agentic Pipelines, Vision-Language Models",
       "Observability:  Sentry, Datadog, Grafana, Langfuse, Flower",
-      "Frontend:       TypeScript, React, Next.js, Redux",
+      "Testing:        pytest, Playwright, Jest, React Testing Library",
       "Tools:          Git, GitHub, VS Code, Jira, Confluence",
     ].join("\n")
   },
