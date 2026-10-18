@@ -1,61 +1,82 @@
-@use "../../scss/colors";
-@use "../../scss/fonts.scss";
-@use "../../scss/spacing.scss";
-@use "../../scss/breakpoints.scss";
-@use "../../scss/mixins";
-
 .container {
-  border-radius: 15px;
-  background-color: rgba(colors.$blue-600, 0.2);
-  border: 1px solid colors.$blue-500;
-  list-style: none;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: spacing.$s3;
-  padding: spacing.$s3;
-  width: 100%;
-  @include breakpoints.cq-md {
-    padding: spacing.$s2;
-  }
-  li {
-    svg {
-      height: fonts.$xl2;
-      @include breakpoints.cq-md {
-        height: fonts.$xl3;
-      }
-    }
-  }
-}
-
-.large {
-  padding: spacing.$s3 spacing.$s6;
-  li {
-    svg {
-      @include breakpoints.cq-md {
-        height: 2.5rem;
-      }
-    }
-  }
-  @include breakpoints.cq-md {
-    gap: spacing.$s6;
-  }
-}
-
-.li-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: spacing.$s1;
-  span {
-    color: colors.$white-100;
-    font-style: italic;
-    font-size: fonts.$base;
-    @include mixins.drop-shadow-md-color(
-      colors.$shadow-white-700,
-      colors.$shadow-white-600
-    );
+  gap: 8px;
+  list-style: none;
+  width: 100%;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    color: var(--text);
   }
+}
+.icon {
+  display: grid;
+  place-items: center;
+  color: var(--text-strong);
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  flex-shrink: 0;
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+.withText {
+  gap: 8px;
+  li {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 6px 10px 6px 6px;
+    background: var(--surface);
+    transition:
+      border-color 0.18s,
+      background 0.18s;
+    &:hover {
+      border-color: var(--border-strong);
+      background: var(--surface-raised);
+    }
+  }
+  .icon {
+    background: transparent;
+    border: 0;
+    padding: 3px;
+  }
+}
+.label {
+  font-size: 0.76rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+.large {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 8px;
+  li {
+    padding: 10px;
+    min-height: 52px;
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

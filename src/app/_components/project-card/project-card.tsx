@@ -1,41 +1,64 @@
-import styles from "./project-card.module.scss"
-import { ProjectCardType } from "../../../utils/types"
 import Image from "next/image"
 import Link from "next/link"
 import getIcons from "@/utils/icon-utils"
-import Button from "../button/button"
+import type { ProjectCardType } from "@/utils/types"
 import StackIcons from "../stack-icons/stack-icons"
+import ProjectVisual, {
+  hasProjectVisual,
+} from "../project-visual/project-visual"
+import styles from "./project-card.module.scss"
 
-type Props = {
-  card: ProjectCardType
-}
-const ProjectCard = ({ card }: Props) => {
-  const icons = getIcons(card.icons_stack)
+type Props = { card: ProjectCardType }
+export default function ProjectCard({ card }: Props) {
+  const professional = card.path.startsWith("/professional-projects/")
   return (
-    <Link href={card.path} className={styles.cardLink}>
-      <div className={styles.card}>
-        <div className={styles["text-container"]}>
-          <h2>{card.title}</h2>
-          <h3>{card.sub_title}</h3>
+    <Link
+      href={card.path}
+      className={styles.cardLink}
+      aria-label={`Explore ${card.title}`}
+    >
+      <article className={styles.card}>
+        <div className={styles.media}>
+          {hasProjectVisual(card.slug) ? (
+            <ProjectVisual slug={card.slug} />
+          ) : (
+            <Image
+              src={card.main_image}
+              width={960}
+              height={540}
+              alt={`${card.title} — application preview`}
+              sizes="(max-width: 768px) 100vw, 600px"
+            />
+          )}
         </div>
-        <Image
-          className={
-            card.main_image.endsWith(".svg") ? styles.placeholder : undefined
-          }
-          src={card.main_image}
-          width={1920}
-          height={1080}
-          alt={card.title}
-        />
-
-        <div className={styles["content-container"]}>
-          <StackIcons icons={icons} />
-          <h4>{card.content_title}</h4>
-          <p>{card.content}</p>
-          <Button text="Read more" color="orange" />
+        <div className={styles.body}>
+          <div className={styles.meta}>
+            <span>
+              {professional ? "PROFESSIONAL PROJECT" : "SIDE PROJECT"}
+            </span>
+            <span>{new Date(card.date).getUTCFullYear()}</span>
+          </div>
+          <h2>
+            {card.title}
+            <span aria-hidden="true">↗</span>
+          </h2>
+          <p>{card.sub_title}</p>
+          <div className={styles.stack}>
+            <StackIcons icons={getIcons(card.icons_stack.slice(0, 6))} />
+            <span>
+              {card.icons_stack.length > 6
+                ? `+${card.icons_stack.length - 6}`
+                : ""}
+            </span>
+          </div>
+          <div className={styles.footer}>
+            <span>
+              {professional ? "Explore the case study" : "Explore the project"}
+            </span>
+            <span aria-hidden="true">→</span>
+          </div>
         </div>
-      </div>
+      </article>
     </Link>
   )
 }
-export default ProjectCard

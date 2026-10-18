@@ -14,14 +14,22 @@ export default function EmbeddedLayout({
       const anchor = (e.target as HTMLElement).closest("a")
       if (!anchor) return
       const href = anchor.getAttribute("href")
-      if (!href || href.startsWith("http") || href.startsWith("#")) return
+      if (!href?.startsWith("/") || href.startsWith("//")) return
+      if (
+        e.ctrlKey ||
+        e.metaKey ||
+        e.shiftKey ||
+        e.altKey ||
+        anchor.target === "_blank"
+      )
+        return
 
       e.preventDefault()
       e.stopPropagation()
       e.stopImmediatePropagation()
       window.parent.postMessage(
         { type: "split-view-navigate", url: href },
-        window.location.origin,
+        window.location.origin
       )
     }
     document.addEventListener("click", handleClick, true)

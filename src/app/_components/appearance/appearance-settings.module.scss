@@ -1,0 +1,227 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+  &:hover {
+    background: var(--surface-hover);
+    color: var(--text-strong);
+  }
+}
+.current {
+  margin-left: auto;
+  font-size: 0.68rem;
+  color: var(--subtle);
+}
+.dialog {
+  padding: 0;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 32px 120px rgb(0 0 0 / 45%);
+  &::backdrop {
+    background: rgb(0 0 0 / 55%);
+    backdrop-filter: blur(5px);
+  }
+}
+.panel {
+  padding: clamp(20px, 5vw, 32px);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  h2 {
+    color: var(--text-strong);
+    font-size: 1.55rem;
+    letter-spacing: -0.05em;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  button {
+    display: grid;
+    place-items: center;
+    align-self: flex-start;
+    width: 32px;
+    height: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+.eyebrow {
+  font-size: 0.62rem;
+  color: var(--accent);
+  letter-spacing: 0.13em;
+}
+.intro {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 12px 0 28px;
+}
+.themes {
+  border: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-bottom: 28px;
+  legend {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+    color: var(--text-strong);
+  }
+}
+.theme {
+  position: relative;
+  cursor: pointer;
+  min-width: 0;
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  &:has(input:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
+    border-radius: 6px;
+  }
+  &:has(input:checked) .preview {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+.preview {
+  display: flex;
+  height: 86px;
+  border: 1px solid rgb(127 127 127 / 30%);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.previewSidebar {
+  width: 24%;
+  background: rgb(127 127 127 / 13%);
+  border-right: 1px solid rgb(127 127 127 / 15%);
+}
+.previewCode {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  i {
+    display: block;
+    height: 4px;
+    border-radius: 2px;
+  }
+}
+.themeName {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: var(--text-strong);
+  margin-top: 12px;
+  span {
+    color: var(--accent);
+  }
+}
+.themeDescription {
+  font-size: 0.65rem;
+  line-height: 1.6;
+  color: var(--muted);
+  display: block;
+  margin-top: 4px;
+}
+.preference {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  label {
+    display: flex;
+    flex-direction: column;
+    strong {
+      color: var(--text-strong);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+    span {
+      color: var(--muted);
+      font-size: 0.73rem;
+      margin-top: 4px;
+    }
+  }
+  select {
+    background: var(--surface);
+    color: var(--text);
+    padding: 8px 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: 5px;
+    font-size: 0.8rem;
+  }
+  input {
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+  }
+}
+.footer {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.68rem;
+  color: var(--subtle);
+  button {
+    border: 0;
+    background: none;
+    font-size: 0.73rem;
+    cursor: pointer;
+    color: var(--muted);
+    &:hover {
+      color: var(--text-strong);
+    }
+  }
+}
+@media (max-width: 440px) {
+  .themes {
+    gap: 8px;
+  }
+  .preview {
+    height: 65px;
+  }
+  .previewCode {
+    padding: 10px;
+  }
+  .themeDescription {
+    display: none;
+  }
+}

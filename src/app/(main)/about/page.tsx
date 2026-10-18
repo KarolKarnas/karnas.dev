@@ -1,43 +1,56 @@
-import styles from "./page.module.scss"
-import { ABOUT } from "@/utils/info"
+import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
+import { ABOUT } from "@/utils/info"
 import { MY_SKILLS, QUOTATION } from "@/utils/constants"
-import { Metadata } from "next"
 import getIcons from "@/utils/icon-utils"
-import MainHeading from "@/app/_components/main-heading/main-heading"
-import MainSubHeading from "@/app/_components/main-sub-heading/main-sub-heading"
 import Json from "@/app/_components/json/json"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
+import styles from "./page.module.scss"
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Karol Karnas - Backend Engineer building data pipelines, agentic AI workflows, and pandas-driven analytics in Python, Django, FastAPI, and Celery.",
+    "Karol Karnas — Backend Engineer building data pipelines, agentic AI workflows, and analytics in Python, Django, FastAPI, and Celery.",
 }
-
-export default async function About() {
-  const icons = getIcons(MY_SKILLS)
-
+export default function About() {
   return (
     <div className={styles.container}>
-      <div className={styles.info}>
-        <MainHeading color="orange">About</MainHeading>
-        <MainSubHeading color="purple">
-          Karol Karnas - Backend Engineer · Data Analysis · Agentic AI
-        </MainSubHeading>
-        <Json code={ABOUT}></Json>
+      <header className={styles.header}>
+        <span>ABOUT / THE PERSON BEHIND THE CODE</span>
+        <h1>
+          Engineer by trade.
+          <br />
+          <em>Builder by nature.</em>
+        </h1>
+        <p>Backend engineering · Data analysis · Agentic AI</p>
+      </header>
+      <div className={styles.columns}>
+        <div className={styles.info}>
+          <div className={styles.fileHeader}>
+            <span>about.json</span>
+            <span>Karol Karnas</span>
+          </div>
+          <Json code={ABOUT} />
+        </div>
+        <aside className={styles.image}>
+          <Image
+            src="/karol_karnas_full_stack_developer.jpg"
+            width={683}
+            height={1024}
+            alt="Karol Karnas"
+            sizes="(max-width: 768px) 300px, 280px"
+          />
+          <blockquote>{QUOTATION}</blockquote>
+          <Link href="/contact">
+            Let’s build something <span aria-hidden="true">↗</span>
+          </Link>
+        </aside>
       </div>
-
-      <div className={styles.image}>
-        <Image
-          src={"/karol_karnas_full_stack_developer.jpg"}
-          width={683}
-          height={1024}
-          alt={"Karol Karnas - Backend Engineer · Data Analysis · Agentic AI"}
-        ></Image>
-        <span className={styles.quote}>{QUOTATION}</span>
-        <StackIcons icons={icons} />
-      </div>
+      <section className={styles.stack}>
+        <span>TOOLS I WORK WITH</span>
+        <StackIcons icons={getIcons(MY_SKILLS)} texts />
+      </section>
     </div>
   )
 }

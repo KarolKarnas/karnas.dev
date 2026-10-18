@@ -18,6 +18,8 @@ This dynamic platform is built with Next.js, Markdown, React, TypeScript, Sass, 
 - Organize content with distinct grids for projects and blog posts, providing visual clarity,
 - Craft a tab menu and sidebar that closely mimic Visual Studio Code (VSC) behavior, enhancing user navigation,
 - Dynamically generate VSC-style menus with text and icons representing file extensions for an intuitive interface,
+- Personalize the workspace with Monokai, Dark Modern, and Light themes, adjustable text size, and reduced motion. Appearance preferences are saved locally and synchronized with split-view panes,
+- Browse redesigned project case studies, a grouped skills toolbox, and a reading-focused journal,
 - Utilize Cloudinary for secure and scalable object storage, optimizing media file handling,
 - Dynamically create representations of the technology stack using icons or icons with titles, providing insights into the project's architecture,
 - Utilize Sass in conjunction with CSS Modules, to create a design system and modular styled components. This combination allows for a structured and scalable approach to styling, ensuring consistency and reusability across the application
@@ -64,5 +66,19 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Verify
+
+```bash
+node --test tests/appearance.test.mjs
+npx tsc --noEmit
+NEXT_PUBLIC_BASE_URL=https://www.karnas.dev npm run build
+```
+
+The base URL is required for correct sitemap and robots URLs. Appearance settings
+are available from the gear button at the bottom of the explorer.
+
+See [the visual audit and implementation notes](docs/visual-audit.md) for the
+redesign decisions and browser verification.
 
 ---

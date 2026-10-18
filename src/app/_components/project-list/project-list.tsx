@@ -1,40 +1,43 @@
-import styles from "./project-list.module.scss"
-import MainHeading from "../main-heading/main-heading"
 import ProjectCard from "../project-card/project-card"
-import { Project, ProjectCardType } from "@/utils/types"
+import type { Project, ProjectCardType } from "@/utils/types"
+import styles from "./project-list.module.scss"
 
-type Props = {
-  heading: string
-  projects: Project[]
-  pathPrefix: string
-}
-
-const ProjectList = ({ heading, projects, pathPrefix }: Props) => {
+type Props = { heading: string; projects: Project[]; pathPrefix: string }
+export default function ProjectList({ heading, projects, pathPrefix }: Props) {
+  const professional = pathPrefix === "/professional-projects"
   const cards: ProjectCardType[] = projects.map((project) => ({
-    title: project.title,
-    sub_title: project.sub_title,
-    slug: project.slug,
-    content_title: project.content_title,
-    content: project.content.slice(0, 200),
-    main_image: project.main_image,
-    stack: project.stack,
-    icons_stack: project.icons_stack,
-    live_demo: project.live_demo,
-    repo: project.repo,
+    ...project,
     path: `${pathPrefix}/${project.slug}`,
-    date: project.date,
   }))
-
   return (
     <div className={styles.container}>
-      <MainHeading color="orange">{heading}</MainHeading>
-      <div className={styles["grid-container"]}>
-        {cards.map((card, index) => (
-          <ProjectCard key={index} card={card} />
+      <header className={styles.header}>
+        <span className={styles.eyebrow}>
+          {professional
+            ? "SELECTED WORK / PRODUCTION SYSTEMS"
+            : "PERSONAL LAB / IDEAS INTO SOFTWARE"}
+        </span>
+        <h1>
+          {heading}
+          <span>.</span>
+        </h1>
+        <p>
+          {professional
+            ? "Real systems. Real constraints. Backend engineering, data and AI working together in production."
+            : "A place to explore, experiment and build. From semantic search to full-stack products."}
+        </p>
+        <div className={styles.meta}>
+          <span>{projects.length.toString().padStart(2, "0")} projects</span>
+          <span>
+            {professional ? "Python · Data · AI" : "Built out of curiosity"}
+          </span>
+        </div>
+      </header>
+      <div className={styles.grid}>
+        {cards.map((card) => (
+          <ProjectCard key={card.slug} card={card} />
         ))}
       </div>
     </div>
   )
 }
-
-export default ProjectList

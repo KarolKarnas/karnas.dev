@@ -4,6 +4,7 @@ title: "Soft Skills: The Software Developer's Life Manual by John Z. Sonmez"
 sub_title: "The book that quietly reshaped how I think about being a developer as a *career*, not just a job"
 content_title: "Why a ten-year-old career manual still beats most modern advice on contracts, people, and the business of being a developer"
 main_image: "https://res.cloudinary.com/djadfridw/image/upload/v1777204529/Soft_Skills__The_Software_Developer_s_Life_Manual_by_John_Z._Sonmez._Cover_Karnas_dev_lsnlto.jpg"
+main_image_fit: "contain"
 category: "Books"
 tags: ["Career", "Soft Skills", "Freelancing", "Personal Brand", "People Skills", "Productivity", "Finance"]
 date: "2025-08-15T12:00:00.322Z"

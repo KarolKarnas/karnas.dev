@@ -1,44 +1,42 @@
-import styles from "./blog-card.module.scss"
-import { BlogCardType } from "../../../utils/types"
 import Image from "next/image"
 import Link from "next/link"
-import getIcons from "@/utils/icon-utils"
-import Button from "../button/button"
-import StackIcons from "../stack-icons/stack-icons"
+import type { BlogCardType } from "@/utils/types"
+import styles from "./blog-card.module.scss"
 
-// Note: Button is used without `path` prop to avoid nested <a> tags,
-// since the entire card is already wrapped in a Link
-
-type Props = {
-  card: BlogCardType
-}
-const BlogCard = ({ card }: Props) => {
-  const icons = card.icons_stack ? getIcons(card.icons_stack) : []
+export default function BlogCard({ card }: { card: BlogCardType }) {
   return (
-    <Link href={card.path} className={styles.cardLink}>
-      <div className={styles.card}>
-        <div className={styles["text-container"]}>
-          <div className={styles["date-container"]}>
-            <span>Karol Karnas</span>
-            <span>{new Date(card.date).toLocaleDateString("en-GB")}</span>
-          </div>
+    <Link
+      href={card.path}
+      className={styles.cardLink}
+      aria-label={`Read ${card.title}`}
+    >
+      <article className={styles.card}>
+        <div className={styles.image}>
+          <Image
+            src={card.main_image}
+            width={800}
+            height={480}
+            alt={card.title}
+            sizes="(max-width: 768px) 100vw, 560px"
+          />
+        </div>
+        <div className={styles.body}>
+          <time dateTime={card.date}>
+            {new Date(card.date).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+              timeZone: "UTC",
+            })}
+          </time>
           <h2>{card.title}</h2>
-          <h3>{card.sub_title}</h3>
-        </div>
-        <Image
-          src={card.main_image}
-          width={600}
-          height={600}
-          alt={card.title}
-        />
-
-        <div className={styles["content-container"]}>
-          {icons.length > 0 && <StackIcons icons={icons} />}
           <p>{card.content}</p>
-          <Button text="Read more" color="blue" />
+          <footer>
+            <span>Read the journal</span>
+            <span aria-hidden="true">↗</span>
+          </footer>
         </div>
-      </div>
+      </article>
     </Link>
   )
 }
-export default BlogCard

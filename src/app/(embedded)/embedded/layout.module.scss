@@ -14,24 +14,14 @@
 }
 
 .content {
-  padding: spacing.$s2;
-  padding-top: 65px; // breadcrumb overlay (22px) + match left pane padding (43px) // breadcrumb overlay (22px) + 2px
+  padding: 56px 20px 32px;
   display: flex;
   justify-content: center;
-  background-color: colors.$grey-900;
-  color: colors.$grey-100;
+  background-color: var(--bg);
+  color: var(--text);
   min-height: 100vh;
   container-type: inline-size;
-
-  // Embedded content is always inside a narrow split pane,
-  // so use tighter padding than the main layout
-  @media (min-width: 480px) {
-    padding: spacing.$s4;
-    padding-top: 65px; // breadcrumb overlay (22px) + match left pane padding (43px)
-  }
-
   @media (min-width: 768px) {
-    padding: spacing.$s5;
-    padding-top: 65px; // breadcrumb overlay (22px) + match left pane padding (43px)
+    padding: 64px 32px 40px;
   }
 }

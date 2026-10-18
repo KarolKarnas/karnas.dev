@@ -37,7 +37,7 @@
       );
     }
     &:hover {
-      background-color: rgba(colors.$blue-600, 0.2);
+      background-color: color-mix(in srgb, colors.$blue-600 20%, transparent);
     }
 
     svg {
@@ -46,9 +46,9 @@
   }
 
   a.light {
-    background-color: rgba(colors.$grey-650, 0.5);
+    background-color: color-mix(in srgb, colors.$grey-650 50%, transparent);
     &:hover {
-      background-color: rgba(colors.$blue-600, 0.2);
+      background-color: color-mix(in srgb, colors.$blue-600 20%, transparent);
     }
   }
 }

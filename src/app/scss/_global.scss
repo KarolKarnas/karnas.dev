@@ -1,4 +1,4 @@
-@use "colors";
+@use "themes";
 
 *,
 *::before,
@@ -7,28 +7,88 @@
   margin: 0;
   padding: 0;
 }
-
+html {
+  font-size: var(--font-size);
+  background: var(--bg);
+}
 html,
 body {
   height: 100%;
   overflow: hidden;
   overscroll-behavior: none;
 }
-
-// VSC-style scrollbar globally
-*::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+body {
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
 }
-
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  color: inherit;
+}
+a {
+  color: var(--cyan);
+}
+button,
+a {
+  touch-action: manipulation;
+}
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+svg {
+  flex-shrink: 0;
+}
+img {
+  max-width: 100%;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
 *::-webkit-scrollbar-thumb {
-  background-color: colors.$grey-600;
-  border-radius: 5px;
-  &:hover {
-    background-color: colors.$grey-100;
+  background: var(--border-strong);
+  border-radius: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
-
-*::-webkit-scrollbar-track {
-  background-color: colors.$grey-950;
+:root[data-motion="reduced"] {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,34 +1,34 @@
 //white-
 
-$white-100: #ffffff; //main
-$white-200: #f5f5f5;
-$white-300: #ececec;
-$white-400: #e2e2e2;
-$white-500: #d9d9d9;
-$white-600: #cfcfcf;
-$white-700: #c6c6c6;
-$white-800: #bcbcbc;
-$white-900: #b2b2b2;
+$white-100: var(--text-strong); //main
+$white-200: var(--text-strong);
+$white-300: var(--text);
+$white-400: var(--text);
+$white-500: var(--text);
+$white-600: var(--muted);
+$white-700: var(--muted);
+$white-800: var(--muted);
+$white-900: var(--muted);
 
 //grey-
-$grey-100: #cccccc;
-$grey-200: #9b9b99;
-$grey-500: #8e8f8c;
-$grey-600: #414339;
-$grey-625: #3e3d32;
-$grey-650: #3f403c;
-$grey-700: #2c2c2c;
-$grey-800: #242522;
-$grey-900: #272822;
-$grey-950: #1e1f1c;
-$grey-975: #1b1c18;
+$grey-100: var(--text);
+$grey-200: var(--muted);
+$grey-500: var(--subtle);
+$grey-600: var(--border-strong);
+$grey-625: var(--surface-hover);
+$grey-650: var(--surface-raised);
+$grey-700: var(--border);
+$grey-800: var(--surface);
+$grey-900: var(--bg);
+$grey-950: var(--chrome);
+$grey-975: var(--chrome-deep);
 
 // Monokai
 $green-100: #f2ffd4;
 $green-200: #e0fda7;
 $green-300: #cdfb7a;
 $green-400: #baf94d;
-$green-500: #a6e22e; //main
+$green-500: var(--accent); //main
 $green-600: #8cc41d;
 $green-700: #72a30c;
 $green-800: #587100;
@@ -39,7 +39,7 @@ $pink-100: #fbd9e4;
 $pink-200: #faacc8;
 $pink-300: #f98baf;
 $pink-400: #f95091;
-$pink-500: #f92672; //main
+$pink-500: var(--pink); //main
 $pink-600: #f60b5b;
 $pink-700: #f2064e;
 $pink-800: #ee0342;
@@ -50,9 +50,9 @@ $blue-100: #b3e0f7;
 $blue-200: #99d6f5;
 $blue-300: #80ccf2;
 $blue-400: #66c2f0;
-$blue-500: #66d9ef; //main
+$blue-500: var(--cyan); //main
 $blue-600: #4dbfe9;
-$navy-500: #33b5e7;
+$navy-500: var(--cyan);
 $blue-800: #1aa1e0;
 $blue-900: #008cdb;
 
@@ -61,7 +61,7 @@ $accent-100: #f2e9d6;
 $accent-200: #f0e5c6;
 $accent-300: #eed1b1;
 $accent-400: #ebbd9d;
-$accent-500: #e2c08d; //main
+$accent-500: var(--orange); //main
 $accent-600: #d4ad7d;
 $accent-700: #c09c6d;
 $accent-800: #ad8b5d;
@@ -83,18 +83,18 @@ $orange-100: #ffd8aa;
 $orange-200: #ffcb8f;
 $orange-300: #ffbd74;
 $orange-400: #ffaf59;
-$orange-500: #fd971f; // main
+$orange-500: var(--orange); // main
 $orange-600: #e4841b;
 $orange-700: #cc7317;
 $orange-800: #b46213;
 $orange-900: #9a510f;
 
 //purple-
-$purple-100: #f3ebff;
+$purple-100: var(--text-strong);
 $purple-200: #d7ccff;
 $purple-300: #bbaeff;
 $purple-400: #9e8fff;
-$purple-500: #ae81ff; //main
+$purple-500: var(--purple); //main
 $purple-600: #9664ff;
 $purple-700: #7e46ff;
 $purple-800: #6629ff;
@@ -105,7 +105,7 @@ $navy-100: #c2e0ff;
 $navy-200: #a0cbff;
 $navy-300: #7eb5ff;
 $navy-400: #5ca0ff;
-$navy-500: #3794ff; //main home links
+$navy-500: var(--cyan); //main home links
 $navy-600: #1478ff;
 $navy-700: #005dff;
 $navy-800: #0043c2;
@@ -122,10 +122,8 @@ $shadow-white-700: rgb(255 255 255 / 0.07);
 $shadow-orange-600: rgb(253 151 31 / 0.06);
 $shadow-orange-700: rgb(253 151 31 / 0.07);
 
-
 $shadow-blue-600: rgb(102 217 239 / 0.06);
 $shadow-blue-700: rgb(102 217 239 / 0.07);
 
 $shadow-pink-600: rgb(249 38 114 / 0.06);
 $shadow-pink-700: rgb(249 38 114 / 0.07);
-

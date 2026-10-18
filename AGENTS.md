@@ -53,7 +53,7 @@ npm start
 
 | Miejsce | Odpowiedzialność |
 | --- | --- |
-| `src/app/layout.tsx` | Font, globalne SCSS, metadane, Vercel Analytics, `SplitViewProvider` |
+| `src/app/layout.tsx` | Font, globalne SCSS, metadane, Analytics, `AppearanceProvider` i `SplitViewProvider` |
 | `src/app/(main)/layout.tsx` | Powłoka edytora: sidebar, header, zawartość, terminal i status bar |
 | `src/app/(main)/` | Home, about, skills, contact, blog i dwie sekcje projektów |
 | `src/app/(embedded)/embedded/` | Wersje stron dla iframe prawego panelu, bez powłoki głównego edytora |
@@ -68,6 +68,7 @@ npm start
 | `src/utils/info.tsx` | Dane widoku „about.json” i deklaracja danych kontaktowych |
 | `src/icons/` | Ikony technologii, brandu, sociali i UI oraz eksporty zbiorcze |
 | `src/app/api/content/route.ts` | Publiczne dane wpisów i projektów dla terminala |
+| `src/app/_components/appearance/` | Motywy, ustawienia, inicjalizacja przed pierwszym renderem i synchronizacja iframe |
 | `public/` | Lokalne zdjęcia, ilustracje, placeholdery i favicony |
 
 ## Treść, ikony i nawigacja
@@ -96,6 +97,14 @@ npm start
 Pliki `.md` mają YAML frontmatter oraz tekst po zamykającym `---`. Szczegółowe
 sekcje artykułu są przechowywane w `fields`: `title`, `content`, `second_content`,
 `list`, `image`, `links`. `DetailFields` renderuje je wspólnie dla bloga i projektów.
+Główna grafika wpisu jest domyślnie widoczna w całości (`main_image_fit: "contain"`).
+Dla świadomego szerokiego kadru zdjęcia ustaw `main_image_fit: "cover"`; nie kadruj
+w ten sposób okładek książek i grafik z tekstem. Kliknięcie otwiera lightbox.
+Obrazy galerii oznaczaj `data-lightbox` na linku do oryginału, wewnątrz
+`data-image-gallery`. Galeria obejmuje okładkę i obrazy sekcji bieżącego wpisu/projektu;
+strzałki zmieniają obraz, Escape zamyka. W iframe lightbox otwiera się w rodzicu
+po wiadomości z potwierdzonego same-origin iframe. Modyfikatory kliknięcia nadal
+pozwalają otworzyć oryginał w nowej karcie.
 Body jest obecnie renderowane w `<p>` jako tekst. `src/lib/markdownToHtml.ts`
 istnieje, ale nie jest używany: nie zakładaj, że Markdown, HTML czy fenced code
 blocks zostaną sformatowane bez zmiany ścieżki renderowania.
@@ -135,6 +144,10 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
 
 ## Zachowania edytora wymagające uwagi
 
+- **Foldery explorera:** na home domyślnie zwijaj professional projects, side projects
+  i blog przy pierwszej wizycie. Ręczny stan każdego folderu zapisuj pod kluczem
+  `explorer-folders`; nawigacja nie powinna go zmieniać. Odtwarzaj go po odświeżeniu
+  i zachowuj wybory w pamięci sesji, gdy storage jest zablokowany.
 - **Zakładki:** `header.tsx` synchronizuje trasę i otwarte pliki. Zamknięcie
   ostatniej zakładki pokazuje pusty edytor; gdy prawy panel ma pliki, są one
   przenoszone do nagłówka. Zachowuj osłonę przed ponownym otwarciem zamkniętej
@@ -152,7 +165,7 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
   przez globalny reset. Nakładka na iframe podczas zmiany rozmiaru zapobiega
   przechwytywaniu ruchu myszy. Sprawdzaj ją również podczas resize terminala.
 - **Stan lokalny:** klucze to `sidebar-width`, `split-view-state` i
-  `terminal-state`. Split view odtwarza stan po mount; terminal zapisuje tylko
+  `terminal-state`. Preferencje wyglądu zapisuje `karnas-appearance`. Split view odtwarza stan po mount; terminal zapisuje tylko
   wysokość, nie historię ani otwarcie. Nie przenoś dostępu do `localStorage`
   do renderowania serwerowego i nie nadpisuj zapisanego stanu przed hydratacją.
 - **Terminal:** to symulacja w przeglądarce, nie shell systemowy. Komendy mają
@@ -172,8 +185,8 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
   `npx tsc --noEmit` i build produkcyjny. Samo przejście generatora nie waliduje
   całego frontmatter. Dla samej dokumentacji wystarcza sprawdzenie zgodności
   ze źródłami i `git diff --check`.
-- Repo nie ma obecnie skonfigurowanej suity testowej, skryptów `test`/`lint`
-  ani pliku konfiguracji ESLinta. Obecność ikon Jest/pytest/Playwright i wpisów
+- Testy preferencji wyglądu uruchamiaj przez `node --test tests/appearance.test.mjs`.
+  Repo nie ma obecnie skryptów `test`/`lint`, konfiguracji ESLinta ani pełnej suity E2E. Obecność ikon Jest/pytest/Playwright i wpisów
   na liście umiejętności nie oznacza, że te narzędzia testują to portfolio.
   Next.js build nie uruchamia ESLinta. Nie zgłaszaj lint/testów jako zaliczonych
   bez rzeczywistego wykonania właściwej kontroli.
@@ -181,8 +194,11 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
   `react-hooks/set-state-in-effect` w layout/header/contextach oraz zależność
   efektu w headerze. Przy pracy w tych miejscach odróżniaj zastane problemy
   od regresji; nie wyłączaj globalnie reguł dla uzyskania zielonego wyniku.
-- `stack` i `neofetch` w `terminal/commands/info.ts` mają stare etykiety Next.js 15.
-  Wersję frameworka ustalaj z manifestu, nie z tych tekstów ani opisów portfolio.
+- Przy zmianach motywów edytuj tokeny w `src/app/scss/_themes.scss`. Zachowuj
+  inicjalizację przed pierwszym renderem, walidację zapisanych wartości, synchronizację
+  przez storage events i preferencję ograniczenia ruchu. Sprawdź też jasny motyw:
+  monochromatyczne ikony powinny dziedziczyć `currentColor`, a wielokolorowe zachowywać detale.
+- Wersję frameworka ustalaj z manifestu, nie z tekstów terminala ani opisów portfolio.
 - Przy aktualizacji zależności wykonaj `npm audit` i oceń wynik. Nie stosuj
   automatycznie `npm audit fix --force`: sugerowane cofnięcie głównej wersji
   może być niezgodne z aktualnym frameworkiem. Raportuj nierozwiązane podatności.

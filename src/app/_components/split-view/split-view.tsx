@@ -321,6 +321,7 @@ export default function SplitView({ children }: SplitViewProps) {
       {isActive && embeddedUrl && (
         <>
           <Divider
+            ratio={splitRatio}
             onResize={setSplitRatio}
             onDragStateChange={setIsDividerDragging}
             containerRef={containerRef}

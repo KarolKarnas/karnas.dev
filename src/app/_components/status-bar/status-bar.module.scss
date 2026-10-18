@@ -5,10 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 22px;
-  background-color: colors.$grey-800;
+  height: 26px;
+  background-color: colors.$grey-950;
+  border-top: 1px solid var(--border);
   color: colors.$white-100;
-  font-size: fonts.$xs;
+  font-size: 0.65rem;
   padding: 0 8px;
   flex-shrink: 0;
   z-index: 50;
@@ -92,4 +93,11 @@ button.item {
 .warningIcon {
   margin-left: 4px;
   margin-right: 1px;
+}
+
+@media (max-width: 600px) {
+  .right .item:nth-child(2),
+  .right .item:nth-child(3) {
+    display: none;
+  }
 }

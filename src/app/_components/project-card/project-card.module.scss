@@ -1,143 +1,118 @@
-@use "../../scss/colors";
-@use "../../scss/fonts.scss";
-@use "../../scss/spacing.scss";
-@use "../../scss/breakpoints.scss";
-@use "../../scss/mixins";
-
 .cardLink {
-  text-decoration: none;
   display: block;
+  min-width: 0;
+  text-decoration: none;
   color: inherit;
+  height: 100%;
+  border-radius: 10px;
+  &:hover {
+    .card {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    h2 > span {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+    .footer {
+      color: var(--accent);
+    }
+  }
 }
-
 .card {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  transition:
+    border-color 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.media {
+  height: 210px;
+  overflow: hidden;
+  background: var(--chrome);
+  border-bottom: 1px solid var(--border);
+  > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+}
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.58rem;
+  letter-spacing: 0.09em;
+  color: var(--subtle);
+  margin-bottom: 16px;
+}
+.body h2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: clamp(1.1rem, 2.4cqw, 1.4rem);
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-strong);
+  > span {
+    color: var(--subtle);
+    font-size: 1.2rem;
+    transition:
+      color 0.2s,
+      transform 0.2s;
+  }
+}
+.body > p {
+  font-size: 0.8rem;
+  line-height: 1.85;
+  color: var(--muted);
+  margin: 12px 0 24px;
+  flex: 1;
+}
+.stack {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 24px;
+  > ul {
+    width: auto;
+  }
+  > span {
+    font-size: 0.65rem;
+    color: var(--subtle);
+  }
+}
+.footer {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: spacing.$s3;
-  border-radius: 15px;
-  background-color: colors.$grey-600;
-  transition-property: transform, background-color;
-  transition-duration: 100ms;
-
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.015);
-    transition-property: transform, background-color;
-    transition-duration: 200ms;
-    background-color: colors.$orange-500;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  font-size: 0.74rem;
+  color: var(--text);
+  transition: color 0.2s;
+}
+@container (max-width: 400px) {
+  .body {
+    padding: 20px;
   }
-
-  @include breakpoints.cq-md {
-    padding: spacing.$s3;
-  }
-
-  img {
-    height: auto;
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-  }
-
-  .placeholder {
-    height: auto;
-    width: auto;
-    max-height: spacing.$s10;
-    max-width: 35%;
-    margin: spacing.$s3 0;
-    object-fit: contain;
-  }
-
-  .text-container {
-    border-radius: 15px 15px 0px 0px;
-    width: 100%;
-    background-color: rgba(colors.$grey-950, 0.9);
-    padding: spacing.$s4 spacing.$s4;
-    align-items: center;
-    @include breakpoints.cq-md {
-      padding: spacing.$s5 spacing.$s6;
-    }
-
-    .date-container {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      color: colors.$grey-600;
-      font-size: fonts.$xs;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
-    }
-
-    h2 {
-      margin: spacing.$s2 0 spacing.$s2;
-      font-size: fonts.$lg;
-      color: colors.$orange-500;
-      text-align: center;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-orange-700,
-        colors.$shadow-orange-600
-      );
-      @include breakpoints.cq-md {
-        font-size: fonts.$xl2;
-      }
-    }
-
-    h3 {
-      font-size: fonts.$xs;
-      text-align: center;
-      color: colors.$purple-100;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
-      @include breakpoints.cq-md {
-        font-size: fonts.$sm;
-      }
-    }
-  }
-
-  .content-container {
-    height: 100%;
-    border-radius: 0px 0px 10px 10px;
-    background-color: rgba(colors.$grey-950, 0.9);
-    padding: spacing.$s4;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: spacing.$s4;
-
-    @include breakpoints.cq-md {
-      padding: spacing.$s6;
-      gap: spacing.$s5;
-    }
-
-    h4 {
-      font-size: fonts.$sm;
-
-      color: colors.$white-100;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
-    }
-
-    p {
-      font-size: fonts.$xs;
-      text-align: center;
-      hyphens: auto;
-      color: colors.$white-300;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
-      @include breakpoints.cq-md {
-        font-size: fonts.$sm;
-      }
-    }
+  .media {
+    height: 185px;
   }
 }

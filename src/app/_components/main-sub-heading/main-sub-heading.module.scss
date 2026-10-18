@@ -1,24 +1,12 @@
-@use "../../scss/fonts.scss";
-@use "../../scss/breakpoints.scss";
-@use "../../scss/heading-colors";
-
 .heading {
-  font-size: fonts.$base;
-  text-align: center;
-
-  @include breakpoints.cq-md {
-    font-size: fonts.$lg;
-  }
+  font-size: 0.9rem;
+  line-height: 1.8;
+  text-align: left;
+  color: var(--muted);
+  font-weight: 400;
 }
-
-.purple {
-  @include heading-colors.purple;
-}
-
-.orange {
-  @include heading-colors.orange;
-}
-
+.purple,
+.orange,
 .blue {
-  @include heading-colors.blue;
+  color: var(--muted);
 }

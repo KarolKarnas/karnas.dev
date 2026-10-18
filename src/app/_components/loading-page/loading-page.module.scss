@@ -1,7 +1,140 @@
 .loading {
   width: 100%;
-  height: 100%;
+  max-width: 1120px;
+  padding: 18px 0 40px;
+}
+.bone {
+  display: block;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--muted) 9%, var(--surface));
+  animation: breathe 2.4s ease-in-out infinite;
+}
+.header {
+  margin: 4px 0 30px;
+}
+.eyebrow {
+  width: 190px;
+  max-width: 55%;
+  height: 10px;
+  margin-bottom: 24px;
+}
+.title {
+  width: 65%;
+  height: clamp(32px, 5.4cqw, 56px);
+  margin-bottom: 24px;
+}
+.description {
+  width: 60%;
+  height: 12px;
+  margin-bottom: 12px;
+}
+.descriptionShort {
+  width: 45%;
+  height: 12px;
+}
+.meta {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  margin-bottom: 30px;
+  > span {
+    width: 90px;
+    height: 10px;
+  }
+  > span:last-child {
+    width: 150px;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  @container (min-width: 760px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  &:last-child .bone {
+    animation-delay: 0.15s;
+  }
+}
+.cover {
+  height: 210px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--chrome);
+}
+.body {
+  padding: 24px;
+  .eyebrow {
+    margin: 8px 0 22px;
+  }
+}
+.cardTitle {
+  width: 80%;
+  height: 22px;
+  margin-bottom: 22px;
+}
+.line {
+  width: 100%;
+  height: 12px;
+  margin-bottom: 12px;
+}
+.tags {
+  display: flex;
+  gap: 8px;
+  margin: 28px 0 24px;
+  > span {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+}
+.footer {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  > span {
+    width: 150px;
+    height: 10px;
+  }
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@container (max-width: 400px) {
+  .cover {
+    height: 185px;
+  }
+  .body {
+    padding: 20px;
+  }
+  .title {
+    width: 90%;
+  }
+  .description {
+    width: 95%;
+  }
+  .descriptionShort {
+    width: 70%;
+  }
 }

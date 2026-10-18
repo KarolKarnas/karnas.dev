@@ -7,7 +7,7 @@ type Params = { params: Promise<{ slug: string }> }
 export default async function Page(props: Params) {
   const params = await props.params
   const project = getProfessionalBySlug(params.slug)
-  return <ProjectDetail project={project} />
+  return <ProjectDetail project={project} professional />
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {

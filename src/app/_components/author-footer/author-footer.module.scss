@@ -1,13 +1,33 @@
-@use "../../scss/detail-page";
-
 .container {
-  @include detail-page.author-container;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
 }
-
 .authorName {
-  @include detail-page.author-name;
+  color: var(--text-strong);
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  letter-spacing: -0.025em;
+  span:not(:first-child) {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0;
+  }
+  &:hover span:first-child {
+    color: var(--accent);
+  }
 }
-
 .links {
-  @include detail-page.author-links;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
 }

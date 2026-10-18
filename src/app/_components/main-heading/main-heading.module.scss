@@ -1,24 +1,12 @@
-@use "../../scss/fonts.scss";
-@use "../../scss/breakpoints";
-@use "../../scss/heading-colors";
-
 .heading {
-  font-size: fonts.$xl4;
-  text-align: center;
-
-  @include breakpoints.cq-sm {
-    font-size: fonts.$xl5;
-  }
-
-  @include breakpoints.cq-md {
-    font-size: fonts.$xl6;
-  }
+  color: var(--text-strong);
+  font-size: clamp(2rem, 5cqw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1.2;
+  text-align: left;
 }
-
-.orange {
-  @include heading-colors.orange;
-}
-
+.orange,
 .blue {
-  @include heading-colors.blue;
+  color: var(--text-strong);
 }

@@ -27,7 +27,10 @@ const DetailFields = ({ fields, fallbackTitle }: Props) => {
             <Link
               className={styles.imgWrapper}
               href={field.image}
-              target="blank"
+              target="_blank"
+              rel="noreferrer"
+              data-lightbox
+              aria-label={`Enlarge image: ${field.title ?? fallbackTitle}`}
             >
               <Image
                 src={field.image}

@@ -20,6 +20,7 @@ const LinkCard = ({ socialItem, color }: Props) => {
       <a
         className={`${color === "light" ? styles.light : ""}`}
         target="_blank"
+        rel="noreferrer"
         href={socialItem.link}
       >
         <span className={styles.iconContainer}>

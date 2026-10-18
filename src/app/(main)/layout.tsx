@@ -30,12 +30,16 @@ export default function MainLayout({
 
   // Load from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem(SIDEBAR_WIDTH_KEY)
-    if (saved) {
-      const parsed = parseInt(saved, 10)
-      if (parsed >= SIDEBAR_MIN && parsed <= SIDEBAR_MAX) {
-        setSidebarWidth(parsed)
+    try {
+      const saved = localStorage.getItem(SIDEBAR_WIDTH_KEY)
+      if (saved) {
+        const parsed = parseInt(saved, 10)
+        if (parsed >= SIDEBAR_MIN && parsed <= SIDEBAR_MAX) {
+          setSidebarWidth(parsed)
+        }
       }
+    } catch {
+      /* Storage may be unavailable. Keep the default width. */
     }
   }, [])
 
@@ -68,7 +72,11 @@ export default function MainLayout({
         document.body.style.cursor = ""
         document.body.style.userSelect = ""
         // Save to localStorage only on drag end
-        localStorage.setItem(SIDEBAR_WIDTH_KEY, String(sidebarWidth))
+        try {
+          localStorage.setItem(SIDEBAR_WIDTH_KEY, String(sidebarWidth))
+        } catch {
+          /* Keep the session width. */
+        }
       }
     }
 
@@ -91,6 +99,33 @@ export default function MainLayout({
             <div
               className={styles.sidebarDivider}
               onMouseDown={handleDividerMouseDown}
+              role="separator"
+              aria-label="Resize explorer"
+              aria-orientation="vertical"
+              aria-valuemin={SIDEBAR_MIN}
+              aria-valuemax={SIDEBAR_MAX}
+              aria-valuenow={Math.round(sidebarWidth)}
+              tabIndex={0}
+              onKeyDown={(event) => {
+                const widths: Record<string, number> = {
+                  ArrowLeft: sidebarWidth - 16,
+                  ArrowRight: sidebarWidth + 16,
+                  Home: SIDEBAR_MIN,
+                  End: SIDEBAR_MAX,
+                }
+                if (!(event.key in widths)) return
+                event.preventDefault()
+                const next = Math.min(
+                  SIDEBAR_MAX,
+                  Math.max(SIDEBAR_MIN, widths[event.key])
+                )
+                setSidebarWidth(next)
+                try {
+                  localStorage.setItem(SIDEBAR_WIDTH_KEY, String(next))
+                } catch {
+                  /* Keep the session width. */
+                }
+              }}
             />
           )}
           <div className={styles.container}>

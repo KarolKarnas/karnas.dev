@@ -1,24 +1,33 @@
-import { Dispatch, SetStateAction } from "react"
+import type { Dispatch, SetStateAction } from "react"
 import styles from "./hamburger.module.scss"
 
-type HamburgerProps = { setShowSideNav: Dispatch<SetStateAction<boolean>>, showSideNav: boolean }
-const Hamburger = ({ setShowSideNav, showSideNav }: HamburgerProps) => {
+type Props = {
+  setShowSideNav: Dispatch<SetStateAction<boolean>>
+  showSideNav: boolean
+}
+export default function Hamburger({ setShowSideNav, showSideNav }: Props) {
   return (
-    <div className={styles.container}>
+    <button
+      type="button"
+      className={styles.container}
+      onClick={() => setShowSideNav(!showSideNav)}
+      aria-label={showSideNav ? "Close explorer" : "Open explorer"}
+      aria-expanded={showSideNav}
+      aria-controls="file-explorer"
+    >
       <svg
-        onClick={() => setShowSideNav(!showSideNav)}
-        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        fill="currentColor"
-        className={styles.hamburger}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        aria-hidden="true"
       >
-        <path
-          fillRule="evenodd"
-          d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
-          clipRule="evenodd"
-        />
+        {showSideNav ? (
+          <path d="m6 6 12 12M6 18 18 6" />
+        ) : (
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        )}
       </svg>
-    </div>
+    </button>
   )
 }
-export default Hamburger

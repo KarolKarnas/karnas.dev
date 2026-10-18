@@ -4,10 +4,10 @@
 .breadcrumbBar {
   display: flex;
   align-items: center;
-  height: 22px;
+  height: 28px;
   padding: 0 12px;
   background-color: colors.$grey-900;
-  font-size: fonts.$xs;
+  font-size: 0.65rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -15,6 +15,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
 }
 
 .crumb {

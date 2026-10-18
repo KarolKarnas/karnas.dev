@@ -152,8 +152,33 @@ const Terminal = () => {
   if (!isOpen) return null
 
   return (
-    <div className={styles.terminal} style={{ height }}>
-      <div className={styles.dragHandle} onMouseDown={handleDragStart} />
+    <div
+      className={styles.terminal}
+      style={{ height: `min(${height}px, 70dvh)` }}
+    >
+      <div
+        className={styles.dragHandle}
+        onMouseDown={handleDragStart}
+        role="separator"
+        aria-label="Resize terminal"
+        aria-orientation="horizontal"
+        aria-valuemin={TERMINAL_MIN_HEIGHT}
+        aria-valuenow={Math.round(height)}
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (!["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key))
+            return
+          event.preventDefault()
+          const max = window.innerHeight * TERMINAL_MAX_HEIGHT_VH
+          const next =
+            event.key === "Home"
+              ? TERMINAL_MIN_HEIGHT
+              : event.key === "End"
+                ? max
+                : height + (event.key === "ArrowUp" ? 24 : -24)
+          setHeight(Math.min(max, Math.max(TERMINAL_MIN_HEIGHT, next)))
+        }}
+      />
       <div className={styles.topBar}>
         <span className={styles.title}>TERMINAL</span>
         <button

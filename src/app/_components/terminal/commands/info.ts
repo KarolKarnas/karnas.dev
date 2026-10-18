@@ -42,7 +42,7 @@ const stack: Command = {
     return [
       "karnas.dev tech stack:",
       "",
-      "  Framework:   Next.js 15 (App Router)",
+      "  Framework:   Next.js 16 (App Router)",
       "  Language:    TypeScript",
       "  React:       React 19",
       "  Styling:     SASS + CSS Modules",
@@ -64,7 +64,7 @@ const neofetch: Command = {
       "        ██╗  ██╗██╗  ██╗       visitor@karnas.dev",
       "        ██║ ██╔╝██║ ██╔╝       ──────────────────",
       "        █████╔╝ █████╔╝        Site: karnas.dev",
-      "        ██╔═██╗ ██╔═██╗        Framework: Next.js 15",
+      "        ██╔═██╗ ██╔═██╗        Framework: Next.js 16",
       "        ██║  ██║██║  ██║       Language: TypeScript",
       "        ╚═╝  ╚═╝╚═╝  ╚═╝       Styling: SASS + CSS Modules",
       "                                Font: Roboto Mono",

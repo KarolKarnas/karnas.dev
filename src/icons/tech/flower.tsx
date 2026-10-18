@@ -2,14 +2,25 @@ import { IconText } from "@/utils/types"
 
 const flower: IconText = {
   icon: (
-    <svg viewBox="0 0 24 24">
-      <path
-        fill="#37814A"
-        d="M2.303 0A2.298 2.298 0 0 0 0 2.303v19.394A2.298 2.298 0 0 0 2.303 24h19.394A2.298 2.298 0 0 0 24 21.697V2.303A2.298 2.298 0 0 0 21.697 0zm8.177 3.072c4.098 0 7.028 1.438 7.68 1.764l-1.194 2.55c-2.442-1.057-4.993-1.41-5.672-1.41-1.574 0-2.17.922-2.17 1.763v8.494c0 .869.596 1.791 2.17 1.791.679 0 3.23-.38 5.672-1.41l1.194 2.496c-.435.271-3.637 1.818-7.68 1.818-1.112 0-4.64-.244-4.64-4.64V7.713c0-4.397 3.528-4.64 4.64-4.64z"
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <g stroke="currentColor" strokeWidth="1.8">
+        <ellipse cx="16" cy="10" rx="4" ry="7" />
+        <ellipse cx="16" cy="10" rx="4" ry="7" transform="rotate(60 16 16)" />
+        <ellipse cx="16" cy="10" rx="4" ry="7" transform="rotate(120 16 16)" />
+        <ellipse cx="16" cy="10" rx="4" ry="7" transform="rotate(180 16 16)" />
+        <ellipse cx="16" cy="10" rx="4" ry="7" transform="rotate(240 16 16)" />
+        <ellipse cx="16" cy="10" rx="4" ry="7" transform="rotate(300 16 16)" />
+      </g>
+      <circle
+        cx="16"
+        cy="16"
+        r="4"
+        fill="var(--accent)"
+        stroke="var(--bg)"
+        strokeWidth="2"
       />
     </svg>
   ),
   text: "Flower",
 }
-
 export default flower

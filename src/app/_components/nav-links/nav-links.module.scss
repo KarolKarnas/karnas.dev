@@ -35,12 +35,6 @@
         color: colors.$navy-500;
         height: fonts.$xl2;
         flex-shrink: 0;
-        g {
-          fill: colors.$navy-500;
-        }
-        path {
-          fill: colors.$navy-500;
-        }
 
         @include breakpoints.md {
           height: fonts.$xl3;

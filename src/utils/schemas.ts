@@ -20,6 +20,7 @@ const PostFrontmatterSchema = z.object({
   sub_title: z.string(),
   content_title: z.string(),
   main_image: z.string(),
+  main_image_fit: z.enum(["contain", "cover"]).optional(),
   category: z.string(),
   tags: z.array(z.string()),
   icons_stack: z.array(z.string()).optional(),

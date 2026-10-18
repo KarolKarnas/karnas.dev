@@ -1,45 +1,45 @@
-@use "../../scss/colors.scss";
-@use "../../scss/fonts.scss";
-@use "../../scss/spacing.scss";
-@use "../../scss/mixins.scss";
-@use "../../scss/breakpoints.scss";
-
 .code {
-  font-size: fonts.$sm;
+  padding: 24px;
+  font-size: 0.8rem;
   width: 100%;
-  @include breakpoints.cq-lg {
-    font-size: fonts.$base;
-    width: 500px;
-  }
-  @include breakpoints.cq-xl {
-    font-size: fonts.$base;
-    width: 600px;
+  line-height: 1.95;
+  color: var(--accent);
+  overflow-wrap: anywhere;
+  > ul {
+    margin: 4px 0;
   }
   ul {
     list-style: none;
-    padding-left: spacing.$s5;
-    line-height: 1.5;
+    padding-left: 20px;
     li {
+      margin: 8px 0;
       ul {
-        padding-left: spacing.$s6;
-        li {
-          line-height: 1.5;
-        }
+        padding-left: 20px;
       }
     }
   }
 }
-
 .text_yellow {
-  color: colors.$yellow-500;
+  color: var(--orange);
 }
 .text_pink {
-  color: colors.$pink-200;
+  color: var(--purple);
 }
 .text_blue {
-  color: colors.$blue-500;
+  color: var(--cyan);
 }
 .text_white {
-  color: colors.$white-100;
-  font-weight: 700;
+  color: var(--text);
+}
+@container (max-width: 450px) {
+  .code {
+    padding: 16px 12px;
+    font-size: 0.72rem;
+    ul {
+      padding-left: 12px;
+      li ul {
+        padding-left: 12px;
+      }
+    }
+  }
 }

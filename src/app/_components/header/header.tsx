@@ -38,17 +38,33 @@ type HeaderProps = {
 }
 
 const Header = ({ onTabsChange }: HeaderProps) => {
-
+  const headerRef = useRef<HTMLElement>(null)
   const router = useRouter()
   const pathname = usePathname()
   const { openSplitPane, paneTabs, activeTabIndex, toggleSplitView } =
     useSplitView()
 
-  const [showRemove, setShowRemove] = useState<string | null>(null)
   const [openTabs, setOpenTabs] = useState<SideNavItem[]>([homeSideNavItem])
-  const [activeTab, setActiveTab] = useState<SideNavItem | null>(getActiveTab(pathname))
+  const [activeTab, setActiveTab] = useState<SideNavItem | null>(
+    getActiveTab(pathname)
+  )
   const [nextTab, setNextTab] = useState<SideNavItem | null>(null)
   const [tabsCleared, setTabsCleared] = useState(false)
+
+  useEffect(() => {
+    const header = headerRef.current
+    const tab = header?.querySelector<HTMLAnchorElement>(
+      'a[aria-current="page"]'
+    )?.parentElement
+    if (!header || !tab) return
+    const bounds = header.getBoundingClientRect()
+    const tabBounds = tab.getBoundingClientRect()
+    const inset = parseFloat(getComputedStyle(header).paddingLeft) || 0
+    if (tabBounds.left < bounds.left + inset)
+      header.scrollLeft -= bounds.left + inset - tabBounds.left
+    else if (tabBounds.right > bounds.right)
+      header.scrollLeft += tabBounds.right - bounds.right
+  }, [activeTab?.path, openTabs.length])
 
   const updateOpenTabs = (tab: SideNavItem) => {
     setOpenTabs((prevTabs) => {
@@ -98,9 +114,10 @@ const Header = ({ onTabsChange }: HeaderProps) => {
     if (activeTab?.path === item.path) {
       const currentTabIndex = openTabs.indexOf(item)
       const lastFilteredIndex = filteredTabs.length - 1
-      const newItem = currentTabIndex <= lastFilteredIndex
-        ? filteredTabs[currentTabIndex]
-        : filteredTabs[currentTabIndex - 1]
+      const newItem =
+        currentTabIndex <= lastFilteredIndex
+          ? filteredTabs[currentTabIndex]
+          : filteredTabs[currentTabIndex - 1]
       setActiveTab(newItem)
       setNextTab(newItem)
     }
@@ -199,17 +216,14 @@ const Header = ({ onTabsChange }: HeaderProps) => {
       e.dataTransfer.setData("text/x-header-reorder", String(index))
       e.dataTransfer.effectAllowed = "copyMove"
     },
-    [],
+    []
   )
 
-  const handleTabDragOver = useCallback(
-    (e: React.DragEvent, index: number) => {
-      if (!e.dataTransfer.types.includes("text/x-header-reorder")) return
-      e.preventDefault()
-      setDropIndex(index)
-    },
-    [],
-  )
+  const handleTabDragOver = useCallback((e: React.DragEvent, index: number) => {
+    if (!e.dataTransfer.types.includes("text/x-header-reorder")) return
+    e.preventDefault()
+    setDropIndex(index)
+  }, [])
 
   const handleTabDrop = useCallback(
     (e: React.DragEvent, targetIndex: number) => {
@@ -232,7 +246,7 @@ const Header = ({ onTabsChange }: HeaderProps) => {
       })
       setDropIndex(null)
     },
-    [],
+    []
   )
 
   const handleDragEnd = useCallback(() => {
@@ -240,14 +254,12 @@ const Header = ({ onTabsChange }: HeaderProps) => {
   }, [])
 
   return (
-    <header className={styles.header}>
+    <header ref={headerRef} className={styles.header} aria-label="Open files">
       <ul>
         {openTabs.map((item, index) => (
-          <div
-            onMouseOver={() => setShowRemove(item.title)}
-            onMouseOut={() => setShowRemove(null)}
+          <li
             key={item.path}
-            className={`${styles.container} ${dropIndex === index ? styles.dropIndicator : ""}`}
+            className={`${styles.container} ${activeTab?.path === item.path ? styles.active : ""} ${dropIndex === index ? styles.dropIndicator : ""}`}
             draggable
             onDragStart={(e) => handleDragStart(e, item, index)}
             onDragOver={(e) => handleTabDragOver(e, index)}
@@ -257,23 +269,21 @@ const Header = ({ onTabsChange }: HeaderProps) => {
             <Link
               href={item.path}
               draggable={false}
-              className={
-                activeTab && item.title === activeTab.title ? styles.active : ""
-              }
+              aria-current={activeTab?.path === item.path ? "page" : undefined}
+              title={item.title}
             >
-              <li>
-                {item.icon}
-                {item.title}
-              </li>
+              {item.icon}
+              <span>{item.title}</span>
             </Link>
-
-            {(activeTab && item.title === activeTab.title) ||
-            showRemove === item.title ? (
-              <div onClick={() => removeTab(item)} className={styles.xMark}>
-                {xMark.icon}
-              </div>
-            ) : null}
-          </div>
+            <button
+              type="button"
+              onClick={() => removeTab(item)}
+              className={styles.xMark}
+              aria-label={`Close ${item.title}`}
+            >
+              {xMark.icon}
+            </button>
+          </li>
         ))}
       </ul>
     </header>

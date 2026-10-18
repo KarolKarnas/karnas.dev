@@ -1,59 +1,41 @@
-@use "../../scss/colors.scss";
-@use "../../scss/fonts.scss";
-@use "../../scss/mixins.scss";
-@use "../../scss/spacing.scss";
-@use "../../scss/breakpoints.scss";
-
 .list-item {
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  border-bottom: 3px solid colors.$navy-500;
-  width: 240px;
-  @include breakpoints.cq-sm {
-    width: 300px;
-  }
-  @include breakpoints.cq-lg {
-    width: 400px;
-  }
-  @include breakpoints.cq-xl2 {
-    width: 500px;
-  }
-
+  list-style: none;
+  width: 100%;
+  min-width: 0;
   a {
     display: flex;
-    gap: spacing.$s3;
-    color: colors.$purple-100;
-    height: 100%;
-    padding: spacing.$s3;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
     text-decoration: none;
-    background-color: colors.$grey-950;
-    border-radius: 5px 5px 0 0;
-
-    .textContainer {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      @include mixins.drop-shadow-md-color(
-        colors.$shadow-white-700,
-        colors.$shadow-white-600
-      );
-    }
+    background: var(--surface);
+    font-size: 0.75rem;
+    transition:
+      border-color 0.15s,
+      background 0.15s;
     &:hover {
-      background-color: rgba(colors.$blue-600, 0.2);
-    }
-
-    .iconContainer {
-      svg {
-        height: 20px;
-      }
+      border-color: var(--border-strong);
+      background: var(--surface-raised);
     }
   }
-
-  a.light {
-    background-color: rgba(colors.$grey-650, 0.5);
-    &:hover {
-      background-color: rgba(colors.$blue-600, 0.2);
-    }
+}
+.iconContainer {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  svg {
+    width: 100%;
+    height: 100%;
   }
+}
+.textContainer {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
