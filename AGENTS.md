@@ -1,0 +1,195 @@
+# Zasady pracy nad karnas.dev
+
+## Cel i charakter projektu
+
+To osobiste portfolio Karola Karnasa z blogiem, inspirowane Visual Studio Code
+i motywem Monokai. Interfejs edytora jest częścią tożsamości strony: explorer,
+zakładki plików, breadcrumbs, podział edytora, terminal i pasek statusu mają
+działać jako spójna całość.
+
+- Zachowuj tę koncepcję przy zmianach UI. Rozwijaj istniejący język wizualny,
+  zamiast wprowadzać niezależny motyw lub przebudowywać stronę w landing page.
+- Treści strony są po angielsku (`lang="en"`). Komunikuj się z użytkownikiem
+  w języku jego wiadomości.
+- Aktualne pozycjonowanie autora to **Backend Engineer · Data Analysis · Agentic AI**.
+  Opisy starszych projektów mogą dotyczyć frontendu. Nie zmieniaj faktów o autorze,
+  doświadczeniu, klientach, kursach ani wynikach projektów bez podstawy w zadaniu.
+- Przed edycją sprawdź `git status` i zachowaj zastane zmiany. Ogranicz zakres
+  do zadania; nie łącz go z masowym formatowaniem ani niepowiązanymi poprawkami.
+
+## Stos i uruchomienie
+
+Źródłem prawdy o wersjach są `package.json` i `package-lock.json`.
+Projekt używa Next.js App Router, Reacta, TypeScriptu w trybie strict,
+Sass/CSS Modules, gray-matter i Zod. Treść jest lokalna; nie ma CMS,
+bazy danych ani konfiguracji logowania. Vercel jest opisanym miejscem wdrożenia.
+
+Używaj npm i Node.js >=22. Zachowuj jeden lockfile; po zmianie zależności
+aktualizuj również `package-lock.json`.
+
+```bash
+npm ci
+npm run dev
+npm run gen:nav
+npx tsc --noEmit
+NEXT_PUBLIC_BASE_URL=https://www.karnas.dev npm run build
+npm start
+```
+
+- `npm run dev` uruchamia Turbopack; `npm start` wymaga gotowego buildu.
+- `predev` i `prebuild` uruchamiają generator nawigacji. To nie jest watcher:
+  po zmianie frontmatter podczas pracy serwera uruchom `npm run gen:nav` ponownie.
+- `NEXT_PUBLIC_BASE_URL` jest używane przez `sitemap.ts` i `robots.ts`.
+  Ustaw właściwy pełny adres dla docelowego środowiska; bez niego build może
+  przejść, ale adresy w tych plikach będą zawierać `undefined`.
+- Root layout pobiera Roboto Mono przez `next/font/google`; czysty build może
+  wymagać dostępu do Google Fonts. Obrazy pochodzą m.in. z Cloudinary.
+- Przy aktualizacjach narzędzi sprawdzaj peer dependencies. Obecnie TypeScript
+  jest na 6.x ze względu na parser `typescript-eslint`, ESLint na 9.x ze względu
+  na wtyczki React/import/accessibility, a `@types/node` odpowiada linii Node 22.
+  Ponownie sprawdź ograniczenia, zanim przejdziesz na kolejną główną wersję.
+
+## Mapa repozytorium
+
+| Miejsce | Odpowiedzialność |
+| --- | --- |
+| `src/app/layout.tsx` | Font, globalne SCSS, metadane, Vercel Analytics, `SplitViewProvider` |
+| `src/app/(main)/layout.tsx` | Powłoka edytora: sidebar, header, zawartość, terminal i status bar |
+| `src/app/(main)/` | Home, about, skills, contact, blog i dwie sekcje projektów |
+| `src/app/(embedded)/embedded/` | Wersje stron dla iframe prawego panelu, bez powłoki głównego edytora |
+| `src/app/_components/` | Współdzielone komponenty wraz z lokalnymi plikami `.module.scss` |
+| `src/app/scss/` | Kolory Monokai, spacing, font sizes, breakpointy, mixiny i reset globalny |
+| `_posts/`, `_projects/`, `_professional/` | Blog, projekty osobiste i projekty zawodowe w plikach `.md` |
+| `src/lib/api.ts` | Serwerowy odczyt plików, parsowanie frontmatter, walidacja Zod, sortowanie |
+| `src/utils/schemas.ts`, `types.ts` | Schematy treści i typy aplikacji |
+| `scripts/gen-nav.mjs` | Generator menu z frontmatter |
+| `src/utils/generated-nav.ts` | Wersjonowany wynik generatora; nie edytuj ręcznie |
+| `src/utils/constants.tsx` | `SIDENAV_ITEMS`, sociale, grupy umiejętności i cytat |
+| `src/utils/info.tsx` | Dane widoku „about.json” i deklaracja danych kontaktowych |
+| `src/icons/` | Ikony technologii, brandu, sociali i UI oraz eksporty zbiorcze |
+| `src/app/api/content/route.ts` | Publiczne dane wpisów i projektów dla terminala |
+| `public/` | Lokalne zdjęcia, ilustracje, placeholdery i favicony |
+
+## Treść, ikony i nawigacja
+
+1. Dodawaj treść w odpowiednim katalogu `.md`, wzorując się na istniejącym wpisie
+   i schemacie w `src/utils/schemas.ts`. Nazwa pliku bez `.md` jest slugiem URL;
+   zachowuj istniejące slugi przy zmianach tytułów.
+2. Wspólne wymagane pola frontmatter: `author_name`, `title`, `sub_title`,
+   `content_title`, `main_image`, `category`, `tags`, `date`, `fields`.
+   Projekty wymagają też `main_icon` i `icons_stack`; `stack` jest opcjonalne.
+   `live_demo` i `repo` są opcjonalne i domyślnie stają się pustym stringiem.
+3. Używaj dat jako cytowanych stringów ISO. Odczyt treści i generator sortują
+   daty malejąco przez porównanie stringów; zachowuj spójny format.
+4. Ustaw `nav_title` i `nav_icon`. Schemat dopuszcza ich brak, ale generator
+   pomija wtedy wpis z ostrzeżeniem. `nav_title` jest etykietą pliku w edytorze,
+   np. `about.json` lub `hands_on_llms.epub`, a niekoniecznie tytułem artykułu.
+5. `nav_icon` i elementy `icons_stack` muszą dokładnie odpowiadać nazwom eksportów
+   z `src/icons/index.ts`, np. `nextJs`, `python`, `typeScriptAlt`. Zod sprawdza
+   tu stringi, nie istnienie ikon; błędna nazwa może zepsuć renderowanie.
+6. Nowa ikona powinna pasować do kontraktu `IconText` (`icon` i `text`). Dodaj
+   eksport w indeksie właściwej kategorii i w `src/icons/index.ts`. Dla SVG
+   z gradientami lub maskami stosuj unikalne ID, np. `useId()` jak w `python.tsx`.
+7. Uruchom generator i uwzględnij zmiany `generated-nav.ts`. Menu zasila także
+   home, zakładki, breadcrumbs i język wyświetlany na pasku statusu.
+
+Pliki `.md` mają YAML frontmatter oraz tekst po zamykającym `---`. Szczegółowe
+sekcje artykułu są przechowywane w `fields`: `title`, `content`, `second_content`,
+`list`, `image`, `links`. `DetailFields` renderuje je wspólnie dla bloga i projektów.
+Body jest obecnie renderowane w `<p>` jako tekst. `src/lib/markdownToHtml.ts`
+istnieje, ale nie jest używany: nie zakładaj, że Markdown, HTML czy fenced code
+blocks zostaną sformatowane bez zmiany ścieżki renderowania.
+
+`src/lib/api.ts` używa `fs` i waliduje dane podczas odczytu. Trzymaj odczyt
+plików po stronie serwera; dane klienta dostarczaj przez props lub `/api/content`.
+Dodając sekcję lub trasę, sprawdź również `SIDENAV_ITEMS`, dispatcher i parametry
+statyczne `/embedded/[...slug]`, komendy terminala, API treści oraz sitemapę.
+Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
+
+## Styl i komponenty
+
+- Zachowuj Roboto Mono, ciemne tła Monokai, kolorowe ikony plików, kompaktowe
+  zakładki i stany aktywne/hover. Korzystaj z tokenów w `src/app/scss/` przez
+  Sass `@use`; nowe style komponentu umieszczaj obok niego w CSS Module.
+- Layout powłoki dostosowuj do viewportu. Zawartość stron i kart dostosowuj
+  przede wszystkim do szerokości kontenera (`cq-*` w `_breakpoints.scss`),
+  ponieważ panel podziału może być wąski nawet na dużym monitorze.
+- Zachowuj `container-type: inline-size`, `min-width: 0`, ograniczenia overflow
+  i osobne obszary scrollowania. Główny dokument ma zablokowany scroll,
+  a lewy panel i dokument iframe przewijają się niezależnie.
+- JS używa `LG_BREAKPOINT = 1024` z `src/utils/breakpoints.ts`; SCSS ma też
+  inne progi dla konkretnych elementów. Przy zmianie responsywności sprawdzaj
+  obie warstwy zamiast zakładać jeden wspólny próg.
+- Współdziel istniejące `ProjectList`, `ProjectDetail`, `DetailFields`,
+  `AuthorFooter`, nagłówki i `StackIcons`, zamiast kopiować ich implementację.
+- Nowe komponenty domyślnie pozostawiaj serwerowe. `"use client"` dodawaj tam,
+  gdzie potrzebne są hooki, eventy lub API przeglądarki. Używaj aliasu `@/` do `src/`.
+- Styl TypeScriptu: dwa odstępy, podwójne cudzysłowy, bez średników,
+  zgodnie z `prettier.config.cjs`. Pliki i katalogi komponentów używają kebab-case.
+  Konfiguracja Prettiera zawiera opcje sortowania importów, ale nie ma aktywnej
+  wtyczki (`plugins: []`); nie zakładaj, że importy sortują się automatycznie.
+- Zachowuj dostępność: etykiety przycisków ikonowych, klawiaturę, focus,
+  czytelność tekstu i alternatywne opisy obrazów. Nie dodawaj zagnieżdżonych linków.
+  Dla nowych hostów `next/image` zaktualizuj `remotePatterns` w `next.config.js`;
+  obecnie są tam `res.cloudinary.com` i `raw.githubusercontent.com`.
+
+## Zachowania edytora wymagające uwagi
+
+- **Zakładki:** `header.tsx` synchronizuje trasę i otwarte pliki. Zamknięcie
+  ostatniej zakładki pokazuje pusty edytor; gdy prawy panel ma pliki, są one
+  przenoszone do nagłówka. Zachowuj osłonę przed ponownym otwarciem zamkniętej
+  zakładki przez spóźnioną aktualizację pathname.
+- **Drag and drop:** header, sidebar i split view współdzielą typy
+  `text/x-split-view*` oraz oznaczenia reorder/source. Zmiany protokołu muszą
+  obejmować nadawcę i odbiorcę. Eventy `close-header-tab` i
+  `move-header-tabs-to-right` koordynują przenoszenie plików. Snapshot
+  `paneTabsAfter` chroni przed użyciem starego stanu podczas synchronicznego dropu.
+- **Prawy panel:** iframe otwiera `/embedded${url}`. Te trasy współdzielą
+  komponenty stron głównych, ale nie powinny dostać kolejnego sidebara,
+  nagłówka ani terminala. Wewnętrzne linki przekazują `split-view-navigate`
+  do rodzica. Zachowuj kontrolę `event.origin` i konkretny origin w `postMessage`.
+- **Scroll i resize:** embedded layout przywraca scroll dokumentu zablokowany
+  przez globalny reset. Nakładka na iframe podczas zmiany rozmiaru zapobiega
+  przechwytywaniu ruchu myszy. Sprawdzaj ją również podczas resize terminala.
+- **Stan lokalny:** klucze to `sidebar-width`, `split-view-state` i
+  `terminal-state`. Split view odtwarza stan po mount; terminal zapisuje tylko
+  wysokość, nie historię ani otwarcie. Nie przenoś dostępu do `localStorage`
+  do renderowania serwerowego i nie nadpisuj zapisanego stanu przed hydratacją.
+- **Terminal:** to symulacja w przeglądarce, nie shell systemowy. Komendy mają
+  wspólny kontrakt i rejestr w `terminal/commands/index.ts`; treść pobierają
+  z `/api/content`. `TerminalProvider` należy do main layoutu, dlatego
+  `TerminalTrigger` w iframe korzysta z komunikatu `split-view-open-terminal`.
+- **Skróty:** Ctrl + backtick przełącza terminal, strzałki przeglądają historię,
+  Ctrl+C czyści input, Ctrl+L czyści terminal. Ctrl + backslash wywołuje
+  `toggleSplitView`, które obecnie zamyka aktywny podział; otwieranie panelu
+  odbywa się przez drag and drop. Nie opisuj skrótu jako otwierania pustego splitu.
+- Przy zmianach profilu sprawdzaj spójność home, metadanych, about, skills,
+  stopki autora, kontaktu i odpowiedzi terminala. Część danych jest powielona.
+
+## Weryfikacja i istniejące ograniczenia
+
+- Dla zmian kodu, treści lub zależności uruchom odpowiednio `npm run gen:nav`,
+  `npx tsc --noEmit` i build produkcyjny. Samo przejście generatora nie waliduje
+  całego frontmatter. Dla samej dokumentacji wystarcza sprawdzenie zgodności
+  ze źródłami i `git diff --check`.
+- Repo nie ma obecnie skonfigurowanej suity testowej, skryptów `test`/`lint`
+  ani pliku konfiguracji ESLinta. Obecność ikon Jest/pytest/Playwright i wpisów
+  na liście umiejętności nie oznacza, że te narzędzia testują to portfolio.
+  Next.js build nie uruchamia ESLinta. Nie zgłaszaj lint/testów jako zaliczonych
+  bez rzeczywistego wykonania właściwej kontroli.
+- Kontrola standardową konfiguracją Next/TypeScript wykazała istniejące problemy
+  `react-hooks/set-state-in-effect` w layout/header/contextach oraz zależność
+  efektu w headerze. Przy pracy w tych miejscach odróżniaj zastane problemy
+  od regresji; nie wyłączaj globalnie reguł dla uzyskania zielonego wyniku.
+- `stack` i `neofetch` w `terminal/commands/info.ts` mają stare etykiety Next.js 15.
+  Wersję frameworka ustalaj z manifestu, nie z tych tekstów ani opisów portfolio.
+- Przy aktualizacji zależności wykonaj `npm audit` i oceń wynik. Nie stosuj
+  automatycznie `npm audit fix --force`: sugerowane cofnięcie głównej wersji
+  może być niezgodne z aktualnym frameworkiem. Raportuj nierozwiązane podatności.
+- Dla zmian UI sprawdź desktop, telefon i wąski split: nawigację i mobile menu,
+  otwieranie/zamykanie i kolejność zakładek, zamknięcie ostatniego pliku,
+  przenoszenie między panelami, resize, scroll długiego wpisu w obu panelach,
+  linki oraz terminal (`help`, `ls`, `cd`, `cat`, `find`, historia i clear).
+  Dla zmian stanu sprawdź też odświeżenie strony z zapisanym stanem.
+- Nie edytuj ręcznie artefaktów `.next/`, `next-env.d.ts`, `*.tsbuildinfo`
+  ani `node_modules/`. W podsumowaniu podaj wykonane kontrole i ich rzeczywisty wynik.

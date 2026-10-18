@@ -42,10 +42,17 @@ The application is designed to be fully responsive, aiming to maintain a consist
 
 ### Install Dependencies
 
+Use Node.js 22 or newer. Node.js type definitions follow the Node.js 22 runtime.
+
 ```
 npm install
 
 ```
+
+TypeScript stays on 6.x while `typescript-eslint` requires TypeScript below 6.1.
+ESLint stays on 9.x while the React, import, and accessibility plugins used by
+`eslint-config-next` do not declare support for ESLint 10. Recheck these peer
+dependencies before upgrading either tool to its next major version.
 
 ### Run
 
