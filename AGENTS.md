@@ -181,6 +181,10 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
 - **Scroll i resize:** embedded layout przywraca scroll dokumentu zablokowany
   przez globalny reset. Nakładka na iframe podczas zmiany rozmiaru zapobiega
   przechwytywaniu ruchu myszy. Sprawdzaj ją również podczas resize terminala.
+- **Powrót na górę:** `BackToTop` śledzi scroll lewego panelu przez ref, a w iframe
+  scroll dokumentu. Trzymaj kontrolkę poza przewijaną treścią; każdy panel ma
+  własny przycisk i pierścień postępu. Respektuj ograniczenie ruchu aplikacji
+  oraz systemu i przenoś fokus na początek treści po aktywacji klawiaturą.
 - **Stan lokalny:** klucze to `sidebar-width`, `split-view-state` i
   `terminal-state`. Preferencje wyglądu zapisuje `karnas-appearance`. Split view odtwarza stan po mount; terminal zapisuje tylko
   wysokość, nie historię ani otwarcie. Nie przenoś dostępu do `localStorage`

@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import styles from "./layout.module.scss"
 import { forwardTerminalShortcut } from "@/app/_components/terminal/terminal-controls"
+import BackToTop from "@/app/_components/back-to-top/back-to-top"
 
 export default function EmbeddedLayout({
   children,
@@ -38,5 +39,10 @@ export default function EmbeddedLayout({
     return () => document.removeEventListener("click", handleClick, true)
   }, [])
 
-  return <main className={styles.content}>{children}</main>
+  return (
+    <>
+      <main className={styles.content}>{children}</main>
+      <BackToTop />
+    </>
+  )
 }

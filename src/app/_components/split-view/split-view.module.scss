@@ -23,6 +23,13 @@
   position: relative;
 }
 
+.scrollTools {
+  position: absolute;
+  inset: 0 auto 0 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
 // Left drop zone - appears when dragging a pane tab back to the main view
 .leftDropZone {
   position: absolute;

@@ -1,0 +1,67 @@
+.button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  background: var(--chrome);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    color 0.18s,
+    background-color 0.18s,
+    border-color 0.18s;
+
+  &:hover {
+    color: var(--accent);
+    background: var(--surface-raised);
+    border-color: var(--border-strong);
+  }
+
+  &:focus-visible {
+    border-radius: 50%;
+  }
+}
+
+.viewport {
+  position: fixed;
+}
+
+.progress {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 1.5;
+  transform: rotate(-90deg);
+}
+
+.track {
+  stroke: var(--border);
+}
+
+.indicator {
+  stroke: var(--accent);
+  stroke-linecap: round;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 767px) {
+  .button {
+    right: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
+}

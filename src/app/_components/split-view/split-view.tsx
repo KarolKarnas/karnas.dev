@@ -10,6 +10,7 @@ import BreadcrumbBar from "../breadcrumb-bar/breadcrumb-bar"
 import { useTerminalOptional } from "../terminal/terminal-context"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { SideNavItem } from "@/utils/types"
+import BackToTop from "../back-to-top/back-to-top"
 
 function buildIconMap(items: SideNavItem[]): Map<string, React.ReactNode> {
   const map = new Map<string, React.ReactNode>()
@@ -44,6 +45,7 @@ export default function SplitView({ children }: SplitViewProps) {
   } = useSplitView()
 
   const containerRef = useRef<HTMLDivElement>(null)
+  const leftPaneRef = useRef<HTMLDivElement>(null)
   const rightPaneRef = useRef<HTMLDivElement>(null)
   const [isLeftOver, setIsLeftOver] = useState(false)
   const [isRightOver, setIsRightOver] = useState(false)
@@ -268,10 +270,17 @@ export default function SplitView({ children }: SplitViewProps) {
       {/* Left pane */}
       <div
         className={styles.leftPane}
+        ref={leftPaneRef}
         style={isActive ? { width: `${splitRatio * 100}%` } : undefined}
       >
         <BreadcrumbBar />
         {children}
+      </div>
+      <div
+        className={styles.scrollTools}
+        style={{ width: isActive ? `${splitRatio * 100}%` : "100%" }}
+      >
+        <BackToTop scrollRef={leftPaneRef} />
       </div>
 
       {/* Left drop zone. Rendered outside leftPane so it is not affected by
