@@ -59,4 +59,44 @@ const theme: Command = {
   },
 }
 
-export const workspaceCommands: Command[] = [tree, theme]
+const particles: Command = {
+  name: "particles",
+  description: "Control background particles and their mouse interactions",
+  usage: "particles [on|off|status] | particles <cursor|click> <on|off>",
+  execute: (args, context) => {
+    const [action, value] = args.map((arg) => arg.toLowerCase())
+    const { appearance, updateAppearance } = context
+    const state = (enabled: boolean) => (enabled ? "on" : "off")
+    if (!args.length || (args.length === 1 && action === "status")) {
+      return [
+        `Background particles: ${state(appearance.backgroundEnabled)}`,
+        `Cursor reaction:     ${state(appearance.backgroundCursor)}`,
+        `Click-to-add points: ${state(appearance.backgroundAddPoints)}`,
+        "",
+        "particles on | off",
+        "particles cursor on | off",
+        "particles click on | off",
+        "Changes are saved with your appearance settings.",
+      ].join("\n")
+    }
+    if (args.length === 1 && ["on", "off"].includes(action)) {
+      updateAppearance({ backgroundEnabled: action === "on" })
+      return `Background particles: ${action}.`
+    }
+    if (
+      args.length === 2 &&
+      ["cursor", "click"].includes(action) &&
+      ["on", "off"].includes(value)
+    ) {
+      const key =
+        action === "cursor" ? "backgroundCursor" : "backgroundAddPoints"
+      updateAppearance({ [key]: value === "on" })
+      const label =
+        action === "cursor" ? "Cursor reaction" : "Click-to-add points"
+      return `${label}: ${value}.${appearance.backgroundEnabled ? "" : " Background is off; run 'particles on' to see it."}`
+    }
+    return `Usage: ${particles.usage}`
+  },
+}
+
+export const workspaceCommands: Command[] = [tree, theme, particles]

@@ -78,6 +78,9 @@ NEXT_PUBLIC_BASE_URL=https://www.karnas.dev npm run build
 
 The base URL is required for correct sitemap and robots URLs. Appearance settings
 are available from the gear button at the bottom of the explorer.
+The optional animated background, cursor response, and click-to-add points are
+off by default. Enable them under Background particles; preferences are saved on this device
+and shared with split-view panes. Reduced motion keeps the network static.
 
 ### Explore from the terminal
 
@@ -93,6 +96,10 @@ ls -l
 tree ~
 cd -
 theme dark-modern
+particles on
+particles cursor on
+particles click on
+particles off
 matrix
 ```
 
@@ -102,6 +109,9 @@ keeping the terminal's working directory; `cd` changes both. `exit` closes the
 terminal. The terminal session stays in memory; only its height is saved locally.
 `tree` shows the directory structure, `cd -` returns to the previous directory,
 and `theme` changes the same persisted appearance setting as the gear menu.
+`particles` shows the background preferences; use `on`/`off` to switch the effect,
+`cursor on`/`off` for mouse interaction, and `click on`/`off` for adding points.
+These commands update the same saved preferences as Settings → Background particles.
 `matrix` runs digital rain for up to 18 seconds; stop it with Escape, Ctrl+C, or
 the Back to terminal button. Reduced-motion settings show a still frame.
 

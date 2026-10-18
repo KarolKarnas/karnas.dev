@@ -23,11 +23,17 @@ export type Appearance = {
   theme: Theme
   textSize: "small" | "default" | "large"
   reducedMotion: boolean
+  backgroundEnabled: boolean
+  backgroundCursor: boolean
+  backgroundAddPoints: boolean
 }
 export const DEFAULT_APPEARANCE: Appearance = {
   theme: "monokai",
   textSize: "default",
   reducedMotion: false,
+  backgroundEnabled: false,
+  backgroundCursor: false,
+  backgroundAddPoints: false,
 }
 
 export function parseAppearance(raw: string): Appearance {
@@ -41,6 +47,9 @@ export function parseAppearance(raw: string): Appearance {
         ? value.textSize
         : "default",
       reducedMotion: value?.reducedMotion === true,
+      backgroundEnabled: value?.backgroundEnabled === true,
+      backgroundCursor: value?.backgroundCursor === true,
+      backgroundAddPoints: value?.backgroundAddPoints === true,
     }
   } catch {
     return DEFAULT_APPEARANCE

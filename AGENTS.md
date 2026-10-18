@@ -185,6 +185,18 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
   scroll dokumentu. Trzymaj kontrolkę poza przewijaną treścią; każdy panel ma
   własny przycisk i pierścień postępu. Respektuj ograniczenie ruchu aplikacji
   oraz systemu i przenoś fokus na początek treści po aktywacji klawiaturą.
+- **Animowane tło:** `AmbientNetwork` należy do powłoki panelu, a nie poszczególnych
+  stron. Canvas pozostaje pod treścią, nie przechwytuje kliknięć i ma osobną
+  instancję w iframe. Kolory pobieraj po zastosowaniu motywu. Ograniczenie ruchu
+  aplikacji/systemu oznacza statyczną sieć; ukryta karta i niewidoczny panel
+  zatrzymują animację. Zachowuj limit liczby punktów, 30 FPS i DPR do 2.
+  Tło oraz interakcje są domyślnie wyłączone. Przełączniki tła, reakcji na kursor
+  i dodawania punktów kliknięciem należą do `AppearanceSettings` i zapisują się
+  w `karnas-appearance`. Wyłączenie tła usuwa canvas i jego nasłuchy. Kliknięcia
+  kontrolek, linków i zaznaczonego tekstu nie mogą dodawać punktów.
+  Terminal udostępnia `particles [on|off|status]`, `particles cursor on|off`
+  i `particles click on|off` przez ten sam `AppearanceProvider`; zachowuj
+  zgodność z przełącznikami Settings i uzupełnianiem Tab.
 - **Stan lokalny:** klucze to `sidebar-width`, `split-view-state` i
   `terminal-state`. Preferencje wyglądu zapisuje `karnas-appearance`. Split view odtwarza stan po mount; terminal zapisuje tylko
   wysokość, nie historię ani otwarcie. Nie przenoś dostępu do `localStorage`

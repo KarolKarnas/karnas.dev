@@ -188,6 +188,18 @@ export function completeCommand(
       .filter((command) => command.startsWith(input.toLowerCase()))
       .sort()
   const match = input.match(/^(\S+)\s+(.*)$/)
+  if (match?.[1].toLowerCase() === "particles") {
+    const args = match[2].toLowerCase().split(/\s+/)
+    if (args.length === 1)
+      return ["on", "off", "status", "cursor", "click"]
+        .filter((option) => option.startsWith(args[0]))
+        .map((option) => `particles ${option}`)
+    if (args.length === 2 && ["cursor", "click"].includes(args[0]))
+      return ["on", "off"]
+        .filter((option) => option.startsWith(args[1]))
+        .map((option) => `particles ${args[0]} ${option}`)
+    return []
+  }
   if (match?.[1] === "theme")
     return THEMES.filter((theme) => theme.id.startsWith(match[2])).map(
       (theme) => `theme ${theme.id}`

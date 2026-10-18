@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import styles from "./layout.module.scss"
 import { forwardTerminalShortcut } from "@/app/_components/terminal/terminal-controls"
 import BackToTop from "@/app/_components/back-to-top/back-to-top"
+import AmbientNetwork from "@/app/_components/ambient-network/ambient-network"
 
 export default function EmbeddedLayout({
   children,
@@ -41,6 +42,7 @@ export default function EmbeddedLayout({
 
   return (
     <>
+      <AmbientNetwork viewport />
       <main className={styles.content}>{children}</main>
       <BackToTop />
     </>

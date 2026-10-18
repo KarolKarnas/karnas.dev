@@ -5,7 +5,7 @@ import { contentCommands } from "./content"
 import { infoCommands } from "./info"
 import { funCommands } from "./fun"
 import { workspaceCommands } from "./workspace"
-import type { Theme } from "../../appearance/appearance-config"
+import type { Appearance, Theme } from "../../appearance/appearance-config"
 
 export type CommandContext = {
   navigate: (path: string) => void
@@ -17,6 +17,8 @@ export type CommandContext = {
   previousPath: string | null
   theme: Theme
   setTheme: (theme: Theme) => void
+  appearance: Appearance
+  updateAppearance: (patch: Partial<Appearance>) => void
   startMatrix: () => void
   clearTerminal: () => void
   closeTerminal: () => void

@@ -56,6 +56,9 @@ const filesystem = load(
   resolve(root, "src/app/_components/terminal/terminal-filesystem.ts")
 )
 const navigation = load(resolve(root, "src/utils/generated-nav.ts"))
+const { DEFAULT_APPEARANCE } = load(
+  resolve(root, "src/app/_components/appearance/appearance-config.ts")
+)
 const plain = (value) => JSON.parse(JSON.stringify(value))
 
 function metadata(directory) {
@@ -75,6 +78,7 @@ function createSession(currentPath = "/") {
     currentPath,
     previousPath: null,
     theme: "monokai",
+    appearance: { ...DEFAULT_APPEARANCE },
     posts: metadata("_posts"),
     projects: metadata("_projects"),
     professional: metadata("_professional"),
@@ -96,6 +100,10 @@ function createSession(currentPath = "/") {
     },
     setTheme(theme) {
       context.theme = theme
+      context.appearance.theme = theme
+    },
+    updateAppearance(patch) {
+      Object.assign(context.appearance, patch)
     },
     startMatrix() {
       context.matrix = true
@@ -285,6 +293,58 @@ test("matrix launches an effect rather than generating random text", async () =>
   assert.equal(context.matrix, undefined)
   assert.equal(await run("matrix"), "Wake up, visitor.")
   assert.equal(context.matrix, true)
+})
+
+test("particles controls the same saved background preferences without changing unrelated settings", async () => {
+  const { run, context } = createSession()
+  assert.match(await run("particles"), /Background particles: off/)
+  assert.match(await run("help particles"), /particles <cursor\|click>/)
+  assert.match(await run("particles cursor on"), /Background is off/)
+  assert.equal(context.appearance.backgroundCursor, true)
+  assert.equal(context.appearance.backgroundEnabled, false)
+  await run("particles click on")
+  await run("particles on")
+  assert.equal(context.appearance.backgroundEnabled, true)
+  assert.equal(context.appearance.backgroundAddPoints, true)
+  assert.match(await run("particles status"), /Cursor reaction: +on/)
+  await run("particles cursor off")
+  assert.equal(context.appearance.backgroundCursor, false)
+  assert.equal(context.appearance.backgroundAddPoints, true)
+  await run("particles click off")
+  assert.equal(context.appearance.backgroundAddPoints, false)
+  await run("particles off")
+  assert.deepEqual(plain(context.appearance), plain(DEFAULT_APPEARANCE))
+})
+
+test("invalid particles arguments never change preferences and Tab completes every level", async () => {
+  const { run, context } = createSession()
+  const before = plain(context.appearance)
+  for (const input of [
+    "particles yes",
+    "particles cursor",
+    "particles click maybe",
+    "particles on extra",
+    "particles cursor on extra",
+    "particles status extra",
+  ])
+    assert.match(await run(input), /^Usage:/)
+  assert.deepEqual(plain(context.appearance), before)
+  const complete = (input) =>
+    plain(
+      filesystem.completeCommand(
+        input,
+        "/",
+        terminal.getAllCommands().map((command) => command.name)
+      )
+    )
+  assert.deepEqual(complete("part"), ["particles"])
+  assert.deepEqual(complete("particles cu"), ["particles cursor"])
+  assert.deepEqual(complete("particles cursor "), [
+    "particles cursor on",
+    "particles cursor off",
+  ])
+  assert.deepEqual(complete("particles click of"), ["particles click off"])
+  assert.deepEqual(complete("particles invalid "), [])
 })
 
 test("file listing renders keyboard-accessible buttons, icons and dates", async () => {

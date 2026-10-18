@@ -21,6 +21,15 @@
   min-width: 0;
   overflow-y: auto;
   position: relative;
+  z-index: 1;
+}
+
+.ambientLayer {
+  position: absolute;
+  inset: 0 auto 0 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .scrollTools {

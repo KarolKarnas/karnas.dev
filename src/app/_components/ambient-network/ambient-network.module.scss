@@ -1,0 +1,25 @@
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+  filter: saturate(0.45);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 8%,
+    #000 94%,
+    transparent
+  );
+}
+
+.viewport {
+  position: fixed;
+  z-index: 0;
+}
+
+:global(:root[data-theme="light"]) .canvas {
+  opacity: 0.55;
+}

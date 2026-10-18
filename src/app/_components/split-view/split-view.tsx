@@ -11,6 +11,7 @@ import { useTerminalOptional } from "../terminal/terminal-context"
 import { SIDENAV_ITEMS } from "@/utils/constants"
 import { SideNavItem } from "@/utils/types"
 import BackToTop from "../back-to-top/back-to-top"
+import AmbientNetwork from "../ambient-network/ambient-network"
 
 function buildIconMap(items: SideNavItem[]): Map<string, React.ReactNode> {
   const map = new Map<string, React.ReactNode>()
@@ -268,6 +269,12 @@ export default function SplitView({ children }: SplitViewProps) {
       ref={containerRef}
     >
       {/* Left pane */}
+      <div
+        className={styles.ambientLayer}
+        style={{ width: isActive ? `${splitRatio * 100}%` : "100%" }}
+      >
+        <AmbientNetwork />
+      </div>
       <div
         className={styles.leftPane}
         ref={leftPaneRef}

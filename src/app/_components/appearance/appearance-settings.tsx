@@ -114,6 +114,51 @@ export default function AppearanceSettings() {
               onChange={(e) => update({ reducedMotion: e.target.checked })}
             />
           </div>
+          <fieldset className={styles.background}>
+            <legend>Background particles</legend>
+            <div className={styles.preference}>
+              <label htmlFor="background-enabled">
+                <strong>Animated background</strong>
+                <span>A slow-moving network of particles behind the page.</span>
+              </label>
+              <input
+                id="background-enabled"
+                type="checkbox"
+                checked={appearance.backgroundEnabled}
+                onChange={(e) =>
+                  update({ backgroundEnabled: e.target.checked })
+                }
+              />
+            </div>
+            <div className={styles.preference}>
+              <label htmlFor="background-cursor">
+                <strong>React to cursor</strong>
+                <span>Gently highlight nearby background particles.</span>
+              </label>
+              <input
+                id="background-cursor"
+                type="checkbox"
+                disabled={!appearance.backgroundEnabled}
+                checked={appearance.backgroundCursor}
+                onChange={(e) => update({ backgroundCursor: e.target.checked })}
+              />
+            </div>
+            <div className={styles.preference}>
+              <label htmlFor="background-add-points">
+                <strong>Add particles on click</strong>
+                <span>Click an empty area to add a background particle.</span>
+              </label>
+              <input
+                id="background-add-points"
+                type="checkbox"
+                disabled={!appearance.backgroundEnabled}
+                checked={appearance.backgroundAddPoints}
+                onChange={(e) =>
+                  update({ backgroundAddPoints: e.target.checked })
+                }
+              />
+            </div>
+          </fieldset>
           <footer className={styles.footer}>
             <button type="button" onClick={() => update(DEFAULT_APPEARANCE)}>
               Reset to defaults

@@ -189,6 +189,8 @@ const Terminal = () => {
         previousPath: previousDirectoryRef.current,
         theme: appearance.theme,
         setTheme: (theme) => updateAppearance({ theme }),
+        appearance,
+        updateAppearance,
         startMatrix,
         clearTerminal: clearHistory,
         closeTerminal: close,
@@ -211,7 +213,7 @@ const Terminal = () => {
       content,
       loadContent,
       router,
-      appearance.theme,
+      appearance,
       updateAppearance,
       startMatrix,
     ]

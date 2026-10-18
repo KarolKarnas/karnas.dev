@@ -163,6 +163,9 @@
   gap: 16px;
   padding: 20px 0;
   border-top: 1px solid var(--border);
+  &:has(input:disabled) {
+    opacity: 0.5;
+  }
   label {
     display: flex;
     flex-direction: column;
@@ -189,6 +192,16 @@
     accent-color: var(--accent);
     width: 18px;
     height: 18px;
+  }
+}
+.background {
+  border: 0;
+  padding: 0;
+  margin-top: 8px;
+  legend {
+    padding: 12px 0;
+    color: var(--text-strong);
+    font-size: 0.8rem;
   }
 }
 .footer {
