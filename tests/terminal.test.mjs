@@ -267,7 +267,12 @@ test("tree shows the current directory and nested names without changing it", as
   for (const file of navigation.BLOG_NAV) assert(tree.includes(file.title))
   assert.match(tree, /0 directories, 12 files/)
   const root = await run("tree ~")
-  assert.match(root, /3 directories, 22 files/)
+  const fileCount =
+    4 +
+    navigation.BLOG_NAV.length +
+    navigation.SIDE_PROJECTS_NAV.length +
+    navigation.PROFESSIONAL_PROJECTS_NAV.length
+  assert(root.includes(`3 directories, ${fileCount} files`))
   assert.match(root, /├── blog\//)
   assert.match(await run("tree fluent_python.epub"), /Not a directory/)
   assert.equal(context.currentPath, "/blog")

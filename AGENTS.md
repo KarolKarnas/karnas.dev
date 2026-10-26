@@ -18,7 +18,10 @@ działać jako spójna całość.
   Nie zmieniaj faktów o autorze,
   doświadczeniu, klientach, kursach ani wynikach projektów bez podstawy w zadaniu.
 - Pokazuj zakres od rozmowy z klientem przez interfejs i backend po testy oraz
-  wdrożenie. Zachowuj faktyczny zakres konkretnego projektu: DMS obejmuje React,
+  wdrożenie. Projekt „Housing Platform for HOME” opisuje pracę przez Kruko dla
+  HOME z El Paso. DMS jest częścią szerszej platformy; zachowuj slug
+  `dms-housing-authority` dla istniejących linków. Zachowuj faktyczny zakres
+  konkretnego projektu: wkład w portal i DMS obejmuje React,
   Next.js i Django; Data Bid Machine opisuje wkład backendowy. Oddzielaj wkład
   autora od architektury i pracy całego zespołu. Nie dopisuj C# ani .NET jako
   umiejętności autora: zmiany w tym ekosystemie były wspomagane przez AI i nie
@@ -27,6 +30,11 @@ działać jako spójna całość.
   zmian i weryfikację autora. Herdr i szczegóły własnego orkiestratora pozostaw
   na osobny, konkretny wpis, gdy autor zdecyduje się go przygotować. Istniejące
   recenzje kursów AI mogą omawiać narzędzia z ich programu.
+- Meggie M. Art to side project dla niezależnej ilustratorki (żony autora),
+  nie studio ani zespół. Ilustracje i oryginalny znak są jej autorstwa;
+  wkład Karola obejmuje stronę, CMS i wdrożenie. Publiczny kontakt korzysta
+  z e-maila i Google Forms; nie przedstawiaj historycznego kalkulatora ani
+  backendu zgłoszeń jako aktywnych funkcji.
 - Przed edycją sprawdź `git status` i zachowaj zastane zmiany. Ogranicz zakres
   do zadania; nie łącz go z masowym formatowaniem ani niepowiązanymi poprawkami.
 
@@ -265,3 +273,13 @@ Dynamiczne strony używają asynchronicznego `params` i `generateStaticParams`.
   Dla zmian stanu sprawdź też odświeżenie strony z zapisanym stanem.
 - Nie edytuj ręcznie artefaktów `.next/`, `next-env.d.ts`, `*.tsbuildinfo`
   ani `node_modules/`. W podsumowaniu podaj wykonane kontrole i ich rzeczywisty wynik.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

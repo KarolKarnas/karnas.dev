@@ -1,7 +1,7 @@
 ---
 author_name: "Karol Karnas"
-title: "Document Management System"
-sub_title: "Full-stack delivery for a US housing authority: resident workflows, caseworker tools, document processing, and property-management integrations."
+title: "Housing Platform for HOME"
+sub_title: "Full-stack development for an El Paso housing authority: resident portals, recertification workflows, caseworker tools, and AI-assisted document processing."
 content_title: "The product and my contribution"
 main_image: "/azure.svg"
 main_icon: "django"
@@ -29,8 +29,10 @@ icons_stack:
   - "pytest"
   - "playWright"
 fields:
+  - title: "The platform"
+    content: "HOME (Housing Opportunity Management Enterprises) is a housing authority in El Paso, Texas. The wider platform supports housing operations through resident and staff-facing applications, recertification workflows, and integrations with property-management systems. The Document Management System (DMS) is one component of that platform, handling supporting documents and AI-assisted processing alongside the recertification lifecycle."
   - title: "My role"
-    content: "Full-stack engineer on a long-running client engagement. I work across the resident portal in React and Next.js, Django APIs and business rules, caseworker-facing tools, and external integrations. My work includes clarifying requirements, following a feature across application boundaries, and verifying how the finished flow behaves."
+    content: "Full-stack engineer at Kruko on a long-running engagement for HOME. My contribution spans the resident portal in React and Next.js, Django APIs and business rules, caseworker-facing tools, and external integrations. I clarify requirements with the client, follow features across application boundaries, and verify the finished flow. The platform is built by a team; the examples here describe my contribution within it."
     list:
       - "Built resident questionnaire and expense-reporting flows, including conditional navigation, summaries, validation, and translations"
       - "Connected those screens to backend models, migrations, API responses, and submission rules"
@@ -39,11 +41,11 @@ fields:
       - "Developed caseworker approval flows, dashboard metrics, and AI-generated reporting"
       - "Added regression coverage across backend behavior and browser journeys, with supporting build and pipeline changes"
   - title: "The workflow"
-    content: "Annual and interim housing recertifications involve residents, caseworkers, supporting documents, financial rules, signatures, and a property-management system. A change to one part can affect several others. The product connects document intake, extraction, validation, review, and approval so that staff can follow a case and residents can understand what they still need to provide."
+    content: "Residents provide household details, income and asset information, expenses, supporting documents, and signatures through the portal. Caseworkers review the answers and evidence, resolve missing information, and approve the case. Annual and interim recertifications connect these steps to financial rules and property-management records. My work follows these connections so that residents can complete their tasks and staff can review consistent information."
   - title: "One feature across the stack"
     content: "The zero-income workflow is a useful example of my contribution. On the backend, I added the date and business rules that determine when a household must provide an expense sheet, exposed that decision through the API, and validated the answers. In the portal, I built the questionnaire screens, conditional navigation, and summaries. The work also covered generated documents, caseworker approval, translations, and regression tests. The useful result is a connected workflow, rather than an isolated screen or endpoint."
   - title: "Application architecture"
-    content: "The platform combines a Django backend and REST APIs with a separate React and Next.js resident portal. Caseworker tools also use Django templates, HTMX, Tailwind, and Django Unfold. PostgreSQL stores the application data; Celery and Redis handle background work. My changes cross these boundaries when a feature requires it, while fitting the conventions of the existing codebase."
+    content: "The parts I work on combine a Django backend and REST APIs with a separate React and Next.js resident portal. Caseworker tools also use Django templates, HTMX, Tailwind, and Django Unfold. PostgreSQL stores the application data; Celery and Redis handle background work. These applications sit within the wider housing platform. My changes cross their boundaries when a feature requires it, while fitting the conventions of the existing codebase."
   - title: "AI within the product"
     content: "Document processing is part of the wider platform: OCR services read uploaded files, and Azure OpenAI workflows classify and extract structured information using domain-specific tools and validation. Langfuse traces model calls alongside application monitoring. Within this team-built platform, my contribution connects validation, reporting, and document handling to the interfaces that let people act on the results."
   - title: "Data and integrations"
@@ -72,8 +74,8 @@ tags:
   - "AI Integrations"
   - "Azure"
 date: "2025-02-01"
-nav_title: "dms.py"
+nav_title: "home_housing.py"
 nav_icon: "python"
 ---
 
-A housing recertification platform connecting resident forms, document intake, AI-assisted processing, caseworker review, and property-management integrations. My contribution spans React and Next.js interfaces, Django APIs and business rules, testing, and the delivery work needed to keep these parts working together.
+A housing operations platform for HOME in El Paso, connecting resident portals, recertification workflows, caseworker tools, and property-management integrations. As part of the Kruko team, I work from client requirements through React and Next.js interfaces, Django business rules, testing, and delivery. Document management and AI-assisted processing support the wider resident-to-approval workflow.

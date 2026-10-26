@@ -1,5 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { ReactNode } from "react"
+import { karnas } from "@/icons"
 import getIcons from "@/utils/icon-utils"
 import type { Project } from "@/utils/types"
 import AuthorFooter from "../author-footer/author-footer"
@@ -10,6 +12,78 @@ import ProjectVisual, {
 } from "../project-visual/project-visual"
 import styles from "./project-detail.module.scss"
 
+const PROJECT_IDENTITIES: Record<
+  string,
+  {
+    name: string
+    label: string
+    detail: string
+    logo?: string
+    symbol?: ReactNode
+    width: number
+    height: number
+    wordmark?: boolean
+  }
+> = {
+  "dms-housing-authority": {
+    name: "HOME",
+    label: "CLIENT / VIA KRUKO",
+    detail: "El Paso, Texas",
+    logo: "/assets/clients/home-logo.svg",
+    width: 42,
+    height: 41,
+  },
+  "data-bid-machine": {
+    name: "Data Bid Machine",
+    label: "CLIENT / VIA KRUKO",
+    detail: "Google Ads platform",
+    logo: "/assets/clients/dbm-logo.png",
+    width: 40,
+    height: 41,
+  },
+  "meggiem-art": {
+    name: "Meggie M. Art",
+    label: "INDEPENDENT PROJECT",
+    detail: "Fantasy illustrator",
+    logo: "/assets/projects/meggiem-art/logo.png",
+    width: 128,
+    height: 40,
+    wordmark: true,
+  },
+  "brain-karolkarnas-com": {
+    name: "Brain",
+    label: "INDEPENDENT PROJECT",
+    detail: "Semantic recommendations",
+    symbol: "🧠",
+    width: 36,
+    height: 36,
+  },
+  "card-piper-com": {
+    name: "Card Piper",
+    label: "INDEPENDENT PROJECT",
+    detail: "Content discovery",
+    logo: "/assets/projects/cardpiper/logo.svg",
+    width: 42,
+    height: 42,
+  },
+  "karnas-dev": {
+    name: "karnas.dev",
+    label: "PERSONAL PROJECT",
+    detail: "Portfolio & journal",
+    symbol: karnas.icon,
+    width: 42,
+    height: 42,
+  },
+  "ilustrografia-com": {
+    name: "Ilustrografia",
+    label: "INDEPENDENT PROJECT",
+    detail: "Artist portfolio & print shop",
+    logo: "/assets/projects/ilustrografia/logo.png",
+    width: 42,
+    height: 29,
+  },
+}
+
 export default function ProjectDetail({
   project,
   professional = false,
@@ -17,6 +91,7 @@ export default function ProjectDetail({
   project: Project
   professional?: boolean
 }) {
+  const client = PROJECT_IDENTITIES[project.slug]
   return (
     <article className={styles.container} data-image-gallery>
       <header className={styles.header}>
@@ -30,12 +105,37 @@ export default function ProjectDetail({
           <span>
             {professional
               ? "CASE STUDY / PRODUCTION SYSTEM"
-              : "SIDE PROJECT / BUILT FROM CURIOSITY"}
+              : "SIDE PROJECT / INDEPENDENT BUILD"}
           </span>
           <time dateTime={project.date}>
             {new Date(project.date).getUTCFullYear()}
           </time>
         </div>
+        {client && (
+          <div className={styles.client}>
+            <span
+              className={`${styles.clientMark} ${client.wordmark ? styles.clientWordmark : ""}`}
+            >
+              {client.logo ? (
+                <Image
+                  src={client.logo}
+                  width={client.width}
+                  height={client.height}
+                  alt=""
+                />
+              ) : (
+                <span className={styles.clientSymbol} aria-hidden="true">
+                  {client.symbol}
+                </span>
+              )}
+            </span>
+            <div>
+              <span>{client.label}</span>
+              <strong>{client.name}</strong>
+              <small>{client.detail}</small>
+            </div>
+          </div>
+        )}
         <h1>{project.title}</h1>
         <p>{project.sub_title}</p>
         <div className={styles.links}>

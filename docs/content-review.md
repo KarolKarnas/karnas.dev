@@ -49,6 +49,37 @@ and supporting Docker and pipeline configuration.
 | `_projects/card-piper-com.md` | React and NestJS application work; recommendation model described as an experiment |
 | `_projects/ilustrografia-com.md` | Storefront, product variants, checkout, API, administration, and testing; concise project language |
 | `_projects/karnas-dev.md` | Current workspace behavior, content pipeline, accessibility, and maintenance; historical screenshots identified |
+| `_projects/meggiem-art.md` | Independent illustrator's portfolio, artwork galleries, Payload CMS and publishing; website work separated from the artist's illustrations |
+
+### Meggie M. Art addition (2026-10-26)
+
+Reviewed the local `../meggiem.art` source, README, Payload collections and public
+production pages. The original wordmark was copied from
+`public/brand/meggie-m-original.png` in that repository without alteration.
+Three browser screenshots capture the home page, book cover gallery and
+`/book-covers/wicked-prince-shadows` detail page on the production deployment
+`https://meggiem-art.vercel.app/`. The custom domain returned a redirect error
+in the review browser, while the deployment hostname loaded normally.
+Screenshots are stored as WebP under `public/assets/projects/meggiem-art/`.
+The case study links to the owner's requested public address, `https://meggiem.art/`.
+
+The illustrator works independently and owns the artwork. The case study
+describes Karol's website, CMS and delivery contribution. Public contact uses
+email and Google Forms; the retained estimate/submission code is not presented
+as a live public feature. Project date follows the repository's first commit
+(2026-10-15).
+
+### Project identity marks
+
+Project detail headers use the HOME SVG from the resident portal repository,
+the original DBM logo from `https://databidmachine.com/dbm-logo.png`, and
+Ilustrografia's existing image from
+`https://www.ilustrografia.com/images/logo-ilustrografia.png`.
+Brain retains the brain emoji used by its navigation bar; karnas.dev reuses
+the existing Karnas icon. Card Piper uses its original hat SVG from
+`https://www.cardpiper.karnas.dev/images/pied-piper.svg`. Professional
+engagements are labeled "Client / via Kruko"; independent work has a separate
+label.
 
 ## Posts reviewed
 

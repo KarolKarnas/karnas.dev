@@ -5,19 +5,19 @@ export function hasProjectVisual(slug: string) {
 }
 
 export default function ProjectVisual({ slug }: { slug: string }) {
-  const documents = slug === "dms-housing-authority"
+  const housing = slug === "dms-housing-authority"
   return (
     <div
       className={styles.visual}
-      data-kind={documents ? "documents" : "campaigns"}
+      data-kind={housing ? "housing" : "campaigns"}
       aria-hidden="true"
     >
       <span className={styles.label}>
         SYSTEM OVERVIEW <span>↗</span>
       </span>
       <div className={styles.flow}>
-        {(documents
-          ? ["Intake", "Extract", "Validate"]
+        {(housing
+          ? ["Resident", "Review", "Approval"]
           : ["Campaigns", "Signals", "Insights"]
         ).map((label, index) => (
           <div className={styles.node} key={label}>
@@ -28,11 +28,11 @@ export default function ProjectVisual({ slug }: { slug: string }) {
                 stroke="currentColor"
                 strokeWidth="1.3"
               >
-                {documents ? (
+                {housing ? (
                   index === 0 ? (
                     <>
-                      <path d="M9 4h10l5 5v19H9z" />
-                      <path d="M18 4v6h6M12 16h9M12 20h7" />
+                      <circle cx="16" cy="10" r="5" />
+                      <path d="M6 28v-3a10 10 0 0 1 20 0v3" />
                     </>
                   ) : index === 1 ? (
                     <>
@@ -66,9 +66,9 @@ export default function ProjectVisual({ slug }: { slug: string }) {
       </div>
       <div className={styles.bottom}>
         <span>
-          {documents ? "DOCUMENT INTELLIGENCE" : "CAMPAIGN INTELLIGENCE"}
+          {housing ? "HOUSING OPERATIONS" : "CAMPAIGN INTELLIGENCE"}
         </span>
-        <span>{documents ? "AZURE" : "AWS"}</span>
+        <span>{housing ? "AZURE" : "AWS"}</span>
       </div>
     </div>
   )

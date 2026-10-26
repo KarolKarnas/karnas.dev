@@ -66,6 +66,62 @@
     display: none;
   }
 }
+.client {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+  > div > span {
+    color: var(--subtle);
+    font-size: 0.55rem;
+    letter-spacing: 0.09em;
+  }
+  strong {
+    color: var(--text-strong);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  small {
+    color: var(--muted);
+    font-size: 0.65rem;
+  }
+}
+.clientMark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 62px;
+  height: 62px;
+  padding: 10px;
+  border: 1px solid rgb(0 0 0 / 8%);
+  border-radius: 10px;
+  background: #fff;
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+.clientSymbol {
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  line-height: 1;
+  svg {
+    width: 42px;
+    height: 42px;
+  }
+}
+.clientWordmark {
+  width: 148px;
+  background: #191222;
+  border-color: rgb(255 255 255 / 12%);
+}
 .cover {
   display: grid;
   border: 1px solid var(--border);

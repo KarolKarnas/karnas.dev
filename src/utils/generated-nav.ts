@@ -23,6 +23,7 @@ export const BLOG_NAV: NavEntry[] = [
 ]
 
 export const SIDE_PROJECTS_NAV: NavEntry[] = [
+  { title: "meggiem.art", slug: "meggiem-art", iconName: "nextJs" },
   { title: "brain.karolkarnas.com", slug: "brain-karolkarnas-com", iconName: "python" },
   { title: "cardpiper.com", slug: "card-piper-com", iconName: "nestJs" },
   { title: "karnas.dev", slug: "karnas-dev", iconName: "nextJs" },
@@ -30,6 +31,6 @@ export const SIDE_PROJECTS_NAV: NavEntry[] = [
 ]
 
 export const PROFESSIONAL_PROJECTS_NAV: NavEntry[] = [
-  { title: "dms.py", slug: "dms-housing-authority", iconName: "python" },
+  { title: "home_housing.py", slug: "dms-housing-authority", iconName: "python" },
   { title: "data_bid_machine.py", slug: "data-bid-machine", iconName: "python" },
 ]
