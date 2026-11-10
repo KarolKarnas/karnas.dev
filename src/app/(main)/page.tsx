@@ -93,7 +93,7 @@ export default function Home() {
               <span>04</span>
               <code>
                 {"        "}
-                <strong>&quot;Full-stack&quot;</strong>,
+                <strong>&quot;Backend&quot;</strong>,
               </code>
             </div>
             <div>
