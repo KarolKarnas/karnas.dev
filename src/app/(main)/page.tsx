@@ -30,8 +30,8 @@ export default function Home() {
           <p>
             I work with clients to turn complex workflows into working products.
             I focus on Python backends, AI integrations and data processing, and
-            build production applications, automated workflows and TypeScript,
-            React and Next.js interfaces.
+            build production applications, automated workflows and modern React
+            and Next.js interfaces.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primary} href="/professional-projects">
