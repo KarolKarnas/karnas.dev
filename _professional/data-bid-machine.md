@@ -1,7 +1,7 @@
 ---
 author_name: "Karol Karnas"
 title: "Data Bid Machine"
-sub_title: "Backend and AI integration work for a Google Ads platform: campaign reporting, budget monitoring, and recommendations that fit the strategist’s workflow."
+sub_title: "Full-stack and AI integration work for a Google Ads platform: campaign reporting, budget monitoring, and recommendations that fit the strategist’s workflow."
 content_title: "The product and my contribution"
 main_image: "/aws.svg"
 main_icon: "python"
@@ -25,7 +25,7 @@ icons_stack:
 live_demo: "https://databidmachine.com/"
 fields:
   - title: "My role"
-    content: "Python backend engineer on a long-running client engagement. My contribution centers on the services behind campaign reporting, budget pacing, performance analytics, and AI recommendations. I work through the data and business rules that make those features useful in the dashboard."
+    content: "Full-stack engineer at Kruko on a long-running client engagement. My contribution centers on the services behind campaign reporting, budget pacing, performance analytics, and AI recommendations. I work through the data and business rules that make those features useful in the dashboard."
     list:
       - "Designed and shipped monitoring for campaigns trending above or below budget thresholds"
       - "Developed keyword reporting: performance tiers, action columns, confidence levels, and funnel-aware attribution"
