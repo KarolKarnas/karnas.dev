@@ -142,9 +142,6 @@ export const AI_LLM_CONCEPTS: string[] = [
   "Multimodal / Vision-Language Models",
   "Voice AI (STT / TTS)",
   "LLM API Integration",
-  "Qdrant",
-  "pgvector",
-  "sentence-transformers",
 ]
 
 export const OBSERVABILITY: IconName[] = [
