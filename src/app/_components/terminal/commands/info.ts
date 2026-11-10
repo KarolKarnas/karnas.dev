@@ -9,9 +9,8 @@ const whoami: Command = {
   execute: () => {
     return [
       PROFILE.name,
-      PROFILE.role,
+      PROFILE.headline,
       PROFILE.tagline,
-      PROFILE.specialties,
       "",
       "GitHub:   github.com/KarolKarnas",
       "LinkedIn: linkedin.com/in/KarolKarnas",

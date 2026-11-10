@@ -8,7 +8,7 @@
 
 ## Description
 
-My personal portfolio and journal, inspired by Visual Studio Code. It presents work across user interfaces, backend systems, AI integrations, testing, and deployment.
+My personal portfolio and journal, inspired by Visual Studio Code. It presents my work in data processing and AI integrations, built full-stack across Python and Django backends and React and Next.js interfaces, with testing and deployment.
 
 The site uses Next.js, React, TypeScript, and Sass modules, with local content files and validated frontmatter. The workspace includes an explorer, file tabs, split panes, theme settings, and an interactive browser terminal.
 

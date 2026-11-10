@@ -102,6 +102,7 @@ export const BACKEND: IconName[] = [
   "pytest",
   "jupyter",
   "openai",
+  "qdrant",
 ]
 
 export const CLOUD: IconName[] = [
@@ -161,6 +162,7 @@ export const MY_SKILLS: IconName[] = [
   "pandas",
   "pytest",
   "openai",
+  "qdrant",
   "claude",
   "postgres",
   "sql",
@@ -184,4 +186,4 @@ export const CORE_SKILLS: IconName[] = [
 ]
 
 export const QUOTATION =
-  '"I care about the whole path: understanding the problem, building the product, and making it work in production."'
+  "From client requirements and messy data to AI features that work in production."

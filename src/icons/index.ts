@@ -42,6 +42,7 @@ export {
   puppeteer,
   pytest,
   python,
+  qdrant,
   react,
   redis,
   redux,

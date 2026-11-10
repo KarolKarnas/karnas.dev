@@ -293,7 +293,7 @@ const Terminal = () => {
                 complete.
               </p>
               <div className={styles.quickCommands}>
-                {["ls", "cd blog", "help"].map((command) => (
+                {["ls", "cd blog", "open about.json", "help"].map((command) => (
                   <button
                     key={command}
                     type="button"

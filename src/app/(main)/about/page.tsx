@@ -12,7 +12,7 @@ import { PROFILE } from "@/utils/profile"
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Karol Karnas, Full-stack Engineer working across client requirements, React and Next.js, Python and Django, AI integrations, and production delivery.",
+    "Meet Karol Karnas, Full-stack Engineer focused on the backend: data processing and AI integrations in Python and Django, with React and Next.js interfaces on top.",
 }
 export default function About() {
   return (
@@ -24,7 +24,7 @@ export default function About() {
           <br />
           <em>Builder by nature.</em>
         </h1>
-        <p>{PROFILE.specialties}</p>
+        <p>{PROFILE.headline}</p>
       </header>
       <div className={styles.columns}>
         <div className={styles.info}>

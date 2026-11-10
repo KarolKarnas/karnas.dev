@@ -4,7 +4,7 @@ import { PROFILE } from "./profile"
 export const ABOUT: FakeJson[] = [
   {
     title: "Role",
-    value: `${PROFILE.role}. I work with clients to turn requirements into working software, across the interface, backend, integrations, testing, and deployment.`,
+    value: `${PROFILE.role} with a backend focus: data processing and AI integrations in Python and Django, plus the React and Next.js interfaces on top. I work with clients to turn requirements into working software, through testing and deployment.`,
   },
   {
     title: "Stack",
@@ -20,7 +20,7 @@ export const ABOUT: FakeJson[] = [
       },
       {
         title: "Data & Infrastructure",
-        value: "PostgreSQL, pgvector, Redis, Docker, AWS, Azure, Linux",
+        value: "PostgreSQL, pgvector, Qdrant, Redis, Docker, AWS, Azure, Linux",
       },
       {
         title: "AI / LLM",

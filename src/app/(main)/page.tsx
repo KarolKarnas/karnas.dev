@@ -29,8 +29,9 @@ export default function Home() {
           </h2>
           <p>
             I work with clients to turn complex workflows into working products.
-            Interfaces, backend systems, AI integrations, and the testing and
-            deployment that bring them together.
+            I focus on Python backends, AI integrations and data processing, and
+            build production applications, automated workflows and TypeScript,
+            React and Next.js interfaces.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primary} href="/professional-projects">
@@ -69,7 +70,7 @@ export default function Home() {
           </div>
           <div
             className={styles.code}
-            aria-label={`${PROFILE.role}: ${PROFILE.specialties}. ${PROFILE.tagline}`}
+            aria-label={`${PROFILE.headline}. ${PROFILE.tagline}`}
           >
             <div>
               <span>01</span>
@@ -92,21 +93,21 @@ export default function Home() {
               <span>04</span>
               <code>
                 {"        "}
-                <strong>&quot;Frontend &amp; backend&quot;</strong>,
+                <strong>&quot;Full-stack&quot;</strong>,
               </code>
             </div>
             <div>
               <span>05</span>
               <code>
                 {"        "}
-                <strong>&quot;AI integrations&quot;</strong>,
+                <strong>&quot;Data processing&quot;</strong>,
               </code>
             </div>
             <div>
               <span>06</span>
               <code>
                 {"        "}
-                <strong>&quot;Production delivery&quot;</strong>,
+                <strong>&quot;AI integrations&quot;</strong>,
               </code>
             </div>
             <div>

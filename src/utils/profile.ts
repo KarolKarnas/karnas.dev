@@ -1,8 +1,12 @@
+const ROLE = "Full-stack Engineer"
+const SPECIALTIES = "Data processing & AI integrations"
+
 export const PROFILE = {
   name: "Karol Karnas",
-  role: "Full-stack Engineer",
+  role: ROLE,
   tagline: "From client requirements to production.",
-  specialties: "Backend systems · Modern interfaces · AI integrations",
+  specialties: SPECIALTIES,
+  headline: `${ROLE} | ${SPECIALTIES}`,
   description:
-    "Karol Karnas, Full-stack Engineer. I turn client requirements into working products: React and Next.js interfaces, Python and Django backends, AI integrations, testing, and deployment.",
+    "Karol Karnas, Full-stack Engineer for data processing and AI integrations, turning client requirements into working products with Python and Django backends, React and Next.js interfaces, testing, and deployment.",
 }

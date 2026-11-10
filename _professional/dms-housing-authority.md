@@ -11,6 +11,7 @@ stack:
   - "Next.js"
   - "Python"
   - "Django"
+  - "FastAPI"
   - "Celery"
   - "Azure"
 icons_stack:
@@ -19,10 +20,12 @@ icons_stack:
   - "nextJs"
   - "python"
   - "django"
+  - "fastapi"
   - "celery"
   - "postgres"
   - "redis"
   - "openai"
+  - "qdrant"
   - "azure"
   - "docker"
   - "tailwind"
@@ -39,6 +42,7 @@ fields:
       - "Improved document uploads, duplicate notices, failed-upload recovery, and mobile feedback"
       - "Extended property-management exports and the mappings between household, income, and asset records"
       - "Developed caseworker approval flows, dashboard metrics, and AI-generated reporting"
+      - "Implemented an AI chatbot on the resident portal that knows the current page and the household's case"
       - "Added regression coverage across backend behavior and browser journeys, with supporting build and pipeline changes"
   - title: "The workflow"
     content: "Residents provide household details, income and asset information, expenses, supporting documents, and signatures through the portal. Caseworkers review the answers and evidence, resolve missing information, and approve the case. Annual and interim recertifications connect these steps to financial rules and property-management records. My work follows these connections so that residents can complete their tasks and staff can review consistent information."
@@ -48,6 +52,14 @@ fields:
     content: "The parts I work on combine a Django backend and REST APIs with a separate React and Next.js resident portal. Caseworker tools also use Django templates, HTMX, Tailwind, and Django Unfold. PostgreSQL stores the application data; Celery and Redis handle background work. These applications sit within the wider housing platform. My changes cross their boundaries when a feature requires it, while fitting the conventions of the existing codebase."
   - title: "AI within the product"
     content: "Document processing is part of the wider platform: OCR services read uploaded files, and Azure OpenAI workflows classify and extract structured information using domain-specific tools and validation. Langfuse traces model calls alongside application monitoring. Within this team-built platform, my contribution connects validation, reporting, and document handling to the interfaces that let people act on the results."
+  - title: "Resident-portal AI chatbot"
+    content: "I implemented an AI chatbot for the resident portal. It knows which page the family member is on and what is happening in their case, so it can explain why a document is needed, what is still missing, or how to finish the current step, rather than giving generic answers. Residents can type a question or ask by voice, in English or Spanish, and hear the answer while captions appear."
+    list:
+      - "Page awareness: the portal sends the current screen, its heading, and its visible text, and the chatbot can highlight one allowed control to show where to click"
+      - "Access: Django issues a 30-minute grant for one household member and one recertification, and the browser connects with a one-use WebSocket ticket"
+      - "Realtime conversation: a FastAPI WebSocket streams the answer and drops it cleanly when the resident interrupts, asks again, or changes the page"
+      - "Speech: ElevenLabs turns the resident's voice into text and reads the answer aloud sentence by sentence as it is generated"
+      - "Grounding: answers draw on per-screen guides retrieved from Qdrant and on read-only Django data about the case, including the family's saved answers, passed to the model as data rather than instructions; the conversation is remembered for an hour per household member and recertification"
   - title: "Data and integrations"
     content: "The backend uses schema-per-tenant PostgreSQL through django-tenants, with tenant-aware background tasks and Azure Blob Storage for documents. Property-management integrations need consistent meanings across different data models. I work on exports, field mappings, validation, and change highlighting, including the details that determine whether a record can be reviewed and synchronized correctly."
   - title: "Delivery and operation"
@@ -63,6 +75,7 @@ fields:
       - "PostgreSQL, django-tenants, Celery, Redis"
       - "HTMX, Tailwind, Django Unfold"
       - "Azure OpenAI, Azure Document Intelligence, Azure Blob Storage"
+      - "FastAPI, WebSockets, ElevenLabs speech-to-text and text-to-speech, Qdrant, OpenAI embeddings"
       - "Docker, Azure Pipelines, Sentry, Datadog, Langfuse, Flower"
 category: "FullStack"
 tags:
@@ -72,10 +85,12 @@ tags:
   - "Django"
   - "Document Processing"
   - "AI Integrations"
+  - "RAG"
+  - "Voice AI"
   - "Azure"
 date: "2025-02-01"
 nav_title: "home_housing.py"
 nav_icon: "python"
 ---
 
-A housing operations platform for HOME in El Paso, connecting resident portals, recertification workflows, caseworker tools, and property-management integrations. As part of the Kruko team, I work from client requirements through React and Next.js interfaces, Django business rules, testing, and delivery. Document management and AI-assisted processing support the wider resident-to-approval workflow.
+A housing operations platform for HOME in El Paso, connecting resident portals, recertification workflows, caseworker tools, and property-management integrations. As part of the Kruko team, I work from client requirements through React and Next.js interfaces, Django business rules, testing, and delivery. Document management and AI-assisted processing support the wider resident-to-approval workflow, and I implemented a page-aware AI chatbot for the portal.

@@ -6,13 +6,13 @@
 
 **From client requirements to production.**
 
-**Backend systems · Modern interfaces · AI integrations**
+**Data processing & AI integrations** (shown with the role as **Full-stack Engineer | Data processing & AI integrations**)
 
 The profile covers client conversations, interface and backend implementation,
 integration work, testing, and delivery. Python and Django remain a strong
-foundation alongside TypeScript, React, and Next.js. Data analysis is retained
-where relevant to a project or skill rather than presented as a separate service
-in the primary headline.
+foundation alongside TypeScript, React, and Next.js. Data processing and AI
+integrations lead the headline; data analysis appears where relevant to a
+project or skill.
 
 `src/utils/profile.ts` holds shared role and profile copy. Home, About, Skills,
 Contact, sidebar, author footer, metadata, project lists, and terminal responses
