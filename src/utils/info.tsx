@@ -45,7 +45,7 @@ export const ABOUT: FakeJson[] = [
   {
     title: "AI-assisted development",
     value:
-      "I use coding assistants for implementation, exploration, and review. I define the scope, make the technical decisions, review changes, and verify behavior. Responsibility for the delivered software stays with me.",
+      "I run coding agents in designed loops (loop engineering): parallel workers in git worktrees, shared skills, an orchestrator that plans and reviews every change by diff, and automated pull request review rounds. I define the scope, make the technical decisions and stay responsible for what ships.",
   },
   {
     title: "Background",

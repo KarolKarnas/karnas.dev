@@ -136,12 +136,15 @@ export const WORKFLOW_TOOLS: IconName[] = [
 ]
 
 export const AI_LLM_CONCEPTS: string[] = [
+  "Agentic Pipelines",
+  "RAG",
+  "Document AI (OCR + LLM extraction)",
+  "Multimodal / Vision-Language Models",
+  "Voice AI (STT / TTS)",
+  "LLM API Integration",
+  "Qdrant",
   "pgvector",
   "sentence-transformers",
-  "RAG",
-  "LLM API Integration",
-  "Agentic Pipelines",
-  "Vision-Language Models",
 ]
 
 export const OBSERVABILITY: IconName[] = [

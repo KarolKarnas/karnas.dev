@@ -90,8 +90,8 @@ export default function Skills() {
           <span className={styles.eyebrow}>CONNECTING THE DOTS</span>
           <h2>AI, connected to the product.</h2>
           <p>
-            Retrieval, embeddings and model APIs built into data workflows and
-            product features.
+            Retrieval, embeddings, multimodal and voice models built into data
+            workflows and product features.
           </p>
         </div>
         <ul>
