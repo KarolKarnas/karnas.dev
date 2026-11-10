@@ -17,30 +17,30 @@ import styles from "./page.module.scss"
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Full-stack engineering with TypeScript, React, Next.js, Python, and Django. Interfaces, APIs, AI integrations, testing, and cloud deployment.",
+    "Full-stack engineering with a backend focus: Python, Django, data processing and AI integrations, with TypeScript, React and Next.js interfaces, testing and cloud deployment.",
 }
 const groups = [
   {
     number: "01",
-    title: "Frontend engineering",
-    description: "Interfaces, application state and complete user journeys.",
-    icons: FRONTEND,
-    accent: "purple",
-  },
-  {
-    number: "02",
     title: "Backend engineering",
     description: "APIs, business rules, async workers and data workflows.",
     icons: BACKEND,
     accent: "green",
   },
   {
-    number: "03",
+    number: "02",
     title: "Data & infrastructure",
     description:
       "Databases, containers and the cloud services behind a release.",
     icons: CLOUD,
     accent: "blue",
+  },
+  {
+    number: "03",
+    title: "Frontend engineering",
+    description: "Interfaces, application state and complete user journeys.",
+    icons: FRONTEND,
+    accent: "purple",
   },
   {
     number: "04",
@@ -76,7 +76,8 @@ export default function Skills() {
           <span>The right tools.</span>
         </h1>
         <p>
-          Full-stack engineering, from interface to infrastructure.
+          Full-stack engineering with a backend focus: data processing and AI
+          integrations.
           <br />A practical stack for building, testing and delivering the whole
           feature.
         </p>
@@ -84,6 +85,21 @@ export default function Skills() {
           See these tools at work <span aria-hidden="true">↗</span>
         </Link>
       </header>
+      <section className={styles.ai}>
+        <div>
+          <span className={styles.eyebrow}>CONNECTING THE DOTS</span>
+          <h2>AI, connected to the product.</h2>
+          <p>
+            Retrieval, embeddings and model APIs built into data workflows and
+            product features.
+          </p>
+        </div>
+        <ul>
+          {AI_LLM_CONCEPTS.map((concept) => (
+            <li key={concept}>{concept}</li>
+          ))}
+        </ul>
+      </section>
       <div className={styles.grid}>
         {groups.map((group) => (
           <section
@@ -103,20 +119,6 @@ export default function Skills() {
           </section>
         ))}
       </div>
-      <section className={styles.ai}>
-        <div>
-          <span className={styles.eyebrow}>CONNECTING THE DOTS</span>
-          <h2>AI, connected to the product.</h2>
-          <p>
-            Retrieval, embeddings and model APIs built into usable workflows.
-          </p>
-        </div>
-        <ul>
-          {AI_LLM_CONCEPTS.map((concept) => (
-            <li key={concept}>{concept}</li>
-          ))}
-        </ul>
-      </section>
       <footer className={styles.footer}>
         <span>A stack is a starting point. The problem comes first.</span>
         <Link href="/contact">
