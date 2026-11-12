@@ -95,8 +95,8 @@ export const SOCIAL_ITEMS: SocialItem[] = [
 export const PROGRAMMING: IconName[] = ["python", "typeScript", "javaScript"]
 
 export const BACKEND: IconName[] = [
-  "django",
   "fastapi",
+  "django",
   "celery",
   "pandas",
   "pytest",
@@ -178,6 +178,7 @@ export const MY_SKILLS: IconName[] = [
 
 export const CORE_SKILLS: IconName[] = [
   "python",
+  "fastapi",
   "django",
   "typeScript",
   "react",

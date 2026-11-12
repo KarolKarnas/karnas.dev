@@ -17,7 +17,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.introduction}>
           <span className={styles.eyebrow}>
-            <i /> FULL-STACK ENGINEER
+            <i /> Full-stack Engineer | Data processing &amp; AI integrations
           </span>
           <h1>
             Karol Karnas<span>.</span>
@@ -29,9 +29,9 @@ export default function Home() {
           </h2>
           <p>
             I work with clients to turn complex workflows into working products.
-            I focus on Python backends, AI integrations and data processing, and
-            build production applications, automated workflows and modern React
-            and Next.js interfaces.
+            I specialize in Python backends, data processing and AI integrations.
+            I build production applications, automate workflows, and craft modern
+            interfaces with React / Next.js.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primary} href="/professional-projects">
