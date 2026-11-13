@@ -44,7 +44,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: nodeJs.icon,
   },
   {
-    title: "professional projects",
+    title: "professional_projects",
     path: "/professional-projects",
     icon: folderOpen.icon,
     submenu: true,
@@ -54,7 +54,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ),
   },
   {
-    title: "side projects",
+    title: "side_projects",
     path: "/side-projects",
     icon: folderOpen.icon,
     submenu: true,
