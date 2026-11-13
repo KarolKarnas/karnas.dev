@@ -13,12 +13,14 @@ import {
 import getIcons from "@/utils/icon-utils"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
 import styles from "./page.module.scss"
+import { createPageMetadata } from "@/lib/social-metadata"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Skills",
   description:
     "Full-stack engineering with a backend focus: Python, Django, data processing and AI integrations, with TypeScript, React and Next.js interfaces, testing and cloud deployment.",
-}
+  path: "/skills",
+})
 const groups = [
   {
     number: "01",

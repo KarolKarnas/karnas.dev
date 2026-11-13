@@ -1,12 +1,14 @@
 import { Metadata } from "next"
 import ProjectList from "@/app/_components/project-list/project-list"
 import { getAllProfessional } from "@/lib/api"
+import { createPageMetadata } from "@/lib/social-metadata"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Professional projects",
   description:
     "Client projects in data processing and AI integrations, delivered full-stack with Python, Django, React, and Next.js.",
-}
+  path: "/professional-projects",
+})
 
 export default async function ProfessionalProjects() {
   const projects = getAllProfessional()

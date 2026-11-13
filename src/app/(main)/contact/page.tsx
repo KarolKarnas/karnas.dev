@@ -4,12 +4,14 @@ import { SOCIAL_ITEMS } from "@/utils/constants"
 import LinkCard from "@/app/_components/link-card/link-card"
 import { mail, phone } from "@/icons"
 import styles from "./page.module.scss"
+import { createPageMetadata } from "@/lib/social-metadata"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Work with Karol Karnas on a web product, an existing application, or an AI integration. Full-stack engineering from requirements to production.",
-}
+    "Work with Karol Karnas on a web product, an existing application, or an AI integration, with full-stack engineering from requirements to production.",
+  path: "/contact",
+})
 export default function Contact() {
   return (
     <div className={styles.container}>

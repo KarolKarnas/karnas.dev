@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import ProjectDetail from "@/app/_components/project-detail/project-detail"
 import { getAllProjects, getProjectBySlug } from "@/lib/api"
+import { createPageMetadata } from "@/lib/social-metadata"
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -14,11 +15,12 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params
   const project = getProjectBySlug(params.slug)
 
-  return {
+  return createPageMetadata({
     title: project.title,
-    description: project.content.slice(0, 200),
-    openGraph: { images: [project.main_image] },
-  }
+    description: project.sub_title,
+    path: `/side-projects/${project.slug}`,
+    image: "route",
+  })
 }
 
 export async function generateStaticParams() {

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { getAllPosts, getPostBySlug } from "@/lib/api"
+import { createPageMetadata } from "@/lib/social-metadata"
 import BlogDetail from "@/app/_components/blog-detail/blog-detail"
 
 export default async function Page(props: Params) {
@@ -27,13 +28,13 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     return notFound()
   }
 
-  return {
+  return createPageMetadata({
     title: post.title,
-    description: post.content.slice(0, 200),
-    openGraph: {
-      images: [post.main_image],
-    },
-  }
+    description: post.sub_title,
+    path: `/blog/${post.slug}`,
+    image: "route",
+    publishedTime: post.date,
+  })
 }
 
 export async function generateStaticParams() {

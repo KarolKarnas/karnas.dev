@@ -3,12 +3,14 @@ import { Metadata } from "next"
 import BlogCard from "@/app/_components/blog-card/blog-card"
 import { getAllPosts } from "@/lib/api"
 import { BlogCardType } from "@/utils/types"
+import { createPageMetadata } from "@/lib/social-metadata"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Blog",
   description:
-    "Notes on full-stack engineering, software design, testing, AI integrations, and working with clients. Books and courses connected to real project work.",
-}
+    "Notes on full-stack engineering, software design, testing, AI integrations, and working with clients through books, courses, and real project work.",
+  path: "/blog",
+})
 
 export default async function Portfolio() {
   const allPosts = getAllPosts()

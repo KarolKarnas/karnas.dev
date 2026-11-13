@@ -8,12 +8,14 @@ import Json from "@/app/_components/json/json"
 import StackIcons from "@/app/_components/stack-icons/stack-icons"
 import styles from "./page.module.scss"
 import { PROFILE } from "@/utils/profile"
+import { createPageMetadata } from "@/lib/social-metadata"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About",
   description:
     "Meet Karol Karnas, Full-stack Engineer focused on the backend: data processing and AI integrations in Python and Django, with React and Next.js interfaces on top.",
-}
+  path: "/about",
+})
 export default function About() {
   return (
     <div className={styles.container}>
